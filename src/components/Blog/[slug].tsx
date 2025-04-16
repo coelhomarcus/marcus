@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react'
-
-import { NavLink } from 'react-router';
-
+import { MDXProvider } from '@mdx-js/react'
 import { useParams } from 'react-router';
+
 import { arrBlog } from '../../utils/arrays';
 import components from '../../utils/components';
 
 const posts = import.meta.glob('./posts/*.mdx')
-import { MDXProvider } from '@mdx-js/react'
 
 const Post = () => {
     const { slug } = useParams();
@@ -34,10 +32,6 @@ const Post = () => {
 
     return (
         <div className='text-white'>
-            <NavLink to="/blog">
-                Voltar
-            </NavLink>
-
             <div className='flex justify-between items-center mt-5'>
                 <h1 className='font-bold'>{post.title}</h1>
                 <p className='text-xs text-neutral-400'>{post.date}</p>

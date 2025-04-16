@@ -10,7 +10,7 @@ const Projects = () => {
             <p className='text-neutral-400 text-sm mb-4'>
                 Projetos que fiz ou participei no desenvolvimento.
             </p>
-            <div className="space-y-2 mb-10">
+            <div className="space-y-4 mb-8">
                 {projects.map((project, index) => {
                     return <a key={index} href={project.href}
                         className="block rounded-xl text-neutral-400 -mx-4 px-4 py-2 transition-colors hover:bg-neutral-900 hover:text-neutral-200 border-b border-neutral-800"
@@ -25,7 +25,7 @@ const Projects = () => {
             <p className='text-neutral-400 text-sm mb-4'>
                 Projetos/Experimentos que fiz para testar meu conhecimento.
             </p>
-            <div className="space-y-2 mb-10">
+            <div className="space-y-4 mb-8">
                 {sideProjects.map((project, index) => {
                     return <a key={index} href={project.href}
                         className="block rounded-xl text-neutral-400 -mx-4 px-4 py-2 transition-colors hover:bg-neutral-900 hover:text-neutral-200 border-b border-neutral-800"

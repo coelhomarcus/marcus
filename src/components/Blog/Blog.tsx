@@ -10,8 +10,8 @@ const Blog = () => {
                 Meus preciosos pensamentos e inspirações.
             </p>
             <div className="space-y-4">
-                {arrBlog.map(post => {
-                    return <Link to={`/blog/${post.slug}`} className="space-y-2 block shadow-inner shadow-neutral-800 p-4 rounded-lg border border-neutral-900 -mx-4 transition-colors hover:transition-none hover:bg-neutral-900">
+                {arrBlog.map((post) => {
+                    return <Link to={`/blog/${post.slug}`} key={post.slug} className="space-y-2 block shadow-inner shadow-neutral-800 p-4 rounded-lg border border-neutral-900 -mx-4 transition-colors hover:transition-none hover:bg-neutral-900">
                         <div className="flex justify-between">
                             <h1 className="text-sm font-medium">{post.title}</h1>
                             <p className="text-xs text-neutral-400">{post.date}</p>
@@ -19,7 +19,6 @@ const Blog = () => {
                         <p className="text-xs text-neutral-400">{post.desc}</p>
                     </Link>
                 })}
-
             </div>
         </div>
     )

@@ -1,8 +1,6 @@
-{/* <p align="center">
-  <img src="https://github.com/coelhomarcus/cafuntalk/blob/main/frontend/public/logo.svg?raw=true"  alt="Logo do CafunTalk" width="100" />
-</p> */}
+import { FaGithub, FaLink } from "react-icons/fa";
 
-## Introdução
+## Como surgiu a ideia?
 
 A ideia para esse projeto veio do nada. Eu tinha acabado de finalizar o curso <span className="text-white font-semibold">The Complete Full-Stack Web Development Bootcamp</span>, da <span className="text-white font-semibold">Angela Yu</span> (que recomendo demais), e queria pôr em prática meus conhecimentos em Node.js, que tinha acabado de adquirir.
 
@@ -10,14 +8,41 @@ Então pensei, pensei… e me veio a ideia de tentar criar um bate-papo parecido
 
 Não sei se vocês já chegaram a usar, mas, basicamente, é um bate-papo sem histórico e baseado em salas, onde só é preciso colocar o username para conseguir “logar” na sala e conversar com quem estiver lá.
 
-## Desenvolvimento
+## Mão na massa
 
 Confesso que não sabia para onde ir. Não fazia ideia de como fazer uma comunicação em tempo real para o bate-papo funcionar.
 
 Já tinha ouvido falar em sockets, mas nunca tinha entendido muito bem como funcionavam e como usar.
 
-Então, como um bom jovem programador, fui no ChatGPT e perguntei como era feita essa comunicação — e ele me falou sobre os WebSockets e sugeriu uma biblioteca: Socket.IO. 
+Então, como um bom jovem programador, fui no ChatGPT e perguntei como era feita essa comunicação — e ele me falou sobre os WebSockets e sugeriu uma biblioteca: <span className="text-white font-semibold">Socket.IO</span>. 
 
-Foi essa que utilizei para desenvolver o projeto, e é mais fácil do que parece. A comunicação é bem simples e fácil de entender, e como não há histórico de conversa, tudo se torna ainda mais simples. O resto foi só questão de estilização, para ficar com uma cara de bate-papo.
+Foi essa que biblioteca que utilizei para desenvolver o projeto, e é mais fácil do que parece. A comunicação é bem simples e fácil de entender, e como não há histórico de conversa, tudo se torna ainda mais simples. 
 
-## Conclusão
+A comunicação com o socket.io me lembrou as comunicações por eventos da Godot. Não sei se essa comparação faz sentido, mas, no momento, foi o que me veio à mente.
+
+O resto foi só questão de estilização, para ficar com uma cara de bate-papo.
+
+## Deu certo?
+
+Depois de uns 3 dias de desenvolvimento, o projeto já estava no ar e funcionando. 
+
+Com o tempo, fui adicionando algumas features, como a possibilidade de enviar imagens (via URL), mandar links e até blocos de código. Outra feature que adicionei foi a opção de usar uma foto de perfil personalizada, além de comandos com "/".
+
+Foi um projeto bastante proveitoso e que me diverti desenvolvendo — o que acho ser uma das partes mais importantes nessa área. Algumas coisas ainda quero melhorar, mas acho que exigem uma pesquisa mais aprofundada. 
+
+Por exemplo, na parte dos perfis personalizados: a imagem pode demorar um pouco para carregar. Não é muito, mas o suficiente pra me incomodar. 
+
+Talvez ela devesse ser carregada do lado do servidor, e não do cliente? Preciso estudar mais para melhorar esse tipo de coisa.
+
+## Deploy
+
+<a  href="https://cafuntalk.com" target="_blank" className="text-white underline flex items-center gap-2">
+  <FaLink/>
+  <p>cafuntalk.com</p>
+</a>
+
+<a  href="https://github.com/coelhomarcus/cafuntalk" target="_blank" className="text-white underline flex items-center gap-2">
+  <FaGithub/>
+  <p>coelhomarcus/cafuntalk</p>
+</a>
+
