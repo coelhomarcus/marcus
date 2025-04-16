@@ -1,5 +1,3 @@
-import React from 'react'
-
 const components = {
     h1: (props: React.HTMLProps<HTMLHeadingElement>) => (
         <h1 className="text-neutral-100" {...props} />

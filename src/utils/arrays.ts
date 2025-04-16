@@ -46,4 +46,10 @@ export const arrBlog = [
         desc: "Meu primeiro bate-papo em tempo real.",
         date: "16/04/2025"
     },
+    {
+        slug: "my-gamer-side",
+        title: "Meu Lado Gamer",
+        desc: "Resumão da minha historia gamer, até agora.",
+        date: "14/04/2025"
+    },
 ]
