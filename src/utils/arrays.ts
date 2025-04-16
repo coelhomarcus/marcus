@@ -18,6 +18,16 @@ export const arrProjects = [
 
 export const arrSideProjects = [
     {
+        href: "https://blob-temp.vercel.app/",
+        name: "Blob",
+        desc: "Site de previsão meteorológica"
+    },
+    {
+        href: "https://coelhomarcus.github.io/bunnybash/",
+        name: "BunnyBash",
+        desc: "Site que simula um terminal."
+    },
+    {
         href: "https://coelhomarcus.itch.io/mailman",
         name: "Mailman",
         desc: "Protótipo de jogo de terror retrô."
@@ -28,15 +38,11 @@ export const arrSideProjects = [
         desc: "Melhor tema dark para VSCODE."
     },
     {
-        href: "https://coelhomarcus.github.io/bunnybash/",
-        name: "BunnyBash",
-        desc: "Site que simula um terminal."
-    },
-    {
         href: "https://coelhomarcus.github.io/catype/",
         name: "Catype",
         desc: "Protótipo de site de digitação."
     }
+
 ]
 
 export const arrBlog = [
