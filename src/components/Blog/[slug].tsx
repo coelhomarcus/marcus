@@ -5,6 +5,9 @@ import { useParams } from 'react-router';
 import { arrBlog } from '../../utils/arrays';
 import components from '../../utils/components';
 
+import { PiSpinnerThin } from "react-icons/pi";
+
+
 const posts = import.meta.glob('./posts/*.mdx')
 
 const Post = () => {
@@ -28,7 +31,11 @@ const Post = () => {
         }
     }, [slug])
 
-    if (!MDXComponent || !post) return <p className="text-gray-400">Carregando...</p>
+    if (!MDXComponent || !post) return (
+        <div className='flex items-center justify-center'>
+            <PiSpinnerThin className="text-gray-300 animate-[spin_3s_linear_infinite] duration-150 size-6" />
+        </div>
+    )
 
     return (
         <div className='text-white'>
