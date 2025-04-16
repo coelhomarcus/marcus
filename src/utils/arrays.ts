@@ -38,3 +38,12 @@ export const arrSideProjects = [
         desc: "Protótipo de site de digitação."
     }
 ]
+
+export const arrBlog = [
+    {
+        slug: "cafuntalk",
+        title: "Cafuntalk",
+        desc: "Meu primeiro bate-papo em tempo real.",
+        date: "16/04/2025"
+    },
+]

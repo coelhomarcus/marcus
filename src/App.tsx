@@ -2,6 +2,7 @@ import Header from './components/Header/Header'
 import About from './components/About/About'
 import Projects from './components/Projects/Projects'
 import Blog from './components/Blog/Blog'
+import PostPage from './components/Blog/[slug]';
 
 import { Routes, Route } from 'react-router';
 
@@ -13,6 +14,8 @@ const App = () => {
         <Route path='/' element={<About />} />
         <Route path='/projects' element={<Projects />} />
         <Route path='/blog' element={<Blog />} />
+        <Route path="/blog/:slug" element={<PostPage />} />
+        <Route path="*" element={<div className='text-white'>Pagina nao existe.</div>} />
       </Routes>
     </div>
   )
