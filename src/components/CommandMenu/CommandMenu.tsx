@@ -102,7 +102,7 @@ export default function CommandMenu() {
                     <CommandEmpty>No results found.</CommandEmpty>
                     <CommandGroup heading="Navegação">
                         {navigation.map((page) => (
-                            <CommandItem key={page.href} onSelect={() => handleSelect(page.href)}>
+                            <CommandItem className='cursor-pointer' key={page.href} onSelect={() => handleSelect(page.href)}>
                                 <page.icon className="mr-2 h-4 w-4" />
                                 {page.name}
                                 {page.shortcut && <CommandShortcut>{page.shortcut}</CommandShortcut>}
@@ -111,7 +111,7 @@ export default function CommandMenu() {
                     </CommandGroup>
                     <CommandGroup heading="Redes">
                         {socials.map((page) => (
-                            <CommandItem key={page.href} onSelect={() => handleSelect(page.href)}>
+                            <CommandItem className='cursor-pointer' key={page.href} onSelect={() => handleSelect(page.href)}>
                                 <page.icon className="mr-2 h-4 w-4" />
                                 {page.name}
                             </CommandItem>
@@ -119,7 +119,7 @@ export default function CommandMenu() {
                     </CommandGroup>
                     <CommandGroup heading="Projetos">
                         {projects.map((page) => (
-                            <CommandItem key={page.href} onSelect={() => handleSelect(page.href)}>
+                            <CommandItem className='cursor-pointer' key={page.href} onSelect={() => handleSelect(page.href)}>
                                 <page.icon className="mr-2 h-4 w-4" />
                                 {page.name}
                             </CommandItem>
@@ -127,7 +127,7 @@ export default function CommandMenu() {
                     </CommandGroup>
                     <CommandGroup heading="Posts">
                         {posts.map((page) => (
-                            <CommandItem key={page.href} onSelect={() => handleSelect(page.href)}>
+                            <CommandItem className='cursor-pointer' key={page.href} onSelect={() => handleSelect(page.href)}>
                                 <page.icon className="mr-2 h-4 w-4" />
                                 {page.name}
                             </CommandItem>

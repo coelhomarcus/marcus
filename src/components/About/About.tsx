@@ -1,5 +1,11 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdAlternateEmail } from "react-icons/md";
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion"
 
 const About = () => {
     return (
@@ -12,13 +18,16 @@ const About = () => {
                 Atualmente, faço parte da Exception Jr, uma empresa júnior da faculdade, onde atuo como Full Stack Developer. Alguns dos projetos em que estou envolvido incluem o Conecta Canaã.
                 <br />
                 <br />
-                <span className="text-neutral-300 italic">
-                    Front-end: React, Tailwind, Typescript, Vite, React Router.
-                    <br />
-                    Back-end: Node.js, Express, PostgreSQL, MySQL, Socket.io.
-                    <br />
-                    Outros: Swift, Python, C# (Unity)
-                </span>
+                <Accordion type="multiple">
+                    <AccordionItem value="item-0">
+                        <AccordionTrigger className="text-neutral-200 cursor-pointer">Skills</AccordionTrigger>
+                        <AccordionContent className="space-y-2">
+                            <p><span className="text-neutral-200 text-xs font-bold">Front-end: </span>React, Typescript, Tailwind, Next.js, Vite, React Router.</p>
+                            <p><span className="text-neutral-200 text-xs font-bold">Back-end: </span>Node.js, Express, PostgreSQL, MySQL. </p>
+                            <p><span className="text-neutral-200 text-xs font-bold">Outros: </span>Swift, Python, C# (Unity)</p>
+                        </AccordionContent>
+                    </AccordionItem>
+                </Accordion>
             </p>
             <div className="flex justify-between border-t mt-4 pt-4 border-neutral-800">
                 <div className="flex gap-3 text-white">
