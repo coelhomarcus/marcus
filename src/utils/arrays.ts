@@ -48,14 +48,14 @@ export const arrSideProjects = [
 export const arrBlog = [
     {
         slug: "cafuntalk",
-        title: "Cafuntalk",
-        desc: "Meu primeiro bate-papo em tempo real.",
+        title: "Meu primeiro site de bate-papo",
+        desc: "Como nasceu a ideia de criar um chat e tudo que aprendi no processo.",
         date: "16/04/2025"
     },
     {
         slug: "my-gamer-side",
         title: "Jogos me trouxeram até aqui",
-        desc: "Resumão da minha historia gamer, até agora.",
+        desc: "Minha história com os jogos.",
         date: "14/04/2025"
     },
 ]
