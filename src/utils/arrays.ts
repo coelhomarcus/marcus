@@ -54,7 +54,7 @@ export const arrBlog = [
     },
     {
         slug: "my-gamer-side",
-        title: "Meu Lado Gamer",
+        title: "Jogos me trouxeram até aqui",
         desc: "Resumão da minha historia gamer, até agora.",
         date: "14/04/2025"
     },

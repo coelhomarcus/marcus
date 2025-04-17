@@ -38,12 +38,12 @@ const Post = () => {
 
     return (
         <div className='text-white'>
-            <div className='flex justify-between items-center mt-5'>
-                <h1 className='font-bold'>{post.title}</h1>
+            <div className='flex flex-col sm:flex-row justify-between gap-2 sm:gap-0 sm:items-center mt-5'>
+                <h1 className='font-medium text-sm'>{post.title}</h1>
                 <p className='text-xs text-neutral-400'>{post.date}</p>
             </div>
 
-            <hr className="h-[calc(var(--spacing)_*_0.2)] border-t-0 bg-neutral-600 mt-2 mb-5" />
+            <hr className="h-[calc(var(--spacing)_*_0.2)] border-t-0 bg-neutral-700 mt-2 mb-5" />
 
             <MDXProvider components={components}>
                 <article className='prose'>

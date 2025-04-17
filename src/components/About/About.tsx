@@ -21,15 +21,15 @@ const About = () => {
                 </span>
             </p>
             <div className="flex gap-5 border-t mt-4 pt-4 border-neutral-800 text-white">
-                <a href="mailto:marcusrangelcoelho@gmail.com" rel="noreferrer noopener" target='_blank' className="inline-flex items-center gap-1 font-medium text-xs transition-colors hover:text-neutral-200">
+                <a href="mailto:marcusrangelcoelho@gmail.com" rel="noreferrer noopener" target='_blank' className="inline-flex items-center gap-1 font-medium text-xs transition-colors hover:text-neutral-400">
                     <MdAlternateEmail className='size-4' />
                     E-mail
                 </a>
-                <a href="https://github.com/coelhomarcus" rel="noreferrer noopener" target='_blank' className="inline-flex items-center gap-1 font-medium text-xs transition-colors hover:text-neutral-200">
+                <a href="https://github.com/coelhomarcus" rel="noreferrer noopener" target='_blank' className="inline-flex items-center gap-1 font-medium text-xs transition-colors hover:text-neutral-400">
                     <FaGithub className='size-4' />
                     Github
                 </a>
-                <a href="https://www.linkedin.com/in/coelhomarcus/" rel="noreferrer noopener" target='_blank' className="inline-flex items-center gap-1 font-medium text-xs transition-colors hover:text-neutral-200">
+                <a href="https://www.linkedin.com/in/coelhomarcus/" rel="noreferrer noopener" target='_blank' className="inline-flex items-center gap-1 font-medium text-xs transition-colors hover:text-neutral-400">
                     <FaLinkedin className='size-4' />
                     Linkedin
                 </a>

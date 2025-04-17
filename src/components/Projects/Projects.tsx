@@ -13,7 +13,7 @@ const Projects = () => {
             <div className="space-y-4 mb-8">
                 {projects.map((project, index) => {
                     return <a key={index} href={project.href}
-                        className="block rounded-xl text-neutral-400 -mx-4 px-4 py-2 transition-colors hover:bg-neutral-900 hover:text-neutral-200 border-b border-neutral-800"
+                        className="block rounded-xl text-neutral-400 shadow-inner shadow-neutral-800 -mx-4 p-4 transition-colors hover:bg-neutral-900 hover:text-neutral-200 border border-neutral-800"
                         rel="noreferrer noopener"
                         target="_blank">
                         <p className="text-sm text-neutral-100 font-medium">{project.name}</p>
@@ -28,7 +28,7 @@ const Projects = () => {
             <div className="space-y-4 mb-8">
                 {sideProjects.map((project, index) => {
                     return <a key={index} href={project.href}
-                        className="block rounded-xl text-neutral-400 -mx-4 px-4 py-2 transition-colors hover:bg-neutral-900 hover:text-neutral-200 border-b border-neutral-800"
+                        className="block rounded-xl text-neutral-400 shadow-inner shadow-neutral-800 -mx-4 p-4 transition-colors hover:bg-neutral-900 hover:text-neutral-200 border border-neutral-800"
                         rel="noreferrer noopener"
                         target="_blank">
                         <p className="text-sm text-neutral-100 font-medium">{project.name}</p>
