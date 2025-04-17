@@ -16,6 +16,7 @@ import {
     CommandInput,
     CommandItem,
     CommandList,
+    CommandShortcut
 } from "@/components/ui/command"
 
 
@@ -23,12 +24,13 @@ type Page = {
     name: string
     href: string
     icon: React.ComponentType<{ className?: string }>
+    shortcut?: string
 }
 
 const navigation: Page[] = [
-    { name: 'Sobre', href: '/', icon: IoHomeOutline },
-    { name: 'Projetos', href: '/projects', icon: FaCodeBranch },
-    { name: 'Blog', href: '/blog', icon: FaRegFolderOpen },
+    { name: 'Sobre', href: '/', icon: IoHomeOutline, shortcut: "⌘S" },
+    { name: 'Projetos', href: '/projects', icon: FaCodeBranch, shortcut: "⌘P" },
+    { name: 'Blog', href: '/blog', icon: FaRegFolderOpen, shortcut: "⌘B" },
 ]
 
 const socials: Page[] = [
@@ -60,10 +62,28 @@ export default function CommandMenu() {
                 e.preventDefault()
                 setOpen((open) => !open)
             }
+            else if (e.key === "b" && (e.metaKey || e.ctrlKey)) {
+                e.preventDefault()
+                navigate("/blog")
+                setOpen(false);
+
+            }
+            else if (e.key === "p" && (e.metaKey || e.ctrlKey)) {
+                e.preventDefault()
+                navigate("/projects")
+                setOpen(false);
+
+            }
+            else if (e.key === "s" && (e.metaKey || e.ctrlKey)) {
+                e.preventDefault()
+                navigate("/")
+                setOpen(false);
+
+            }
         }
         document.addEventListener("keydown", down)
         return () => document.removeEventListener("keydown", down)
-    }, [])
+    }, [navigate])
 
     const handleSelect = (href: string) => {
         setOpen(false)
@@ -85,6 +105,7 @@ export default function CommandMenu() {
                             <CommandItem key={page.href} onSelect={() => handleSelect(page.href)}>
                                 <page.icon className="mr-2 h-4 w-4" />
                                 {page.name}
+                                {page.shortcut && <CommandShortcut>{page.shortcut}</CommandShortcut>}
                             </CommandItem>
                         ))}
                     </CommandGroup>
