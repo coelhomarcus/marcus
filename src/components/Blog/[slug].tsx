@@ -32,7 +32,7 @@ const Post = () => {
 
     if (!MDXComponent || !post) return (
         <div className='flex items-center justify-center'>
-            <PiSpinnerThin className="text-gray-300 animate-[spin_3s_linear_infinite] duration-150 size-6" />
+            <PiSpinnerThin className="text-gray-300 animate-[spin_3s_linear_infinite] duration-150 size-6 mt-10" />
         </div>
     )
 

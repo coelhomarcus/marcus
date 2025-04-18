@@ -1,4 +1,5 @@
 import { arrProjects, arrSideProjects } from "../../utils/arrays"
+import SimpleCard from "../SimpleCard/SimpleCard";
 
 const Projects = () => {
     const projects = arrProjects;
@@ -7,33 +8,29 @@ const Projects = () => {
     return (
         <div className='text-white'>
             <h1 className='text-xl font-semibold mb-2'>Projetos</h1>
-            <p className='text-neutral-400 text-sm mb-4'>
-                Projetos que fiz ou participei no desenvolvimento.
-            </p>
+            <p className='text-neutral-400 text-sm mb-4'>Projetos que fiz ou participei no desenvolvimento.</p>
             <div className="space-y-4 mb-8">
                 {projects.map((project, index) => {
-                    return <a key={index} href={project.href}
-                        className="block rounded-xl text-neutral-400 shadow-inner shadow-neutral-800 -mx-4 p-4 transition-colors hover:bg-neutral-900 hover:text-neutral-200 border border-neutral-800"
-                        rel="noreferrer noopener"
-                        target="_blank">
-                        <p className="text-sm text-neutral-100 font-medium">{project.name}</p>
-                        <p className="text-sm">{project.desc}</p>
-                    </a>
+                    return (
+                        <SimpleCard
+                            key={index}
+                            href={project.href}
+                            name={project.name}
+                            desc={project.desc}
+                        />);
                 })}
             </div>
             <h1 className='text-xl font-semibold mb-2'>Projetos Secundarios</h1>
-            <p className='text-neutral-400 text-sm mb-4'>
-                Projetos/Experimentos que fiz para testar meu conhecimento.
-            </p>
+            <p className='text-neutral-400 text-sm mb-4'>Projetos/Experimentos que fiz para testar meu conhecimento.</p>
             <div className="space-y-4 mb-8">
                 {sideProjects.map((project, index) => {
-                    return <a key={index} href={project.href}
-                        className="block rounded-xl text-neutral-400 shadow-inner shadow-neutral-800 -mx-4 p-4 transition-colors hover:bg-neutral-900 hover:text-neutral-200 border border-neutral-800"
-                        rel="noreferrer noopener"
-                        target="_blank">
-                        <p className="text-sm text-neutral-100 font-medium">{project.name}</p>
-                        <p className="text-sm">{project.desc}</p>
-                    </a>
+                    return (
+                        <SimpleCard
+                            key={index}
+                            href={project.href}
+                            name={project.name}
+                            desc={project.desc}
+                        />);
                 })}
             </div>
         </div>
