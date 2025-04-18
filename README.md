@@ -15,6 +15,9 @@ O site é dividido em três seções principais:
 - `Projetos` — Alguns dos trabalhos e ideias que já coloquei em prática.
 - `Blog` — Textos, estudos e pensamentos sobre programação e tecnologia.
 
+Além disso, há seções extras acessíveis apenas via Atalho de Comando:
+- `Certificados` — Uma coleção dos meus cursos e certificações concluídas.
+
 ## ⌨ Atalhos de Comando
 Quer navegar rapidinho? Use os atalhos:
 - `⌘` + `K` (macOS)
