@@ -38,17 +38,18 @@ const socials: Page[] = [
     { name: 'Email', href: 'mailto:marcusrangelcoelho@gmail.com', icon: MdAlternateEmail },
 ]
 
-const posts: Page[] = [
-    { name: 'Meu primeiro site de bate-papo', href: '/blog/cafuntalk', icon: CiTextAlignJustify },
-    { name: 'Jogos me trouxeram até aqui', href: '/blog/my-gamer-side', icon: CiTextAlignJustify },
-]
-
 const projects: Page[] = [
     { name: 'Cafuntalk', href: 'https://cafuntalk.com', icon: RiExternalLinkLine },
     { name: 'SOS Queimadas', href: 'https://www.youtube.com/shorts/0fSoHjAadas', icon: RiExternalLinkLine },
     { name: 'Blob', href: 'https://blob-temp.vercel.app/', icon: RiExternalLinkLine },
     { name: 'BunnyBash', href: 'https://coelhomarcus.github.io/bunnybash/', icon: RiExternalLinkLine },
     { name: 'BakaNeo', href: 'https://marketplace.visualstudio.com/items?itemName=coelhomarcus.bakaneo', icon: RiExternalLinkLine },
+]
+
+const posts: Page[] = [
+    { name: 'Aprendendo GO', href: '/blog/learning-go', icon: CiTextAlignJustify },
+    { name: 'Meu primeiro site de bate-papo', href: '/blog/cafuntalk', icon: CiTextAlignJustify },
+    { name: 'Jogos me trouxeram até aqui', href: '/blog/my-gamer-side', icon: CiTextAlignJustify },
 ]
 
 export default function CommandMenu({ open, setOpen }: { open: boolean, setOpen: React.Dispatch<React.SetStateAction<boolean>> }) {

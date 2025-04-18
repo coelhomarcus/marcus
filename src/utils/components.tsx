@@ -15,7 +15,13 @@ const components = {
         <ul className=" text-neutral-400" {...props} />
     ),
     li: (props: React.HTMLProps<HTMLLIElement>) => (
-        <li className="text-neutral-400" {...props} />
+        <li className="text-neutral-400 text-sm" {...props} />
+    ),
+    pre: (props: React.HTMLProps<HTMLPreElement>) => (
+        <pre className="text-neutral-400 bg-background border border-foreground/10 scrollbar scrollbar-content" {...props} />
+    ),
+    code: (props: React.HTMLProps<HTMLPreElement>) => (
+        <code className="text-neutral-300 italic font-medium" {...props} />
     ),
 }
 

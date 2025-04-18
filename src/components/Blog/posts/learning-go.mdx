@@ -1,0 +1,193 @@
+### Go CLI
+- `go build` - Compila o projeto
+- `go run` - Compila e executa o projeto
+- `go fmt` - Formata todo o codigo em cada arquivo do diretorio
+- `go install` - Compila e instala um package
+- `go get` - Baixa o "raw source code" do package de alguem
+- `go test` - Roda algum teste relacionado ao projeto
+
+### Boilerplate
+
+```
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello Wolrd")
+}
+```
+
+### Como os packages (pacotes) funcionam?
+
+Basicamente, em Go existem dois tipos de pacotes:
+- Executáveis (Executable)
+- Reutilizáveis (Reusable)
+
+Por exemplo, o `package main` é um pacote executável — ele precisa ter uma função main dentro (o nome do arquivo em si não importa). Esse é o pacote principal, o que é usado pra buildar o projeto. Se você tentar buildar um projeto com um pacote que não seja o main, ele nem vai gerar o executável.
+
+E como saber se um pacote é executável ou reutilizável? É simples: depende do nome.
+
+- Se for `package main`, é executável.
+- Qualquer outro nome, tipo `package utils`, `package math`, etc., é um pacote reutilizável — ou seja, código que pode ser usado em outros lugares como se fosse uma dependência.
+
+
+### Importação
+
+As importações em Go são feitas com aspas duplas, tipo assim: import "fmt".
+
+O `fmt` é uma biblioteca padrão que temos no package main.
+
+### Criando Variaveis
+
+Esses dois jeitos de criar variáveis dentro da função são equivalentes.
+
+A diferença é que no primeiro a gente declara o tipo (string) de forma explícita, e no segundo o Go infere o tipo automaticamente com base no valor que você passou.
+
+Um detalhe importante: variáveis podem até ser declaradas fora de uma função, como fiz com `sobrenome`, mas elas só podem receber valor (ser inicializadas) dentro de uma função, como na func main.
+
+```
+var sobrenome string
+
+func main() {
+    sobrenome = "Coelho"
+    var name string = "Marcus"
+    name := "Marcus"
+}
+```
+
+### Funções
+
+Aqui vai um exemplo simples de como criar uma função e indicar qual tipo ela vai retornar — nesse caso, uma string:
+
+```
+var nome string
+
+func main() {
+    nome := myName()
+}
+
+func myName() string {
+    return "Marcus"
+}
+```
+
+A função `myName()` retorna uma string, e a gente usa ela dentro do main, atribuindo o valor retornado pra variável nome.
+
+### Voltando para as packages
+
+Mesmo que o código esteja em arquivos separados, tudo funciona normal, porque eles fazem parte do mesmo package.
+
+- main.go
+```
+package main
+ 
+func main() {
+    printState()
+}
+```
+
+- state.go
+```
+package main
+ 
+import "fmt"
+ 
+func printState() {
+    fmt.Println("California")
+}
+```
+
+Ou seja: enquanto os arquivos estiverem no mesmo diretório e com o mesmo package, tá tudo certo — o Go vai reconhecer e juntar tudo na hora de compilar.
+
+### Array e Slice
+
+Basicamente, uma Slice é uma versão mais flexível de um Array.
+- Array quando o tamanho da lista for fixo.
+- Slice quando o tamanho for variável — já que dá pra adicionar ou remover elementos com facilidade.
+
+Slices precisam ter todos os elementos do mesmo tipo: se começou com `string`, tudo tem que ser `string`; se for `int`, tudo `int`, e por aí vai.
+
+Quando usamos `append()`, na real estamos criando uma nova Slice com o novo valor incluso — e reatribuindo essa nova Slice pra mesma variável.
+
+Pra iterar sobre uma Slice, usamos a palavra-chave `range`, que percorre cada elemento.
+
+Um detalhe importante: se você declarar o index no loop, tem que usar ele, senão o Go vai acusar erro. Se não for usar, é só ignorar com _.
+
+```
+// Criando uma Slice
+
+names := []string{"Marcus", myName(), "Vitoria"}
+
+// Adicionando novo elemento na Slice
+
+names = append(names, "Coelho")
+
+//Iterando pela Slice
+
+for index, name := range names {
+    fmt.Println(index, name);
+}
+
+//Iterando sem index
+for _, name := range names {
+    fmt.Println(name);
+}
+``` 
+
+### Type & Receivers Function
+
+Com `type`, a gente consegue criar um novo tipo baseado em um tipo que já existe.
+
+E com as funções receptoras (receiver functions), dá pra criar métodos que variáveis desse novo tipo podem usar — tipo um mini sistema orientado a objetos.
+
+- main.go
+
+```
+package main
+
+func main() {
+	friends := names{"Marcus", "Vitoria", "Luis"}
+	friends.print()
+}
+```
+
+- names.go
+
+```
+package main
+
+import "fmt"
+
+// Criamos o tipo 'names' baseado em um slice de string
+
+type names []string
+
+// Aqui estamos criando um método 'print' para o tipo 'names'
+
+func (n names) print() {
+	for _, name := range n {
+		fmt.Println(name)
+	}
+}
+```
+
+### Slice Range Syntax
+
+Esse esquema de fatia (slice) é muito útil quando queremos pegar só uma parte da lista.
+O detalhe importante: o segundo número não é incluso, então 0:2 pega o índice 0 e 1.
+
+```
+fruits := []string{"Maçã", "Pera", "Banana", "Uva"}
+
+// Do índice 0 até o 2 (mas sem incluir o 2)
+
+fruits[0:2] == ["Maçã", "Pera"]
+fruits[:2]   == ["Maçã", "Pera"]
+
+// A partir do índice 2 (incluindo o 2) até o fim
+
+fruits[2:] == ["Banana", "Uva"]
+```
+
+### WIP

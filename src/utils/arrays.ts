@@ -116,6 +116,13 @@ export const arrCertificates = [
 
 export const arrBlog = [
     {
+        slug: "learning-go",
+        title: "Aprendendo GO",
+        desc: "Minhas anotações sobre a linguagem go",
+        date: "18/04/2025",
+        time: 0
+    },
+    {
         slug: "cafuntalk",
         title: "Meu primeiro site de bate-papo",
         desc: "Como nasceu a ideia de criar um chat e tudo que aprendi no processo.",

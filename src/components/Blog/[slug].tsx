@@ -51,7 +51,7 @@ const Post = () => {
                 </article>
             </MDXProvider>
 
-            <div className='flex justify-between items-center rounded-xl text-neutral-400 px-3 py-3 bg-neutral-90 border border-neutral-800'>
+            <div className='flex justify-between items-center rounded-xl text-neutral-400 mt-5 px-3 py-3 bg-neutral-90 border border-neutral-800'>
                 <div>
                     <p className='flex items-center gap-2 text-sm text-neutral-200'>Marcus Coelho</p>
                     <p className='italic text-xs'>Espero que tenha gostado!</p>
