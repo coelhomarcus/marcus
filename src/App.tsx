@@ -4,6 +4,7 @@ import Projects from './components/Projects/Projects'
 import Blog from './components/Blog/Blog'
 import PostPage from './components/Blog/[slug]';
 import CommandMenu from './components/CommandMenu/CommandMenu';
+import Certificates from './components/Certificates/Certificates';
 
 import { useState } from 'react';
 import { Routes, Route } from 'react-router';
@@ -20,6 +21,7 @@ const App = () => {
         <Route path='/projects' element={<Projects />} />
         <Route path='/blog' element={<Blog />} />
         <Route path="/blog/:slug" element={<PostPage />} />
+        <Route path="/certificates" element={<Certificates />} />
         <Route path="*" element={<div className='text-white'>Pagina nao existe.</div>} />
       </Routes>
     </div>

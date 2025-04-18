@@ -1,14 +1,6 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router'
 
-import { IoHomeOutline } from "react-icons/io5";
-import { FaCodeBranch, FaRegFolderOpen, FaGithub, FaLinkedin } from "react-icons/fa";
-import { CiTextAlignJustify } from "react-icons/ci";
-import { RiExternalLinkLine } from "react-icons/ri";
-import { MdAlternateEmail } from 'react-icons/md';
-
-
-
 import {
     CommandDialog,
     CommandEmpty,
@@ -19,6 +11,12 @@ import {
     CommandShortcut
 } from "@/components/ui/command"
 
+import { FaLaptopCode, FaRegFolderOpen, FaGithub, FaLinkedin } from "react-icons/fa";
+import { CiTextAlignJustify } from "react-icons/ci";
+import { RiExternalLinkLine } from "react-icons/ri";
+import { MdAlternateEmail } from 'react-icons/md';
+import { TbCertificate } from "react-icons/tb";
+import { FiUser } from "react-icons/fi";
 
 type Page = {
     name: string
@@ -28,9 +26,10 @@ type Page = {
 }
 
 const navigation: Page[] = [
-    { name: 'Sobre', href: '/', icon: IoHomeOutline, shortcut: "⌘S" },
-    { name: 'Projetos', href: '/projects', icon: FaCodeBranch, shortcut: "⌘P" },
+    { name: 'Sobre', href: '/', icon: FiUser, shortcut: "⌘S" },
+    { name: 'Projetos', href: '/projects', icon: FaLaptopCode, shortcut: "⌘P" },
     { name: 'Blog', href: '/blog', icon: FaRegFolderOpen, shortcut: "⌘B" },
+    { name: 'Certificados', href: '/certificates', icon: TbCertificate, shortcut: "⌘C" },
 ]
 
 const socials: Page[] = [
@@ -65,19 +64,21 @@ export default function CommandMenu({ open, setOpen }: { open: boolean, setOpen:
                 e.preventDefault()
                 navigate("/blog")
                 setOpen(false);
-
             }
             else if (e.key === "p" && (e.metaKey || e.ctrlKey)) {
                 e.preventDefault()
                 navigate("/projects")
                 setOpen(false);
-
             }
             else if (e.key === "s" && (e.metaKey || e.ctrlKey)) {
                 e.preventDefault()
                 navigate("/")
                 setOpen(false);
-
+            }
+            else if (e.key === "c" && (e.metaKey || e.ctrlKey)) {
+                e.preventDefault()
+                navigate("/certificates")
+                setOpen(false);
             }
         }
         document.addEventListener("keydown", down)
