@@ -26,10 +26,10 @@ type Page = {
 }
 
 const navigation: Page[] = [
-    { name: 'Sobre', href: '/', icon: FiUser, shortcut: "⌘S" },
-    { name: 'Projetos', href: '/projects', icon: FaLaptopCode, shortcut: "⌘P" },
-    { name: 'Blog', href: '/blog', icon: FaRegFolderOpen, shortcut: "⌘B" },
-    { name: 'Certificados', href: '/certificates', icon: TbCertificate, shortcut: "⌘C" },
+    { name: 'Sobre', href: '/', icon: FiUser, shortcut: "⌘ 1" },
+    { name: 'Projetos', href: '/projects', icon: FaLaptopCode, shortcut: "⌘ 2" },
+    { name: 'Blog', href: '/blog', icon: FaRegFolderOpen, shortcut: "⌘ 3" },
+    { name: 'Certificados', href: '/certificates', icon: TbCertificate, shortcut: "⌘ 4" },
 ]
 
 const socials: Page[] = [
@@ -60,22 +60,22 @@ export default function CommandMenu({ open, setOpen }: { open: boolean, setOpen:
                 e.preventDefault()
                 setOpen((open) => !open)
             }
-            else if (e.key === "b" && (e.metaKey || e.ctrlKey)) {
-                e.preventDefault()
-                navigate("/blog")
-                setOpen(false);
-            }
-            else if (e.key === "p" && (e.metaKey || e.ctrlKey)) {
-                e.preventDefault()
-                navigate("/projects")
-                setOpen(false);
-            }
-            else if (e.key === "s" && (e.metaKey || e.ctrlKey)) {
+            else if (e.key === "1" && (e.metaKey || e.ctrlKey)) {
                 e.preventDefault()
                 navigate("/")
                 setOpen(false);
             }
-            else if (e.key === "c" && (e.metaKey || e.ctrlKey)) {
+            else if (e.key === "2" && (e.metaKey || e.ctrlKey)) {
+                e.preventDefault()
+                navigate("/projects")
+                setOpen(false);
+            }
+            else if (e.key === "3" && (e.metaKey || e.ctrlKey)) {
+                e.preventDefault()
+                navigate("/blog")
+                setOpen(false);
+            }
+            else if (e.key === "4" && (e.metaKey || e.ctrlKey)) {
                 e.preventDefault()
                 navigate("/certificates")
                 setOpen(false);

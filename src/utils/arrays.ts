@@ -119,12 +119,14 @@ export const arrBlog = [
         slug: "cafuntalk",
         title: "Meu primeiro site de bate-papo",
         desc: "Como nasceu a ideia de criar um chat e tudo que aprendi no processo.",
-        date: "16/04/2025"
+        date: "16/04/2025",
+        time: 3
     },
     {
         slug: "my-gamer-side",
         title: "Jogos me trouxeram até aqui",
         desc: "Minha história com os jogos.",
-        date: "14/04/2025"
+        date: "14/04/2025",
+        time: 7
     },
 ]
