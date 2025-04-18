@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router'
 
 import { IoHomeOutline } from "react-icons/io5";
@@ -52,8 +52,7 @@ const projects: Page[] = [
     { name: 'BakaNeo', href: 'https://marketplace.visualstudio.com/items?itemName=coelhomarcus.bakaneo', icon: RiExternalLinkLine },
 ]
 
-export default function CommandMenu() {
-    const [open, setOpen] = useState(false)
+export default function CommandMenu({ open, setOpen }: { open: boolean, setOpen: React.Dispatch<React.SetStateAction<boolean>> }) {
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -83,7 +82,7 @@ export default function CommandMenu() {
         }
         document.addEventListener("keydown", down)
         return () => document.removeEventListener("keydown", down)
-    }, [navigate])
+    }, [navigate, setOpen])
 
     const handleSelect = (href: string) => {
         setOpen(false)

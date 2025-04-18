@@ -7,7 +7,7 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion"
 
-const About = () => {
+const About = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<boolean>> }) => {
     return (
         <div className='text-white'>
             <h1 className='text-xl font-semibold mb-4'>Marcus Coelho</h1>
@@ -44,11 +44,11 @@ const About = () => {
                         Linkedin
                     </a>
                 </div>
-                <div className="hidden sm:block">
-                    <div className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-xs font-medium text-muted-foreground opacity-100">
+                <button className="hidden sm:block cursor-pointer text-neutral-400 hover:text-neutral-500 transition-all duration-200" onClick={() => setOpen(true)}>
+                    <div className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-xs font-medium  opacity-100">
                         ⌘ K
                     </div>
-                </div>
+                </button>
             </div>
         </div>
     )
