@@ -120,7 +120,7 @@ export const arrBlog = [
         title: "Aprendendo GO",
         desc: "Minhas anotações sobre a linguagem go",
         date: "18/04/2025",
-        time: 0
+        time: 8
     },
     {
         slug: "cafuntalk",

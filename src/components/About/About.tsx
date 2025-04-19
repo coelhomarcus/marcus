@@ -47,7 +47,7 @@ const About = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<boole
                 </div>
                 <button className="hidden sm:block cursor-pointer text-neutral-400 hover:text-neutral-500 transition-all duration-200" onClick={() => setOpen(true)}>
                     <div className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-xs font-medium  opacity-100">
-                        {isMac() ? "⌘" : "ctrl"} K
+                        {isMac() ? "⌘" : "Ctrl"} K
                     </div>
                 </button>
             </div>

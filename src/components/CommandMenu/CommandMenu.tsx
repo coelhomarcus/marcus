@@ -18,6 +18,8 @@ import { MdAlternateEmail } from 'react-icons/md';
 import { TbCertificate } from "react-icons/tb";
 import { FiUser } from "react-icons/fi";
 
+import isMac from '@/utils/isMac';
+
 type Page = {
     name: string
     href: string
@@ -26,10 +28,10 @@ type Page = {
 }
 
 const navigation: Page[] = [
-    { name: 'Sobre', href: '/', icon: FiUser, shortcut: "⌘ 1" },
-    { name: 'Projetos', href: '/projects', icon: FaLaptopCode, shortcut: "⌘ 2" },
-    { name: 'Blog', href: '/blog', icon: FaRegFolderOpen, shortcut: "⌘ 3" },
-    { name: 'Certificados', href: '/certificates', icon: TbCertificate, shortcut: "⌘ 4" },
+    { name: 'Sobre', href: '/', icon: FiUser, shortcut: "1" },
+    { name: 'Projetos', href: '/projects', icon: FaLaptopCode, shortcut: "2" },
+    { name: 'Blog', href: '/blog', icon: FaRegFolderOpen, shortcut: "3" },
+    { name: 'Certificados', href: '/certificates', icon: TbCertificate, shortcut: "4" },
 ]
 
 const socials: Page[] = [
@@ -106,7 +108,7 @@ export default function CommandMenu({ open, setOpen }: { open: boolean, setOpen:
                             <CommandItem className='cursor-pointer' key={page.href} onSelect={() => handleSelect(page.href)}>
                                 <page.icon className="mr-2 h-4 w-4" />
                                 {page.name}
-                                {page.shortcut && <CommandShortcut>{page.shortcut}</CommandShortcut>}
+                                {page.shortcut && <CommandShortcut>{isMac() ? "⌘" : "Ctrl"} {page.shortcut}</CommandShortcut>}
                             </CommandItem>
                         ))}
                     </CommandGroup>

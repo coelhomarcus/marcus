@@ -5,6 +5,7 @@
 - `go install` - Compila e instala um package
 - `go get` - Baixa o "raw source code" do package de alguem
 - `go test` - Roda algum teste relacionado ao projeto
+- `go mod init name` - Criando go.mod
 
 ### Boilerplate
 
@@ -55,6 +56,15 @@ func main() {
     name := "Marcus"
 }
 ```
+
+Em Go não existe undefined ou null como em outras linguagens.
+
+Se você criar uma variável sem inicializar, ela já vem com um valor zero (zero value) dependendo do tipo:
+
+- string → ""
+- int → 0
+- float → 0
+- boolean → false
 
 ### Funções
 
@@ -130,6 +140,7 @@ for index, name := range names {
 }
 
 //Iterando sem index
+
 for _, name := range names {
     fmt.Println(name);
 }
@@ -172,7 +183,7 @@ func (n names) print() {
 }
 ```
 
-### Slice Range Syntax
+### Slice Range Sintaxe
 
 Esse esquema de fatia (slice) é muito útil quando queremos pegar só uma parte da lista.
 O detalhe importante: o segundo número não é incluso, então 0:2 pega o índice 0 e 1.
@@ -188,6 +199,153 @@ fruits[:2]   == ["Maçã", "Pera"]
 // A partir do índice 2 (incluindo o 2) até o fim
 
 fruits[2:] == ["Banana", "Uva"]
+```
+
+### Retorno de Multiplos Valores
+
+```
+func twoValues() (int, int) {
+    return 10, 20
+}
+
+func main() {
+    a, b := twoValues()
+    
+    // a == 10
+    // b == 20
+}
+```
+
+### Função `Impar` ou `Par`
+
+Atividade simples passada no curso.
+
+```
+package main
+
+import "fmt"
+
+func main() {
+	numbers := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+
+	for _, number := range numbers {
+		fmt.Println(isEven(number))
+	}
+}
+
+func isEven(n int) string {
+	if n%2 == 0 {
+		return fmt.Sprintf("%v is even", n)
+	} else {
+		return fmt.Sprintf("%v is odd", n)
+	}
+}
+```
+
+### Structs
+
+Em Go, structs são usadas pra agrupar dados relacionados — tipo um "modelo" ou "formato" de algo.
+
+Aqui tá como criar e declarar uma struct:
+
+```
+type person struct {
+	firstName string
+	lastName  string
+}
+
+func main() {
+	marcus := person{"Marcus", "Coelho"}
+	marcus2 := person{firstName: "Marcus", lastName: "Coelho"}
+	marcus3 := person{lastName: "Coelho", firstName: "Marcus"}
+}
+```
+
+```
+type person struct {
+	firstName string
+	lastName  string
+	contact   contactInfo
+}
+
+type contactInfo struct {
+	number int
+	email  string
+}
+
+func main() {
+	marcus := person{"Marcus", "Coelho", contactInfo{999, "marcus@gmail.com"}}
+	fmt.Println(marcus.firstName, marcus.lastName)
+	fmt.Println(marcus.contact.email)
+	fmt.Println(marcus.contact.number)
+}
+```
+
+### Structs com Ponteiros
+
+A gente usa ponteiros quando quer modificar de verdade os valores de uma struct (ou qualquer variável) dentro de uma função.
+
+Sem o ponteiro, o Go passa uma cópia da variável — então qualquer mudança não afeta o valor original.
+
+Com o ponteiro, acessamos diretamente o valor na memória e conseguimos alterar ele de fato.
+
+- Com `&variavel` pegamos o endereço de memória onde o valor dessa variável está guardado.
+- Com `*ponteiro` acessamos o valor que está nesse endereço (ou seja, o valor para o qual o ponteiro aponta).
+- Tipo "o ponteiro é o endereço da casa, o valor é quem mora lá"
+
+```
+type person struct {
+	firstName string
+	lastName  string
+}
+
+func main() {
+	marcus := person{"Marcus", "Coelho"}
+
+	fmt.Println(marcus)
+
+	marcusPonteiro := &marcus
+	marcusPonteiro.changeName("Vitoria")
+
+	fmt.Println(marcus)
+}
+
+func (pointerToPerson *person) changeName(newName string) {
+	(*pointerToPerson).firstName = newName
+}
+```
+
+Dica do Curso:
+```
+address: 10x0Abc
+value: person{firstName: "Marcus"...}
+
+Turn address into value with *address
+Turn value into address with &value
+```
+
+Dica 2 do Curso:
+- Diminuindo o codigo com o ponteiro
+
+```
+type person struct {
+	firstName string
+	lastName  string
+}
+
+func main() {
+	marcus := person{"Marcus", "Coelho"}
+
+	fmt.Println(marcus)
+
+	marcus.changeName("Vitoria")
+
+	fmt.Println(marcus)
+}
+
+func (pointerToPerson *person) changeName(newName string) {
+	(*pointerToPerson).firstName = newName
+}
 ```
 
 ### WIP
