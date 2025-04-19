@@ -1,4 +1,3 @@
-import { IconType } from "react-icons"
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdAlternateEmail } from "react-icons/md";
 import {
@@ -9,13 +8,7 @@ import {
 } from "@/components/ui/accordion"
 
 import isMac from "@/utils/isMac";
-
-const AboutLink = ({ Icon, title, href }: { Icon: IconType, title: string, href: string }) => {
-    return <a href={href} rel="noreferrer noopener" target='_blank' className="inline-flex items-center gap-1 font-medium text-xs transition-colors hover:text-neutral-400">
-        <Icon className="size-4" />
-        {title}
-    </a>
-}
+import ContactLink from "../ContactLink/ContactLink";
 
 const About = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<boolean>> }) => {
     return (
@@ -41,9 +34,9 @@ const About = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<boole
             </p>
             <div className="flex justify-between border-t mt-4 pt-4 border-neutral-800">
                 <div className="flex gap-3 text-white">
-                    <AboutLink title="Github" Icon={FaGithub} href="https://github.com/coelhomarcus" />
-                    <AboutLink title="Linkedin" Icon={FaLinkedin} href="https://www.linkedin.com/in/coelhomarcus/" />
-                    <AboutLink title="E-mail" Icon={MdAlternateEmail} href="mailto:marcusrangelcoelho@gmail.com" />
+                    <ContactLink title="Github" Icon={FaGithub} href="https://github.com/coelhomarcus" />
+                    <ContactLink title="Linkedin" Icon={FaLinkedin} href="https://www.linkedin.com/in/coelhomarcus/" />
+                    <ContactLink title="E-mail" Icon={MdAlternateEmail} href="mailto:marcusrangelcoelho@gmail.com" />
                 </div>
                 <button className="hidden sm:block cursor-pointer text-neutral-400 hover:text-neutral-500 transition-all duration-200" onClick={() => setOpen(true)}>
                     <div className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-xs font-medium  opacity-100">

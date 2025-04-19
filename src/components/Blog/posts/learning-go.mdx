@@ -7,7 +7,7 @@
 - `go test` - Roda algum teste relacionado ao projeto
 - `go mod init name` - Criando go.mod
 
-### Boilerplate
+### Boilerplate Simples
 
 ```
 package main
@@ -37,13 +37,20 @@ E como saber se um pacote é executável ou reutilizável? É simples: depende d
 
 As importações em Go são feitas com aspas duplas, tipo assim: import "fmt".
 
-O `fmt` é uma biblioteca padrão que temos no package main.
+O `fmt` é uma biblioteca padrão que temos em Go.
 
 ### Criando Variaveis
 
 Esses dois jeitos de criar variáveis dentro da função são equivalentes.
 
 A diferença é que no primeiro a gente declara o tipo (string) de forma explícita, e no segundo o Go infere o tipo automaticamente com base no valor que você passou.
+
+```
+func main() {
+    var name string = "Marcus"
+    name := "Marcus"
+}
+```
 
 Um detalhe importante: variáveis podem até ser declaradas fora de uma função, como fiz com `sobrenome`, mas elas só podem receber valor (ser inicializadas) dentro de uma função, como na func main.
 
@@ -52,8 +59,6 @@ var sobrenome string
 
 func main() {
     sobrenome = "Coelho"
-    var name string = "Marcus"
-    name := "Marcus"
 }
 ```
 
@@ -84,7 +89,7 @@ func myName() string {
 
 A função `myName()` retorna uma string, e a gente usa ela dentro do main, atribuindo o valor retornado pra variável nome.
 
-### Voltando para as packages
+### Mais sobre pacotes (packages)
 
 Mesmo que o código esteja em arquivos separados, tudo funciona normal, porque eles fazem parte do mesmo package.
 
@@ -148,12 +153,11 @@ for _, name := range names {
 
 ### Type & Receivers Function
 
-Com `type`, a gente consegue criar um novo tipo baseado em um tipo que já existe.
+Com `type`, conseguimos criar um novo tipo baseado em um tipo que já existe.
 
-E com as funções receptoras (receiver functions), dá pra criar métodos que variáveis desse novo tipo podem usar — tipo um mini sistema orientado a objetos.
+E com as funções receptoras (receiver functions), criamos métodos que as variáveis desse novo tipo podem usar.
 
 - main.go
-
 ```
 package main
 
@@ -164,7 +168,6 @@ func main() {
 ```
 
 - names.go
-
 ```
 package main
 
@@ -186,7 +189,8 @@ func (n names) print() {
 ### Slice Range Sintaxe
 
 Esse esquema de fatia (slice) é muito útil quando queremos pegar só uma parte da lista.
-O detalhe importante: o segundo número não é incluso, então 0:2 pega o índice 0 e 1.
+
+Detalhe importante: o segundo número não é incluso, então 0:2 pega o índice 0 e 1.
 
 ```
 fruits := []string{"Maçã", "Pera", "Banana", "Uva"}
@@ -262,15 +266,15 @@ func main() {
 ```
 
 ```
+type contactInfo struct {
+	number int
+	email  string
+}
+
 type person struct {
 	firstName string
 	lastName  string
 	contact   contactInfo
-}
-
-type contactInfo struct {
-	number int
-	email  string
 }
 
 func main() {

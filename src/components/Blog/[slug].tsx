@@ -30,9 +30,28 @@ const Post = () => {
         }
     }, [slug])
 
-    if (!MDXComponent || !post) return (
+    if (!MDXComponent) return (
         <div className='flex items-center justify-center'>
             <PiSpinnerThin className="text-gray-300 animate-[spin_3s_linear_infinite] duration-150 size-6 mt-10" />
+        </div>
+    )
+
+    if (!post) return (
+        <div className='flex flex-col justify-center mt-10 items-center gap-5'>
+            <h1 className='text-center text-sm'>Esse post não existe!</h1>
+            <p className='text-center text-xs text-neutral-400'>Talvez ele tenha sido removido ou nunca existiu.<br /> Você pode voltar e conferir outros posts disponíveis.</p>
+
+            <div className="relative w-50 h-50 self-center">
+                <div className="absolute inset-0 w-full h-full rounded-xl bg-neutral-900 animate-pulse" />
+                <img
+                    loading="lazy"
+                    src="https://i.gifer.com/433p.gif"
+                    alt="Personagem Confuso"
+                    className="absolute inset-0 w-full h-full object-cover rounded-xl"
+                />
+            </div>
+
+            <Link to="/blog" className='text-xs px-4 py-2 rounded-xl border border-neutral-800 text-neutral-300 hover:text-white transition-all duration-200'>Voltar pro Blog</Link>
         </div>
     )
 

@@ -8,6 +8,7 @@ import Certificates from './components/Certificates/Certificates';
 
 import { useState } from 'react';
 import { Routes, Route } from 'react-router';
+import NotFound from './components/NotFound/NotFound';
 
 const App = () => {
   const [open, setOpen] = useState(false)
@@ -22,7 +23,7 @@ const App = () => {
         <Route path='/blog' element={<Blog />} />
         <Route path="/blog/:slug" element={<PostPage />} />
         <Route path="/certificates" element={<Certificates />} />
-        <Route path="*" element={<div className='text-white'>Pagina nao existe.</div>} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   )
