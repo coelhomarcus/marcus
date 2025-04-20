@@ -26,7 +26,7 @@ const About = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<boole
                         <AccordionTrigger className="text-neutral-200 cursor-pointer">Skills</AccordionTrigger>
                         <AccordionContent className="space-y-2">
                             <p><span className="text-neutral-200 text-xs font-bold">Front-end: </span>React, Typescript, Tailwind, Next.js, Vite, React Router.</p>
-                            <p><span className="text-neutral-200 text-xs font-bold">Back-end: </span>Node.js, Express, PostgreSQL, MySQL. </p>
+                            <p><span className="text-neutral-200 text-xs font-bold">Back-end: </span>Go, Node.js, Express, PostgreSQL, MySQL. </p>
                             <p><span className="text-neutral-200 text-xs font-bold">Outros: </span>Swift, Python, C# (Unity)</p>
                         </AccordionContent>
                     </AccordionItem>

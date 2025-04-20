@@ -1,3 +1,9 @@
+import { FaDiscord, FaGithub } from "react-icons/fa";
+
+Faz um tempo que eu tô de olho na linguagem GO, e finalmente tomei coragem p/ estudar!
+
+Aqui estão todas as anotações que fiz durante os estudos:
+
 ### Go CLI
 - `go build` - Compila o projeto
 - `go run` - Compila e executa o projeto
@@ -44,7 +50,6 @@ O `fmt` é uma biblioteca padrão que temos em Go.
 Esses dois jeitos de criar variáveis dentro da função são equivalentes.
 
 A diferença é que no primeiro a gente declara o tipo (string) de forma explícita, e no segundo o Go infere o tipo automaticamente com base no valor que você passou.
-
 ```
 func main() {
     var name string = "Marcus"
@@ -53,7 +58,6 @@ func main() {
 ```
 
 Um detalhe importante: variáveis podem até ser declaradas fora de uma função, como fiz com `sobrenome`, mas elas só podem receber valor (ser inicializadas) dentro de uma função, como na func main.
-
 ```
 var sobrenome string
 
@@ -74,7 +78,6 @@ Se você criar uma variável sem inicializar, ela já vem com um valor zero (zer
 ### Funções
 
 Aqui vai um exemplo simples de como criar uma função e indicar qual tipo ela vai retornar — nesse caso, uma string:
-
 ```
 var nome string
 
@@ -128,7 +131,6 @@ Quando usamos `append()`, na real estamos criando uma nova Slice com o novo valo
 Pra iterar sobre uma Slice, usamos a palavra-chave `range`, que percorre cada elemento.
 
 Um detalhe importante: se você declarar o index no loop, tem que usar ele, senão o Go vai acusar erro. Se não for usar, é só ignorar com _.
-
 ```
 // Criando uma Slice
 
@@ -191,7 +193,6 @@ func (n names) print() {
 Esse esquema de fatia (slice) é muito útil quando queremos pegar só uma parte da lista.
 
 Detalhe importante: o segundo número não é incluso, então 0:2 pega o índice 0 e 1.
-
 ```
 fruits := []string{"Maçã", "Pera", "Banana", "Uva"}
 
@@ -220,10 +221,7 @@ func main() {
 }
 ```
 
-### Função `Impar` ou `Par`
-
-Atividade simples passada no curso.
-
+Função isEven para fixar conhecimento
 ```
 package main
 
@@ -251,7 +249,6 @@ func isEven(n int) string {
 Em Go, structs são usadas pra agrupar dados relacionados — tipo um "modelo" ou "formato" de algo.
 
 Aqui tá como criar e declarar uma struct:
-
 ```
 type person struct {
 	firstName string
@@ -296,7 +293,6 @@ Com o ponteiro, acessamos diretamente o valor na memória e conseguimos alterar 
 - Com `&variavel` pegamos o endereço de memória onde o valor dessa variável está guardado.
 - Com `*ponteiro` acessamos o valor que está nesse endereço (ou seja, o valor para o qual o ponteiro aponta).
 - Tipo "o ponteiro é o endereço da casa, o valor é quem mora lá"
-
 ```
 type person struct {
 	firstName string
@@ -318,8 +314,7 @@ func (pointerToPerson *person) changeName(newName string) {
 	(*pointerToPerson).firstName = newName
 }
 ```
-
-Dica do Curso:
+Dica:
 ```
 address: 10x0Abc
 value: person{firstName: "Marcus"...}
@@ -327,10 +322,8 @@ value: person{firstName: "Marcus"...}
 Turn address into value with *address
 Turn value into address with &value
 ```
-
-Dica 2 do Curso:
+Dica 2:
 - Diminuindo o codigo com o ponteiro
-
 ```
 type person struct {
 	firstName string
@@ -352,4 +345,336 @@ func (pointerToPerson *person) changeName(newName string) {
 }
 ```
 
-### WIP
+### Value Types & Reference Types
+
+Value Types: int, float, string, boolean, structs
+
+Reference Types: slices, maps, channels, pointers, functions
+
+De forma resumida, em Value Types, precisamos usar ponteiros caso queiramos alterar seus valores por meio de funções. Já em Reference Types, não precisamos nos preocupar com isso, pois, mesmo que seja criada uma cópia ao passá-los em uma função, essa cópia aponta para o mesmo endereço, então a modificação ocorre normalmente.
+
+### Map
+
+Basicamente, Map é como se fosse um objeto do JavaScript, mas com algumas peculiaridades: as chaves devem ser todas do mesmo tipo, e os valores também devem ser todos do mesmo tipo.
+
+- Se uma chave for `int`, todas têm que ser `int`;
+- Se um valor for `string`, todos os outros também têm que ser `string`.
+```
+func main() {
+	trafficLight := map[string]string{
+		"red":    "stop",
+		"yellow": "attention",
+		"green":  "go",
+	}
+
+	fmt.Println(trafficLight)        // map[green:go red:stop yellow:attention]
+	fmt.Println(trafficLight["red"]) // stop
+}
+```
+Criando um Map vazio
+```
+var colors map[string]string
+// ou
+colors := make(map[string]string)
+```
+Adicionando valor no Map
+```
+colors["white"] = "#ffff";
+```
+Removendo valor no Map
+```
+delete(colors, "white")
+```
+Iterando no Map
+```
+func printMap(c map[string]string) {
+	for key, value := range c {
+		fmt.Println(key, value);
+	}
+}
+```
+
+### Interfaces
+
+Interfaces servem pra gente definir um "contrato" de métodos que diferentes tipos precisam ter. É uma forma de criar um tipo mais genérico que aceita qualquer coisa que siga esse contrato.
+
+No exemplo abaixo, criamos uma interface chamada `bot`, que exige que qualquer tipo que a implemente tenha o método `getGreeting()` que retorna uma `string`. Então, qualquer tipo que tiver esse método com essa assinatura já é considerado um bot, sem precisar declarar isso explicitamente.
+
+```
+type bot interface {
+	getGreeting() string
+}
+
+type englishBot struct{}
+type spanishBot struct{}
+
+func main() {
+	eb := englishBot{}
+	sb := spanishBot{}
+
+	printGreeting(eb)
+	printGreeting(sb)
+}
+
+func printGreeting(b bot) {
+	fmt.Println(b.getGreeting())
+}
+
+func (englishBot) getGreeting() string {
+	return "Hi there!"
+}
+
+func (spanishBot) getGreeting() string {
+	return "Hola!"
+}
+```
+
+Outro exemplo de interface
+```
+type shape interface {
+	getArea() float64
+}
+
+type triangle struct {
+	height float64
+	base   float64
+}
+
+type square struct {
+	sideLength float64
+}
+
+func main() {
+	sq := square{10}
+	tr := triangle{10, 10}
+
+	printArea(sq)
+	printArea(tr)
+}
+
+func printArea(s shape) {
+	fmt.Println(fmt.Sprintf("%v", s.getArea()))
+}
+
+func (t triangle) getArea() float64 {
+	return t.height * t.base * 0.5
+}
+
+func (s square) getArea() float64 {
+	return s.sideLength * s.sideLength
+}
+```
+
+Código que fiz para um desafio. Ainda não está otimizado, mas estou aprendendo.
+
+```
+func main() {
+	// os.Args retorna uma slice de string com os argumentos
+	// que passamos na execução: go run main.go arquivo.txt
+	// fileNames[0] = main.go e fileNames[1] = arquivo.txt
+	fileNames := os.Args
+
+	// Aqui abrimos o arquivo cujo nome foi passado como argumento
+	// textFile recebe o conteúdo (ou melhor, uma referência ao arquivo aberto)
+	textFile, _ := os.Open(fileNames[1])
+
+	// Criamos uma slice de bytes com tamanho 9999 para armazenar o conteúdo lido do arquivo
+	byteSlice := make([]byte, 9999)
+
+	// Usamos o método Read para preencher a byteSlice com os bytes lidos do arquivo
+	textFile.Read(byteSlice)
+
+	// Transformamos os bytes em string e printamos o conteúdo do arquivo no terminal
+	fmt.Println(string(byteSlice))
+}
+```
+
+### Go Routines
+
+Basicamente, `Go Routines` são um método que utilizamos para rodar códigos de forma concorrente e, também, de forma paralela (nesse caso, só será paralelo se a CPU tiver mais de um núcleo; caso contrário, será apenas concorrente mesmo).
+
+Por exemplo, imagine que eu tenha uma `slice com 5 links`, e um `for` que percorre essa slice fazendo um fetch desses links para saber se o status de cada um está ok ou não.
+
+Da forma tradicional, temos uma `Blocking Call`, pois precisamos esperar o fetch do primeiro link terminar para começar o segundo, e esperar o segundo terminar para começar o terceiro — o que pode demorar bastante.
+
+Então, o que podemos fazer é utilizar `Go Routines` para mitigar isso. Na nossa função que checa os links dentro do `for`, adicionamos a palavra-chave `go` antes. Ficaria algo assim:
+
+```
+// Antes
+for _, link := range links {
+	checkLink(link)
+} 
+
+// Depois
+for _, link := range links {
+	go checkLink(link)
+} 
+```
+
+A palavra-chave `go` so pode ser usada antes de funções.
+
+Algo importante a se entender sobre `Go Routines` é que a função main (Main Routine) encerra sua execução assim que termina seu trabalho, independentemente de existirem outras Goroutines em execução. Ou seja, se a função main finalizar antes das Goroutines, o programa inteiro será encerrado, e essas tarefas paralelas serão interrompidas.
+
+Por isso, quando estamos lidando com `Go Routines`, precisamos de alguma forma de sincronizar ou coordenar a execução entre elas — e é aí que entram os meios de comunicação entre `Go Routines`, como os `Channels`.
+
+### Channels
+
+Um `channel` em Go é uma forma segura de comunicação entre Go Routines. Uma coisa importante é que um channel só pode transmitir valores de um único tipo. Por exemplo, se você criar um channel de `string`, ele só poderá enviar e receber `strings`; o mesmo vale para `int`, `bool`, etc.
+
+A comunicação com channels funciona da seguinte forma: primeiro você cria o channel, depois o passa para a função que será executada como Go Routine. Assim, ela consegue enviar (ou receber) dados por meio desse canal.
+
+No exemplo abaixo, vamos supor que estamos verificando vários links com a função `checkLink()`. Aqui está como usamos um channel para isso:
+
+```
+func main() {
+	links := []string{
+		"http://google.com",
+		"http://facebook.com",
+		"http://stackoverflow.com",
+		"http://golang.org",
+		"http://amazon.com",
+	}
+
+	// Criando o Channel
+	c := make(chan string)
+
+	for _, link := range links {
+		go checkLink(link, c) // Passando o Channel na função
+	}
+	
+	// Aqui esperamos a Main Routine aguarda alguma resposta do Channel
+	fmt.Println(<-c)
+}
+
+// Adicionamos o parametro de Channel
+func checkLink(link string, c chan string) {
+	_, err := http.Get(link)
+	if err != nil {
+		fmt.Println(link, "might be down!")
+		c <- "Might be down I think" // Aqui enviamos uma string para o Channel
+		return
+	}
+
+	fmt.Println(link, "is up!")
+	c <- "Yep its up" // E aqui tambem
+}
+```
+
+Mesmo que a gente tenha criado várias Go Routines com checkLink, se a função main não ficar esperando ativamente as respostas delas, o programa pode encerrar antes das Go Routines terminarem seu trabalho.
+
+Para resolver isso, precisamos fazer com que o main espere uma resposta para cada Go Routine que criamos. Como sabemos quantos links estamos verificando, podemos usar um `for` com `len(links)` para receber exatamente o mesmo número de mensagens do channel:
+
+```
+for i := 0; i < len(links); i++ {
+	fmt.Println(<-c)  // Espera e imprime a mensagem de cada Go Routine
+}
+``` 
+
+Também podemos fazer com que o programa fique verificando os links continuamente, de forma que ele nunca pare. Para isso, usamos um loop for que fica esperando por novas mensagens no channel. E como a operação `<-c` é bloqueante, o loop só prossegue quando uma nova mensagem for recebida — ou seja, ele não sai disparando um monte de Goroutines ao mesmo tempo descontroladamente.
+
+```
+for {
+	go checkLink(<-c, c)
+}
+func checkLink(link string, c chan string) {
+	_, err := http.Get(link)
+	if err != nil {
+		fmt.Println(link, "might be down!")
+		c <- link // Reenvia o link
+		return
+	}
+
+	fmt.Println(link, "is up!")
+	c <- link // Reenvia o link
+}
+```
+
+Podemos usar o `for range` para escutar continuamente o channel. Essa forma é bem comum em Go e funciona como um loop infinito que espera por mensagens no channel:
+
+```
+for l := range c {
+	go func(link string) {
+		time.Sleep(5 * time.Second)
+		checkLink(link, c)
+	}(l) // temos que passar o l aqui pois se não ele sempre ficara com o mesmo valor e nao vai atualizar
+}
+
+
+func checkLink(link string, c chan string) {
+	_, err := http.Get(link)
+	if err != nil {
+		fmt.Println(link, "might be down!")
+		c <- link // Agora retornamos o link
+		return
+	}
+
+	fmt.Println(link, "is up!")
+	c <- "Yep its up" // E aqui tambem
+}
+```
+
+Por que passamos l como argumento da função anônima?
+
+Se você usasse a variável `link` diretamente dentro da Goroutine, ela poderia não ter o valor esperado, por conta do comportamento de variáveis em loops e closures. Ao passar `l` como argumento para a função anônima, você garante que o valor certo de cada iteração será usado.
+
+### Function Literal (Função Literal / Anônima)
+
+Em Go, uma Function Literal é o mesmo conceito de uma função anônima, como em JavaScript. Ou seja, é uma função sem nome, que pode ser definida e executada na hora.
+
+```
+func() {
+	// Código aqui
+}()
+```
+
+Note que os parênteses no final () são o que fazem a função ser executada imediatamente após ser declarada — igual a uma IIFE (Immediately Invoked Function Expression) em JavaScript.
+
+```
+func() {
+	fmt.Println("Executando uma função anônima!")
+}()
+```
+
+Também podemos passar argumentos, assim como fazemos em JavaScript:
+
+```
+func(msg string) {
+	fmt.Println(msg)
+}("Hello from a literal function!")
+```
+
+Essa estrutura é especialmente útil quando queremos encapsular lógica rapidamente, como em Go Routines.
+
+Nesse caso, a função anônima é usada para criar uma nova Go Routine, com o valor de link corretamente isolado da iteração do loop.
+
+```
+go func(link string) {
+	time.Sleep(5 * time.Second)
+	checkLink(link, c)
+}(link)
+```
+
+Se você chegou até aqui, parabéns! Passou por bastante texto.
+
+Se quiser entrar em contato comigo pra conversarmos sobre Go ou qualquer outra coisa, vou deixar meu contato abaixo. Valeu!
+
+<div className="flex gap-5 *:no-underline">
+  <a
+    href="https://github.com/coelhomarcus"
+    rel="noreferrer noopener"
+    target="_blank"
+    className="inline-flex items-center gap-1 font-medium text-xs text-neutral-400"
+  >
+    <FaGithub className="size-4" />
+    @coelhomarcus
+  </a>
+  <a
+    href="https://discord.com/invite/YDSGKzaSDe"
+    rel="noreferrer noopener"
+    target="_blank"
+    className="inline-flex items-center gap-1 font-medium text-xs text-neutral-400"
+  >
+    <FaDiscord className="size-4" />
+    Discord
+  </a>
+</div>

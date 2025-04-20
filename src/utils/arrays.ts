@@ -1,3 +1,27 @@
+export const arrBlog = [
+    {
+        slug: "learning-go",
+        title: "Aprendendo GO",
+        desc: "Minhas anotações/estudos sobre a linguagem go",
+        date: "19/04/2025",
+        time: 18
+    },
+    {
+        slug: "cafuntalk",
+        title: "Meu primeiro site de bate-papo",
+        desc: "Como nasceu a ideia de criar um chat e tudo que aprendi no processo.",
+        date: "16/04/2025",
+        time: 3
+    },
+    {
+        slug: "my-gamer-side",
+        title: "Jogos me trouxeram até aqui",
+        desc: "Minha história com os jogos.",
+        date: "14/04/2025",
+        time: 7
+    },
+]
+
 export const arrProjects = [
     {
         href: "https://cafuntalk.com",
@@ -47,8 +71,13 @@ export const arrSideProjects = [
 
 export const arrCertificates = [
     {
+        href: "https://www.ude.my/UC-f2b12b39-f172-4fcf-8dab-19fc29974950/",
+        course: "Go: The Complete Developer's Guide (Golang)",
+        teacher: "Stephen Grider",
+    },
+    {
         href: "https://www.ude.my/UC-5d18ce0f-2c7f-45e0-b3d9-d40334d036ec/",
-        course: "The Complete Full-Stack Web Development Bootcamp ",
+        course: "The Complete Full-Stack Web Development Bootcamp",
         teacher: "The App Brewery",
     },
     {
@@ -104,36 +133,11 @@ export const arrCertificates = [
     {
         href: "https://lms.hackatruck.com.br/mod/simplecertificate/verify.php",
         course: "Práticas de Cloud Services usando Swift com ênfase em Serviços Cognitivos",
-        teacher: "Instituto Eldorado (HACKATRUCK)",
+        teacher: "Instituto de Pesquisas Eldorado (HACKATRUCK)",
     },
     {
         href: "https://lms.hackatruck.com.br/mod/simplecertificate/verify.php",
         course: "Algoritmos e Programação Orientada a Objetos com Swift",
-        teacher: "Instituto Eldorado (HACKATRUCK)",
+        teacher: "Instituto de Pesquisas Eldorado (HACKATRUCK)",
     },
 ];
-
-
-export const arrBlog = [
-    {
-        slug: "learning-go",
-        title: "Aprendendo GO",
-        desc: "Minhas anotações sobre a linguagem go",
-        date: "18/04/2025",
-        time: 8
-    },
-    {
-        slug: "cafuntalk",
-        title: "Meu primeiro site de bate-papo",
-        desc: "Como nasceu a ideia de criar um chat e tudo que aprendi no processo.",
-        date: "16/04/2025",
-        time: 3
-    },
-    {
-        slug: "my-gamer-side",
-        title: "Jogos me trouxeram até aqui",
-        desc: "Minha história com os jogos.",
-        date: "14/04/2025",
-        time: 7
-    },
-]
