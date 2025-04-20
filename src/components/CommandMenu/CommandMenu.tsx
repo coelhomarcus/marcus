@@ -11,12 +11,14 @@ import {
     CommandShortcut
 } from "@/components/ui/command"
 
-import { FaLaptopCode, FaRegFolderOpen, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaLaptopCode, FaRegFolderOpen, FaGithub, FaLinkedin, FaDiscord } from "react-icons/fa";
 import { CiTextAlignJustify } from "react-icons/ci";
 import { RiExternalLinkLine } from "react-icons/ri";
 import { MdAlternateEmail } from 'react-icons/md';
 import { TbCertificate } from "react-icons/tb";
 import { FiUser } from "react-icons/fi";
+import { FaRegFilePdf } from "react-icons/fa6";
+
 
 import isMac from '@/utils/isMac';
 
@@ -35,9 +37,10 @@ const navigation: Page[] = [
 ]
 
 const socials: Page[] = [
+    { name: 'Email', href: 'mailto:marcusrangelcoelho@gmail.com', icon: MdAlternateEmail },
     { name: 'GitHub', href: 'https://github.com/coelhomarcus', icon: FaGithub },
     { name: 'Linkedin', href: 'https://www.linkedin.com/in/coelhomarcus/', icon: FaLinkedin },
-    { name: 'Email', href: 'mailto:marcusrangelcoelho@gmail.com', icon: MdAlternateEmail },
+    { name: 'Discord', href: 'https://discord.com/invite/YDSGKzaSDe', icon: FaDiscord },
 ]
 
 const projects: Page[] = [
@@ -52,6 +55,10 @@ const posts: Page[] = [
     { name: 'Aprendendo GO', href: '/blog/learning-go', icon: CiTextAlignJustify },
     { name: 'Meu primeiro site de bate-papo', href: '/blog/cafuntalk', icon: CiTextAlignJustify },
     { name: 'Jogos me trouxeram até aqui', href: '/blog/my-gamer-side', icon: CiTextAlignJustify },
+]
+
+const others: Page[] = [
+    { name: 'Curriculo', href: 'https://docs.google.com/document/d/1wgOhwh-1YT-LRog9j1tvxzBVKfraoSzps1AiBGuSx9A/export?format=pdf', icon: FaRegFilePdf },
 ]
 
 export default function CommandMenu({ open, setOpen }: { open: boolean, setOpen: React.Dispatch<React.SetStateAction<boolean>> }) {
@@ -102,7 +109,7 @@ export default function CommandMenu({ open, setOpen }: { open: boolean, setOpen:
             <CommandInput placeholder="Pesquise..." />
             <div className='scrollbar-container'>
                 <CommandList className='scrollbar-content bg-popover'>
-                    <CommandEmpty>No results found.</CommandEmpty>
+                    <CommandEmpty>Sem resultados.</CommandEmpty>
                     <CommandGroup heading="Navegação">
                         {navigation.map((page) => (
                             <CommandItem className='cursor-pointer' key={page.href} onSelect={() => handleSelect(page.href)}>
@@ -112,7 +119,7 @@ export default function CommandMenu({ open, setOpen }: { open: boolean, setOpen:
                             </CommandItem>
                         ))}
                     </CommandGroup>
-                    <CommandGroup heading="Redes">
+                    <CommandGroup heading="Redes Sociais">
                         {socials.map((page) => (
                             <CommandItem className='cursor-pointer' key={page.href} onSelect={() => handleSelect(page.href)}>
                                 <page.icon className="mr-2 h-4 w-4" />
@@ -130,6 +137,14 @@ export default function CommandMenu({ open, setOpen }: { open: boolean, setOpen:
                     </CommandGroup>
                     <CommandGroup heading="Posts">
                         {posts.map((page) => (
+                            <CommandItem className='cursor-pointer' key={page.href} onSelect={() => handleSelect(page.href)}>
+                                <page.icon className="mr-2 h-4 w-4" />
+                                {page.name}
+                            </CommandItem>
+                        ))}
+                    </CommandGroup>
+                    <CommandGroup heading="Outros">
+                        {others.map((page) => (
                             <CommandItem className='cursor-pointer' key={page.href} onSelect={() => handleSelect(page.href)}>
                                 <page.icon className="mr-2 h-4 w-4" />
                                 {page.name}
