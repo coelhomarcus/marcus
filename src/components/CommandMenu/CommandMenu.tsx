@@ -54,7 +54,6 @@ const projects: Page[] = [
 const posts: Page[] = [
     { name: 'Aprendendo GO', href: '/blog/learning-go', icon: CiTextAlignJustify },
     { name: 'Meu primeiro site de bate-papo', href: '/blog/cafuntalk', icon: CiTextAlignJustify },
-    { name: 'Jogos me trouxeram até aqui', href: '/blog/my-gamer-side', icon: CiTextAlignJustify },
 ]
 
 const others: Page[] = [

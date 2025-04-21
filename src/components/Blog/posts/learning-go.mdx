@@ -1,29 +1,21 @@
 import { FaDiscord, FaGithub } from "react-icons/fa";
 
-Faz um tempo que eu tô de olho na linguagem GO, e finalmente tomei coragem p/ estudar!
+Faz um tempo que eu tô de olho na linguagem GO, e finalmente tomei coragem p/ estudar, utilizei 2 cursos para iniciar os estudos, caso tenham interesse foram:
 
-Aqui estão todas as anotações que fiz durante os estudos:
+- Go: The Complete Developer's Guide do Stephen Grider
+- Complete Go for Professional Developers pela FrontendMasters
+
+<span className='italic text-xs text-neutral-500'>Dica: se vc tem uma conta estudante no github, tem acesso a 6 meses gratis nos cursos da FrontendMasters</span>	
+
+Aqui estão algumas das anotações que fiz durante os estudos:
 
 ### Go CLI
 - `go build` - Compila o projeto
 - `go run` - Compila e executa o projeto
-- `go fmt` - Formata todo o codigo em cada arquivo do diretorio
+- `go get` - Instala algum package
 - `go install` - Compila e instala um package
-- `go get` - Baixa o "raw source code" do package de alguem
 - `go test` - Roda algum teste relacionado ao projeto
 - `go mod init name` - Criando go.mod
-
-### Boilerplate Simples
-
-```
-package main
-
-import "fmt"
-
-func main() {
-    fmt.Println("Hello Wolrd")
-}
-```
 
 ### Como os packages (pacotes) funcionam?
 
@@ -31,44 +23,34 @@ Basicamente, em Go existem dois tipos de pacotes:
 - Executáveis (Executable)
 - Reutilizáveis (Reusable)
 
-Por exemplo, o `package main` é um pacote executável — ele precisa ter uma função main dentro (o nome do arquivo em si não importa). Esse é o pacote principal, o que é usado pra buildar o projeto. Se você tentar buildar um projeto com um pacote que não seja o main, ele nem vai gerar o executável.
+Por exemplo, o `package main` é um pacote executável, ele precisa ter uma função main dentro (o nome do arquivo em si não importa). 
+
+Esse é o pacote principal, o que é usado pra buildar o projeto. 
+
+Se você tentar buildar um projeto com um pacote que não seja o main, ele nem vai gerar o executável.
 
 E como saber se um pacote é executável ou reutilizável? É simples: depende do nome.
 
 - Se for `package main`, é executável.
-- Qualquer outro nome, tipo `package utils`, `package math`, etc., é um pacote reutilizável — ou seja, código que pode ser usado em outros lugares como se fosse uma dependência.
+- Qualquer outro nome, tipo `package utils`, `package math`, etc., é um pacote reutilizável, ou seja, código que pode ser usado em outros lugares como se fosse uma dependência.
 
 
-### Importação
+### Import
 
-As importações em Go são feitas com aspas duplas, tipo assim: import "fmt".
+As importações em Go são feitas com aspas duplas, tipo assim: `import "fmt"`.
 
-O `fmt` é uma biblioteca padrão que temos em Go.
+### Variable
 
-### Criando Variaveis
-
-Esses dois jeitos de criar variáveis dentro da função são equivalentes.
-
-A diferença é que no primeiro a gente declara o tipo (string) de forma explícita, e no segundo o Go infere o tipo automaticamente com base no valor que você passou.
 ```
 func main() {
-    var name string = "Marcus"
-    name := "Marcus"
-}
-```
-
-Um detalhe importante: variáveis podem até ser declaradas fora de uma função, como fiz com `sobrenome`, mas elas só podem receber valor (ser inicializadas) dentro de uma função, como na func main.
-```
-var sobrenome string
-
-func main() {
-    sobrenome = "Coelho"
+    var name string = "Marcus" // tipo explicito
+    name := "Marcus" // infere o tipo
 }
 ```
 
 Em Go não existe undefined ou null como em outras linguagens.
 
-Se você criar uma variável sem inicializar, ela já vem com um valor zero (zero value) dependendo do tipo:
+Se você não inicializar a variável, ela virá com um `zero value` dependendo do tipo:
 
 - string → ""
 - int → 0
@@ -77,7 +59,7 @@ Se você criar uma variável sem inicializar, ela já vem com um valor zero (zer
 
 ### Funções
 
-Aqui vai um exemplo simples de como criar uma função e indicar qual tipo ela vai retornar — nesse caso, uma string:
+Criando uma função que retorna string:
 ```
 var nome string
 
@@ -89,8 +71,6 @@ func myName() string {
     return "Marcus"
 }
 ```
-
-A função `myName()` retorna uma string, e a gente usa ela dentro do main, atribuindo o valor retornado pra variável nome.
 
 ### Mais sobre pacotes (packages)
 
@@ -116,21 +96,18 @@ func printState() {
 }
 ```
 
-Ou seja: enquanto os arquivos estiverem no mesmo diretório e com o mesmo package, tá tudo certo — o Go vai reconhecer e juntar tudo na hora de compilar.
-
 ### Array e Slice
 
 Basicamente, uma Slice é uma versão mais flexível de um Array.
 - Array quando o tamanho da lista for fixo.
 - Slice quando o tamanho for variável — já que dá pra adicionar ou remover elementos com facilidade.
 
-Slices precisam ter todos os elementos do mesmo tipo: se começou com `string`, tudo tem que ser `string`; se for `int`, tudo `int`, e por aí vai.
+Slices precisam ter todos os elementos do mesmo tipo: se começou com `string`, tudo tem que ser `string`; se for `int`, tudo `int`...
 
 Quando usamos `append()`, na real estamos criando uma nova Slice com o novo valor incluso — e reatribuindo essa nova Slice pra mesma variável.
 
-Pra iterar sobre uma Slice, usamos a palavra-chave `range`, que percorre cada elemento.
+Pra iterar sobre uma Slice, usamos a palavra-chave `range` no loop, que percorre cada elemento.
 
-Um detalhe importante: se você declarar o index no loop, tem que usar ele, senão o Go vai acusar erro. Se não for usar, é só ignorar com _.
 ```
 // Criando uma Slice
 
@@ -152,6 +129,24 @@ for _, name := range names {
     fmt.Println(name);
 }
 ``` 
+
+### Slice Range Syntax
+
+Esse esquema de fatia (slice) é muito útil quando queremos pegar só uma parte da lista.
+
+Detalhe importante: o segundo número não é incluso, então 0:2 pega o índice 0 e 1.
+```
+fruits := []string{"Maçã", "Pera", "Banana", "Uva"}
+
+// Do índice 0 até o 2 (mas sem incluir o 2)
+
+fruits[0:2] == ["Maçã", "Pera"]
+fruits[:2]   == ["Maçã", "Pera"]
+
+// A partir do índice 2 (incluindo o 2) até o fim
+
+fruits[2:] == ["Banana", "Uva"]
+```
 
 ### Type & Receivers Function
 
@@ -188,24 +183,6 @@ func (n names) print() {
 }
 ```
 
-### Slice Range Sintaxe
-
-Esse esquema de fatia (slice) é muito útil quando queremos pegar só uma parte da lista.
-
-Detalhe importante: o segundo número não é incluso, então 0:2 pega o índice 0 e 1.
-```
-fruits := []string{"Maçã", "Pera", "Banana", "Uva"}
-
-// Do índice 0 até o 2 (mas sem incluir o 2)
-
-fruits[0:2] == ["Maçã", "Pera"]
-fruits[:2]   == ["Maçã", "Pera"]
-
-// A partir do índice 2 (incluindo o 2) até o fim
-
-fruits[2:] == ["Banana", "Uva"]
-```
-
 ### Retorno de Multiplos Valores
 
 ```
@@ -221,46 +198,9 @@ func main() {
 }
 ```
 
-Função isEven para fixar conhecimento
-```
-package main
-
-import "fmt"
-
-func main() {
-	numbers := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-
-	for _, number := range numbers {
-		fmt.Println(isEven(number))
-	}
-}
-
-func isEven(n int) string {
-	if n%2 == 0 {
-		return fmt.Sprintf("%v is even", n)
-	} else {
-		return fmt.Sprintf("%v is odd", n)
-	}
-}
-```
-
 ### Structs
 
-Em Go, structs são usadas pra agrupar dados relacionados — tipo um "modelo" ou "formato" de algo.
-
-Aqui tá como criar e declarar uma struct:
-```
-type person struct {
-	firstName string
-	lastName  string
-}
-
-func main() {
-	marcus := person{"Marcus", "Coelho"}
-	marcus2 := person{firstName: "Marcus", lastName: "Coelho"}
-	marcus3 := person{lastName: "Coelho", firstName: "Marcus"}
-}
-```
+Em Go, structs são usadas pra agrupar dados relacionados, tipo um "modelo" ou "formato" de algo.
 
 ```
 type contactInfo struct {
@@ -284,46 +224,13 @@ func main() {
 
 ### Structs com Ponteiros
 
-A gente usa ponteiros quando quer modificar de verdade os valores de uma struct (ou qualquer variável) dentro de uma função.
+Usamos ponteiros quando queremos modificar de verdade os valores de uma struct (ou qualquer variável) dentro de uma função.
 
-Sem o ponteiro, o Go passa uma cópia da variável — então qualquer mudança não afeta o valor original.
-
-Com o ponteiro, acessamos diretamente o valor na memória e conseguimos alterar ele de fato.
+Sem o ponteiro, o Go passa uma cópia da variável, então qualquer mudança não afeta o valor original. Com o ponteiro, acessamos diretamente o valor na memória e conseguimos alterar ele de fato.
 
 - Com `&variavel` pegamos o endereço de memória onde o valor dessa variável está guardado.
 - Com `*ponteiro` acessamos o valor que está nesse endereço (ou seja, o valor para o qual o ponteiro aponta).
 - Tipo "o ponteiro é o endereço da casa, o valor é quem mora lá"
-```
-type person struct {
-	firstName string
-	lastName  string
-}
-
-func main() {
-	marcus := person{"Marcus", "Coelho"}
-
-	fmt.Println(marcus)
-
-	marcusPonteiro := &marcus
-	marcusPonteiro.changeName("Vitoria")
-
-	fmt.Println(marcus)
-}
-
-func (pointerToPerson *person) changeName(newName string) {
-	(*pointerToPerson).firstName = newName
-}
-```
-Dica:
-```
-address: 10x0Abc
-value: person{firstName: "Marcus"...}
-
-Turn address into value with *address
-Turn value into address with &value
-```
-Dica 2:
-- Diminuindo o codigo com o ponteiro
 ```
 type person struct {
 	firstName string
@@ -344,6 +251,14 @@ func (pointerToPerson *person) changeName(newName string) {
 	(*pointerToPerson).firstName = newName
 }
 ```
+Dica:
+```
+address: 10x0Abc
+value: person{firstName: "Marcus"...}
+
+Turn address into value with *address
+Turn value into address with &value
+```
 
 ### Value Types & Reference Types
 
@@ -351,11 +266,14 @@ Value Types: int, float, string, boolean, structs
 
 Reference Types: slices, maps, channels, pointers, functions
 
-De forma resumida, em Value Types, precisamos usar ponteiros caso queiramos alterar seus valores por meio de funções. Já em Reference Types, não precisamos nos preocupar com isso, pois, mesmo que seja criada uma cópia ao passá-los em uma função, essa cópia aponta para o mesmo endereço, então a modificação ocorre normalmente.
+De forma resumida, em Value Types, precisamos usar ponteiros caso queiramos alterar seus valores por meio de funções. 
+
+Já em Reference Types, não precisamos nos preocupar com isso, pois, mesmo que seja criada uma cópia ao passá-los em uma função, essa cópia aponta para o mesmo endereço, então a modificação ocorre normalmente.
 
 ### Map
 
-Basicamente, Map é como se fosse um objeto do JavaScript, mas com algumas peculiaridades: as chaves devem ser todas do mesmo tipo, e os valores também devem ser todos do mesmo tipo.
+Basicamente, Map é como se fosse um objeto do JavaScript, mas com algumas peculiaridades:
+-  as chaves devem ser todas do mesmo tipo, e os valores também devem ser todos do mesmo tipo.
 
 - Se uma chave for `int`, todas têm que ser `int`;
 - Se um valor for `string`, todos os outros também têm que ser `string`.
@@ -462,30 +380,6 @@ func (t triangle) getArea() float64 {
 
 func (s square) getArea() float64 {
 	return s.sideLength * s.sideLength
-}
-```
-
-Código que fiz para um desafio. Ainda não está otimizado, mas estou aprendendo.
-
-```
-func main() {
-	// os.Args retorna uma slice de string com os argumentos
-	// que passamos na execução: go run main.go arquivo.txt
-	// fileNames[0] = main.go e fileNames[1] = arquivo.txt
-	fileNames := os.Args
-
-	// Aqui abrimos o arquivo cujo nome foi passado como argumento
-	// textFile recebe o conteúdo (ou melhor, uma referência ao arquivo aberto)
-	textFile, _ := os.Open(fileNames[1])
-
-	// Criamos uma slice de bytes com tamanho 9999 para armazenar o conteúdo lido do arquivo
-	byteSlice := make([]byte, 9999)
-
-	// Usamos o método Read para preencher a byteSlice com os bytes lidos do arquivo
-	textFile.Read(byteSlice)
-
-	// Transformamos os bytes em string e printamos o conteúdo do arquivo no terminal
-	fmt.Println(string(byteSlice))
 }
 ```
 
