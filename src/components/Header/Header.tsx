@@ -1,14 +1,22 @@
 import { NavLink } from "react-router"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { FaUserAlt } from "react-icons/fa";
 
 const Header = () => {
     return (
         <div className='flex justify-between items-center mb-4'>
             <NavLink to="/">
-                <Avatar className="size-10 hover:scale-110 transition-all">
-                    <AvatarImage src="/icons/profile.jpg" />
-                    <AvatarFallback>MC</AvatarFallback>
-                </Avatar>
+                <div className="relative">
+                    <Avatar className="size-10 rounded-md">
+                        <AvatarImage src="/icons/profile.jpg" />
+                        <AvatarFallback className="size-10 rounded-md">
+                            <FaUserAlt className="opacity-60 text-white" aria-hidden="true" />
+                        </AvatarFallback>
+                    </Avatar>
+                    <span className="border-background absolute -end-1 -top-1 size-3 rounded-full border-2 bg-emerald-500">
+                        <span className="sr-only">Online</span>
+                    </span>
+                </div>
             </NavLink>
 
             <div className="flex gap-5 text-neutral-400 *:text-sm *:hover:text-white *:transition-colors">
