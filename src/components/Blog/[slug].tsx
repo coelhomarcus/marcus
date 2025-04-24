@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { MDXProvider } from '@mdx-js/react'
 import { useParams, Link } from 'react-router';
 
-import { arrBlog } from '../../utils/arrays';
+import { arrBlog } from '../../utils/data';
 import components from '../../utils/components';
 
 import { PiSpinnerThin } from "react-icons/pi";

@@ -9,6 +9,7 @@ import {
 
 import isMac from "@/utils/isMac";
 import ContactLink from "../ContactLink/ContactLink";
+import { Link } from "react-router";
 
 const About = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<boolean>> }) => {
     return (
@@ -16,16 +17,16 @@ const About = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<boole
             <h1 className='text-xl font-semibold mb-4'>Marcus Coelho</h1>
             <p className='text-neutral-400 text-sm'>
                 Olá, me chamo Marcus Coelho, sou estudante de Sistemas de Informação na Unifesspa e estou sempre em busca de aprender coisas novas.
-                Se quiser saber mais sobre minha trajetória, <span><a className="font-medium text-xs transition-colors hover:text-neutral-200 underline" href="https://docs.google.com/document/d/1wgOhwh-1YT-LRog9j1tvxzBVKfraoSzps1AiBGuSx9A/export?format=pdf" download>veja meu currículo</a></span>.
+                Se quiser saber mais sobre minha trajetória, <span><a className="transition-colors hover:text-neutral-200 underline" href="https://docs.google.com/document/d/1wgOhwh-1YT-LRog9j1tvxzBVKfraoSzps1AiBGuSx9A/export?format=pdf" download>veja meu currículo</a></span>.
                 <br />
                 <br />
-                Atualmente, faço parte da Exception Jr, uma empresa júnior da faculdade, onde atuo como Full Stack Developer. Alguns dos projetos em que estou envolvido incluem o Conecta Canaã.
+                Atualmente, faço parte da Exception Jr, uma empresa júnior da faculdade, onde atuo como Full Stack Developer. Alguns dos <Link className="transition-colors hover:text-neutral-200 underline" to="/projects">projetos</Link> em que estou envolvido incluem o Conecta Canaã.
                 <br />
                 <Accordion type="multiple">
                     <AccordionItem value="item-0">
                         <AccordionTrigger className="text-neutral-200 cursor-pointer">Skills</AccordionTrigger>
                         <AccordionContent className="space-y-2">
-                            <p><span className="text-neutral-200 text-xs font-bold">Front-end: </span>React, Typescript, Tailwind, Next.js, Vite, React Router.</p>
+                            <p><span className="text-neutral-200 text-xs font-bold">Front-end: </span>React, Typescript, Tailwind, Next.js, Vite.</p>
                             <p><span className="text-neutral-200 text-xs font-bold">Back-end: </span>Go, Node.js, Express, PostgreSQL, MySQL. </p>
                             <p><span className="text-neutral-200 text-xs font-bold">Outros: </span>Swift, Python, C# (Unity)</p>
                         </AccordionContent>

@@ -35,14 +35,14 @@ export const arrProjects = [
 
 export const arrSideProjects = [
     {
-        href: "https://blob-temp.vercel.app/",
-        name: "Blob",
-        desc: "Site de previsão meteorológica"
-    },
-    {
         href: "https://coelhomarcus.github.io/bunnybash/",
         name: "BunnyBash",
         desc: "Site que simula um terminal."
+    },
+    {
+        href: "https://blob-temp.vercel.app/",
+        name: "Blob",
+        desc: "Site de previsão meteorológica"
     },
     {
         href: "https://coelhomarcus.itch.io/mailman",
@@ -63,6 +63,11 @@ export const arrSideProjects = [
 ]
 
 export const arrCertificates = [
+    {
+        href: "https://scrimba.com/certificate-cert2ffentAFMatUYR9SpXLrNVhGP9VMRKwBNs5jXMeknpXvNn",
+        course: "Learn Next.js",
+        teacher: "Scrimba",
+    },
     {
         href: "https://static.frontendmasters.com/ud/c/4daf165d55/pwzNwRtJBS/complete-go.pdf",
         course: "Complete Go for Professional Developers",

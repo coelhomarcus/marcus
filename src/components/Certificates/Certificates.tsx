@@ -1,4 +1,4 @@
-import { arrCertificates } from "../../utils/arrays"
+import { arrCertificates } from "../../utils/data"
 import SimpleCard from "../SimpleCard/SimpleCard";
 
 const Certificates = () => {

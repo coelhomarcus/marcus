@@ -1,4 +1,4 @@
-import { arrProjects, arrSideProjects } from "../../utils/arrays"
+import { arrProjects, arrSideProjects } from "../../utils/data"
 import SimpleCard from "../SimpleCard/SimpleCard";
 
 const Projects = () => {

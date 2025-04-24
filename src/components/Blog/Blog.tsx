@@ -1,5 +1,5 @@
 import { Link } from "react-router"
-import { arrBlog } from "../../utils/arrays"
+import { arrBlog } from "../../utils/data"
 
 const BlogCard = ({ slug, title, date, desc, time }: { slug: string, title: string, date: string, desc: string, time: number }) => {
     return <Link to={`/blog/${slug}`} key={slug} className="space-y-2 block shadow-inner shadow-neutral-800 p-4 rounded-lg border border-neutral-900 -mx-4 transition-colors hover:transition-none hover:bg-neutral-900">

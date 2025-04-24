@@ -2,9 +2,9 @@ import { FaGithub, FaLink } from "react-icons/fa";
 
 ## Como surgiu a ideia?
 
-A ideia para esse projeto veio do nada. Eu tinha acabado de finalizar o curso <span className="text-neutral-200">The Complete Full-Stack Web Development Bootcamp</span>, da <span className="text-neutral-200 italic">Angela Yu</span> (que recomendo demais), e queria pôr em prática meus conhecimentos em Node, que tinha acabado de adquirir.
+A ideia para esse projeto veio do nada. Eu tinha acabado de finalizar o curso **The Complete Full-Stack Web Development Bootcamp**, da **Angela Yu** (que recomendo demais), e queria pôr em prática meus conhecimentos em Node, que tinha acabado de adquirir.
 
-Então pensei, pensei… e me veio a ideia de tentar criar um bate-papo parecido com o <span className="text-neutral-200">hack.chat</span>, que havia conhecido na faculdade. 
+Então pensei, pensei… e me veio a ideia de tentar criar um bate-papo parecido com o **hack.chat**, que havia conhecido na faculdade. 
 
 Não sei se vocês já chegaram a usar, mas, basicamente, é um bate-papo sem histórico e baseado em salas, onde só é preciso colocar o username para conseguir “logar” na sala e conversar com quem estiver lá.
 
@@ -12,7 +12,7 @@ Não sei se vocês já chegaram a usar, mas, basicamente, é um bate-papo sem hi
 
 Confesso que não fazia ideia de por onde começar. Eu realmente não sabia como fazer uma comunicação em tempo real pro bate-papo funcionar — na minha cabeça, era a coisa mais difícil do mundo. Já tinha ouvido falar de WebSockets, mas nunca tinha parado pra entender de verdade como funcionava.
 
-Então, como um bom jovem programador, fui no ChatGPT e perguntei como era feita essa comunicação — e ele me falou sobre os WebSockets e sugeriu uma biblioteca: <span className="text-neutral-200">Socket.IO</span>. 
+Então, como um bom jovem programador, fui no ChatGPT e perguntei como era feita essa comunicação — e ele me falou sobre os WebSockets e sugeriu uma biblioteca: **Socket.IO**.
 
 Foi essa a biblioteca que usei pra desenvolver o projeto — e olha, é mais fácil do que parece. A comunicação é bem direta e tranquila de entender. Como não tem histórico de conversa, tudo fica ainda mais simples. Provavelmente minhas escolhas não foram as mais otimizadas... mas a gente tem que começar de algum lugar, né?
 
@@ -37,18 +37,18 @@ Talvez ela devesse ser carregada do lado do servidor, e não do cliente? Preciso
     href="https://cafuntalk.com"
     rel="noreferrer noopener"
     target="_blank"
-    className="inline-flex items-center gap-1 font-medium text-xs text-neutral-400"
+    className="inline-flex items-center gap-1 font-medium text-xs text-neutral-400 hover:text-neutral-200 transition-colors"
   >
     <FaLink className="size-4" />
-    cafuntalk.com
+    <span>cafuntalk.com</span>
   </a>
   <a
     href="https://github.com/coelhomarcus/cafuntalk"
     rel="noreferrer noopener"
     target="_blank"
-    className="inline-flex items-center gap-1 font-medium text-xs text-neutral-400"
+    className="inline-flex items-center gap-1 font-medium text-xs text-neutral-400 hover:text-neutral-200 transition-colors"
   >
     <FaGithub className="size-4" />
-    coelhomarcus/cafuntalk
+    <span>coelhomarcus/cafuntalk</span>
   </a>
 </div>

@@ -1,21 +1,17 @@
 import { FaDiscord, FaGithub } from "react-icons/fa";
 
-Faz um tempo que eu tô de olho na linguagem GO, e finalmente tomei coragem p/ estudar, utilizei 2 cursos para iniciar os estudos, caso tenham interesse foram:
+Faz um tempo que eu tô de olho na linguagem GO, e finalmente tomei coragem para estudar, utilizei 2 cursos para iniciar os estudos, caso tenham interesse foram: <br/> **Go: The Complete Developer's Guide** do **Stephen Grider**
+e **Complete Go for Professional Developer**s pela **FrontendMasters**
 
-- Go: The Complete Developer's Guide do Stephen Grider
-- Complete Go for Professional Developers pela FrontendMasters
-
-<span className='italic text-xs text-neutral-500'>Dica: se vc tem uma conta estudante no github, tem acesso a 6 meses gratis nos cursos da FrontendMasters</span>	
-
-Aqui estão algumas das anotações que fiz durante os estudos:
+Aqui estão algumas das anotações que fiz durante os estudos: 
 
 ### Go CLI
-- `go build` - Compila o projeto
-- `go run` - Compila e executa o projeto
-- `go get` - Instala algum package
-- `go install` - Compila e instala um package
-- `go test` - Roda algum teste relacionado ao projeto
-- `go mod init name` - Criando go.mod
+- **go build** - Compila o projeto
+- **go run** - Compila e executa o projeto
+- **go get** - Instala algum package
+- **go install** - Compila e instala um package
+- **go test** - Roda algum teste relacionado ao projeto
+- **go mod init name** - Criando go.mod
 
 ### Como os packages (pacotes) funcionam?
 
@@ -23,7 +19,7 @@ Basicamente, em Go existem dois tipos de pacotes:
 - Executáveis (Executable)
 - Reutilizáveis (Reusable)
 
-Por exemplo, o `package main` é um pacote executável, ele precisa ter uma função main dentro (o nome do arquivo em si não importa). 
+Por exemplo, o **package main** é um pacote executável, ele precisa ter uma função main dentro (o nome do arquivo em si não importa). 
 
 Esse é o pacote principal, o que é usado pra buildar o projeto. 
 
@@ -31,13 +27,13 @@ Se você tentar buildar um projeto com um pacote que não seja o main, ele nem v
 
 E como saber se um pacote é executável ou reutilizável? É simples: depende do nome.
 
-- Se for `package main`, é executável.
-- Qualquer outro nome, tipo `package utils`, `package math`, etc., é um pacote reutilizável, ou seja, código que pode ser usado em outros lugares como se fosse uma dependência.
+- Se for **package main**, é executável.
+- Qualquer outro nome, tipo **package utils**, **package math**, etc., é um pacote reutilizável, ou seja, código que pode ser usado em outros lugares como se fosse uma dependência.
 
 
 ### Import
 
-As importações em Go são feitas com aspas duplas, tipo assim: `import "fmt"`.
+As importações em Go são feitas com aspas duplas, tipo assim: **import "fmt"**.
 
 ### Variable
 
@@ -50,7 +46,7 @@ func main() {
 
 Em Go não existe undefined ou null como em outras linguagens.
 
-Se você não inicializar a variável, ela virá com um `zero value` dependendo do tipo:
+Se você não inicializar a variável, ela virá com um **zero value** dependendo do tipo:
 
 - string → ""
 - int → 0
@@ -102,11 +98,11 @@ Basicamente, uma Slice é uma versão mais flexível de um Array.
 - Array quando o tamanho da lista for fixo.
 - Slice quando o tamanho for variável — já que dá pra adicionar ou remover elementos com facilidade.
 
-Slices precisam ter todos os elementos do mesmo tipo: se começou com `string`, tudo tem que ser `string`; se for `int`, tudo `int`...
+Slices precisam ter todos os elementos do mesmo tipo: se começou com **string**, tudo tem que ser **string**; se for **int**, tudo **int**...
 
-Quando usamos `append()`, na real estamos criando uma nova Slice com o novo valor incluso — e reatribuindo essa nova Slice pra mesma variável.
+Quando usamos **append()**, na real estamos criando uma nova Slice com o novo valor incluso — e reatribuindo essa nova Slice pra mesma variável.
 
-Pra iterar sobre uma Slice, usamos a palavra-chave `range` no loop, que percorre cada elemento.
+Pra iterar sobre uma Slice, usamos a palavra-chave **range** no loop, que percorre cada elemento.
 
 ```
 // Criando uma Slice
@@ -150,7 +146,7 @@ fruits[2:] == ["Banana", "Uva"]
 
 ### Type & Receivers Function
 
-Com `type`, conseguimos criar um novo tipo baseado em um tipo que já existe.
+Com **type**, conseguimos criar um novo tipo baseado em um tipo que já existe.
 
 E com as funções receptoras (receiver functions), criamos métodos que as variáveis desse novo tipo podem usar.
 
@@ -275,8 +271,8 @@ Já em Reference Types, não precisamos nos preocupar com isso, pois, mesmo que 
 Basicamente, Map é como se fosse um objeto do JavaScript, mas com algumas peculiaridades:
 -  as chaves devem ser todas do mesmo tipo, e os valores também devem ser todos do mesmo tipo.
 
-- Se uma chave for `int`, todas têm que ser `int`;
-- Se um valor for `string`, todos os outros também têm que ser `string`.
+- Se uma chave for **int**, todas têm que ser **int**;
+- Se um valor for **string**, todos os outros também têm que ser **string**.
 ```
 func main() {
 	trafficLight := map[string]string{
@@ -316,7 +312,7 @@ func printMap(c map[string]string) {
 
 Interfaces servem pra gente definir um "contrato" de métodos que diferentes tipos precisam ter. É uma forma de criar um tipo mais genérico que aceita qualquer coisa que siga esse contrato.
 
-No exemplo abaixo, criamos uma interface chamada `bot`, que exige que qualquer tipo que a implemente tenha o método `getGreeting()` que retorna uma `string`. Então, qualquer tipo que tiver esse método com essa assinatura já é considerado um bot, sem precisar declarar isso explicitamente.
+No exemplo abaixo, criamos uma interface chamada **bot**, que exige que qualquer tipo que a implemente tenha o método **getGreeting()** que retorna uma **string**. Então, qualquer tipo que tiver esse método com essa assinatura já é considerado um bot, sem precisar declarar isso explicitamente.
 
 ```
 type bot interface {
@@ -385,13 +381,13 @@ func (s square) getArea() float64 {
 
 ### Go Routines
 
-Basicamente, `Go Routines` são um método que utilizamos para rodar códigos de forma concorrente e, também, de forma paralela (nesse caso, só será paralelo se a CPU tiver mais de um núcleo; caso contrário, será apenas concorrente mesmo).
+Basicamente, **Go Routines** são um método que utilizamos para rodar códigos de forma concorrente e, também, de forma paralela (nesse caso, só será paralelo se a CPU tiver mais de um núcleo; caso contrário, será apenas concorrente mesmo).
 
-Por exemplo, imagine que eu tenha uma `slice com 5 links`, e um `for` que percorre essa slice fazendo um fetch desses links para saber se o status de cada um está ok ou não.
+Por exemplo, imagine que eu tenha uma **slice com 5 links**, e um **for** que percorre essa slice fazendo um fetch desses links para saber se o status de cada um está ok ou não.
 
-Da forma tradicional, temos uma `Blocking Call`, pois precisamos esperar o fetch do primeiro link terminar para começar o segundo, e esperar o segundo terminar para começar o terceiro — o que pode demorar bastante.
+Da forma tradicional, temos uma **Blocking Call**, pois precisamos esperar o fetch do primeiro link terminar para começar o segundo, e esperar o segundo terminar para começar o terceiro — o que pode demorar bastante.
 
-Então, o que podemos fazer é utilizar `Go Routines` para mitigar isso. Na nossa função que checa os links dentro do `for`, adicionamos a palavra-chave `go` antes. Ficaria algo assim:
+Então, o que podemos fazer é utilizar **Go Routines** para mitigar isso. Na nossa função que checa os links dentro do **for**, adicionamos a palavra-chave **go** antes. Ficaria algo assim:
 
 ```
 // Antes
@@ -405,19 +401,19 @@ for _, link := range links {
 } 
 ```
 
-A palavra-chave `go` so pode ser usada antes de funções.
+A palavra-chave **go** so pode ser usada antes de funções.
 
-Algo importante a se entender sobre `Go Routines` é que a função main (Main Routine) encerra sua execução assim que termina seu trabalho, independentemente de existirem outras Goroutines em execução. Ou seja, se a função main finalizar antes das Goroutines, o programa inteiro será encerrado, e essas tarefas paralelas serão interrompidas.
+Algo importante a se entender sobre **Go Routines** é que a função main (Main Routine) encerra sua execução assim que termina seu trabalho, independentemente de existirem outras Goroutines em execução. Ou seja, se a função main finalizar antes das Goroutines, o programa inteiro será encerrado, e essas tarefas paralelas serão interrompidas.
 
-Por isso, quando estamos lidando com `Go Routines`, precisamos de alguma forma de sincronizar ou coordenar a execução entre elas — e é aí que entram os meios de comunicação entre `Go Routines`, como os `Channels`.
+Por isso, quando estamos lidando com **Go Routines**, precisamos de alguma forma de sincronizar ou coordenar a execução entre elas — e é aí que entram os meios de comunicação entre **Go Routines**, como os **Channels**.
 
 ### Channels
 
-Um `channel` em Go é uma forma segura de comunicação entre Go Routines. Uma coisa importante é que um channel só pode transmitir valores de um único tipo. Por exemplo, se você criar um channel de `string`, ele só poderá enviar e receber `strings`; o mesmo vale para `int`, `bool`, etc.
+Um **channel** em Go é uma forma segura de comunicação entre Go Routines. Uma coisa importante é que um channel só pode transmitir valores de um único tipo. Por exemplo, se você criar um channel de **string**, ele só poderá enviar e receber **strings**; o mesmo vale para **int**, **bool**, etc.
 
 A comunicação com channels funciona da seguinte forma: primeiro você cria o channel, depois o passa para a função que será executada como Go Routine. Assim, ela consegue enviar (ou receber) dados por meio desse canal.
 
-No exemplo abaixo, vamos supor que estamos verificando vários links com a função `checkLink()`. Aqui está como usamos um channel para isso:
+No exemplo abaixo, vamos supor que estamos verificando vários links com a função **checkLink()**. Aqui está como usamos um channel para isso:
 
 ```
 func main() {
@@ -456,7 +452,7 @@ func checkLink(link string, c chan string) {
 
 Mesmo que a gente tenha criado várias Go Routines com checkLink, se a função main não ficar esperando ativamente as respostas delas, o programa pode encerrar antes das Go Routines terminarem seu trabalho.
 
-Para resolver isso, precisamos fazer com que o main espere uma resposta para cada Go Routine que criamos. Como sabemos quantos links estamos verificando, podemos usar um `for` com `len(links)` para receber exatamente o mesmo número de mensagens do channel:
+Para resolver isso, precisamos fazer com que o main espere uma resposta para cada Go Routine que criamos. Como sabemos quantos links estamos verificando, podemos usar um **for** com **len(links)** para receber exatamente o mesmo número de mensagens do channel:
 
 ```
 for i := 0; i < len(links); i++ {
@@ -483,7 +479,7 @@ func checkLink(link string, c chan string) {
 }
 ```
 
-Podemos usar o `for range` para escutar continuamente o channel. Essa forma é bem comum em Go e funciona como um loop infinito que espera por mensagens no channel:
+Podemos usar o **for range** para escutar continuamente o channel. Essa forma é bem comum em Go e funciona como um loop infinito que espera por mensagens no channel:
 
 ```
 for l := range c {
@@ -509,7 +505,7 @@ func checkLink(link string, c chan string) {
 
 Por que passamos l como argumento da função anônima?
 
-Se você usasse a variável `link` diretamente dentro da Goroutine, ela poderia não ter o valor esperado, por conta do comportamento de variáveis em loops e closures. Ao passar `l` como argumento para a função anônima, você garante que o valor certo de cada iteração será usado.
+Se você usasse a variável **link** diretamente dentro da Goroutine, ela poderia não ter o valor esperado, por conta do comportamento de variáveis em loops e closures. Ao passar **l** como argumento para a função anônima, você garante que o valor certo de cada iteração será usado.
 
 ### Function Literal (Função Literal / Anônima)
 
@@ -557,18 +553,18 @@ Se quiser entrar em contato comigo pra conversarmos sobre Go ou qualquer outra c
     href="https://github.com/coelhomarcus"
     rel="noreferrer noopener"
     target="_blank"
-    className="inline-flex items-center gap-1 font-medium text-xs text-neutral-400"
+    className="inline-flex items-center gap-1 font-medium text-xs text-neutral-400 hover:text-neutral-200 transition-colors"
   >
     <FaGithub className="size-4" />
-    @coelhomarcus
+    <span>@coelhomarcus</span>
   </a>
   <a
     href="https://discord.com/invite/YDSGKzaSDe"
     rel="noreferrer noopener"
     target="_blank"
-    className="inline-flex items-center gap-1 font-medium text-xs text-neutral-400"
+    className="inline-flex items-center gap-1 font-medium text-xs text-neutral-400 hover:text-neutral-200 transition-colors"
   >
     <FaDiscord className="size-4" />
-    Discord
+    <span>Discord</span>
   </a>
 </div>

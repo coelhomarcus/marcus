@@ -21,7 +21,10 @@ const components = {
         <pre className="text-neutral-400 bg-background border border-foreground/10 scrollbar scrollbar-content" {...props} />
     ),
     code: (props: React.HTMLProps<HTMLPreElement>) => (
-        <code className="text-neutral-300 italic font-medium" {...props} />
+        <code className="text-neutral-300 italic font-medium font-[IBM_Plex_Mono]" {...props} />
+    ),
+    strong: (props: React.ComponentProps<'strong'>) => (
+        <strong className="text-neutral-200 font-medium" {...props} />
     ),
 }
 
