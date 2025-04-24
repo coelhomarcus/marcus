@@ -1,11 +1,11 @@
-import { NavLink } from "react-router"
+import { NavLink } from "react-router";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { FaUserAlt } from "react-icons/fa";
 
 const Header = () => {
     return (
         <div className='flex justify-between items-center mb-4'>
-            <NavLink to="/">
+            <a href="https://github.com/coelhomarcus" target="_blank">
                 <div className="relative">
                     <Avatar className="size-10">
                         <AvatarImage src="/icons/profile.jpg" />
@@ -17,7 +17,7 @@ const Header = () => {
                         <span className="sr-only">Online</span>
                     </span>
                 </div>
-            </NavLink>
+            </a>
 
             <div className="flex gap-5 text-neutral-400 *:text-sm *:hover:text-white *:transition-colors">
                 <HeaderLink title="Sobre" to="/" />

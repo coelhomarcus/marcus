@@ -14,7 +14,7 @@ const App = () => {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="px-6 py-8 min-h-[100vh] space-y-3 max-w-[600px] mx-auto bg-[#0A0A0A]">
+    <div className="px-6 py-8 min-h-[100vh] space-y-3 max-w-[750px] mx-auto bg-[#0A0A0A]">
       <Header />
       <CommandMenu open={open} setOpen={setOpen} />
       <Routes>

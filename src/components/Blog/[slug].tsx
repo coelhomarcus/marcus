@@ -56,7 +56,7 @@ const Post = () => {
     )
 
     return (
-        <div className='text-white'>
+        <div className='text-white w-full'>
             <div className='flex flex-col sm:flex-row justify-between gap-2 sm:gap-0 sm:items-center mt-5'>
                 <h1 className='font-medium text-sm'>{post.title}</h1>
                 <p className='text-xs text-neutral-400'>{post.date}</p>
@@ -65,17 +65,17 @@ const Post = () => {
             <hr className="h-[calc(var(--spacing)_*_0.2)] border-t-0 bg-neutral-700 mt-2 mb-5" />
 
             <MDXProvider components={components}>
-                <article className='prose'>
+                <article className='prose max-w-full'>
                     <MDXComponent />
                 </article>
             </MDXProvider>
 
-            <div className='flex justify-between items-center rounded-xl text-neutral-400 mt-5 px-3 py-3 bg-neutral-90 border border-neutral-800'>
+            <div className='flex justify-between items-center space-y-2 mt-5 shadow-inner shadow-neutral-800 p-4 rounded-xl border -mx-3 border-neutral-900 text-neutral-400'>
                 <div>
                     <p className='flex items-center gap-2 text-sm text-neutral-200'>Marcus Coelho</p>
-                    <p className='italic text-xs'>Espero que tenha gostado!</p>
+                    <p className='text-xs'>Veja as outras postagens!</p>
                 </div>
-                <Link to="/blog" className='text-xs px-4 py-2 rounded-xl border border-neutral-800 hover:text-white transition-all duration-200'>Voltar pro Blog</Link>
+                <Link to="/blog" className='text-xs px-4 py-2 rounded-xl shadow-inner shadow-neutral-800 border border-neutral-800 hover:text-white transition-all duration-200 hover:bg-neutral-900/50'>Voltar pro Blog</Link>
             </div>
         </div>
     );

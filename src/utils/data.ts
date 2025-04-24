@@ -1,8 +1,15 @@
 export const arrBlog = [
     {
+        slug: "learning-express",
+        title: "Aprendendo Express.js",
+        desc: "Minhas anotações e estudos sobre Express.js",
+        date: "24/04/2025",
+        time: 7
+    },
+    {
         slug: "learning-go",
         title: "Aprendendo GO",
-        desc: "Minhas anotações/estudos sobre a linguagem go",
+        desc: "Minhas anotações e estudos sobre Go (golang)",
         date: "19/04/2025",
         time: 18
     },
@@ -63,6 +70,11 @@ export const arrSideProjects = [
 ]
 
 export const arrCertificates = [
+    {
+        href: "https://scrimba.com/certificate-cert2ffentAFMatUYR9SpXLrNVrLLKpQAeKvDPKMeAowGy3Ft1",
+        course: "Learn Express.js",
+        teacher: "Scrimba",
+    },
     {
         href: "https://scrimba.com/certificate-cert2ffentAFMatUYR9SpXLrNVhGP9VMRKwBNs5jXMeknpXvNn",
         course: "Learn Next.js",

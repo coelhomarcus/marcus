@@ -15,6 +15,9 @@ const components = {
     p: (props: React.HTMLProps<HTMLParagraphElement>) => (
         <p className="prose-sm text-neutral-400" {...props} />
     ),
+    a: (props: React.HTMLProps<HTMLAnchorElement>) => (
+        <a className="prose-sm font-normal text-blue-400" {...props} />
+    ),
     ul: (props: React.HTMLProps<HTMLUListElement>) => (
         <ul className="text-neutral-400" {...props} />
     ),
@@ -39,7 +42,7 @@ const components = {
                 customStyle={{
                     background: '#0A0A0A',
                     padding: '1rem',
-                    fontSize: '0.875rem',
+                    fontSize: '0.825rem',
                 }}
                 className="rounded bg-background border border-foreground/10 scrollbar scrollbar-content"
                 {...rest}
