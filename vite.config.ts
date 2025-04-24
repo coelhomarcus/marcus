@@ -6,6 +6,17 @@ import path from "path"
 
 // https://vite.dev/config/
 export default defineConfig({
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
+        },
+      },
+    },
+  },
   plugins: [tailwindcss(), react(), {
     enforce: 'pre', ...mdx({
       providerImportSource: "@mdx-js/react",
