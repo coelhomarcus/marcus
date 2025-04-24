@@ -7,13 +7,13 @@ const Header = () => {
         <div className='flex justify-between items-center mb-4'>
             <NavLink to="/">
                 <div className="relative">
-                    <Avatar className="size-10 rounded-md">
+                    <Avatar className="size-10">
                         <AvatarImage src="/icons/profile.jpg" />
-                        <AvatarFallback className="size-10 rounded-md">
+                        <AvatarFallback className="size-10">
                             <FaUserAlt className="opacity-60 text-white" aria-hidden="true" />
                         </AvatarFallback>
                     </Avatar>
-                    <span className="border-background absolute -end-1 -top-1 size-3 rounded-full border-2 bg-emerald-500">
+                    <span className="border-background absolute -end-0.5 -bottom-0.5 size-3 rounded-full border-2 bg-emerald-500">
                         <span className="sr-only">Online</span>
                     </span>
                 </div>

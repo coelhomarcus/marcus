@@ -37,7 +37,7 @@ As importações em Go são feitas com aspas duplas, tipo assim: **import "fmt"*
 
 ### Variable
 
-```
+```go
 func main() {
     var name string = "Marcus" // tipo explicito
     name := "Marcus" // infere o tipo
@@ -56,7 +56,7 @@ Se você não inicializar a variável, ela virá com um **zero value** dependend
 ### Funções
 
 Criando uma função que retorna string:
-```
+```go
 var nome string
 
 func main() {
@@ -73,7 +73,7 @@ func myName() string {
 Mesmo que o código esteja em arquivos separados, tudo funciona normal, porque eles fazem parte do mesmo package.
 
 - main.go
-```
+```go
 package main
  
 func main() {
@@ -82,7 +82,7 @@ func main() {
 ```
 
 - state.go
-```
+```go
 package main
  
 import "fmt"
@@ -104,7 +104,7 @@ Quando usamos **append()**, na real estamos criando uma nova Slice com o novo va
 
 Pra iterar sobre uma Slice, usamos a palavra-chave **range** no loop, que percorre cada elemento.
 
-```
+```go
 // Criando uma Slice
 
 names := []string{"Marcus", myName(), "Vitoria"}
@@ -131,7 +131,8 @@ for _, name := range names {
 Esse esquema de fatia (slice) é muito útil quando queremos pegar só uma parte da lista.
 
 Detalhe importante: o segundo número não é incluso, então 0:2 pega o índice 0 e 1.
-```
+
+```go
 fruits := []string{"Maçã", "Pera", "Banana", "Uva"}
 
 // Do índice 0 até o 2 (mas sem incluir o 2)
@@ -151,7 +152,7 @@ Com **type**, conseguimos criar um novo tipo baseado em um tipo que já existe.
 E com as funções receptoras (receiver functions), criamos métodos que as variáveis desse novo tipo podem usar.
 
 - main.go
-```
+```go
 package main
 
 func main() {
@@ -161,7 +162,7 @@ func main() {
 ```
 
 - names.go
-```
+```go
 package main
 
 import "fmt"
@@ -181,7 +182,7 @@ func (n names) print() {
 
 ### Retorno de Multiplos Valores
 
-```
+```go
 func twoValues() (int, int) {
     return 10, 20
 }
@@ -198,7 +199,7 @@ func main() {
 
 Em Go, structs são usadas pra agrupar dados relacionados, tipo um "modelo" ou "formato" de algo.
 
-```
+```go
 type contactInfo struct {
 	number int
 	email  string
@@ -226,8 +227,9 @@ Sem o ponteiro, o Go passa uma cópia da variável, então qualquer mudança nã
 
 - Com `&variavel` pegamos o endereço de memória onde o valor dessa variável está guardado.
 - Com `*ponteiro` acessamos o valor que está nesse endereço (ou seja, o valor para o qual o ponteiro aponta).
-- Tipo "o ponteiro é o endereço da casa, o valor é quem mora lá"
-```
+- Tipo "o ponteiro é o endereço da casa, o valor é quem mora lá
+
+```go
 type person struct {
 	firstName string
 	lastName  string
@@ -247,6 +249,7 @@ func (pointerToPerson *person) changeName(newName string) {
 	(*pointerToPerson).firstName = newName
 }
 ```
+
 Dica:
 ```
 address: 10x0Abc
@@ -273,7 +276,8 @@ Basicamente, Map é como se fosse um objeto do JavaScript, mas com algumas pecul
 
 - Se uma chave for **int**, todas têm que ser **int**;
 - Se um valor for **string**, todos os outros também têm que ser **string**.
-```
+
+```go
 func main() {
 	trafficLight := map[string]string{
 		"red":    "stop",
@@ -286,21 +290,24 @@ func main() {
 }
 ```
 Criando um Map vazio
-```
+```go
 var colors map[string]string
 // ou
 colors := make(map[string]string)
 ```
+
 Adicionando valor no Map
-```
+```go
 colors["white"] = "#ffff";
 ```
+
 Removendo valor no Map
-```
+```go
 delete(colors, "white")
 ```
+
 Iterando no Map
-```
+```go
 func printMap(c map[string]string) {
 	for key, value := range c {
 		fmt.Println(key, value);
@@ -314,7 +321,7 @@ Interfaces servem pra gente definir um "contrato" de métodos que diferentes tip
 
 No exemplo abaixo, criamos uma interface chamada **bot**, que exige que qualquer tipo que a implemente tenha o método **getGreeting()** que retorna uma **string**. Então, qualquer tipo que tiver esse método com essa assinatura já é considerado um bot, sem precisar declarar isso explicitamente.
 
-```
+```go
 type bot interface {
 	getGreeting() string
 }
@@ -344,7 +351,7 @@ func (spanishBot) getGreeting() string {
 ```
 
 Outro exemplo de interface
-```
+```go
 type shape interface {
 	getArea() float64
 }
@@ -389,7 +396,7 @@ Da forma tradicional, temos uma **Blocking Call**, pois precisamos esperar o fet
 
 Então, o que podemos fazer é utilizar **Go Routines** para mitigar isso. Na nossa função que checa os links dentro do **for**, adicionamos a palavra-chave **go** antes. Ficaria algo assim:
 
-```
+```go
 // Antes
 for _, link := range links {
 	checkLink(link)
@@ -415,7 +422,7 @@ A comunicação com channels funciona da seguinte forma: primeiro você cria o c
 
 No exemplo abaixo, vamos supor que estamos verificando vários links com a função **checkLink()**. Aqui está como usamos um channel para isso:
 
-```
+```go
 func main() {
 	links := []string{
 		"http://google.com",
@@ -454,7 +461,7 @@ Mesmo que a gente tenha criado várias Go Routines com checkLink, se a função 
 
 Para resolver isso, precisamos fazer com que o main espere uma resposta para cada Go Routine que criamos. Como sabemos quantos links estamos verificando, podemos usar um **for** com **len(links)** para receber exatamente o mesmo número de mensagens do channel:
 
-```
+```go
 for i := 0; i < len(links); i++ {
 	fmt.Println(<-c)  // Espera e imprime a mensagem de cada Go Routine
 }
@@ -462,7 +469,7 @@ for i := 0; i < len(links); i++ {
 
 Também podemos fazer com que o programa fique verificando os links continuamente, de forma que ele nunca pare. Para isso, usamos um loop for que fica esperando por novas mensagens no channel. E como a operação `<-c` é bloqueante, o loop só prossegue quando uma nova mensagem for recebida — ou seja, ele não sai disparando um monte de Goroutines ao mesmo tempo descontroladamente.
 
-```
+```go
 for {
 	go checkLink(<-c, c)
 }
@@ -481,7 +488,7 @@ func checkLink(link string, c chan string) {
 
 Podemos usar o **for range** para escutar continuamente o channel. Essa forma é bem comum em Go e funciona como um loop infinito que espera por mensagens no channel:
 
-```
+```go
 for l := range c {
 	go func(link string) {
 		time.Sleep(5 * time.Second)
@@ -511,7 +518,7 @@ Se você usasse a variável **link** diretamente dentro da Goroutine, ela poderi
 
 Em Go, uma Function Literal é o mesmo conceito de uma função anônima, como em JavaScript. Ou seja, é uma função sem nome, que pode ser definida e executada na hora.
 
-```
+```go
 func() {
 	// Código aqui
 }()
@@ -519,7 +526,7 @@ func() {
 
 Note que os parênteses no final () são o que fazem a função ser executada imediatamente após ser declarada — igual a uma IIFE (Immediately Invoked Function Expression) em JavaScript.
 
-```
+```go
 func() {
 	fmt.Println("Executando uma função anônima!")
 }()
@@ -527,7 +534,7 @@ func() {
 
 Também podemos passar argumentos, assim como fazemos em JavaScript:
 
-```
+```go
 func(msg string) {
 	fmt.Println(msg)
 }("Hello from a literal function!")
@@ -537,7 +544,7 @@ Essa estrutura é especialmente útil quando queremos encapsular lógica rapidam
 
 Nesse caso, a função anônima é usada para criar uma nova Go Routine, com o valor de link corretamente isolado da iteração do loop.
 
-```
+```go
 go func(link string) {
 	time.Sleep(5 * time.Second)
 	checkLink(link, c)
