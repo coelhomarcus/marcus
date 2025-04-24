@@ -22,17 +22,18 @@ const About = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<boole
                 <br />
                 Atualmente, faço parte da Exception Jr, uma empresa júnior da faculdade, onde atuo como Full Stack Developer. Alguns dos <Link className="transition-colors hover:text-neutral-200 underline" to="/projects">projetos</Link> em que estou envolvido incluem o Conecta Canaã.
                 <br />
-                <Accordion type="multiple">
-                    <AccordionItem value="item-0">
-                        <AccordionTrigger className="text-neutral-200 cursor-pointer">Skills</AccordionTrigger>
-                        <AccordionContent className="space-y-2">
-                            <p><span className="text-neutral-200 text-xs font-bold">Front-end: </span>React, Typescript, Tailwind, Next.js, Vite.</p>
-                            <p><span className="text-neutral-200 text-xs font-bold">Back-end: </span>Go, Node.js, Express, PostgreSQL, MySQL. </p>
-                            <p><span className="text-neutral-200 text-xs font-bold">Outros: </span>Swift, Python, C# (Unity)</p>
-                        </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
+                <br />
             </p>
+            <Accordion type="multiple">
+                <AccordionItem value="item-0">
+                    <AccordionTrigger className="text-neutral-200 cursor-pointer">Skills</AccordionTrigger>
+                    <AccordionContent className="space-y-2">
+                        <p><span className="text-neutral-200 text-xs font-bold">Front-end: </span>React, Typescript, Tailwind, Next.js, Vite.</p>
+                        <p><span className="text-neutral-200 text-xs font-bold">Back-end: </span>Go, Node.js, Express, PostgreSQL, MySQL. </p>
+                        <p><span className="text-neutral-200 text-xs font-bold">Outros: </span>Swift, Python, C# (Unity)</p>
+                    </AccordionContent>
+                </AccordionItem>
+            </Accordion>
             <div className="flex justify-between border-t mt-4 pt-4 border-neutral-800">
                 <div className="flex gap-3 text-white">
                     <ContactLink title="Github" Icon={FaGithub} href="https://github.com/coelhomarcus" />
