@@ -13,7 +13,7 @@ const Header = () => {
                             <FaUserAlt className="opacity-60 text-white" aria-hidden="true" />
                         </AvatarFallback>
                     </Avatar>
-                    <span className="border-background absolute -end-0.5 -bottom-0.5 size-3 rounded-full border-2 bg-emerald-500">
+                    <span className="border-background absolute -end-0.5 -bottom-0.5 size-3 rounded-full border-2 bg-lime-400">
                         <span className="sr-only">Online</span>
                     </span>
                 </div>

@@ -5,20 +5,23 @@ export const arrBlog = [
         desc: "Minhas anotações e estudos sobre Express.js",
         date: "24/04/2025",
         time: 7,
+        tags: ["Express", "Node"]
     },
     {
         slug: "learning-go",
         title: "Aprendendo GO",
         desc: "Minhas anotações e estudos sobre Go (golang)",
         date: "19/04/2025",
-        time: 18
+        time: 18,
+        tags: ["Go"]
     },
     {
         slug: "cafuntalk",
         title: "Meu primeiro site de bate-papo",
         desc: "Minha experiência no processo de criar um bate-papo simples",
         date: "16/04/2025",
-        time: 3
+        time: 3,
+        tags: ["React", "Express", "Socket.io"]
     }
 ]
 
@@ -26,17 +29,20 @@ export const arrProjects = [
     {
         href: "https://cafuntalk.com",
         name: "CafunTalk",
-        desc: "Bate-papo moderno, sem distrações, privado e sem histórico."
+        desc: "Bate-papo moderno, sem distrações, privado e sem histórico.",
+        tech: ["React", "TS", "Tailwind", "Express"]
     },
     {
         href: "https://www.youtube.com/shorts/0fSoHjAadas",
         name: "SOS Queimadas",
-        desc: "Aplicativo IOS para conscientização e prevenção de queimadas."
+        desc: "Aplicativo IOS para conscientização e prevenção de queimadas.",
+        tech: ["Swift", "MapKit", "IoT", "API"]
     },
     {
         href: "https://smartcitycanaadoscarajas.com.br/index.php/conectacanaa",
         name: "Conecta Canaã",
-        desc: "Plataforma para ocorrências e serviços públicos para Prefeitura de Canaã dos Carajás - PA."
+        desc: "Plataforma para ocorrências e serviços públicos para Prefeitura de Canaã dos Carajás - PA.",
+        tech: ["React", "JS", "MongoDB"]
     }
 ]
 
@@ -44,27 +50,32 @@ export const arrSideProjects = [
     {
         href: "https://coelhomarcus.github.io/bunnybash/",
         name: "BunnyBash",
-        desc: "Site que simula um terminal."
+        desc: "Site que simula um terminal.",
+        tech: ["HTML", "CSS", "JS", "API"]
     },
     {
         href: "https://blob-temp.vercel.app/",
         name: "Blob",
-        desc: "Site de previsão meteorológica"
+        desc: "Site de previsão meteorológica",
+        tech: ["Next.js", "Tailwind", "API"]
     },
     {
         href: "https://coelhomarcus.itch.io/mailman",
         name: "Mailman",
-        desc: "Protótipo de jogo de terror retrô."
+        desc: "Protótipo de jogo de terror retrô.",
+        tech: ["C#", "Unity", "Blender"]
     },
     {
         href: "https://marketplace.visualstudio.com/items?itemName=coelhomarcus.bakaneo",
         name: "BakaNeo",
-        desc: "Tema dark para Visual Studio Code."
+        desc: "Tema dark para Visual Studio Code.",
+        tech: ["Design"]
     },
     {
         href: "https://coelhomarcus.github.io/catype/",
         name: "Catype",
-        desc: "Protótipo de site de digitação."
+        desc: "Protótipo de site de digitação.",
+        tech: ["HTML", "CSS", "JS"]
     }
 
 ]
