@@ -19,8 +19,10 @@ import { TbCertificate } from "react-icons/tb";
 import { FiUser } from "react-icons/fi";
 import { FaRegFilePdf } from "react-icons/fa6";
 
-
+import { arrBlog, arrProjects, arrSideProjects } from '@/utils/data';
 import isMac from '@/utils/isMac';
+
+const allProjects = [...arrProjects, ...arrSideProjects]
 
 type Page = {
     name: string
@@ -41,19 +43,6 @@ const socials: Page[] = [
     { name: 'GitHub', href: 'https://github.com/coelhomarcus', icon: FaGithub },
     { name: 'Linkedin', href: 'https://www.linkedin.com/in/coelhomarcus/', icon: FaLinkedin },
     { name: 'Discord', href: 'https://discord.com/invite/YDSGKzaSDe', icon: FaDiscord },
-]
-
-const projects: Page[] = [
-    { name: 'Cafuntalk', href: 'https://cafuntalk.com', icon: RiExternalLinkLine },
-    { name: 'SOS Queimadas', href: 'https://www.youtube.com/shorts/0fSoHjAadas', icon: RiExternalLinkLine },
-    { name: 'Blob', href: 'https://blob-temp.vercel.app/', icon: RiExternalLinkLine },
-    { name: 'BunnyBash', href: 'https://coelhomarcus.github.io/bunnybash/', icon: RiExternalLinkLine },
-    { name: 'BakaNeo', href: 'https://marketplace.visualstudio.com/items?itemName=coelhomarcus.bakaneo', icon: RiExternalLinkLine },
-]
-
-const posts: Page[] = [
-    { name: 'Aprendendo GO', href: '/blog/learning-go', icon: CiTextAlignJustify },
-    { name: 'Meu primeiro site de bate-papo', href: '/blog/cafuntalk', icon: CiTextAlignJustify },
 ]
 
 const others: Page[] = [
@@ -127,18 +116,18 @@ export default function CommandMenu({ open, setOpen }: { open: boolean, setOpen:
                         ))}
                     </CommandGroup>
                     <CommandGroup heading="Projetos">
-                        {projects.map((page) => (
+                        {allProjects.map((page) => (
                             <CommandItem className='cursor-pointer' key={page.href} onSelect={() => handleSelect(page.href)}>
-                                <page.icon className="mr-2 h-4 w-4" />
+                                <RiExternalLinkLine className="mr-2 h-4 w-4" />
                                 {page.name}
                             </CommandItem>
                         ))}
                     </CommandGroup>
                     <CommandGroup heading="Posts">
-                        {posts.map((page) => (
-                            <CommandItem className='cursor-pointer' key={page.href} onSelect={() => handleSelect(page.href)}>
-                                <page.icon className="mr-2 h-4 w-4" />
-                                {page.name}
+                        {arrBlog.map((page) => (
+                            <CommandItem className='cursor-pointer' key={page.slug} onSelect={() => handleSelect(`blog/${page.slug}`)}>
+                                <CiTextAlignJustify className="mr-2 h-4 w-4" />
+                                {page.title}
                             </CommandItem>
                         ))}
                     </CommandGroup>

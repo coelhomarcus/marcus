@@ -4,7 +4,7 @@ export const arrBlog = [
         title: "Aprendendo Express.js",
         desc: "Minhas anotações e estudos sobre Express.js",
         date: "24/04/2025",
-        time: 7
+        time: 7,
     },
     {
         slug: "learning-go",
