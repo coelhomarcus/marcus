@@ -20,7 +20,7 @@ const Blog = () => {
     return (
         <div className="text-white">
             <h1 className='text-xl font-semibold mb-2'>Blog</h1>
-            <p className='text-neutral-400 text-sm mb-4'>Meus preciosos pensamentos e inspirações.</p>
+            <p className='text-neutral-400 text-sm mb-4'>Meus preciosos pensamentos e anotações.</p>
             <div className="space-y-4">
                 {arrBlog.map((post) => {
                     return (

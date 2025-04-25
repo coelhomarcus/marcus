@@ -21,8 +21,8 @@ const Projects = () => {
                 })}
             </div>
             <h1 className='text-xl font-semibold mb-2'>Projetos Secundarios</h1>
-            <p className='text-neutral-400 text-sm mb-4'>Projetos/Experimentos que fiz para testar meu conhecimento.</p>
-            <div className="space-y-4 mb-8">
+            <p className='text-neutral-400 text-sm mb-4'>Projetos/Experimentos que fiz para testar meus conhecimentos.</p>
+            <div className="gap-4 mb-8 grid grid-cols-1 md:grid-cols-2">
                 {sideProjects.map((project, index) => {
                     return (
                         <SimpleCard

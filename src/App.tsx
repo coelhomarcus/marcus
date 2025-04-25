@@ -9,6 +9,7 @@ import Certificates from './components/Certificates/Certificates';
 import { useState } from 'react';
 import { Routes, Route } from 'react-router';
 import NotFound from './components/NotFound/NotFound';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
   const [open, setOpen] = useState(false)
@@ -18,9 +19,18 @@ const App = () => {
       <Header />
       <CommandMenu open={open} setOpen={setOpen} />
       <Routes>
-        <Route path='/' element={<About setOpen={setOpen} />} />
-        <Route path='/projects' element={<Projects />} />
-        <Route path='/blog' element={<Blog />} />
+        <Route path='/' element={<>
+          <About />
+          <Footer setOpen={setOpen} />
+        </>} />
+        <Route path='/projects' element={<>
+          <Projects />
+          <Footer setOpen={setOpen} />
+        </>} />
+        <Route path='/blog' element={<>
+          <Blog />
+          <Footer setOpen={setOpen} />
+        </>} />
         <Route path="/blog/:slug" element={<PostPage />} />
         <Route path="/certificates" element={<Certificates />} />
         <Route path="*" element={<NotFound />} />

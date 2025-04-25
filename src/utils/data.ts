@@ -29,14 +29,14 @@ export const arrProjects = [
         desc: "Bate-papo moderno, sem distrações, privado e sem histórico."
     },
     {
-        href: "https://smartcitycanaadoscarajas.com.br/index.php/conectacanaa",
-        name: "Conecta Canaã",
-        desc: "Site para serviços públicos e ocorrências em Canaã dos Carajás - PA."
-    },
-    {
         href: "https://www.youtube.com/shorts/0fSoHjAadas",
         name: "SOS Queimadas",
-        desc: "IOS App para conscientização e prevenção de queimadas."
+        desc: "Aplicativo IOS para conscientização e prevenção de queimadas."
+    },
+    {
+        href: "https://smartcitycanaadoscarajas.com.br/index.php/conectacanaa",
+        name: "Conecta Canaã",
+        desc: "Plataforma para ocorrências e serviços públicos para Prefeitura de Canaã dos Carajás - PA."
     }
 ]
 
@@ -59,7 +59,7 @@ export const arrSideProjects = [
     {
         href: "https://marketplace.visualstudio.com/items?itemName=coelhomarcus.bakaneo",
         name: "BakaNeo",
-        desc: "Melhor tema dark para VSCODE."
+        desc: "Tema dark para Visual Studio Code."
     },
     {
         href: "https://coelhomarcus.github.io/catype/",
