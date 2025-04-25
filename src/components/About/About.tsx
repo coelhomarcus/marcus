@@ -28,7 +28,7 @@ const ProjectPostGrid = () => {
 
     return (
         <div className="w-full mt-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 *:flex *:flex-col *:h-full *:bg-[#0A0A0A] *:rounded-lg">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 *:flex *:flex-col *:h-full *:bg-[#0A0A0A] *:rounded-lg">
                 {/* Card do Último Projeto */}
                 <a href={project.href} target="_blank" className="border border-foreground/10 overflow-hidden transition-all duration-300 shadow-inner shadow-neutral-800 hover:shadow-neutral-700">
                     <div className="p-3 flex flex-col flex-grow">
