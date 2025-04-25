@@ -47,7 +47,7 @@ const ProjectPostGrid = () => {
                 </a>
 
                 {/* Card do Último Post */}
-                <Link to={`blog/${post.slug}`} className="border border-foreground/10 overflow-hidden hover:border-foreground/20 transition-all duration-300 shadow-inner shadow-neutral-800 hover:shadow-neutral-700">
+                <Link to={`blog/${post.slug}`} className="border border-foreground/10 overflow-hidden transition-all duration-300 shadow-inner shadow-neutral-800 hover:shadow-neutral-700">
                     <div className="p-3 flex flex-col flex-grow">
                         <div className="flex items-center justify-between mb-2">
                             <h3 className="text-xs font-medium text-neutral-400">Último Post</h3>
