@@ -37,9 +37,9 @@ const components = {
 
         return (
             <h1 id={id} className="scroll-mt-4">
-                <span className="heading-link text-neutral-300 no-underline font-semibold active:text-neutral-500 cursor-pointer select-none" onClick={handleClick}>
+                <a href={`#${id}`} className="heading-link text-neutral-300 no-underline font-semibold active:text-neutral-500 cursor-pointer select-none" onClick={handleClick}>
                     {props.children}
-                </span>
+                </a>
             </h1>
         )
     },
@@ -53,9 +53,9 @@ const components = {
 
         return (
             <h2 id={id} className="scroll-mt-4">
-                <span className="heading-link text-neutral-300 no-underline font-semibold active:text-neutral-500 cursor-pointer select-none" onClick={handleClick}>
+                <a href={`#${id}`} className="heading-link text-neutral-300 no-underline font-semibold active:text-neutral-500 cursor-pointer select-none" onClick={handleClick}>
                     {props.children}
-                </span>
+                </a>
             </h2>
         )
     },
@@ -69,9 +69,9 @@ const components = {
 
         return (
             <h3 id={id} className="scroll-mt-4">
-                <span className="heading-link text-neutral-300 no-underline font-semibold active:text-neutral-500 cursor-pointer select-none" onClick={handleClick}>
+                <a href={`#${id}`} className="heading-link text-neutral-300 no-underline font-semibold active:text-neutral-400 cursor-pointer select-none" onClick={handleClick}>
                     {props.children}
-                </span>
+                </a>
             </h3>
         )
     },
