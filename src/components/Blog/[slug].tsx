@@ -7,14 +7,28 @@ import components from '../../utils/components';
 const posts = import.meta.glob('../../utils/posts/*.mdx')
 
 import { PiSpinnerThin } from "react-icons/pi";
+import { HiOutlineEye } from "react-icons/hi";
 
 const Post = () => {
     const { slug } = useParams();
     const post = arrBlog.find(p => p.slug === slug);
     const [MDXComponent, setMDXComponent] = useState<React.ComponentType | null>(null)
 
+    const [views, setViews] = useState(0);
+
     useEffect(() => {
-        fetch(`http://69.62.93.80:3002/views/${slug}`, {
+        fetch(`https://api.cafuntalk.com:3002/views/${slug}`)
+            .then(res => res.json())
+            .then(data => {
+                setViews(data.views || 0);
+            })
+            .catch(err => {
+                console.error('Erro ao buscar views:', err);
+            });
+    }, [slug]);
+
+    useEffect(() => {
+        fetch(`https://api.cafuntalk.com:3002/views/${slug}`, {
             method: 'POST'
         }).catch(err => {
             console.error('Erro ao incrementar view:', err);
@@ -66,7 +80,10 @@ const Post = () => {
         <div className='text-white w-full'>
             <div className='flex flex-col sm:flex-row justify-between gap-2 sm:gap-0 sm:items-center mt-5'>
                 <h1 className='font-medium text-sm'>{post.title}</h1>
-                <p className='text-xs text-neutral-400'>{post.date}</p>
+                {/* <p className='text-xs text-neutral-400'>{post.date}</p> */}
+                <div className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-xs font-medium opacity-100">
+                    <HiOutlineEye /> {views}
+                </div>
             </div>
 
             <hr className="h-[calc(var(--spacing)_*_0.2)] border-t-0 bg-neutral-700 mt-2 mb-5" />

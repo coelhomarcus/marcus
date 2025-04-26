@@ -1,39 +1,17 @@
 import { Link } from "react-router"
 import { arrBlog } from "../../utils/data"
-import { useState, useEffect } from "react";
-import { HiOutlineEye } from "react-icons/hi2";
 import { MdAccessTime } from "react-icons/md";
 
-
-
-
 const BlogCard = ({ slug, title, date, desc, time }: { slug: string, title: string, date: string, desc: string, time: number }) => {
-
-    const [views, setViews] = useState(0);
-
-    useEffect(() => {
-        fetch(`http://69.62.93.80:3002/views/${slug}`)
-            .then(res => res.json())
-            .then(data => {
-                setViews(data.views || 0);
-            })
-            .catch(err => {
-                console.error('Erro ao buscar views:', err);
-            });
-    }, [slug]);
-
     return <Link to={`/blog/${slug}`} key={slug} className="space-y-2 block shadow-inner shadow-neutral-800 p-4 rounded-lg border border-neutral-900 -mx-4 transition-colors hover:transition-none hover:bg-neutral-900">
         <div className="flex flex-col gap-2 md:flex-row md:gap-5 justify-between">
             <h1 className="text-sm font-medium">{title}</h1>
             <p className="text-xs text-neutral-400">{date}</p>
         </div>
         <p className="text-xs text-neutral-400">{desc}</p>
-        <div className="flex cursor-pointer text-neutral-400 gap-2">
+        <div className="flex cursor-pointer text-neutral-400">
             <div className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-xs font-medium opacity-100">
                 <MdAccessTime /> {time}m
-            </div>
-            <div className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-xs font-medium opacity-100">
-                <HiOutlineEye /> {views}
             </div>
         </div>
     </Link>
