@@ -4,10 +4,9 @@ import { useParams, Link } from 'react-router';
 
 import { arrBlog } from '../../utils/data';
 import components from '../../utils/components';
+const posts = import.meta.glob('../../utils/posts/*.mdx')
 
 import { PiSpinnerThin } from "react-icons/pi";
-
-const posts = import.meta.glob('./posts/*.mdx')
 
 const Post = () => {
     const { slug } = useParams();
@@ -16,7 +15,7 @@ const Post = () => {
 
     useEffect(() => {
         if (slug) {
-            const path = `./posts/${slug}.mdx`
+            const path = `../../utils/posts/${slug}.mdx`
             const importer = posts[path]
 
             if (importer) {
