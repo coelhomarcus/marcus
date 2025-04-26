@@ -3,7 +3,7 @@ import { arrBlog } from "../../utils/data"
 import { MdAccessTime } from "react-icons/md";
 
 const BlogCard = ({ slug, title, date, desc, time }: { slug: string, title: string, date: string, desc: string, time: number }) => {
-    return <Link to={`/blog/${slug}`} key={slug} className="space-y-2 block shadow-inner shadow-neutral-800 p-4 rounded-lg border border-neutral-900 -mx-4 transition-colors hover:transition-none hover:bg-neutral-900">
+    return <Link to={`/blog/${slug}`} key={slug} className="space-y-2 block shadow-inner shadow-neutral-800 p-4 rounded-lg border border-neutral-900 transition-colors hover:transition-none hover:bg-neutral-900">
         <div className="flex flex-col gap-2 md:flex-row md:gap-5 justify-between">
             <h1 className="text-sm font-medium">{title}</h1>
             <p className="text-xs text-neutral-400">{date}</p>
