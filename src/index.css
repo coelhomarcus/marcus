@@ -192,6 +192,10 @@
 }
 
 ::selection {
-  background-color: oklch(89.7% 0.196 126.665);
-  color: black;
+  background-color: color-mix(in oklab, oklch(89.7% 0.196 126.665) 10%, transparent);
+  color: oklch(89.7% 0.196 126.665);
+}
+
+a::selection {
+  color: white;
 }

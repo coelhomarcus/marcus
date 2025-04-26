@@ -1,5 +1,13 @@
 export const arrBlog = [
     {
+        slug: "development-env",
+        title: "Meu Ambiente de Desenvolvimento",
+        desc: "Ferramentas, configurações que uso no meu dia a dia e algumas recomendações",
+        date: "26/04/2025",
+        time: 4,
+        tags: ["Stack", "Recomendações"]
+    },
+    {
         slug: "learning-express",
         title: "Aprendendo Express.js",
         desc: "Minhas anotações e estudos sobre Express.js",
