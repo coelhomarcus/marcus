@@ -14,6 +14,14 @@ const Post = () => {
     const [MDXComponent, setMDXComponent] = useState<React.ComponentType | null>(null)
 
     useEffect(() => {
+        fetch(`http://69.62.93.80:3002/views/${slug}`, {
+            method: 'POST'
+        }).catch(err => {
+            console.error('Erro ao incrementar view:', err);
+        });
+    }, [slug]);
+
+    useEffect(() => {
         if (slug) {
             const path = `../../utils/posts/${slug}.mdx`
             const importer = posts[path]
