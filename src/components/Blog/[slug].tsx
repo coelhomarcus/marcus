@@ -13,8 +13,23 @@ const Post = () => {
     const { slug } = useParams();
     const post = arrBlog.find(p => p.slug === slug);
     const [MDXComponent, setMDXComponent] = useState<React.ComponentType | null>(null)
-
     const [views, setViews] = useState(0);
+
+    useEffect(() => {
+        if (slug) {
+            const path = `../../utils/posts/${slug}.mdx`
+            const importer = posts[path]
+
+            if (importer) {
+                importer().then((mod) => {
+                    const Component = (mod as { default: React.ComponentType }).default;
+                    setMDXComponent(() => Component);
+                })
+            } else {
+                setMDXComponent(() => () => <p className="text-red-500">Post não encontrado</p>)
+            }
+        }
+    }, [slug])
 
     useEffect(() => {
         fetch(`https://api.cafuntalk.com:3002/views/${slug}`)
@@ -34,22 +49,6 @@ const Post = () => {
             console.error('Erro ao incrementar view:', err);
         });
     }, [slug]);
-
-    useEffect(() => {
-        if (slug) {
-            const path = `../../utils/posts/${slug}.mdx`
-            const importer = posts[path]
-
-            if (importer) {
-                importer().then((mod) => {
-                    const Component = (mod as { default: React.ComponentType }).default;
-                    setMDXComponent(() => Component);
-                })
-            } else {
-                setMDXComponent(() => () => <p className="text-red-500">Post não encontrado</p>)
-            }
-        }
-    }, [slug])
 
     if (!MDXComponent) return (
         <div className='flex items-center justify-center'>
@@ -81,7 +80,7 @@ const Post = () => {
             <div className='flex flex-col sm:flex-row justify-between gap-2 sm:gap-0 sm:items-center mt-5'>
                 <h1 className='font-medium text-sm'>{post.title}</h1>
                 {/* <p className='text-xs text-neutral-400'>{post.date}</p> */}
-                <div className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-xs font-medium opacity-100">
+                <div className="pointer-events-none flex w-fit h-5 select-none items-center gap-1 rounded sm:border sm:px-1.5 font-mono text-xs font-medium opacity-100 text-neutral-400">
                     <HiOutlineEye /> {views}
                 </div>
             </div>
