@@ -16,17 +16,65 @@ SyntaxHighlighter.registerLanguage('jsx', jsx);
 SyntaxHighlighter.registerLanguage('tsx', tsx);
 SyntaxHighlighter.registerLanguage('bash', bash);
 
+export function slugify(text: string): string {
+    return text
+        .toLowerCase()
+        .normalize('NFD') // Remove acentos
+        .replace(/[\u0300-\u036f]/g, '') // Regex pra remover diacríticos
+        .replace(/[^a-z0-9 -]/g, '') // Remove símbolos
+        .trim()
+        .replace(/\s+/g, '-') // Espaços viram hífens
+}
 
 const components = {
-    h1: (props: React.HTMLProps<HTMLHeadingElement>) => (
-        <h1 className="text-neutral-100" {...props} />
-    ),
-    h2: (props: React.HTMLProps<HTMLHeadingElement>) => (
-        <h2 className="text-neutral-300" {...props} />
-    ),
-    h3: (props: React.HTMLProps<HTMLHeadingElement>) => (
-        <h3 className="text-neutral-300" {...props} />
-    ),
+    h1: (props: React.HTMLProps<HTMLHeadingElement>) => {
+        const id = slugify(String(props.children))
+
+        const handleClick = () => {
+            const url = `${window.location.origin}${window.location.pathname}#${id}`;
+            navigator.clipboard.writeText(url);
+        };
+
+        return (
+            <h1 id={id} className="scroll-mt-4">
+                <a href={`#${id}`} className="heading-link font-bold text-neutral-300 no-underline" onClick={handleClick}>
+                    {props.children}
+                </a>
+            </h1>
+        )
+    },
+    h2: (props: React.HTMLProps<HTMLHeadingElement>) => {
+        const id = slugify(String(props.children))
+
+        const handleClick = () => {
+            const url = `${window.location.origin}${window.location.pathname}#${id}`;
+            navigator.clipboard.writeText(url);
+        };
+
+        return (
+            <h2 id={id} className="scroll-mt-4">
+                <a href={`#${id}`} className="heading-link text-neutral-300 no-underline font-bold" onClick={handleClick}>
+                    {props.children}
+                </a>
+            </h2>
+        )
+    },
+    h3: (props: React.HTMLProps<HTMLHeadingElement>) => {
+        const id = slugify(String(props.children))
+
+        const handleClick = () => {
+            const url = `${window.location.origin}${window.location.pathname}#${id}`;
+            navigator.clipboard.writeText(url);
+        };
+
+        return (
+            <h3 id={id} className="scroll-mt-4">
+                <a href={`#${id}`} className="heading-link text-neutral-300 no-underline font-semibold" onClick={handleClick}>
+                    {props.children}
+                </a>
+            </h3>
+        )
+    },
     p: (props: React.HTMLProps<HTMLParagraphElement>) => (
         <p className="prose-sm text-neutral-400" {...props} />
     ),

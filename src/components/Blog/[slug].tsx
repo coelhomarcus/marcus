@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { MDXProvider } from '@mdx-js/react'
-import { useParams, Link } from 'react-router';
+import { useParams, Link, useLocation } from 'react-router';
 
 import { arrBlog } from '../../utils/data';
 import components from '../../utils/components';
@@ -65,6 +65,7 @@ const Post = () => {
 
             <MDXProvider components={components}>
                 <article className='prose max-w-full'>
+                    <ScrollToHashOnLoad />
                     <MDXComponent />
                 </article>
             </MDXProvider>
@@ -78,6 +79,21 @@ const Post = () => {
             </div>
         </div>
     );
+}
+
+function ScrollToHashOnLoad() {
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.hash) {
+            const el = document.getElementById(location.hash.slice(1));
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }, [location]);
+
+    return null;
 }
 
 export default Post
