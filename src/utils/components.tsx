@@ -81,7 +81,7 @@ const components = {
         <p className="prose-sm text-neutral-400" {...props} />
     ),
     a: (props: React.HTMLProps<HTMLAnchorElement>) => (
-        <a className="prose-sm font-normal text-lime-300" target='_blank' {...props} />
+        <a className="prose-sm font-normal text-lime-300 underline decoration-wavy decoration-1" target='_blank' {...props} />
     ),
     ul: (props: React.HTMLProps<HTMLUListElement>) => (
         <ul className="text-neutral-400" {...props} />
