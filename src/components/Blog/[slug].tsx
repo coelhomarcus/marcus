@@ -8,6 +8,7 @@ const posts = import.meta.glob('../../utils/posts/*.mdx')
 
 import { PiSpinnerThin } from "react-icons/pi";
 import { HiOutlineEye } from "react-icons/hi";
+import { MdAccessTime } from "react-icons/md";
 
 const Post = () => {
     const { slug } = useParams();
@@ -79,9 +80,13 @@ const Post = () => {
         <div className='text-white w-full'>
             <div className='flex flex-col sm:flex-row justify-between gap-2 sm:gap-0 sm:items-center mt-5'>
                 <h1 className='font-medium text-sm'>{post.title}</h1>
-                {/* <p className='text-xs text-neutral-400'>{post.date}</p> */}
-                <div className="pointer-events-none flex w-fit h-5 select-none items-center gap-1 rounded sm:border sm:px-1.5 font-mono text-xs font-medium opacity-100 text-neutral-400">
-                    <HiOutlineEye /> {views}
+                <div className="flex gap-2">
+                    <div className="pointer-events-none flex w-fit h-5 select-none items-center gap-1 rounded sm:border sm:px-1.5 font-mono text-xs font-medium opacity-100 text-neutral-400">
+                        <HiOutlineEye /> {views}
+                    </div>
+                    <div className="pointer-events-none flex w-fit h-5 select-none items-center gap-1 rounded sm:border sm:px-1.5 font-mono text-xs font-medium opacity-100 text-neutral-400">
+                        <MdAccessTime /> {post.time}m
+                    </div>
                 </div>
             </div>
 

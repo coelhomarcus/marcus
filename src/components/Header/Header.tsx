@@ -10,9 +10,9 @@ const Header = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<bool
         <div className='flex justify-between items-center mb-4'>
             <NavLink to="/">
                 <div className="relative">
-                    <Avatar className="size-10">
+                    <Avatar className="size-9 sm:size-10">
                         <AvatarImage src="/icons/profile.jpg" />
-                        <AvatarFallback className="size-10">
+                        <AvatarFallback className="size-9 sm:size-10">
                             <FaUserAlt className="opacity-60 text-white" aria-hidden="true" />
                         </AvatarFallback>
                     </Avatar>
@@ -22,9 +22,9 @@ const Header = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<bool
                 </div>
             </NavLink>
 
-            <div className="flex gap-4 sm:gap-5 text-neutral-400 *:text-sm *:hover:text-white *:transition-colors *:cursor-pointer">
+            <div className="flex gap-2 sm:gap-5 text-neutral-400 *:text-sm *:hover:text-white *:transition-colors *:cursor-pointer">
                 <button onClick={() => setOpen(true)} className="sm:hidden flex mt-[0.1rem]">
-                    <IoSearchSharp className="text-neutral-400 hover:text-white transition-colors text-[1.2rem]" />
+                    <IoSearchSharp className="text-neutral-400 hover:text-white transition-colors text-[1.1rem]" />
                 </button>
                 <HeaderLink title="Sobre" to="/" />
                 <HeaderLink title="Projetos" to="/projects" />
