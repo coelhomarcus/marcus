@@ -22,7 +22,7 @@ const Header = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<bool
                 </div>
             </NavLink>
 
-            <div className="flex gap-2 sm:gap-5 text-neutral-400 *:text-sm *:hover:text-white *:transition-colors *:cursor-pointer">
+            <div className="flex gap-3 sm:gap-5 text-neutral-400 *:text-sm *:hover:text-white *:transition-colors *:cursor-pointer">
                 <button onClick={() => setOpen(true)} className="sm:hidden flex mt-[0.1rem]">
                     <IoSearchSharp className="text-neutral-400 hover:text-white transition-colors text-[1.1rem]" />
                 </button>
