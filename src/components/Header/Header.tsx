@@ -1,13 +1,17 @@
 import { NavLink } from "react-router";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { FaUserAlt } from "react-icons/fa";
+// import { BiSearch } from "react-icons/bi";
+import { IoSearchSharp } from "react-icons/io5";
 
-const Header = () => {
+
+
+const Header = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<boolean>> }) => {
     return (
         <div className='flex justify-between items-center mb-4'>
             <NavLink to="/">
                 <div className="relative">
-                    <Avatar className="size-10">
+                    <Avatar className="size-8 sm:size-10">
                         <AvatarImage src="/icons/profile.jpg" />
                         <AvatarFallback className="size-10">
                             <FaUserAlt className="opacity-60 text-white" aria-hidden="true" />
@@ -19,7 +23,10 @@ const Header = () => {
                 </div>
             </NavLink>
 
-            <div className="flex gap-5 text-neutral-400 *:text-sm *:hover:text-white *:transition-colors">
+            <div className="flex gap-2 sm:gap-5 text-neutral-400 *:text-sm *:hover:text-white *:transition-colors">
+                <button onClick={() => setOpen(true)} className="md:hidden flex items-center mr-3 mt-1">
+                    <IoSearchSharp className="text-neutral-400 hover:text-white transition-colors text-[1rem]" />
+                </button>
                 <HeaderLink title="Sobre" to="/" />
                 <HeaderLink title="Projetos" to="/projects" />
                 <HeaderLink title="Blog" to="/blog" />

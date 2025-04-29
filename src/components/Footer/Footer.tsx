@@ -1,7 +1,8 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { IoDocumentText } from "react-icons/io5";
+import { IoDocumentText, IoSearchSharp } from "react-icons/io5";
 import isMac from "@/utils/isMac";
 import ContactLink from "../ContactLink/ContactLink";
+
 
 const Footer = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<boolean>> }) => {
     return (
@@ -11,9 +12,10 @@ const Footer = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<bool
                 <ContactLink title="Github" Icon={FaGithub} href="https://github.com/coelhomarcus" />
                 <ContactLink title="Linkedin" Icon={FaLinkedin} href="https://www.linkedin.com/in/coelhomarcus/" />
             </div>
-            <button className="hidden sm:block cursor-pointer text-neutral-400 hover:text-neutral-500 transition-all duration-200" onClick={() => setOpen(true)}>
+            <button className="cursor-pointer text-neutral-400 hover:text-neutral-500 transition-all duration-200" onClick={() => setOpen(true)}>
                 <div className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-xs font-medium  opacity-100">
-                    {isMac() ? "⌘" : "Ctrl"} K
+                    <p className="hidden sm:block">{isMac() ? "⌘" : "Ctrl"} K</p>
+                    <p className="block sm:hidden"><IoSearchSharp /></p>
                 </div>
             </button>
         </div>
