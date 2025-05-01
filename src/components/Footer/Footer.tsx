@@ -1,5 +1,6 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { IoDocumentText, IoSearchSharp } from "react-icons/io5";
+import { MdKeyboardCommandKey } from "react-icons/md";
 import isMac from "@/utils/isMac";
 import ContactLink from "../ContactLink/ContactLink";
 
@@ -14,8 +15,8 @@ const Footer = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<bool
             </div>
             <button className="cursor-pointer text-neutral-400 hover:text-neutral-500 transition-all duration-200" onClick={() => setOpen(true)}>
                 <div className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-xs font-medium  opacity-100">
-                    <p className="hidden sm:block">{isMac() ? "⌘" : "Ctrl"} K</p>
-                    <p className="block sm:hidden"><IoSearchSharp /></p>
+                    <IoSearchSharp />
+                    <p className="hidden sm:flex gap-1 items-center">{isMac() ? <MdKeyboardCommandKey /> : "Ctrl"} K</p>
                 </div>
             </button>
         </div>

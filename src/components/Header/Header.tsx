@@ -8,7 +8,7 @@ const Header = () => {
             <NavLink to="/">
                 <div className="relative">
                     <Avatar className="size-9 sm:size-10">
-                        <AvatarImage src="/icons/profile.jpg" />
+                        <AvatarImage src="/icons/profile.jpeg" />
                         <AvatarFallback className="size-9 sm:size-10">
                             <FaUserAlt className="opacity-60 text-white" aria-hidden="true" />
                         </AvatarFallback>
