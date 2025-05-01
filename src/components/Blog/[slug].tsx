@@ -33,7 +33,7 @@ const Post = () => {
     }, [slug])
 
     useEffect(() => {
-        fetch(`https://api.cafuntalk.com:3002/views/${slug}`)
+        fetch(`https://vps.coelhomarcus.com/blog/views/${slug}`)
             .then(res => res.json())
             .then(data => {
                 setViews(data.views || 0);
@@ -44,7 +44,7 @@ const Post = () => {
     }, [slug]);
 
     useEffect(() => {
-        fetch(`https://api.cafuntalk.com:3002/views/${slug}`, {
+        fetch(`https://vps.coelhomarcus.com/blog/views/${slug}`, {
             method: 'POST'
         }).catch(err => {
             console.error('Erro ao incrementar view:', err);
