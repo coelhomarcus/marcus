@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <div className="px-6 py-8 min-h-[100vh] space-y-3 max-w-[750px] mx-auto">
-      <Header setOpen={setOpen} />
+      <Header />
       <CommandMenu open={open} setOpen={setOpen} />
       <Routes>
         <Route path='/' element={<>

@@ -1,11 +1,8 @@
 import { NavLink } from "react-router";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { FaUserAlt } from "react-icons/fa";
-import { IoSearchSharp } from "react-icons/io5";
 
-
-
-const Header = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<boolean>> }) => {
+const Header = () => {
     return (
         <div className='flex justify-between items-center mb-4'>
             <NavLink to="/">
@@ -22,10 +19,7 @@ const Header = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<bool
                 </div>
             </NavLink>
 
-            <div className="flex gap-3 sm:gap-5 text-neutral-400 *:text-sm *:hover:text-white *:transition-colors *:cursor-pointer">
-                <button onClick={() => setOpen(true)} className="sm:hidden flex mt-[0.1rem]">
-                    <IoSearchSharp className="text-neutral-400 hover:text-white transition-colors text-[1.1rem]" />
-                </button>
+            <div className="flex gap-2 sm:gap-5 text-neutral-400 *:text-sm *:hover:text-white *:transition-colors">
                 <HeaderLink title="Sobre" to="/" />
                 <HeaderLink title="Projetos" to="/projects" />
                 <HeaderLink title="Blog" to="/blog" />

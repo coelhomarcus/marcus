@@ -22,14 +22,6 @@ export const arrBlog = [
         date: "19/04/2025",
         time: 18,
         tags: ["Go"]
-    },
-    {
-        slug: "cafuntalk",
-        title: "Meu primeiro site de bate-papo",
-        desc: "Minha experiência no processo de criar um bate-papo simples",
-        date: "16/04/2025",
-        time: 3,
-        tags: ["React", "Express", "Socket.io"]
     }
 ]
 
@@ -113,6 +105,11 @@ export const arrCertificates = [
         href: "https://www.ude.my/UC-5d18ce0f-2c7f-45e0-b3d9-d40334d036ec/",
         course: "The Complete Full-Stack Web Development Bootcamp",
         teacher: "The App Brewery",
+    },
+    {
+        href: "https://scrimba.com/certificate-cert2ffentAFMatUYR9SpXLrNY6pYm2ty3x7mRPD7riJFvwkKP",
+        course: "Open-source AI Models",
+        teacher: "Scrimba",
     },
     {
         href: "https://www.origamid.com/certificate/e768c9c3",
