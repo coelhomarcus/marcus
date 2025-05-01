@@ -1,6 +1,6 @@
 export const arrBlog = [
     {
-        slug: "development-env",
+        slug: "my-env",
         title: "Meu Ambiente",
         desc: "Ambiente, ferramentas, configurações e recomendações",
         date: "26/04/2025",
