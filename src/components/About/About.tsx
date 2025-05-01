@@ -40,7 +40,7 @@ const ProjectPostGrid = () => {
                         <p className="text-neutral-400 text-sm mb-4 flex-grow">{project?.desc || "Descrição do projeto"}</p>
                         <div className="flex flex-wrap gap-2 mt-auto">
                             {project.tech?.map((tech, index) => (
-                                <Badge key={index} className="text-neutral-200" variant="outline">{tech}</Badge>
+                                <Badge key={index} className="text-neutral-200 opacity-50 border-white/30" variant="outline">{tech}</Badge>
                             ))}
                         </div>
                     </div>
@@ -57,7 +57,7 @@ const ProjectPostGrid = () => {
                         <p className="text-neutral-400 text-sm mb-4 flex-grow">{post?.desc || "Descrição do post"}</p>
                         <div className="flex flex-wrap gap-2 mt-auto">
                             {post.tags.map((tag, index) => (
-                                <Badge key={index} className="text-neutral-200" variant="outline">{tag}</Badge>
+                                <Badge key={index} className="text-neutral-200 opacity-50 border-white/30" variant="outline">{tag}</Badge>
                             ))}
                         </div>
                     </div>

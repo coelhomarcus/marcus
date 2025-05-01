@@ -1,11 +1,11 @@
 export const arrBlog = [
     {
         slug: "development-env",
-        title: "Meu Ambiente de Desenvolvimento",
-        desc: "Ferramentas, configurações que uso no meu dia a dia e algumas recomendações",
+        title: "Meu Ambiente",
+        desc: "Ambiente, ferramentas, configurações e recomendações",
         date: "26/04/2025",
         time: 4,
-        tags: ["Stack", "Recomendações"]
+        tags: ["dotfiles", "recomendações",]
     },
     {
         slug: "learning-express",
@@ -13,7 +13,7 @@ export const arrBlog = [
         desc: "Minhas anotações e estudos sobre Express.js",
         date: "24/04/2025",
         time: 7,
-        tags: ["Express", "Node"]
+        tags: ["express", "node"]
     },
     {
         slug: "learning-go",
@@ -21,7 +21,7 @@ export const arrBlog = [
         desc: "Minhas anotações e estudos sobre Go (golang)",
         date: "19/04/2025",
         time: 18,
-        tags: ["Go"]
+        tags: ["go"]
     }
 ]
 
@@ -30,19 +30,19 @@ export const arrProjects = [
         href: "https://cafuntalk.com",
         name: "CafunTalk",
         desc: "Bate-papo moderno, sem distrações, privado e sem histórico.",
-        tech: ["React", "TS", "Tailwind", "Express"]
+        tech: ["react", "ts", "tailwind", "express"]
     },
     {
         href: "https://www.youtube.com/shorts/0fSoHjAadas",
         name: "SOS Queimadas",
         desc: "Aplicativo IOS para conscientização e prevenção de queimadas.",
-        tech: ["Swift", "MapKit", "IoT", "API"]
+        tech: ["swift", "mapkit", "iot", "api"]
     },
     {
         href: "https://smartcitycanaadoscarajas.com.br/index.php/conectacanaa",
         name: "Conecta Canaã",
         desc: "Plataforma para ocorrências e serviços públicos para Prefeitura de Canaã dos Carajás - PA.",
-        tech: ["React", "JS", "MongoDB"]
+        tech: ["react", "js", "mongodb"]
     }
 ]
 
@@ -51,31 +51,31 @@ export const arrSideProjects = [
         href: "https://coelhomarcus.github.io/bunnybash/",
         name: "BunnyBash",
         desc: "Site que simula um terminal.",
-        tech: ["HTML", "CSS", "JS", "API"]
+        tech: ["html", "css", "js", "api"]
     },
     {
         href: "https://blob-temp.vercel.app/",
         name: "Blob",
         desc: "Site de previsão meteorológica",
-        tech: ["Next.js", "Tailwind", "API"]
+        tech: ["next.js", "tailwind", "api"]
     },
     {
         href: "https://coelhomarcus.itch.io/mailman",
         name: "Mailman",
         desc: "Protótipo de jogo de terror retrô.",
-        tech: ["C#", "Unity", "Blender"]
+        tech: ["c#", "unity", "blender"]
     },
     {
         href: "https://marketplace.visualstudio.com/items?itemName=coelhomarcus.bakaneo",
         name: "BakaNeo",
         desc: "Tema dark para Visual Studio Code.",
-        tech: ["Design"]
+        tech: ["design"]
     },
     {
         href: "https://coelhomarcus.github.io/catype/",
         name: "Catype",
         desc: "Protótipo de site de digitação.",
-        tech: ["HTML", "CSS", "JS"]
+        tech: ["html", "css", "js"]
     }
 
 ]
