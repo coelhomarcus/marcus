@@ -118,7 +118,7 @@ const components = {
     },
 
     code: (props: React.HTMLProps<HTMLElement>) => (
-        <code className="font-medium font-[IBM_Plex_Mono]" {...props} />
+        <code className="font-medium" {...props} />
     ),
 
     strong: (props: React.ComponentProps<'strong'>) => (
