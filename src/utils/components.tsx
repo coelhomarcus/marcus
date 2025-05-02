@@ -1,6 +1,7 @@
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { nightOwl as theme } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { ReactElement } from 'react'
+import { toast } from "sonner"
 
 import ts from 'react-syntax-highlighter/dist/esm/languages/prism/typescript';
 import js from 'react-syntax-highlighter/dist/esm/languages/prism/javascript';
@@ -35,6 +36,9 @@ const components = {
         const handleClick = () => {
             const url = `${window.location.origin}${window.location.pathname}#${id}`;
             navigator.clipboard.writeText(url);
+            toast(`Link copiado`, {
+                description: `#${id}`,
+            })
         };
 
         return (
@@ -51,6 +55,9 @@ const components = {
         const handleClick = () => {
             const url = `${window.location.origin}${window.location.pathname}#${id}`;
             navigator.clipboard.writeText(url);
+            toast(`Link copiado`, {
+                description: `#${id}`,
+            })
         };
 
         return (
@@ -67,6 +74,9 @@ const components = {
         const handleClick = () => {
             const url = `${window.location.origin}${window.location.pathname}#${id}`;
             navigator.clipboard.writeText(url);
+            toast(`Link copiado`, {
+                description: `#${id}`,
+            })
         };
 
         return (

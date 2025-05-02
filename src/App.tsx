@@ -6,6 +6,8 @@ import PostPage from './components/Blog/[slug]';
 import CommandMenu from './components/CommandMenu/CommandMenu';
 import Certificates from './components/Certificates/Certificates';
 
+import { Toaster } from "@/components/ui/sonner"
+
 import { useState } from 'react';
 import { Routes, Route } from 'react-router';
 import NotFound from './components/NotFound/NotFound';
@@ -35,6 +37,7 @@ const App = () => {
         <Route path="/certificates" element={<Certificates />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Toaster className='select-none' />
     </div>
   )
 }
