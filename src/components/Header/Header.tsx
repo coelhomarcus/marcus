@@ -7,7 +7,7 @@ const Header = () => {
         <div className='flex justify-between items-center mb-4'>
             <NavLink to="/">
                 <Avatar className="size-9 sm:size-12">
-                    <AvatarImage src="/img/profile.jpg" />
+                    <AvatarImage src="/src/icons/profile.jpg" />
                     <AvatarFallback className="size-9 sm:size-10">
                         <FaUserAlt className="opacity-60 text-white" aria-hidden="true" />
                     </AvatarFallback>
