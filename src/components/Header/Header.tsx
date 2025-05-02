@@ -6,20 +6,15 @@ const Header = () => {
     return (
         <div className='flex justify-between items-center mb-4'>
             <NavLink to="/">
-                <div className="relative">
-                    <Avatar className="size-9 sm:size-10">
-                        <AvatarImage src="/icons/profile.jpeg" />
-                        <AvatarFallback className="size-9 sm:size-10">
-                            <FaUserAlt className="opacity-60 text-white" aria-hidden="true" />
-                        </AvatarFallback>
-                    </Avatar>
-                    <span className="border-background absolute -end-0.5 -bottom-0.5 size-3 rounded-full border-2 bg-lime-400">
-                        <span className="sr-only">Online</span>
-                    </span>
-                </div>
+                <Avatar className="size-9 sm:size-12">
+                    <AvatarImage src="/img/profile.jpg" />
+                    <AvatarFallback className="size-9 sm:size-10">
+                        <FaUserAlt className="opacity-60 text-white" aria-hidden="true" />
+                    </AvatarFallback>
+                </Avatar>
             </NavLink>
 
-            <div className="flex gap-2 sm:gap-5 text-neutral-400 *:text-sm *:hover:text-white *:transition-colors">
+            <div className="flex gap-4 sm:gap-5 text-neutral-400 *:text-sm *:hover:text-white *:transition-colors">
                 <HeaderLink title="Sobre" to="/" />
                 <HeaderLink title="Projetos" to="/projects" />
                 <HeaderLink title="Blog" to="/blog" />
