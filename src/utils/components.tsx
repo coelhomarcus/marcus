@@ -29,21 +29,30 @@ export function slugify(text: string): string {
         .replace(/\s+/g, '-') // Espaços viram hífens
 }
 
+const createHeadingClickHandler = (id: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+
+        // Atualiza a URL sem causar reload da página
+        history.pushState(null, '', `#${id}`);
+    }
+
+    const url = `${window.location.origin}${window.location.pathname}#${id}`;
+    navigator.clipboard.writeText(url);
+    toast(`Link copiado`, {
+        description: `#${id}`,
+    });
+};
+
 const components = {
     h1: (props: React.HTMLProps<HTMLHeadingElement>) => {
         const id = slugify(String(props.children))
 
-        const handleClick = () => {
-            const url = `${window.location.origin}${window.location.pathname}#${id}`;
-            navigator.clipboard.writeText(url);
-            toast(`Link copiado`, {
-                description: `#${id}`,
-            })
-        };
-
         return (
             <h1 id={id} className="scroll-mt-4">
-                <a href={`#${id}`} className="heading-link text-neutral-300 no-underline font-semibold active:text-neutral-500 cursor-pointer select-none" onClick={handleClick}>
+                <a href={`#${id}`} className="heading-link text-neutral-300 no-underline font-semibold active:text-neutral-500 cursor-pointer select-none" onClick={createHeadingClickHandler(id)}>
                     {props.children}
                 </a>
             </h1>
@@ -52,17 +61,9 @@ const components = {
     h2: (props: React.HTMLProps<HTMLHeadingElement>) => {
         const id = slugify(String(props.children))
 
-        const handleClick = () => {
-            const url = `${window.location.origin}${window.location.pathname}#${id}`;
-            navigator.clipboard.writeText(url);
-            toast(`Link copiado`, {
-                description: `#${id}`,
-            })
-        };
-
         return (
             <h2 id={id} className="scroll-mt-4">
-                <a href={`#${id}`} className="heading-link text-neutral-300 no-underline font-semibold active:text-neutral-500 cursor-pointer select-none" onClick={handleClick}>
+                <a href={`#${id}`} className="heading-link text-neutral-300 no-underline font-semibold active:text-neutral-500 cursor-pointer select-none" onClick={createHeadingClickHandler(id)}>
                     {props.children}
                 </a>
             </h2>
@@ -71,17 +72,9 @@ const components = {
     h3: (props: React.HTMLProps<HTMLHeadingElement>) => {
         const id = slugify(String(props.children))
 
-        const handleClick = () => {
-            const url = `${window.location.origin}${window.location.pathname}#${id}`;
-            navigator.clipboard.writeText(url);
-            toast(`Link copiado`, {
-                description: `#${id}`,
-            })
-        };
-
         return (
             <h3 id={id} className="scroll-mt-4">
-                <a href={`#${id}`} className="heading-link text-neutral-300 no-underline font-semibold active:text-neutral-400 cursor-pointer select-none" onClick={handleClick}>
+                <a href={`#${id}`} className="heading-link text-neutral-300 no-underline font-semibold active:text-neutral-400 cursor-pointer select-none" onClick={createHeadingClickHandler(id)}>
                     {props.children}
                 </a>
             </h3>
