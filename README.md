@@ -7,7 +7,9 @@ Bem-vindo ao meu site pessoal — um projeto minimalista feito para testar meus 
   - `Tailwind`
   - `React Router`
   - `React Icons`
-  -  `Shadcn`
+  - `Shadcnui`
+  - `Giscus`
+  - `MDX`
 
 ## 📂 O que você vai encontrar
 O site é dividido em três seções principais:

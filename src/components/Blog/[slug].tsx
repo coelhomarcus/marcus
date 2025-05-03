@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { MDXProvider } from '@mdx-js/react'
 import { useParams, Link, useLocation } from 'react-router';
+import Giscus from '@giscus/react';
 
 import { arrBlog } from '../../utils/data';
 import components from '../../utils/components';
@@ -98,6 +99,24 @@ const Post = () => {
                     <MDXComponent />
                 </article>
             </MDXProvider>
+
+            <div className='mt-10'>
+                <Giscus
+                    id="comments"
+                    repo="coelhomarcus/marcus"
+                    repoId="R_kgDOOaVmWg"
+                    category="blog"
+                    categoryId="DIC_kwDOOaVmWs4Cpu2a"
+                    mapping="specific"
+                    term={post.title}
+                    reactionsEnabled="0"
+                    emitMetadata="0"
+                    inputPosition="top"
+                    theme="transparent_dark"
+                    lang="pt"
+                    loading="lazy"
+                />
+            </div>
 
             <div className='flex justify-between items-center space-y-2 mt-5 shadow-inner shadow-neutral-800 p-4 rounded-xl border -mx-3 border-neutral-900 text-neutral-400'>
                 <div>
