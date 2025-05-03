@@ -102,7 +102,15 @@ const Post = () => {
                 </article>
             </MDXProvider>
 
-            <div className='mt-10'>
+            <div className='flex justify-between items-center space-y-2 mt-5 shadow-inner shadow-neutral-800 p-4 rounded-xl border -mx-3 border-neutral-900 text-neutral-400'>
+                <div>
+                    <p className='flex items-center gap-2 text-sm text-neutral-200'>Marcus Coelho</p>
+                    <p className='text-xs'>Veja as outras postagens!</p>
+                </div>
+                <Link to="/blog" className='text-xs px-4 py-2 rounded-xl shadow-inner shadow-neutral-800 border border-neutral-800 hover:text-white transition-all duration-200 hover:bg-neutral-900/50'>Voltar pro Blog</Link>
+            </div>
+
+            <div className='mt-5'>
                 <Giscus
                     id="comments"
                     repo="coelhomarcus/marcus"
@@ -114,18 +122,11 @@ const Post = () => {
                     reactionsEnabled="0"
                     emitMetadata="0"
                     inputPosition="top"
-                    theme="transparent_dark"
+                    // theme="transparent_dark"
+                    theme="https://coelhomarcus.com/blogcom.css"
                     lang="pt"
                     loading="lazy"
                 />
-            </div>
-
-            <div className='flex justify-between items-center space-y-2 mt-5 shadow-inner shadow-neutral-800 p-4 rounded-xl border -mx-3 border-neutral-900 text-neutral-400'>
-                <div>
-                    <p className='flex items-center gap-2 text-sm text-neutral-200'>Marcus Coelho</p>
-                    <p className='text-xs'>Veja as outras postagens!</p>
-                </div>
-                <Link to="/blog" className='text-xs px-4 py-2 rounded-xl shadow-inner shadow-neutral-800 border border-neutral-800 hover:text-white transition-all duration-200 hover:bg-neutral-900/50'>Voltar pro Blog</Link>
             </div>
         </div>
     );
