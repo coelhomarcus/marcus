@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { MDXProvider } from '@mdx-js/react'
 import { useParams, Link, useLocation } from 'react-router';
 import Giscus from '@giscus/react';
+import PageTitle from '@/components/PageTitle/PageTitle';
 
 import { arrBlog } from '../../utils/data';
 import components from '../../utils/components';
@@ -79,6 +80,7 @@ const Post = () => {
 
     return (
         <div className='text-white w-full'>
+            {post && <PageTitle title={post.title} />}
             <div className='flex flex-col sm:flex-row justify-between gap-2 sm:gap-0 sm:items-center mt-5'>
                 <h1 className='font-medium text-sm'>{post.title}</h1>
                 <div className="flex gap-2">

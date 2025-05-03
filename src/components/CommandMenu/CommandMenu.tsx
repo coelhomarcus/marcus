@@ -14,10 +14,11 @@ import {
 import { FaLaptopCode, FaRegFolderOpen, FaGithub, FaLinkedin, FaDiscord } from "react-icons/fa";
 import { CiTextAlignJustify } from "react-icons/ci";
 import { RiExternalLinkLine } from "react-icons/ri";
-import { MdAlternateEmail } from 'react-icons/md';
+import { MdAlternateEmail, MdOutlineTimer } from 'react-icons/md';
 import { TbCertificate } from "react-icons/tb";
 import { FiUser } from "react-icons/fi";
 import { FaRegFilePdf } from "react-icons/fa6";
+
 
 import { arrBlog, arrProjects, arrSideProjects } from '@/utils/data';
 import isMac from '@/utils/isMac';
@@ -47,6 +48,7 @@ const socials: Page[] = [
 
 const others: Page[] = [
     { name: 'Curriculo', href: 'https://docs.google.com/document/d/1wgOhwh-1YT-LRog9j1tvxzBVKfraoSzps1AiBGuSx9A/export?format=pdf', icon: FaRegFilePdf },
+    { name: 'Pomodoro', href: '/pomodoro', icon: MdOutlineTimer },
 ]
 
 export default function CommandMenu({ open, setOpen }: { open: boolean, setOpen: React.Dispatch<React.SetStateAction<boolean>> }) {

@@ -5,6 +5,7 @@ import Blog from './components/Blog/Blog'
 import PostPage from './components/Blog/[slug]';
 import CommandMenu from './components/CommandMenu/CommandMenu';
 import Certificates from './components/Certificates/Certificates';
+import Pomodoro from './components/Pomodoro/Pomodoro';
 
 import { Toaster } from "@/components/ui/sonner"
 
@@ -31,6 +32,10 @@ const App = () => {
         </>} />
         <Route path='/blog' element={<>
           <Blog />
+          <Footer setOpen={setOpen} />
+        </>} />
+        <Route path='/pomodoro' element={<>
+          <Pomodoro />
           <Footer setOpen={setOpen} />
         </>} />
         <Route path="/blog/:slug" element={<PostPage />} />

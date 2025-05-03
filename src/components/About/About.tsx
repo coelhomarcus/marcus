@@ -1,11 +1,13 @@
 import { Link } from "react-router";
 import { Badge } from "@/components/ui/badge"
+import PageTitle from "@/components/PageTitle/PageTitle";
 
 import { arrProjects, arrBlog } from "@/utils/data";
 
 const About = () => {
     return (
         <div className='text-white'>
+            <PageTitle title="Marcus Coelho" suffix="" />
             <h1 className='text-xl font-semibold mb-4'>Marcus Coelho</h1>
             <p className='text-neutral-400 text-sm'>
                 Olá, me chamo Marcus Coelho, sou estudante de Sistemas de Informação na Unifesspa.

@@ -3,6 +3,7 @@ import { arrBlog } from "../../utils/data"
 import { MdAccessTime } from "react-icons/md";
 import { useState } from "react";
 import { IoSearchSharp } from "react-icons/io5";
+import PageTitle from '@/components/PageTitle/PageTitle';
 
 const BlogCard = ({ slug, title, date, desc, time }: { slug: string, title: string, date: string, desc: string, time: number }) => {
     return <Link to={`/blog/${slug}`} key={slug} className="space-y-2 block shadow-inner shadow-neutral-800 p-4 rounded-lg border border-neutral-900 transition-colors hover:transition-none hover:bg-neutral-900">
@@ -29,6 +30,7 @@ const Blog = () => {
 
     return (
         <div className="text-white">
+            <PageTitle title="Blog" />
             <h1 className='text-xl font-semibold mb-2'>Blog</h1>
             <p className='text-neutral-400 text-sm mb-4'>Meus preciosos pensamentos e anotações.</p>
 

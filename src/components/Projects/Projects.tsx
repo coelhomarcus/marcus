@@ -1,5 +1,6 @@
 import { arrProjects, arrSideProjects } from "../../utils/data"
 import SimpleCard from "../SimpleCard/SimpleCard";
+import PageTitle from "@/components/PageTitle/PageTitle";
 
 const Projects = () => {
     const projects = arrProjects;
@@ -7,6 +8,7 @@ const Projects = () => {
 
     return (
         <div className='text-white'>
+            <PageTitle title="Projetos" />
             <h1 className='text-xl font-semibold mb-2'>Projetos</h1>
             <p className='text-neutral-400 text-sm mb-4'>Projetos que fiz ou participei no desenvolvimento.</p>
             <div className="space-y-4 mb-8">
