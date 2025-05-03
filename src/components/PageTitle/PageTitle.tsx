@@ -5,7 +5,7 @@ interface PageTitleProps {
     suffix?: string;
 }
 
-const PageTitle: React.FC<PageTitleProps> = ({ title, suffix = " | Marcus Coelho" }) => {
+const PageTitle: React.FC<PageTitleProps> = ({ title, suffix = " - Marcus Coelho" }) => {
     useEffect(() => {
         const originalTitle = document.title;
 

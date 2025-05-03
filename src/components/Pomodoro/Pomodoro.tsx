@@ -71,7 +71,7 @@ const Pomodoro: React.FC = () => {
 
     return (
         <div className="text-neutral-300">
-            <PageTitle title="Pomodoro" />
+            <PageTitle title={formatTime(timeLeft)} suffix={mode === 'work' ? ' - Foco' : ' - Descanso'} />
             <h1 className="text-xl font-semibold mb-2">Pomodoro</h1>
             <p className="text-neutral-400 text-sm mb-4">
                 Uma técnica simples de gerenciamento de tempo para aumentar sua produtividade.
