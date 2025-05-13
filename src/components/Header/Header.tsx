@@ -6,9 +6,9 @@ const Header = () => {
     return (
         <div className='flex justify-between items-center mb-4'>
             <NavLink to="/">
-                <Avatar className="size-9 sm:size-12">
-                    <AvatarImage src="/src/icons/profile.jpg" />
-                    <AvatarFallback className="size-9 sm:size-10">
+                <Avatar className="size-9 sm:size-12 hover:scale-110 transition-all duration-300">
+                    <AvatarImage src="/src/icons/profile.webp" />
+                    <AvatarFallback className="size-9 sm:size-12">
                         <FaUserAlt className="opacity-60 text-white" aria-hidden="true" />
                     </AvatarFallback>
                 </Avatar>
