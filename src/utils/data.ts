@@ -41,7 +41,7 @@ export const arrProjects = [
     {
         href: "https://smartcitycanaadoscarajas.com.br/index.php/conectacanaa",
         name: "Conecta Canaã",
-        desc: "Plataforma para ocorrências e serviços públicos para Prefeitura de Canaã dos Carajás - PA.",
+        desc: "Plataforma de ocorrências e serviços públicos para Prefeitura de Canaã dos Carajás - PA.",
         tech: ["react", "js", "mongodb"]
     }
 ]
@@ -54,6 +54,18 @@ export const arrSideProjects = [
         tech: ["html", "css", "js", "api"]
     },
     {
+        href: "https://github.com/coelhomarcus/coebot",
+        name: "CoeBot",
+        desc: "Fun Bot para o Discord.",
+        tech: ["node", "discordjs", "js", "api"]
+    },
+    {
+        href: "https://marketplace.visualstudio.com/items?itemName=coelhomarcus.bakaneo",
+        name: "BakaNeo",
+        desc: "Tema dark para VS Code.",
+        tech: ["design"]
+    },
+    {
         href: "https://blob-temp.vercel.app/",
         name: "Blob",
         desc: "Site de previsão meteorológica",
@@ -64,12 +76,6 @@ export const arrSideProjects = [
         name: "Mailman",
         desc: "Protótipo de jogo de terror retrô.",
         tech: ["c#", "unity", "blender"]
-    },
-    {
-        href: "https://marketplace.visualstudio.com/items?itemName=coelhomarcus.bakaneo",
-        name: "BakaNeo",
-        desc: "Tema dark para Visual Studio Code.",
-        tech: ["design"]
     },
     {
         href: "https://coelhomarcus.github.io/catype/",
