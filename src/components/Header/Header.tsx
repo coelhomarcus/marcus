@@ -28,7 +28,7 @@ function HeaderLink({ to, title }: { to: string; title: string }) {
     <NavLink
       to={to}
       className={({ isActive }) =>
-        `relative inline-block text-sm transition-colors ${
+        `relative inline-block transition-colors ${
           isActive ? "text-white" : "text-neutral-400"
         }`
       }

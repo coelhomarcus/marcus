@@ -64,17 +64,17 @@ const ProjectPostGrid = () => {
           target="_blank"
           className="flex flex-col h-full bg-[#0A0A0A] rounded-lg border border-foreground/10 hover:border-foreground/20 overflow-hidden transition-all duration-200"
         >
-          <div className="bg-[#1A1A1A]/30 px-3 py-2 flex items-center border-b border-foreground/10">
+          {" "}
+          <div className="bg-[#1A1A1A]/30 px-3 py-2 flex items-center relative border-b border-foreground/10">
             <div className="flex space-x-1.5 items-center">
               <div className="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]/50"></div>
               <div className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]/50"></div>
               <div className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]/50"></div>
             </div>
-            <div className="mx-auto text-xs font-medium text-neutral-400">
+            <div className="absolute left-0 right-0 text-center text-xs font-medium text-neutral-400">
               Último Projeto
             </div>
           </div>
-
           <div className="p-3 flex flex-col flex-grow">
             <div className="flex items-center justify-between mb-2">
               <h3 className="text-xs font-mono text-neutral-400">~/projects</h3>
@@ -107,17 +107,17 @@ const ProjectPostGrid = () => {
           to={`blog/${post.slug}`}
           className="flex flex-col h-full bg-[#0A0A0A] rounded-lg border border-foreground/10 hover:border-foreground/20 overflow-hidden transition-all duration-200"
         >
-          <div className="bg-[#1A1A1A]/30 px-3 py-2 flex items-center border-b border-foreground/10">
+          {" "}
+          <div className="bg-[#1A1A1A]/30 px-3 py-2 flex items-center relative border-b border-foreground/10">
             <div className="flex space-x-1.5 items-center">
               <div className="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]/50"></div>
               <div className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]/50"></div>
               <div className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]/50"></div>
             </div>
-            <div className="mx-auto text-xs font-medium text-neutral-400">
+            <div className="absolute left-0 right-0 text-center text-xs font-medium text-neutral-400">
               Último Post
             </div>
           </div>
-
           <div className="p-3 flex flex-col flex-grow">
             <div className="flex items-center justify-between mb-2">
               <h3 className="text-xs font-mono text-neutral-400">~/blog</h3>
