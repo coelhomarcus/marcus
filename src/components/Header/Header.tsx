@@ -19,7 +19,7 @@ const Header = () => {
                 <HeaderLink title="Projetos" to="/projects" />
                 <HeaderLink title="Blog" to="/blog" />
             </div>
-        </div>
+        </div >
     )
 }
 

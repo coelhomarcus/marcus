@@ -9,7 +9,7 @@ const About = () => {
         <div className='text-white'>
             <PageTitle title="Marcus Coelho" suffix="" />
             <h1 className='text-xl font-semibold mb-4'>Marcus Coelho</h1>
-            <p className='text-neutral-400 text-sm'>
+            <p className='text-neutral-400 text-base mb-4'>
                 Olá, me chamo Marcus Coelho, sou estudante de Sistemas de Informação na Unifesspa.
                 Se quiser saber mais sobre minha trajetória, <span><a className="transition-colors text-neutral-100 hover:underline" href="https://docs.google.com/document/d/1wgOhwh-1YT-LRog9j1tvxzBVKfraoSzps1AiBGuSx9A/export?format=pdf" download>veja meu currículo</a></span>.
                 <br />
@@ -30,12 +30,21 @@ const ProjectPostGrid = () => {
 
     return (
         <div className="w-full mt-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 *:flex *:flex-col *:h-full *:bg-[#0A0A0A] *:rounded-lg">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
                 {/* Card do Último Projeto */}
-                <a href={project.href} target="_blank" className="border border-foreground/10 overflow-hidden transition-all duration-300 shadow-inner shadow-neutral-800 hover:shadow-neutral-700">
+                <a href={project.href} target="_blank" className="flex flex-col h-full bg-[#0A0A0A] rounded-lg border border-foreground/10 hover:border-foreground/20 overflow-hidden transition-all duration-200">
+                    <div className="bg-[#1A1A1A]/30 px-3 py-2 flex items-center border-b border-foreground/10">
+                        <div className="flex space-x-1.5 items-center">
+                            <div className="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]/50"></div>
+                            <div className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]/50"></div>
+                            <div className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]/50"></div>
+                        </div>
+                        <div className="mx-auto text-xs font-medium text-neutral-400">Último Projeto</div>
+                    </div>
+
                     <div className="p-3 flex flex-col flex-grow">
                         <div className="flex items-center justify-between mb-2">
-                            <h3 className="text-xs font-medium text-neutral-400">Último Projeto</h3>
+                            <h3 className="text-xs font-mono text-neutral-400">~/projects</h3>
                             <span className="bg-lime-900/30 text-lime-300 text-xs px-2.5 py-0.5 rounded-xl">Novo</span>
                         </div>
                         <h4 className="text-base font-semibold text-neutral-100 mb-2">{project?.name || "Nome do Projeto"}</h4>
@@ -49,10 +58,19 @@ const ProjectPostGrid = () => {
                 </a>
 
                 {/* Card do Último Post */}
-                <Link to={`blog/${post.slug}`} className="border border-foreground/10 overflow-hidden transition-all duration-300 shadow-inner shadow-neutral-800 hover:shadow-neutral-700">
+                <Link to={`blog/${post.slug}`} className="flex flex-col h-full bg-[#0A0A0A] rounded-lg border border-foreground/10 hover:border-foreground/20 overflow-hidden transition-all duration-200">
+                    <div className="bg-[#1A1A1A]/30 px-3 py-2 flex items-center border-b border-foreground/10">
+                        <div className="flex space-x-1.5 items-center">
+                            <div className="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]/50"></div>
+                            <div className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]/50"></div>
+                            <div className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]/50"></div>
+                        </div>
+                        <div className="mx-auto text-xs font-medium text-neutral-400">Último Post</div>
+                    </div>
+
                     <div className="p-3 flex flex-col flex-grow">
                         <div className="flex items-center justify-between mb-2">
-                            <h3 className="text-xs font-medium text-neutral-400">Último Post</h3>
+                            <h3 className="text-xs font-mono text-neutral-400">~/blog</h3>
                             <span className="bg-lime-900/30 text-lime-300 text-xs px-2.5 py-0.5 rounded-xl">Publicado</span>
                         </div>
                         <h4 className="text-base font-semibold text-neutral-100 mb-2">{post?.title || "Título do Post"}</h4>
@@ -65,7 +83,7 @@ const ProjectPostGrid = () => {
                     </div>
                 </Link>
             </div>
-        </div >
+        </div>
     );
 };
 
