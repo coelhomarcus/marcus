@@ -92,7 +92,7 @@ const ProjectPostGrid = () => {
               {project.tech?.map((tech, index) => (
                 <Badge
                   key={index}
-                  className="text-xs px-2 py-0.5 rounded-full bg-neutral-800/30 text-neutral-400 border-neutral-800/30"
+                  className="text-xs px-2 py-0.5 rounded-sm bg-neutral-800/30 text-neutral-400 border-neutral-800/30"
                   variant="outline"
                 >
                   {tech}
@@ -135,7 +135,7 @@ const ProjectPostGrid = () => {
               {post.tags.map((tag, index) => (
                 <Badge
                   key={index}
-                  className="text-xs px-2 py-0.5 rounded-full bg-neutral-800/30 text-neutral-400 border-neutral-800/30"
+                  className="text-xs px-2 py-0.5 rounded-sm bg-neutral-800/30 text-neutral-400 border-neutral-800/30"
                   variant="outline"
                 >
                   {tag}
