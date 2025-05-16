@@ -39,7 +39,7 @@ const friendsData: Friend[] = [
         avatar: "https://github.com/martinianogomes.png",
         website: "https://martinianogomes.github.io/mini-portfolio/",
         github: "https://github.com/martinianogomes",
-        description: "Baitola"
+        description: "Front-end"
     },
 ];
 
