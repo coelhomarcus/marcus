@@ -1,11 +1,7 @@
 import React from "react";
 import { LuGithub, LuGlobe } from "react-icons/lu";
 
-import {
-    Avatar,
-    AvatarImage,
-    AvatarFallback
-} from "@/components/ui/avatar";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import PageTitle from "@/components/PageTitle/PageTitle";
 
 interface Friend {
@@ -23,7 +19,7 @@ const friendsData: Friend[] = [
         name: "Vitória Leda",
         avatar: "https://github.com/vitorialeda.png",
         github: "https://github.com/vitorialeda",
-        description: "Front-end"
+        description: "Front-end",
     },
     {
         id: 2,
@@ -31,7 +27,7 @@ const friendsData: Friend[] = [
         avatar: "https://github.com/luisotv.png",
         website: "https://luisiqueira.com",
         github: "https://github.com/luisotv",
-        description: "Front-end & Game Dev"
+        description: "Front-end & Game Dev",
     },
     {
         id: 3,
@@ -39,7 +35,7 @@ const friendsData: Friend[] = [
         avatar: "https://github.com/martinianogomes.png",
         website: "https://martinianogomes.github.io/mini-portfolio/",
         github: "https://github.com/martinianogomes",
-        description: "Front-end"
+        description: "Front-end",
     },
 ];
 
@@ -50,29 +46,41 @@ const Friends: React.FC = () => {
 
             <h1 className="text-xl font-medium mb-2">Amigos</h1>
             <p className="text-neutral-400 text-sm mb-6">
-                Aqui estão alguns dos meus amigos desenvolvedores e seus trabalhos.<br />
-                Pagina em construção, então não se preocupe se não estiver tudo aqui.
+                Aqui estão alguns dos meus amigos desenvolvedores e seus
+                trabalhos.
+                <br />
+                Pagina em construção, então não se preocupe se não estiver tudo
+                aqui.
             </p>
 
             <div className="grid grid-cols-1 gap-4 mb-8">
                 {friendsData.map((friend) => (
-                    <a
+                    <div
                         key={friend.id}
-                        target="_blank"
                         className="block rounded-lg text-neutral-200 shadow-inner shadow-neutral-800 p-4 transition-colors border border-neutral-800"
                     >
                         <div className="flex items-center gap-3 mb-2">
                             <Avatar className="size-10 border border-neutral-800">
-                                <AvatarImage src={friend.avatar} alt={friend.name} />
-                                <AvatarFallback>{friend.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                                <AvatarImage
+                                    src={friend.avatar}
+                                    alt={friend.name}
+                                />
+                                <AvatarFallback>
+                                    {friend.name
+                                        .split(" ")
+                                        .map((n) => n[0])
+                                        .join("")}
+                                </AvatarFallback>
                             </Avatar>
                             <div>
                                 <h3 className="font-medium">{friend.name}</h3>
-                                <p className="text-neutral-400 text-xs">{friend.description}</p>
+                                <p className="text-neutral-400 text-xs">
+                                    {friend.description}
+                                </p>
                             </div>
                         </div>
 
-                        <div className="flex space-x-4 mt-4">
+                        <div className="flex flex-col gap-2 sm:gap-0 sm:flex-row space-x-4 mt-4">
                             {friend.github && (
                                 <a
                                     href={friend.github}
@@ -81,7 +89,9 @@ const Friends: React.FC = () => {
                                     className="flex items-center gap-1 text-sm text-neutral-400 hover:text-neutral-100 transition-colors"
                                 >
                                     <LuGithub />
-                                    <span>{friend.github.split('/').pop()}</span>
+                                    <span>
+                                        {friend.github.split("/").pop()}
+                                    </span>
                                 </a>
                             )}
 
@@ -97,7 +107,7 @@ const Friends: React.FC = () => {
                                 </a>
                             )}
                         </div>
-                    </a>
+                    </div>
                 ))}
             </div>
         </div>
