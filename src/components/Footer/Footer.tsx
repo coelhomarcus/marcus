@@ -1,4 +1,5 @@
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { LuGithub } from "react-icons/lu";
 import { IoDocumentText, IoSearchSharp } from "react-icons/io5";
 import { MdKeyboardCommandKey } from "react-icons/md";
 import isMac from "@/utils/isMac";
@@ -10,7 +11,7 @@ const Footer = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<bool
         <div className="flex justify-between border-t mt-4 pt-4 border-neutral-800">
             <div className="flex gap-3 text-white">
                 <ContactLink title="CV" Icon={IoDocumentText} href="https://docs.google.com/document/d/1wgOhwh-1YT-LRog9j1tvxzBVKfraoSzps1AiBGuSx9A/export?format=pdf" download />
-                <ContactLink title="Github" Icon={FaGithub} href="https://github.com/coelhomarcus" />
+                <ContactLink title="Github" Icon={LuGithub} href="https://github.com/coelhomarcus" />
                 <ContactLink title="Linkedin" Icon={FaLinkedin} href="https://www.linkedin.com/in/coelhomarcus/" />
             </div>
             <button className="cursor-pointer text-neutral-400 hover:text-neutral-500 transition-all duration-200" onClick={() => setOpen(true)}>

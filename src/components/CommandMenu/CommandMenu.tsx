@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/command"
 
 import { FaLaptopCode, FaRegFolderOpen, FaGithub, FaLinkedin, FaDiscord } from "react-icons/fa";
+import { GoPeople } from "react-icons/go";
 import { CiTextAlignJustify } from "react-icons/ci";
 import { RiExternalLinkLine } from "react-icons/ri";
 import { MdAlternateEmail, MdOutlineTimer } from 'react-icons/md';
@@ -48,6 +49,7 @@ const socials: Page[] = [
 
 const others: Page[] = [
     { name: 'Curriculo', href: 'https://docs.google.com/document/d/1wgOhwh-1YT-LRog9j1tvxzBVKfraoSzps1AiBGuSx9A/export?format=pdf', icon: FaRegFilePdf },
+    { name: 'Amigos', href: '/friends', icon: GoPeople },
     { name: 'Pomodoro', href: '/pomodoro', icon: MdOutlineTimer },
 ]
 

@@ -10,7 +10,7 @@ const posts = import.meta.glob("../../utils/posts/*.mdx");
 import { PiSpinnerThin } from "react-icons/pi";
 import { HiOutlineEye } from "react-icons/hi";
 import { MdAccessTime } from "react-icons/md";
-import { NumberTicker } from "../magicui/number-ticker";
+import { NumberTicker } from "../ui/magicui/number-ticker";
 
 
 const Post = () => {
