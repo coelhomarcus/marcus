@@ -6,9 +6,9 @@ const Header = () => {
   return (
     <div className="flex justify-between items-center mb-4">
       <NavLink to="/">
-        <Avatar className="size-9 sm:size-12 hover:scale-110 transition-all duration-300">
+        <Avatar className="size-10 sm:size-16 hover:scale-110 transition-all duration-300">
           <AvatarImage src="/src/icons/profile.webp" />
-          <AvatarFallback className="size-9 sm:size-12">
+          <AvatarFallback className="size-10 sm:size-16">
             <FaUserAlt className="opacity-60 text-white" aria-hidden="true" />
           </AvatarFallback>
         </Avatar>
@@ -28,8 +28,7 @@ function HeaderLink({ to, title }: { to: string; title: string }) {
     <NavLink
       to={to}
       className={({ isActive }) =>
-        `relative inline-block transition-colors ${
-          isActive ? "text-white" : "text-neutral-400"
+        `relative inline-block transition-colors ${isActive ? "text-white" : "text-neutral-400"
         }`
       }
     >
@@ -37,9 +36,8 @@ function HeaderLink({ to, title }: { to: string; title: string }) {
         <span className="relative">
           {title}
           <span
-            className={`absolute left-0 bottom-0 h-[1px] bg-white transition-all duration-500 ${
-              isActive ? "w-full" : "w-0"
-            }`}
+            className={`absolute left-0 bottom-0 h-[1px] bg-white transition-all duration-500 ${isActive ? "w-full" : "w-0"
+              }`}
           ></span>
         </span>
       )}
