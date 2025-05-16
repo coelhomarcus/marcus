@@ -10,6 +10,8 @@ const posts = import.meta.glob("../../utils/posts/*.mdx");
 import { PiSpinnerThin } from "react-icons/pi";
 import { HiOutlineEye } from "react-icons/hi";
 import { MdAccessTime } from "react-icons/md";
+import { NumberTicker } from "../magicui/number-ticker";
+
 
 const Post = () => {
   const { slug } = useParams();
@@ -106,7 +108,7 @@ const Post = () => {
           <span className="mx-2 hidden sm:inline-block">•</span>
           <span className="flex items-center">
             <HiOutlineEye className="mr-1" size={13} />
-            {views}
+            <NumberTicker value={views} className="text-neutral-500" />
           </span>
         </div>
       </div>
