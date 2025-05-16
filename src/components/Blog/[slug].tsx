@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { MDXProvider } from "@mdx-js/react";
 import { useParams, Link, useLocation } from "react-router";
-import Giscus from "@giscus/react";
 import PageTitle from "@/components/PageTitle/PageTitle";
 
 import { arrBlog } from "../../utils/data";
@@ -134,25 +133,6 @@ const Post = () => {
         >
           Voltar pro Blog
         </Link>
-      </div>
-
-      <div className="mt-5">
-        <Giscus
-          id="comments"
-          repo="coelhomarcus/marcus"
-          repoId="R_kgDOOaVmWg"
-          category="blog"
-          categoryId="DIC_kwDOOaVmWs4Cpu2a"
-          mapping="specific"
-          term={post.title}
-          reactionsEnabled="0"
-          emitMetadata="0"
-          inputPosition="top"
-          // theme="transparent_dark"
-          theme="https://coelhomarcus.com/blogcom.css"
-          lang="pt"
-          loading="lazy"
-        />
       </div>
     </div>
   );

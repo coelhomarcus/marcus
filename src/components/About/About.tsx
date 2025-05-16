@@ -121,8 +121,8 @@ const ProjectPostGrid = () => {
           <div className="p-3 flex flex-col flex-grow">
             <div className="flex items-center justify-between mb-2">
               <h3 className="text-xs font-mono text-neutral-400">~/blog</h3>
-              <span className="bg-lime-900/30 text-lime-300 text-xs px-2.5 py-0.5 rounded-xl">
-                Publicado
+              <span className="bg-lime-900/30 text-lime-300 text-xs px-2.5 py-0.5 rounded-xl font-mono">
+                {post.date}
               </span>
             </div>
             <h4 className="text-base font-semibold text-neutral-100 mb-2">
