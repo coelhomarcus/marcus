@@ -6,9 +6,9 @@ import { MdAlternateEmail } from "react-icons/md";
 
 const NotFound = () => {
     return (
-        <div className='flex flex-col justify-center mt-10 items-center gap-5'>
-            <h1 className='text-center text-sm'>Pagina não encontrada!</h1>
-            <p className='text-center text-xs text-neutral-400'>
+        <div className='flex flex-col justify-center mt-10 items-center gap-2'>
+            <h1 className='text-center text-base text-neutral-100'>Pagina não encontrada!</h1>
+            <p className='text-center text-sm text-neutral-400'>
                 A página que você está procurando não existe.
             </p>
 
@@ -16,9 +16,9 @@ const NotFound = () => {
                 <div className="absolute inset-0 w-full h-full rounded-xl bg-gray-200 animate-pulse" />
                 <img
                     loading="lazy"
-                    src="https://safebooru.org//samples/3611/sample_ad0a829f1ad1315fbad0f8098353c767d4289cd0.jpg"
+                    src="https://i.pinimg.com/originals/73/09/a2/7309a2ccc75cd3c84d0cf031e0f2cc85.gif"
                     alt="Imagem de personagem confuso"
-                    className="absolute inset-0 w-full h-full object-cover rounded-xl"
+                    className="absolute inset-0 w-full h-full object-cover rounded-lg"
                 />
             </div>
 

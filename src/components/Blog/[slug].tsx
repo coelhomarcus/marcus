@@ -66,9 +66,9 @@ const Post = () => {
 
     if (!post)
         return (
-            <div className="flex flex-col justify-center mt-10 items-center gap-5">
-                <h1 className="text-center text-sm">Esse post não existe!</h1>
-                <p className="text-center text-xs text-neutral-400">
+            <div className="flex flex-col justify-center mt-10 items-center gap-2">
+                <h1 className="text-center text-base text-neutral-100">Esse post não existe!</h1>
+                <p className="text-center text-sm text-neutral-400">
                     Talvez ele tenha sido removido ou nunca existiu.
                     <br /> Você pode voltar e conferir outros posts disponíveis.
                 </p>
@@ -77,9 +77,9 @@ const Post = () => {
                     <div className="absolute inset-0 w-full h-full rounded-xl bg-neutral-900 animate-pulse" />
                     <img
                         loading="lazy"
-                        src="https://i.gifer.com/433p.gif"
+                        src="https://i.pinimg.com/736x/d1/b4/b8/d1b4b80e6c7feb00a2bb1814b4a60650.jpg"
                         alt="Personagem Confuso"
-                        className="absolute inset-0 w-full h-full object-cover rounded-xl"
+                        className="absolute inset-0 w-full h-full object-cover rounded-lg"
                     />
                 </div>
 
