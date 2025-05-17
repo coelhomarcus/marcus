@@ -3,41 +3,7 @@ import { LuGithub, LuGlobe } from "react-icons/lu";
 
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import PageTitle from "@/components/PageTitle/PageTitle";
-
-interface Friend {
-    id: number;
-    name: string;
-    avatar: string;
-    website?: string;
-    github?: string;
-    description?: string;
-}
-
-const friendsData: Friend[] = [
-    {
-        id: 1,
-        name: "Vitória Leda",
-        avatar: "https://github.com/vitorialeda.png",
-        github: "https://github.com/vitorialeda",
-        description: "Front-end",
-    },
-    {
-        id: 2,
-        name: "Luís Otavio",
-        avatar: "https://github.com/luisotv.png",
-        website: "https://luisiqueira.com",
-        github: "https://github.com/luisotv",
-        description: "Front-end & Game Dev",
-    },
-    {
-        id: 3,
-        name: "Martiniano Gomes",
-        avatar: "https://github.com/martinianogomes.png",
-        website: "https://martinianogomes.github.io/mini-portfolio/",
-        github: "https://github.com/martinianogomes",
-        description: "Front-end",
-    },
-];
+import { arrFriends } from "@/utils/data";
 
 const Friends: React.FC = () => {
     return (
@@ -49,18 +15,17 @@ const Friends: React.FC = () => {
                 Aqui estão alguns dos meus amigos desenvolvedores e seus
                 trabalhos.
                 <br />
-                Pagina em construção, então não se preocupe se não estiver tudo
-                aqui.
+                <span className="italic">Pagina em construção, então não se preocupe se você ainda não estiver aqui.</span>
             </p>
 
-            <div className="grid grid-cols-1 gap-4 mb-8">
-                {friendsData.map((friend) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                {arrFriends.map((friend) => (
                     <div
                         key={friend.id}
                         className="block rounded-lg text-neutral-200 shadow-inner shadow-neutral-800 p-4 transition-colors border border-neutral-800"
                     >
                         <div className="flex items-center gap-3 mb-2">
-                            <Avatar className="size-10 border border-neutral-800">
+                            <Avatar className="size-12">
                                 <AvatarImage
                                     src={friend.avatar}
                                     alt={friend.name}
