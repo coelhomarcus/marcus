@@ -1,11 +1,19 @@
 export const arrBlog = [
     {
+        slug: "wuwa-and-updates",
+        title: "WuWa e Atualizações",
+        desc: "Wuthering Waves, estágios e estudos",
+        date: "20/05/2025",
+        time: 4,
+        tags: ["games", "estudos", "cotidiano", "recomendações"],
+    },
+    {
         slug: "rest",
         title: "Descansar é importante",
         desc: "Reflexões após um mês intenso de estudos e aprendizados",
         date: "15/05/2025",
         time: 3,
-        tags: ["experiência", "cotidiano", "recomendações"],
+        tags: ["experiência", "cotidiano", "recomendações", "games", "estudos"],
     },
     {
         slug: "my-env",
@@ -13,7 +21,7 @@ export const arrBlog = [
         desc: "Ambiente, ferramentas, configurações e recomendações",
         date: "26/04/2025",
         time: 4,
-        tags: ["dotfiles", "recomendações"],
+        tags: ["cotidiano", "recomendações"],
     },
     {
         slug: "learning-express",
@@ -21,7 +29,7 @@ export const arrBlog = [
         desc: "Minhas anotações e estudos sobre Express.js",
         date: "24/04/2025",
         time: 7,
-        tags: ["express", "node"],
+        tags: ["node", "express", "estudos"],
     },
     {
         slug: "learning-go",
@@ -29,7 +37,7 @@ export const arrBlog = [
         desc: "Minhas anotações e estudos sobre Go (golang)",
         date: "19/04/2025",
         time: 18,
-        tags: ["go"],
+        tags: ["go", "estudos"],
     },
 ];
 
