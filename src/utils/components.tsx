@@ -98,7 +98,7 @@ const components = {
     ),
     a: (props: React.HTMLProps<HTMLAnchorElement>) => (
         <a
-            className="prose-base font-normal text-lime-300 underline decoration-wavy decoration-1"
+            className="prose-base font-normal text-lime-300 underline hover:text-lime-500 transition-colors"
             target="_blank"
             {...props}
         />

@@ -1,7 +1,7 @@
 export const arrBlog = [
     {
         slug: "wuwa-and-updates",
-        title: "WuWa e Atualizações",
+        title: "Hobby e Atualizações",
         desc: "Wuthering Waves, estágios e estudos",
         date: "20/05/2025",
         time: 4,
