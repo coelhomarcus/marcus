@@ -94,8 +94,8 @@ export const arrSideProjects = [
         tech: ["Design"],
     },
     {
-        href: "https://coelhomarcus.github.io/games-beaten",
-        name: "GamesBeaten",
+        href: "https://maahlune.github.io/games-beaten",
+        name: "Games Beaten",
         desc: "Tabela dos meus Jogos Zerados",
         tech: ["HTML", "CSS", "JS"],
     },
