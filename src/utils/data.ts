@@ -64,10 +64,16 @@ export const arrProjects = [
 
 export const arrSideProjects = [
     {
-        href: "https://github.com/coelhomarcus/chatbox-twitch",
-        name: "ChatBox",
-        desc: "Chatbox fofo para Twitch",
-        tech: ["Node", "tmi.js", "JS", "HTML", "CSS"],
+        href: "https://coelhomarcus.github.io/bunnybash/",
+        name: "BunnyBash",
+        desc: "Site que simula um terminal",
+        tech: ["HTML", "CSS", "JS", "API"],
+    },
+    {
+        href: "https://blob-temp.vercel.app/",
+        name: "Blob",
+        desc: "Site de previsão meteorológica",
+        tech: ["Next.js", "Tailwind", "API"],
     },
     {
         href: "https://github.com/coelhomarcus/coebot",
@@ -76,10 +82,10 @@ export const arrSideProjects = [
         tech: ["Node", "discord.js", "JS", "API"],
     },
     {
-        href: "https://coelhomarcus.github.io/bunnybash/",
-        name: "BunnyBash",
-        desc: "Site que simula um terminal",
-        tech: ["HTML", "CSS", "JS", "API"],
+        href: "https://github.com/coelhomarcus/chatbox-twitch",
+        name: "ChatBox",
+        desc: "Chatbox fofo para Twitch",
+        tech: ["Node", "tmi.js", "JS", "HTML", "CSS"],
     },
     {
         href: "https://marketplace.visualstudio.com/items?itemName=coelhomarcus.bakaneo",
@@ -88,10 +94,10 @@ export const arrSideProjects = [
         tech: ["Design"],
     },
     {
-        href: "https://blob-temp.vercel.app/",
-        name: "Blob",
-        desc: "Site de previsão meteorológica",
-        tech: ["Next.js", "Tailwind", "API"],
+        href: "https://coelhomarcus.github.io/games-beaten",
+        name: "GamesBeaten",
+        desc: "Tabela dos meus Jogos Zerados",
+        tech: ["HTML", "CSS", "JS"],
     },
     {
         href: "https://coelhomarcus.itch.io/mailman",
