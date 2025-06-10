@@ -58,7 +58,13 @@ export const arrProjects = [
         href: "https://smartcitycanaadoscarajas.com.br/index.php/conectacanaa",
         name: "Conecta Canaã",
         desc: "Plataforma de ocorrências e serviços públicos para Prefeitura de Canaã dos Carajás - PA",
-        tech: ["React", "JS", "MongoDB"],
+        tech: ["Exception Jr"],
+    },
+    {
+        href: "https://maahlune.github.io/vn/",
+        name: "MaahLune VN",
+        desc: "Hub de Traduções de Visual Novels para Português",
+        tech: ["React", "TS", "Tailwind"],
     },
 ];
 
