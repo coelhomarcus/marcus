@@ -44,7 +44,7 @@ const About = () => {
 };
 
 const ProjectPostGrid = () => {
-    const project = arrProjects[3];
+    const project = arrProjects[0];
     const post = arrBlog[0];
 
     return (
@@ -113,7 +113,7 @@ const ProjectPostGrid = () => {
                     <div className="p-3 flex flex-col flex-grow">
                         <div className="flex items-center justify-between mb-2">
                             <h3 className="text-xs font-mono text-neutral-400">~/blog</h3>
-                            <span className="bg-lime-900/30 text-lime-300 text-xs px-2.5 py-0.5 rounded-xl font-mono">
+                            <span className="bg-blue-900/30 text-blue-300 text-xs px-2.5 py-0.5 rounded-xl font-mono">
                                 {post.date}
                             </span>
                         </div>
