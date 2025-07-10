@@ -32,13 +32,11 @@ const BlogCard = ({
                     <h3 className="text-sm font-medium text-white">{title}</h3>
                     <div className="flex items-center gap-1 text-xs text-neutral-500">
                         <MdCalendarToday size={14} />
-                        <span>{date}</span>
+                        <span className="font-medium">{date}</span>
                     </div>
                 </div>
 
-                <p className="text-sm text-neutral-400 mb-3 flex-grow">
-                    {desc}
-                </p>
+                <p className="text-sm text-neutral-400 mb-3 flex-grow">{desc}</p>
 
                 <div className="flex flex-col gap-3 sm:gap-0 sm:flex-row items-start justify-between sm:items-center">
                     <div className="flex items-center gap-1 text-xs rounded-sm bg-neutral-800/30 text-neutral-500 border-neutral-800/30 px-2 py-0.5">
@@ -67,9 +65,7 @@ const Blog = () => {
     const [searchTerm, setSearchTerm] = useState("");
 
     const filteredPosts = arrBlog.filter((post) => {
-        const searchContent = `${post.title} ${post.desc} ${post.tags?.join(
-            " "
-        )}`.toLowerCase();
+        const searchContent = `${post.title} ${post.desc} ${post.tags?.join(" ")}`.toLowerCase();
         return searchContent.includes(searchTerm.toLowerCase());
     });
 
@@ -77,9 +73,7 @@ const Blog = () => {
         <div className="text-white">
             <PageTitle title="Blog" />
             <h1 className="text-xl font-semibold mb-2">Blog</h1>
-            <p className="text-neutral-400 text-sm mb-4">
-                Meus preciosos pensamentos e anotações.
-            </p>
+            <p className="text-neutral-400 text-sm mb-4">Meus preciosos pensamentos e anotações.</p>
             <div className="mb-6 relative">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-neutral-400">
                     <IoSearchSharp />
@@ -106,9 +100,7 @@ const Blog = () => {
                         />
                     ))
                 ) : (
-                    <p className="text-neutral-400 text-xs text-center py-4">
-                        Nenhum post encontrado.
-                    </p>
+                    <p className="text-neutral-400 text-xs text-center py-4">Nenhum post encontrado.</p>
                 )}
             </div>
         </div>

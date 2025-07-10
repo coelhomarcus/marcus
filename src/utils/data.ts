@@ -2,7 +2,7 @@ export const arrBlog = [
     {
         slug: "rest",
         title: "Descansar é importante",
-        desc: "Reflexões após um mês intenso de estudos e aprendizados",
+        desc: "Reflexões após meses de estudos e aprendizados intensos",
         date: "15/05/2025",
         time: 3,
         tags: ["Pessoal"],
@@ -38,7 +38,7 @@ export const arrProjects = [
         href: "https://cafuntalk.com",
         name: "CafunTalk",
         desc: "Bate-papo moderno, sem distrações, privado e sem histórico",
-        tech: ["React", "TS", "Tailwind", "Express"],
+        tech: ["React", "Typescript", "Tailwind", "Express"],
     },
     {
         href: "https://www.youtube.com/shorts/0fSoHjAadas",
@@ -56,7 +56,7 @@ export const arrProjects = [
         href: "https://maahlune.github.io/vn/",
         name: "MaahLune VN",
         desc: "Hub de Traduções de Visual Novels para Português",
-        tech: ["React", "TS", "Tailwind"],
+        tech: ["React", "Typescript", "Tailwind"],
     },
 ];
 
@@ -65,25 +65,13 @@ export const arrSideProjects = [
         href: "https://coelhomarcus.github.io/bunnybash/",
         name: "BunnyBash",
         desc: "Site que simula um terminal",
-        tech: ["HTML", "CSS", "JS", "API"],
+        tech: ["HTML", "CSS", "Javascript", "API"],
     },
     {
         href: "https://blob-temp.vercel.app/",
         name: "Blob",
         desc: "Site de previsão meteorológica",
         tech: ["Next.js", "Tailwind", "API"],
-    },
-    {
-        href: "https://github.com/coelhomarcus/coebot",
-        name: "CoeBot",
-        desc: "Bot divertido para o Discord",
-        tech: ["Node", "discord.js", "JS", "API"],
-    },
-    {
-        href: "https://github.com/coelhomarcus/chatbox-twitch",
-        name: "ChatBox",
-        desc: "Chatbox fofo para Twitch",
-        tech: ["Node", "tmi.js", "JS", "HTML", "CSS"],
     },
     {
         href: "https://marketplace.visualstudio.com/items?itemName=coelhomarcus.bakaneo",
@@ -95,7 +83,7 @@ export const arrSideProjects = [
         href: "https://maahlune.github.io/games-beaten",
         name: "Games Beaten",
         desc: "Tabela dos meus Jogos Zerados",
-        tech: ["HTML", "CSS", "JS"],
+        tech: ["HTML", "CSS", "Javascript"],
     },
     {
         href: "https://coelhomarcus.itch.io/mailman",
@@ -104,10 +92,22 @@ export const arrSideProjects = [
         tech: ["C#", "Unity", "Blender"],
     },
     {
+        href: "https://github.com/coelhomarcus/coebot",
+        name: "CoeBot",
+        desc: "Bot divertido para o Discord",
+        tech: ["Node", "discord.js", "Javascript", "API"],
+    },
+    {
+        href: "https://github.com/coelhomarcus/chatbox-twitch",
+        name: "ChatBox",
+        desc: "Chatbox fofo para Twitch",
+        tech: ["Node", "TMI.js", "Javascript", "HTML", "CSS"],
+    },
+    {
         href: "https://coelhomarcus.github.io/catype/",
         name: "Catype",
         desc: "Protótipo de site de digitação",
-        tech: ["HTML", "CSS", "JS"],
+        tech: ["HTML", "CSS", "Javascript"],
     },
 ];
 
