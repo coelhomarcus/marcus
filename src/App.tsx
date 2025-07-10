@@ -6,6 +6,7 @@ import PostPage from "./components/Blog/[slug]";
 import CommandMenu from "./components/CommandMenu/CommandMenu";
 import Certificates from "./components/Certificates/Certificates";
 import Friends from "./components/Friends/Friends";
+import Vault from "./components/Vault/Vault";
 
 import { Toaster } from "@/components/ui/sonner";
 
@@ -54,6 +55,15 @@ const App = () => {
           element={
             <>
               <Friends />
+              <Footer setOpen={setOpen} />
+            </>
+          }
+        />
+        <Route
+          path="/vault"
+          element={
+            <>
+              <Vault />
               <Footer setOpen={setOpen} />
             </>
           }
