@@ -3,6 +3,7 @@ import { nightOwl as theme } from "react-syntax-highlighter/dist/esm/styles/pris
 import { ReactElement } from "react";
 import { toast } from "sonner";
 import { GoCopy } from "react-icons/go";
+import { CgExternal } from "react-icons/cg";
 
 import ts from "react-syntax-highlighter/dist/esm/languages/prism/typescript";
 import js from "react-syntax-highlighter/dist/esm/languages/prism/javascript";
@@ -93,37 +94,42 @@ const components = {
             </h3>
         );
     },
-    p: (props: React.HTMLProps<HTMLParagraphElement>) => (
-        <p className="prose-base text-neutral-400" {...props} />
-    ),
+    p: (props: React.HTMLProps<HTMLParagraphElement>) => <p className="prose-base text-neutral-400" {...props} />,
     a: (props: React.HTMLProps<HTMLAnchorElement>) => (
-        <a
-            className="prose-base font-normal text-lime-300 underline hover:text-lime-500 transition-colors"
-            target="_blank"
-            {...props}
-        />
+        <>
+            <a
+                className="group prose-base font-normal text-lime-300 no-underline hover:text-lime-500"
+                target="_blank"
+                {...props}
+            >
+                {props.children}
+                <CgExternal className="text-lime-300 group-hover:text-lime-500 inline mb-1" />
+            </a>
+        </>
     ),
-    ul: (props: React.HTMLProps<HTMLUListElement>) => (
-        <ul className="text-neutral-400" {...props} />
-    ),
-    li: (props: React.HTMLProps<HTMLLIElement>) => (
-        <li className="text-neutral-400 prose-sm" {...props} />
-    ),
+    ul: (props: React.HTMLProps<HTMLUListElement>) => <ul className="text-neutral-400" {...props} />,
+    li: (props: React.HTMLProps<HTMLLIElement>) => <li className="text-neutral-400 prose-sm" {...props} />,
 
-    pre: ({
-        children,
-        ...rest
-    }: {
-        children: ReactElement<{ className?: string; children: string }>;
-    }) => {
+    pre: ({ children, ...rest }: { children: ReactElement<{ className?: string; children: string }> }) => {
         const child = children.props;
         const language = child.className?.replace("language-", "") || "text";
         const code = child.children.trim?.() || "";
 
         const handleCopyCode = () => {
+            const languageMap: Record<string, string> = {
+                js: "Javascript",
+                jsx: "JSX (JavaScript XML) ",
+                ts: "Typescript",
+                tsx: "Typescript",
+                json: "JSON",
+                go: "Go (Golang)",
+            };
+
+            const languageFormatted = languageMap[language] || language;
+
             navigator.clipboard.writeText(code);
             toast(`Código copiado`, {
-                description: `${language.toLocaleUpperCase()}`,
+                description: `${languageFormatted}`,
             });
         };
 
@@ -153,13 +159,9 @@ const components = {
         );
     },
 
-    code: (props: React.HTMLProps<HTMLElement>) => (
-        <code className="font-medium" {...props} />
-    ),
+    code: (props: React.HTMLProps<HTMLElement>) => <code className="font-medium" {...props} />,
 
-    strong: (props: React.ComponentProps<"strong">) => (
-        <strong className="text-neutral-200 font-medium" {...props} />
-    ),
+    strong: (props: React.ComponentProps<"strong">) => <strong className="text-neutral-200 font-medium" {...props} />,
 };
 
 export default components;

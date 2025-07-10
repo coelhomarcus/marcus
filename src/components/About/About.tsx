@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { Badge } from "@/components/ui/badge";
 import PageTitle from "@/components/PageTitle/PageTitle";
-
+import { CgExternal } from "react-icons/cg";
 import { arrProjects, arrBlog } from "@/utils/data";
 
 const About = () => {
@@ -18,7 +18,7 @@ const About = () => {
                         href="https://docs.google.com/document/d/1wgOhwh-1YT-LRog9j1tvxzBVKfraoSzps1AiBGuSx9A/export?format=pdf"
                         download
                     >
-                        veja meu currículo
+                        veja meu currículo{<CgExternal className="inline mb-1" />}
                     </a>
                 </span>
                 .
@@ -27,14 +27,14 @@ const About = () => {
                 Gosto de criar sites bonitos, acessíveis e fáceis de usar. No dia a dia, trabalho com o ecossistema{" "}
                 <span className="text-neutral-300">React</span>, utilizando principalmente{" "}
                 <span className="text-neutral-300">Vite/Next.js, Tailwind e TypeScript.</span> Estou sempre buscando
-                evoluir como desenvolvedor — no momento estou me aprofundando em back-end com{" "}
+                evoluir como desenvolvedor e no momento estou me aprofundando em back-end com{" "}
                 <span className="text-neutral-300">Node.js e Go</span>.
                 <br />
                 <br />
                 Atualmente, faço parte da Exception Jr, uma empresa júnior da faculdade, onde atuo como Full Stack
                 Developer. Alguns dos{" "}
                 <Link className="transition-colors text-neutral-100 hover:underline" to="/projects">
-                    projetos
+                    projetos{<CgExternal className="inline mb-1" />}
                 </Link>{" "}
                 em que estou envolvido incluem o Conecta Canaã.
             </p>
