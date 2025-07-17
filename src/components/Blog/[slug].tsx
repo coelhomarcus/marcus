@@ -8,16 +8,12 @@ import components from "../../utils/components";
 const posts = import.meta.glob("../../utils/posts/*.mdx");
 
 import { PiSpinnerThin } from "react-icons/pi";
-import { HiOutlineEye } from "react-icons/hi";
 import { MdAccessTime } from "react-icons/md";
-import { NumberTicker } from "../ui/magicui/number-ticker";
 
 const Post = () => {
     const { slug } = useParams();
     const post = arrBlog.find((p) => p.slug === slug);
-    const [MDXComponent, setMDXComponent] =
-        useState<React.ComponentType | null>(null);
-    const [views, setViews] = useState(0);
+    const [MDXComponent, setMDXComponent] = useState<React.ComponentType | null>(null);
 
     useEffect(() => {
         if (slug) {
@@ -26,35 +22,13 @@ const Post = () => {
 
             if (importer) {
                 importer().then((mod) => {
-                    const Component = (mod as { default: React.ComponentType })
-                        .default;
+                    const Component = (mod as { default: React.ComponentType }).default;
                     setMDXComponent(() => Component);
                 });
             } else {
-                setMDXComponent(() => () => (
-                    <p className="text-red-500">Post não encontrado</p>
-                ));
+                setMDXComponent(() => () => <p className="text-red-500">Post não encontrado</p>);
             }
         }
-    }, [slug]);
-
-    useEffect(() => {
-        fetch(`https://api.coelhomarcus.com/blog/views/${slug}`)
-            .then((res) => res.json())
-            .then((data) => {
-                setViews(data.views || 0);
-            })
-            .catch((err) => {
-                console.error("Erro ao buscar views:", err);
-            });
-    }, [slug]);
-
-    useEffect(() => {
-        fetch(`https://api.coelhomarcus.com/blog/views/${slug}`, {
-            method: "POST",
-        }).catch((err) => {
-            console.error("Erro ao incrementar view:", err);
-        });
     }, [slug]);
 
     if (!MDXComponent)
@@ -96,23 +70,13 @@ const Post = () => {
             {post && <PageTitle title={post.title} />}
 
             <div className="mt-4 mb-5">
-                <h1 className="text-xl font-medium text-white mb-2">
-                    {post.title}
-                </h1>
+                <h1 className="text-xl font-medium text-white mb-2">{post.title}</h1>
                 <div className="flex flex-wrap gap-2 sm:gap-0 items-center text-neutral-500 text-xs">
                     <span>{post.date}</span>
                     <span className="mx-2 hidden sm:inline-block">•</span>
                     <span className="flex items-center">
                         <MdAccessTime className="mr-1" size={13} />
                         {post.time} min
-                    </span>
-                    <span className="mx-2 hidden sm:inline-block">•</span>
-                    <span className="flex items-center">
-                        <HiOutlineEye className="mr-1" size={13} />
-                        <NumberTicker
-                            value={views}
-                            className="text-neutral-500"
-                        />
                     </span>
                 </div>
             </div>
@@ -128,9 +92,7 @@ const Post = () => {
 
             <div className="flex justify-between items-center space-y-2 mt-5 shadow-inner shadow-neutral-800 p-4 rounded-xl border -mx-3 border-neutral-900 text-neutral-400">
                 <div>
-                    <p className="flex items-center gap-2 text-sm text-neutral-200">
-                        Marcus Coelho
-                    </p>
+                    <p className="flex items-center gap-2 text-sm text-neutral-200">Marcus Coelho</p>
                     <p className="text-xs">Veja as outras postagens!</p>
                 </div>
                 <Link
