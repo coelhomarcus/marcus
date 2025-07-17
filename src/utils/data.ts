@@ -52,15 +52,15 @@ export const arrProjects = [
         desc: "Plataforma de ocorrências e serviços públicos para Prefeitura de Canaã dos Carajás - PA",
         tech: ["Exception Jr"],
     },
-    {
-        href: "https://maahlune.github.io/vn/",
-        name: "MaahLune VN",
-        desc: "Hub de Traduções de Visual Novels para Português",
-        tech: ["React", "Typescript", "Tailwind"],
-    },
 ];
 
 export const arrSideProjects = [
+    {
+        href: "https://maahlune.github.io/vn/",
+        name: "Lune VNs",
+        desc: "Hub de Traduções de Visual Novels para Português",
+        tech: ["React", "Typescript", "Tailwind"],
+    },
     {
         href: "https://coelhomarcus.github.io/bunnybash/",
         name: "BunnyBash",
@@ -96,12 +96,6 @@ export const arrSideProjects = [
         name: "CoeBot",
         desc: "Bot divertido para o Discord",
         tech: ["Node", "discord.js", "Javascript", "API"],
-    },
-    {
-        href: "https://github.com/coelhomarcus/chatbox-twitch",
-        name: "ChatBox",
-        desc: "Chatbox fofo para Twitch",
-        tech: ["Node", "TMI.js", "Javascript", "HTML", "CSS"],
     },
     {
         href: "https://coelhomarcus.github.io/catype/",
