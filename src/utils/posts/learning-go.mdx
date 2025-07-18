@@ -1,35 +1,36 @@
-import { FaDiscord, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 Faz um tempo que eu tô de olho na linguagem GO, e finalmente tomei coragem para estudar, utilizei 2 cursos para iniciar os estudos, caso tenham interesse foram: <br/> **Go: The Complete Developer's Guide** do **Stephen Grider**
 e **Complete Go for Professional Developer**s pela **FrontendMasters**
 
-Aqui estão algumas das anotações que fiz durante os estudos: 
+Aqui estão algumas das anotações que fiz durante os estudos:
 
 ### Go CLI
-- **go build** - Compila o projeto
-- **go run** - Compila e executa o projeto
-- **go get** - Instala algum package
-- **go install** - Compila e instala um package
-- **go test** - Roda algum teste relacionado ao projeto
-- **go mod init name** - Criando go.mod
+
+-   **go build** - Compila o projeto
+-   **go run** - Compila e executa o projeto
+-   **go get** - Instala algum package
+-   **go install** - Compila e instala um package
+-   **go test** - Roda algum teste relacionado ao projeto
+-   **go mod init name** - Criando go.mod
 
 ### Como os packages (pacotes) funcionam?
 
 Basicamente, em Go existem dois tipos de pacotes:
-- Executáveis (Executable)
-- Reutilizáveis (Reusable)
 
-Por exemplo, o **package main** é um pacote executável, ele precisa ter uma função main dentro (o nome do arquivo em si não importa). 
+-   Executáveis (Executable)
+-   Reutilizáveis (Reusable)
 
-Esse é o pacote principal, o que é usado pra buildar o projeto. 
+Por exemplo, o **package main** é um pacote executável, ele precisa ter uma função main dentro (o nome do arquivo em si não importa).
+
+Esse é o pacote principal, o que é usado pra buildar o projeto.
 
 Se você tentar buildar um projeto com um pacote que não seja o main, ele nem vai gerar o executável.
 
 E como saber se um pacote é executável ou reutilizável? É simples: depende do nome.
 
-- Se for **package main**, é executável.
-- Qualquer outro nome, tipo **package utils**, **package math**, etc., é um pacote reutilizável, ou seja, código que pode ser usado em outros lugares como se fosse uma dependência.
-
+-   Se for **package main**, é executável.
+-   Qualquer outro nome, tipo **package utils**, **package math**, etc., é um pacote reutilizável, ou seja, código que pode ser usado em outros lugares como se fosse uma dependência.
 
 ### Import
 
@@ -48,14 +49,15 @@ Em Go não existe undefined ou null como em outras linguagens.
 
 Se você não inicializar a variável, ela virá com um **zero value** dependendo do tipo:
 
-- string → ""
-- int → 0
-- float → 0
-- boolean → false
+-   string → ""
+-   int → 0
+-   float → 0
+-   boolean → false
 
 ### Funções
 
 Criando uma função que retorna string:
+
 ```go
 var nome string
 
@@ -72,21 +74,23 @@ func myName() string {
 
 Mesmo que o código esteja em arquivos separados, tudo funciona normal, porque eles fazem parte do mesmo package.
 
-- main.go
+-   main.go
+
 ```go
 package main
- 
+
 func main() {
     printState()
 }
 ```
 
-- state.go
+-   state.go
+
 ```go
 package main
- 
+
 import "fmt"
- 
+
 func printState() {
     fmt.Println("California")
 }
@@ -95,8 +99,9 @@ func printState() {
 ### Array e Slice
 
 Basicamente, uma Slice é uma versão mais flexível de um Array.
-- Array quando o tamanho da lista for fixo.
-- Slice quando o tamanho for variável — já que dá pra adicionar ou remover elementos com facilidade.
+
+-   Array quando o tamanho da lista for fixo.
+-   Slice quando o tamanho for variável — já que dá pra adicionar ou remover elementos com facilidade.
 
 Slices precisam ter todos os elementos do mesmo tipo: se começou com **string**, tudo tem que ser **string**; se for **int**, tudo **int**...
 
@@ -124,7 +129,7 @@ for index, name := range names {
 for _, name := range names {
     fmt.Println(name);
 }
-``` 
+```
 
 ### Slice Range Syntax
 
@@ -151,7 +156,8 @@ Com **type**, conseguimos criar um novo tipo baseado em um tipo que já existe.
 
 E com as funções receptoras (receiver functions), criamos métodos que as variáveis desse novo tipo podem usar.
 
-- main.go
+-   main.go
+
 ```go
 package main
 
@@ -161,7 +167,8 @@ func main() {
 }
 ```
 
-- names.go
+-   names.go
+
 ```go
 package main
 
@@ -189,7 +196,7 @@ func twoValues() (int, int) {
 
 func main() {
     a, b := twoValues()
-    
+
     // a == 10
     // b == 20
 }
@@ -225,9 +232,9 @@ Usamos ponteiros quando queremos modificar de verdade os valores de uma struct (
 
 Sem o ponteiro, o Go passa uma cópia da variável, então qualquer mudança não afeta o valor original. Com o ponteiro, acessamos diretamente o valor na memória e conseguimos alterar ele de fato.
 
-- Com __&variavel__ pegamos o endereço de memória onde o valor dessa variável está guardado.
-- Com __*ponteiro__ acessamos o valor que está nesse endereço (ou seja, o valor para o qual o ponteiro aponta).
-- Tipo "o ponteiro é o endereço da casa, o valor é quem mora lá
+-   Com **&variavel** pegamos o endereço de memória onde o valor dessa variável está guardado.
+-   Com **\*ponteiro** acessamos o valor que está nesse endereço (ou seja, o valor para o qual o ponteiro aponta).
+-   Tipo "o ponteiro é o endereço da casa, o valor é quem mora lá
 
 ```go
 type person struct {
@@ -251,6 +258,7 @@ func (pointerToPerson *person) changeName(newName string) {
 ```
 
 Dica:
+
 ```
 address: 10x0Abc
 value: person{firstName: "Marcus"...}
@@ -265,17 +273,18 @@ Value Types: int, float, string, boolean, structs
 
 Reference Types: slices, maps, channels, pointers, functions
 
-De forma resumida, em Value Types, precisamos usar ponteiros caso queiramos alterar seus valores por meio de funções. 
+De forma resumida, em Value Types, precisamos usar ponteiros caso queiramos alterar seus valores por meio de funções.
 
 Já em Reference Types, não precisamos nos preocupar com isso, pois, mesmo que seja criada uma cópia ao passá-los em uma função, essa cópia aponta para o mesmo endereço, então a modificação ocorre normalmente.
 
 ### Map
 
 Basicamente, Map é como se fosse um objeto do JavaScript, mas com algumas peculiaridades:
--  as chaves devem ser todas do mesmo tipo, e os valores também devem ser todos do mesmo tipo.
 
-- Se uma chave for **int**, todas têm que ser **int**;
-- Se um valor for **string**, todos os outros também têm que ser **string**.
+-   as chaves devem ser todas do mesmo tipo, e os valores também devem ser todos do mesmo tipo.
+
+-   Se uma chave for **int**, todas têm que ser **int**;
+-   Se um valor for **string**, todos os outros também têm que ser **string**.
 
 ```go
 func main() {
@@ -289,7 +298,9 @@ func main() {
 	fmt.Println(trafficLight["red"]) // stop
 }
 ```
+
 Criando um Map vazio
+
 ```go
 var colors map[string]string
 // ou
@@ -297,16 +308,19 @@ colors := make(map[string]string)
 ```
 
 Adicionando valor no Map
+
 ```go
 colors["white"] = "#ffff";
 ```
 
 Removendo valor no Map
+
 ```go
 delete(colors, "white")
 ```
 
 Iterando no Map
+
 ```go
 func printMap(c map[string]string) {
 	for key, value := range c {
@@ -351,6 +365,7 @@ func (spanishBot) getGreeting() string {
 ```
 
 Outro exemplo de interface
+
 ```go
 type shape interface {
 	getArea() float64
@@ -400,12 +415,12 @@ Então, o que podemos fazer é utilizar **Go Routines** para mitigar isso. Na no
 // Antes
 for _, link := range links {
 	checkLink(link)
-} 
+}
 
 // Depois
 for _, link := range links {
 	go checkLink(link)
-} 
+}
 ```
 
 A palavra-chave **go** so pode ser usada antes de funções.
@@ -438,7 +453,7 @@ func main() {
 	for _, link := range links {
 		go checkLink(link, c) // Passando o Channel na função
 	}
-	
+
 	// Aqui esperamos a Main Routine aguarda alguma resposta do Channel
 	fmt.Println(<-c)
 }
@@ -465,7 +480,7 @@ Para resolver isso, precisamos fazer com que o main espere uma resposta para cad
 for i := 0; i < len(links); i++ {
 	fmt.Println(<-c)  // Espera e imprime a mensagem de cada Go Routine
 }
-``` 
+```
 
 Também podemos fazer com que o programa fique verificando os links continuamente, de forma que ele nunca pare. Para isso, usamos um loop for que fica esperando por novas mensagens no channel. E como a operação `<-c` é bloqueante, o loop só prossegue quando uma nova mensagem for recebida — ou seja, ele não sai disparando um monte de Goroutines ao mesmo tempo descontroladamente.
 
@@ -556,22 +571,22 @@ Se você chegou até aqui, parabéns! Passou por bastante texto.
 Se quiser entrar em contato comigo pra conversarmos sobre Go ou qualquer outra coisa, vou deixar meu contato abaixo. Valeu!
 
 <div className="flex gap-5 *:no-underline">
-  <a
-    href="https://github.com/coelhomarcus"
-    rel="noreferrer noopener"
-    target="_blank"
-    className="inline-flex items-center gap-1 font-medium text-xs text-neutral-400 hover:text-neutral-200 transition-colors"
-  >
-    <FaGithub className="size-4" />
-    <span>@coelhomarcus</span>
-  </a>
-  <a
-    href="https://discord.com/invite/YDSGKzaSDe"
-    rel="noreferrer noopener"
-    target="_blank"
-    className="inline-flex items-center gap-1 font-medium text-xs text-neutral-400 hover:text-neutral-200 transition-colors"
-  >
-    <FaDiscord className="size-4" />
-    <span>Discord</span>
-  </a>
+    <a
+        href="https://github.com/coelhomarcus"
+        rel="noreferrer noopener"
+        target="_blank"
+        className="inline-flex items-center gap-1 font-medium text-xs text-neutral-400 hover:text-neutral-200 transition-colors"
+    >
+        <FaGithub className="size-4" />
+        <span>@coelhomarcus</span>
+    </a>
+    <a
+        href="https://www.linkedin.com/in/coelhomarcus/"
+        rel="noreferrer noopener"
+        target="_blank"
+        className="inline-flex items-center gap-1 font-medium text-xs text-neutral-400 hover:text-neutral-200 transition-colors"
+    >
+        <FaLinkedin className="size-4" />
+        <span>coelhomarcus</span>
+    </a>
 </div>

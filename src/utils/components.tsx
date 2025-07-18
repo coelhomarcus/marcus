@@ -68,7 +68,7 @@ const components = {
         const id = slugify(String(props.children));
 
         return (
-            <h2 id={id} className="scroll-mt-4">
+            <h2 id={id} className="scroll-mt-4 mb-2.5">
                 <a
                     href={`#${id}`}
                     className="heading-link text-neutral-300 no-underline font-semibold active:text-neutral-500 cursor-pointer select-none"

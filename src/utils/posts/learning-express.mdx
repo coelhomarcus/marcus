@@ -1,4 +1,4 @@
-import { FaDiscord, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 Esse post vai ser mais uma revisão. Já estudei Express.js no curso **The Complete Full-Stack Web Development Bootcamp**, da **Angela Yu**, mas recentemente recebi 1 mês grátis na plataforma **Scrimba**, então vou dar uma revisada vendo o curso deles: **Learn Express.js**
 
@@ -63,16 +63,9 @@ app.get("/api", (req, res) => {
         return (
             (req.query.country ? data.country == req.query.country : null) &&
             (req.query.industry ? data.industry == req.query.industry : null) &&
-            (req.query.continent
-                ? data.continent == req.query.continent
-                : null) &&
-            (req.query.is_seeking_funding
-                ? String(data.is_seeking_funding) ==
-                  req.query.is_seeking_funding
-                : null) &&
-            (req.query.has_mvp
-                ? String(data.has_mvp) == req.query.has_mvp
-                : null)
+            (req.query.continent ? data.continent == req.query.continent : null) &&
+            (req.query.is_seeking_funding ? String(data.is_seeking_funding) == req.query.is_seeking_funding : null) &&
+            (req.query.has_mvp ? String(data.has_mvp) == req.query.has_mvp : null)
         );
     });
     res.json(filteredData);
@@ -280,11 +273,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/add", (req, res) => {
-    db.query("INSERT INTO amigos VALUES ($1, $2, $3)", [
-        req.body.id,
-        req.body.nome,
-        req.body.idade,
-    ]);
+    db.query("INSERT INTO amigos VALUES ($1, $2, $3)", [req.body.id, req.body.nome, req.body.idade]);
     res.json("Deu certo");
 });
 
@@ -331,17 +320,12 @@ app.post("/register", (req, res) => {
     bcrypt.hash(password, saltRounds, async (err, hash) => {
         if (err) {
             console.log(err);
-            return res
-                .status(500)
-                .json({ error: "Erro ao gerar hash da senha." });
+            return res.status(500).json({ error: "Erro ao gerar hash da senha." });
         }
 
         try {
             await db.query("INSERT INTO users VALUES ($1, $2)", [email, hash]);
-            const response = await db.query(
-                "SELECT * FROM users WHERE email = $1",
-                [email]
-            );
+            const response = await db.query("SELECT * FROM users WHERE email = $1", [email]);
             res.json(response.rows);
         } catch (error) {
             if (error.code === "23505") {
@@ -385,12 +369,12 @@ Se quiser entrar em contato comigo pra conversarmos sobre programação ou qualq
         <span>@coelhomarcus</span>
     </a>
     <a
-        href="https://discord.com/invite/YDSGKzaSDe"
+        href="https://www.linkedin.com/in/coelhomarcus/"
         rel="noreferrer noopener"
         target="_blank"
         className="inline-flex items-center gap-1 font-medium text-xs text-neutral-400 hover:text-neutral-200 transition-colors"
     >
-        <FaDiscord className="size-4" />
-        <span>Discord</span>
+        <FaLinkedin className="size-4" />
+        <span>coelhomarcus</span>
     </a>
 </div>

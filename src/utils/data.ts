@@ -1,5 +1,13 @@
 export const arrBlog = [
     {
+        slug: "balance",
+        title: "O Mensageiro de Maratona",
+        desc: "Depois de meses, trago boas notícias!",
+        date: "18/07/2025",
+        time: 2,
+        tags: ["Pessoal"],
+    },
+    {
         slug: "rest",
         title: "Descansar é importante",
         desc: "Reflexões após meses de estudos e aprendizados intensos",
