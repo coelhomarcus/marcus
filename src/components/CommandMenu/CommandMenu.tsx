@@ -34,6 +34,11 @@ const navigation: Page[] = [
     { name: "Sobre", href: "/", icon: FiUser, shortcut: "1" },
     { name: "Projetos", href: "/projects", icon: FaLaptopCode, shortcut: "2" },
     { name: "Blog", href: "/blog", icon: FaRegFolderOpen, shortcut: "3" },
+    {
+        name: "Curriculo",
+        href: "https://docs.google.com/document/d/1wgOhwh-1YT-LRog9j1tvxzBVKfraoSzps1AiBGuSx9A/export?format=pdf",
+        icon: FaRegFilePdf,
+    },
 ];
 
 const socials: Page[] = [
@@ -52,17 +57,12 @@ const socials: Page[] = [
 
 const others: Page[] = [
     {
-        name: "Curriculo",
-        href: "https://docs.google.com/document/d/1wgOhwh-1YT-LRog9j1tvxzBVKfraoSzps1AiBGuSx9A/export?format=pdf",
-        icon: FaRegFilePdf,
-    },
-    {
         name: "Certificados",
         href: "/certificates",
         icon: TbCertificate,
     },
-    { name: "Vault", href: "/vault", icon: CiVault },
     { name: "Amigos", href: "/friends", icon: GoPeople },
+    { name: "Vault", href: "/vault", icon: CiVault },
 ];
 
 export default function CommandMenu({
