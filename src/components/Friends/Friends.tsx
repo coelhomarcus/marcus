@@ -3,7 +3,7 @@ import { LuGithub, LuGlobe } from "react-icons/lu";
 
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import PageTitle from "@/components/PageTitle/PageTitle";
-import { arrFriends } from "@/utils/data";
+import { arrFriends } from "@/utils/data/friends";
 
 const Friends: React.FC = () => {
     return (
@@ -12,10 +12,11 @@ const Friends: React.FC = () => {
 
             <h1 className="text-xl font-medium mb-2">Amigos</h1>
             <p className="text-neutral-400 text-sm mb-6">
-                Aqui estão alguns dos meus amigos desenvolvedores e seus
-                trabalhos.
+                Aqui estão alguns dos meus amigos desenvolvedores e seus trabalhos.
                 <br />
-                <span className="italic">Pagina em construção, então não se preocupe se você ainda não estiver aqui.</span>
+                <span className="italic">
+                    Pagina em construção, então não se preocupe se você ainda não estiver aqui.
+                </span>
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
@@ -26,10 +27,7 @@ const Friends: React.FC = () => {
                     >
                         <div className="flex items-center gap-3 mb-2">
                             <Avatar className="size-12">
-                                <AvatarImage
-                                    src={friend.avatar}
-                                    alt={friend.name}
-                                />
+                                <AvatarImage src={friend.avatar} alt={friend.name} />
                                 <AvatarFallback>
                                     {friend.name
                                         .split(" ")
@@ -39,9 +37,7 @@ const Friends: React.FC = () => {
                             </Avatar>
                             <div>
                                 <h3 className="font-medium">{friend.name}</h3>
-                                <p className="text-neutral-400 text-xs">
-                                    {friend.description}
-                                </p>
+                                <p className="text-neutral-400 text-xs">{friend.description}</p>
                             </div>
                         </div>
 
@@ -54,9 +50,7 @@ const Friends: React.FC = () => {
                                     className="flex items-center gap-1 text-sm text-neutral-400 hover:text-neutral-100 transition-colors"
                                 >
                                     <LuGithub />
-                                    <span>
-                                        {friend.github.split("/").pop()}
-                                    </span>
+                                    <span>{friend.github.split("/").pop()}</span>
                                 </a>
                             )}
 

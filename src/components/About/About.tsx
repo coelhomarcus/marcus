@@ -2,7 +2,8 @@ import { Link } from "react-router";
 import { Badge } from "@/components/ui/badge";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import { CgExternal } from "react-icons/cg";
-import { arrProjects, arrBlog } from "@/utils/data";
+import { arrProjects } from "@/utils/data/projects";
+import { arrBlog } from "@/utils/data/posts";
 
 const About = () => {
     return (

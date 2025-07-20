@@ -3,7 +3,7 @@ import { MDXProvider } from "@mdx-js/react";
 import { useParams, Link, useLocation } from "react-router";
 import PageTitle from "@/components/PageTitle/PageTitle";
 
-import { arrBlog } from "../../utils/data";
+import { arrBlog } from "../../utils/data/posts";
 import components from "../../utils/components";
 const posts = import.meta.glob("../../utils/posts/*.mdx");
 
