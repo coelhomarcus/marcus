@@ -21,12 +21,6 @@ export const arrProjects = [
 
 export const arrSideProjects = [
     {
-        href: "https://maahlune.github.io/vn/",
-        name: "Lune VNs",
-        desc: "Hub de Traduções de Visual Novels para Português",
-        tech: ["React", "Typescript", "Tailwind"],
-    },
-    {
         href: "https://coelhomarcus.github.io/bunnybash/",
         name: "BunnyBash",
         desc: "Site que simula um terminal",
@@ -45,12 +39,6 @@ export const arrSideProjects = [
         tech: ["Design"],
     },
     {
-        href: "https://maahlune.github.io/games-beaten",
-        name: "Games Beaten",
-        desc: "Tabela dos meus Jogos Zerados",
-        tech: ["HTML", "CSS", "Javascript"],
-    },
-    {
         href: "https://coelhomarcus.itch.io/mailman",
         name: "Mailman",
         desc: "Protótipo de jogo de terror retrô",
@@ -67,5 +55,26 @@ export const arrSideProjects = [
         name: "Catype",
         desc: "Protótipo de site de digitação",
         tech: ["HTML", "CSS", "Javascript"],
+    },
+];
+
+export const arrSecondaryAccount = [
+    {
+        href: "https://submarcus.github.io/vn/",
+        name: "Lune VNs",
+        desc: "Hub de Traduções de Visual Novels para Português",
+        tech: ["React", "Typescript", "Tailwind"],
+    },
+    {
+        href: "https://submarcus.github.io/games-beaten",
+        name: "Games Beaten",
+        desc: "Tabela dos meus Jogos Zerados",
+        tech: ["React", "Typescripot", "Tailwind"],
+    },
+    {
+        href: "https://submarcus.github.io/midiateca",
+        name: "Midiateca",
+        desc: "Minha coleção de filmes, séries, animes e mangás",
+        tech: ["React", "Typescripot", "Tailwind"],
     },
 ];
