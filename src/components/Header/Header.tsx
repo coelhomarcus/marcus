@@ -7,7 +7,7 @@ const Header = () => {
         <header className="flex justify-between items-center mb-4">
             <NavLink to="/">
                 <Avatar className="size-10 sm:size-15 hover:scale-110 transition-all duration-300">
-                    <AvatarImage className="object-cover" src="/src/icons/profile.gif" />
+                    <AvatarImage className="object-cover" src="/src/icons/profile.jpg" />
                     <AvatarFallback className="size-10 sm:size-15">
                         <FaUserAlt className="opacity-60 text-white" aria-hidden="true" />
                     </AvatarFallback>
