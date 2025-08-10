@@ -60,10 +60,10 @@ export const arrSideProjects = [
 
 export const arrSecondaryAccount = [
     {
-        href: "https://submarcus.github.io/vn/",
-        name: "Lune VNs",
-        desc: "Hub de Traduções de Visual Novels para Português",
-        tech: ["React", "Typescript", "Tailwind"],
+        href: "https://submarcus.github.io/midiateca",
+        name: "Midiateca",
+        desc: "Minha coleção de filmes, séries, animes e mangás",
+        tech: ["React", "Typescripot", "Tailwind"],
     },
     {
         href: "https://submarcus.github.io/games-beaten",
@@ -72,9 +72,15 @@ export const arrSecondaryAccount = [
         tech: ["React", "Typescripot", "Tailwind"],
     },
     {
-        href: "https://submarcus.github.io/midiateca",
-        name: "Midiateca",
-        desc: "Minha coleção de filmes, séries, animes e mangás",
-        tech: ["React", "Typescripot", "Tailwind"],
+        href: "https://submarcus.github.io/vn/",
+        name: "Lune VNs",
+        desc: "Hub de Traduções de Visual Novels para Português",
+        tech: ["React", "Typescript", "Tailwind"],
+    },
+    {
+        href: "https://github.com/submarcus/horichat",
+        name: "Horichat",
+        desc: "Widget de Chat Horizontal para Streams na Twitch",
+        tech: ["React", "Javascript", "tmi.js"],
     },
 ];

@@ -1,3 +1,4 @@
+import { FaGithub } from "react-icons/fa";
 import { arrProjects, arrSideProjects, arrSecondaryAccount } from "../../utils/data/projects";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import PageTitle from "@/components/PageTitle/PageTitle";
@@ -42,8 +43,16 @@ const Projects = () => {
                     );
                 })}
             </div>
-            <h1 className="text-xl font-semibold mb-2">For Fun</h1>
-            <p className="text-neutral-400 text-sm mb-4">Projetos/Experimentos apenas por diversão.</p>
+            <a
+                className="text-xl font-semibold mb-2 flex items-center gap-2 hover:text-neutral-300"
+                href="https://github.com/submarcus"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <FaGithub />
+                github/submarcus
+            </a>
+            <p className="text-neutral-400 text-sm mb-4">Projetos apenas por diversão na minha conta secundária.</p>
             <div className="gap-4 mb-8 grid grid-cols-1 md:grid-cols-2">
                 {secProjects.map((project, index) => {
                     return (

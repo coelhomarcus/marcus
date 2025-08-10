@@ -32,8 +32,9 @@ const About = () => {
                 <span className="text-neutral-300">Node.js e Go</span>.
                 <br />
                 <br />
-                Atualmente, faço parte da Exception Jr, uma empresa júnior da faculdade, onde atuo como Full Stack
-                Developer. Alguns dos{" "}
+                Atualmente, estou estagiando no PET-SAÚDE/I&SD: Inovação e Saúde Digital no SUS. Além disso, faço parte
+                da Exception Jr, empresa júnior da faculdade, onde atuo como Full Stack Developer, participando de
+                projetos como o Conecta Canaã. Alguns dos{" "}
                 <Link className="transition-colors text-neutral-100 hover:underline" to="/projects">
                     projetos{<CgExternal className="inline mb-1" />}
                 </Link>{" "}
