@@ -15,6 +15,7 @@ const Friends: React.FC = () => {
                 Aqui estão alguns dos meus amigos desenvolvedores e seus trabalhos.
                 <br />
                 <span className="italic">
+                    <span className="text-red-400">* </span>
                     Pagina em construção, então não se preocupe se você ainda não estiver aqui.
                 </span>
             </p>

@@ -13,14 +13,12 @@ import {
 
 import { FaLaptopCode, FaRegFolderOpen, FaGithub, FaLinkedin } from "react-icons/fa";
 import { GoPeople } from "react-icons/go";
-import { CiTextAlignJustify } from "react-icons/ci";
 import { MdAlternateEmail } from "react-icons/md";
 import { TbCertificate } from "react-icons/tb";
 import { FiUser } from "react-icons/fi";
 import { FaRegFilePdf } from "react-icons/fa6";
 import { CiVault } from "react-icons/ci";
 
-import { arrBlog } from "@/utils/data/posts";
 import isMac from "@/utils/isMac";
 
 type Page = {
@@ -61,8 +59,8 @@ const others: Page[] = [
         href: "/certificates",
         icon: TbCertificate,
     },
-    { name: "Amigos", href: "/friends", icon: GoPeople },
     { name: "Vault", href: "/vault", icon: CiVault },
+    { name: "Amigos", href: "/friends", icon: GoPeople },
 ];
 
 export default function CommandMenu({
@@ -150,18 +148,6 @@ export default function CommandMenu({
                             >
                                 <page.icon className="mr-2 h-4 w-4" />
                                 {page.name}
-                            </CommandItem>
-                        ))}
-                    </CommandGroup>
-                    <CommandGroup heading="Posts">
-                        {arrBlog.map((page) => (
-                            <CommandItem
-                                className="cursor-pointer"
-                                key={page.slug}
-                                onSelect={() => handleSelect(`blog/${page.slug}`)}
-                            >
-                                <CiTextAlignJustify className="mr-2 h-4 w-4" />
-                                {page.title}
                             </CommandItem>
                         ))}
                     </CommandGroup>
