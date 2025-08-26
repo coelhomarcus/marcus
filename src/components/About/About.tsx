@@ -1,9 +1,10 @@
 import { Link } from "react-router";
-import { Badge } from "@/components/ui/badge";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import { CgExternal } from "react-icons/cg";
-import { arrProjects } from "@/utils/data/projects";
 import { arrBlog } from "@/utils/data/posts";
+import { arrWorks } from "@/utils/data/works";
+import { FaBriefcase } from "react-icons/fa";
+import { IoArrowForwardSharp } from "react-icons/io5";
 
 const About = () => {
     return (
@@ -40,105 +41,53 @@ const About = () => {
                 </Link>{" "}
                 em que estou envolvido incluem o Conecta Canaã.
             </p>
-            <ProjectPostGrid />
+            <div className="flex justify-center mb-4 gap-4">
+                <Link
+                    to={`/blog/${arrBlog[0].slug}`}
+                    className="group flex items-center justify-center gap-1 vw-fit text-xs text-neutral-300 border border-neutral-800 hover:border-neutral-700 hover:bg-neutral-900/50 p-1 text-center rounded-full"
+                >
+                    <div className="w-fit border border-neutral-800 group-hover:border-neutral-700 p-1 px-2 mr-1 text-center rounded-full">
+                        <div className="relative inline-flex w-2 h-2 mr-1">
+                            <div className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping"></div>
+                            <div className="relative inline-flex w-2 h-2 bg-green-500 rounded-full"></div>
+                        </div>
+                        Novo
+                    </div>
+                    Post publicado! Vá conferir <IoArrowForwardSharp className="mr-1" />
+                </Link>
+            </div>
+            <WorksExperience />
         </main>
     );
 };
 
-const ProjectPostGrid = () => {
-    const project = arrProjects[0];
-    const post = arrBlog[0];
-
+function WorksExperience() {
     return (
-        <div className="w-full mt-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
-                {/* Card do Último Projeto */}
-                <a
-                    href={project.href}
-                    target="_blank"
-                    className="flex flex-col h-full bg-[#0A0A0A] rounded-lg border border-foreground/10 hover:border-foreground/20 overflow-hidden transition-all duration-200"
-                >
-                    {" "}
-                    <div className="bg-[#1A1A1A]/30 px-3 py-2 flex items-center relative border-b border-foreground/10">
-                        <div className="flex space-x-1.5 items-center">
-                            <div className="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]/50"></div>
-                            <div className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]/50"></div>
-                            <div className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]/50"></div>
-                        </div>
-                        <div className="absolute left-0 right-0 text-center text-xs font-medium text-neutral-400">
-                            Último Projeto
-                        </div>
-                    </div>
-                    <div className="p-3 flex flex-col flex-grow">
-                        <div className="flex items-center justify-between mb-2">
-                            <h3 className="text-xs font-mono text-neutral-400">~/projects</h3>
-                            <span className="bg-lime-900/30 text-lime-300 text-xs px-2.5 py-0.5 rounded-xl font-mono">
-                                Novo
-                            </span>
-                        </div>
-                        <h4 className="text-base font-semibold text-neutral-100 mb-2">
-                            {project?.name || "Nome do Projeto"}
-                        </h4>
-                        <p className="text-neutral-400 text-sm mb-4 flex-grow">
-                            {project?.desc || "Descrição do projeto"}
-                        </p>
-                        <div className="flex flex-wrap gap-2 mt-auto">
-                            {project.tech?.map((tech, index) => (
-                                <Badge
-                                    key={index}
-                                    className="text-xs px-2 py-0.5 rounded-sm bg-neutral-800/30 text-neutral-400 border-neutral-800/30"
-                                    variant="outline"
-                                >
-                                    {tech}
-                                </Badge>
-                            ))}
-                        </div>
-                    </div>
-                </a>
-
-                {/* Card do Último Post */}
-                <Link
-                    to={`blog/${post.slug}`}
-                    className="flex flex-col h-full bg-[#0A0A0A] rounded-lg border border-foreground/10 hover:border-foreground/20 overflow-hidden transition-all duration-200"
-                >
-                    {" "}
-                    <div className="bg-[#1A1A1A]/30 px-3 py-2 flex items-center relative border-b border-foreground/10">
-                        <div className="flex space-x-1.5 items-center">
-                            <div className="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]/50"></div>
-                            <div className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]/50"></div>
-                            <div className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]/50"></div>
-                        </div>
-                        <div className="absolute left-0 right-0 text-center text-xs font-medium text-neutral-400">
-                            Último Post
-                        </div>
-                    </div>
-                    <div className="p-3 flex flex-col flex-grow">
-                        <div className="flex items-center justify-between mb-2">
-                            <h3 className="text-xs font-mono text-neutral-400">~/blog</h3>
-                            <span className="bg-blue-900/30 text-blue-300 text-xs px-2.5 py-0.5 rounded-xl font-mono">
-                                {post.date}
-                            </span>
-                        </div>
-                        <h4 className="text-base font-semibold text-neutral-100 mb-2">
-                            {post?.title || "Título do Post"}
-                        </h4>
-                        <p className="text-neutral-400 text-sm mb-4 flex-grow">{post?.desc || "Descrição do post"}</p>
-                        <div className="flex flex-wrap gap-2 mt-auto">
-                            {post.tags.map((tag, index) => (
-                                <Badge
-                                    key={index}
-                                    className="text-xs px-2 py-0.5 rounded-sm bg-neutral-800/30 text-neutral-400 border-neutral-800/30"
-                                    variant="outline"
-                                >
-                                    {tag}
-                                </Badge>
-                            ))}
-                        </div>
-                    </div>
-                </Link>
+        <div className="space-y-6 gap-2">
+            <div className="flex items-center gap-2 text-neutral-200 justify-between">
+                <p className="text-sm font-semibold">Experiência</p>
+                <FaBriefcase className="text-sm text-neutral-500" />
             </div>
+            {arrWorks.map((work) => (
+                <div className="flex gap-2 justify-between items-center" key={work.company}>
+                    <div className="flex gap-2">
+                        <img
+                            src={work.logo}
+                            alt={work.company}
+                            className="size-6 sm:size-10 object-cover rounded-full"
+                        />
+                        <span>
+                            <h3>{work.company}</h3>
+                            <p className="text-[12px] sm:text-sm text-neutral-400">{work.role}</p>
+                        </span>
+                    </div>
+                    <div>
+                        <p className="text-[12px] sm:text-sm text-neutral-400">{work.duration}</p>
+                    </div>
+                </div>
+            ))}
         </div>
     );
-};
+}
 
 export default About;

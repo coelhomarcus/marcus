@@ -4,7 +4,6 @@ export const arrBlog = [
         title: "O Mensageiro de Maratona",
         desc: "Depois de meses, trago boas notícias!",
         date: "18/07/2025",
-        time: 2,
         tags: ["Pessoal"],
     },
     {
@@ -12,7 +11,6 @@ export const arrBlog = [
         title: "Descansar é importante",
         desc: "Reflexões após meses de estudos e aprendizados intensos",
         date: "15/05/2025",
-        time: 3,
         tags: ["Pessoal"],
     },
     {
@@ -20,7 +18,6 @@ export const arrBlog = [
         title: "Meu Ambiente",
         desc: "Ambiente, ferramentas, configurações e recomendações",
         date: "26/04/2025",
-        time: 4,
         tags: ["Programação", "Pessoal"],
     },
     {
@@ -28,7 +25,6 @@ export const arrBlog = [
         title: "Aprendendo Express",
         desc: "Minhas anotações e estudos sobre Express.js",
         date: "24/04/2025",
-        time: 7,
         tags: ["Programação", "Node", "Express"],
     },
     {
@@ -36,7 +32,6 @@ export const arrBlog = [
         title: "Aprendendo GO",
         desc: "Minhas anotações e estudos sobre Go (golang)",
         date: "19/04/2025",
-        time: 18,
         tags: ["Programação", "Go"],
     },
 ];

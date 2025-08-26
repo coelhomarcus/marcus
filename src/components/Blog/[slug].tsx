@@ -8,7 +8,6 @@ import components from "../../utils/components";
 const posts = import.meta.glob("../../utils/posts/*.mdx");
 
 import { PiSpinnerThin } from "react-icons/pi";
-import { MdAccessTime } from "react-icons/md";
 
 const Post = () => {
     const { slug } = useParams();
@@ -69,15 +68,10 @@ const Post = () => {
         <div className="text-white w-full">
             {post && <PageTitle title={post.title} />}
 
-            <div className="mt-4 mb-5">
+            <div className="mt-4 mb-1 md:flex justify-between">
                 <h1 className="text-xl font-medium text-white mb-2">{post.title}</h1>
                 <div className="flex flex-wrap gap-2 sm:gap-0 items-center text-neutral-500 text-xs">
                     <span>{post.date}</span>
-                    <span className="mx-2 hidden sm:inline-block">•</span>
-                    <span className="flex items-center">
-                        <MdAccessTime className="mr-1" size={13} />
-                        {post.time} min
-                    </span>
                 </div>
             </div>
 
