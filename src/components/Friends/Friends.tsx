@@ -1,7 +1,7 @@
 import React from "react";
 import { LuGithub, LuGlobe } from "react-icons/lu";
 
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarImage, AvatarFallback } from "@/lib/ui/avatar";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import { arrFriends } from "@/utils/data/friends";
 

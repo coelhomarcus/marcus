@@ -1,5 +1,5 @@
 import { NavLink } from "react-router";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/lib/ui/avatar";
 import { FaUserAlt } from "react-icons/fa";
 
 const Header = () => {

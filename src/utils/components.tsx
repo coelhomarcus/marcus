@@ -1,7 +1,6 @@
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import { nightOwl as theme } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { ReactElement } from "react";
-import { toast } from "sonner";
 import { GoCopy } from "react-icons/go";
 import { CgExternal } from "react-icons/cg";
 
@@ -43,9 +42,6 @@ const createHeadingClickHandler = (id: string) => (e: React.MouseEvent) => {
 
     const url = `${window.location.origin}${window.location.pathname}#${id}`;
     navigator.clipboard.writeText(url);
-    toast(`Link copiado`, {
-        description: `#${id}`,
-    });
 };
 
 const components = {
@@ -116,21 +112,7 @@ const components = {
         const code = child.children.trim?.() || "";
 
         const handleCopyCode = () => {
-            const languageMap: Record<string, string> = {
-                js: "Javascript",
-                jsx: "JSX (JavaScript XML) ",
-                ts: "Typescript",
-                tsx: "Typescript",
-                json: "JSON",
-                go: "Go (Golang)",
-            };
-
-            const languageFormatted = languageMap[language] || language;
-
             navigator.clipboard.writeText(code);
-            toast(`Código copiado`, {
-                description: `${languageFormatted}`,
-            });
         };
 
         return (
