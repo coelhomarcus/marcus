@@ -44,9 +44,9 @@ const About = () => {
             <div className="flex justify-center mb-4 gap-4">
                 <Link
                     to={`/blog/${arrBlog[0].slug}`}
-                    className="group flex items-center justify-center gap-1 vw-fit text-xs text-neutral-300 border border-neutral-800 hover:border-neutral-700 hover:bg-neutral-900/50 p-1 text-center rounded-full"
+                    className="group flex items-center justify-center gap-1 vw-fit text-xs text-neutral-300 border border-neutral-800 hover:border-neutral-700 hover:bg-gradient-to-b hover:from-neutral-950 hover:to-neutral-900 p-1 text-center rounded-full transition-all"
                 >
-                    <div className="w-fit border border-neutral-800 group-hover:border-neutral-700 p-1 px-2 mr-1 text-center rounded-full">
+                    <div className="w-fit border border-neutral-800 group-hover:border-neutral-700 p-1 px-2 mr-1 text-center rounded-full transition-all">
                         <div className="relative inline-flex w-2 h-2 mr-1">
                             <div className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping"></div>
                             <div className="relative inline-flex w-2 h-2 bg-green-500 rounded-full"></div>
