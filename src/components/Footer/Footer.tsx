@@ -17,7 +17,7 @@ const Footer = () => {
                 <ContactLink title="Linkedin" Icon={FaLinkedin} href="https://www.linkedin.com/in/coelhomarcus/" />
             </div>
             <a
-                href="https://coelhomarcus.com"
+                href="https://github.com/coelhomarcus"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-xs text-neutral-200 hover:text-neutral-400"
