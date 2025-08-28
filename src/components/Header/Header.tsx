@@ -1,12 +1,13 @@
 import { NavLink } from "react-router";
 import { Avatar, AvatarFallback, AvatarImage } from "@/lib/ui/avatar";
+import SidebarDrawer from "@/lib/ui/vaul";
 import { FaUserAlt } from "react-icons/fa";
 
 const Header = () => {
     return (
         <header className="flex justify-between items-center mb-4">
             <NavLink to="/">
-                <Avatar className="size-10 sm:size-15 hover:scale-110 transition-all duration-300">
+                <Avatar className="size-10 sm:size-15 hover:scale-105 transition-all duration-250">
                     <AvatarImage className="object-cover" src="/src/icons/profile.jpg" />
                     <AvatarFallback className="size-10 sm:size-15">
                         <FaUserAlt className="opacity-60 text-white" aria-hidden="true" />
@@ -14,10 +15,14 @@ const Header = () => {
                 </Avatar>
             </NavLink>
 
-            <div className="flex gap-4 sm:gap-5 text-neutral-400 *:text-sm *:hover:text-white *:transition-colors">
-                <HeaderLink title="Sobre" to="/" />
-                <HeaderLink title="Projetos" to="/projects" />
-                <HeaderLink title="Blog" to="/blog" />
+            <div className="flex items-center gap-4 sm:gap-5">
+                <div className="hidden md:flex gap-4 sm:gap-5 text-neutral-400 *:text-sm *:hover:text-white *:transition-colors">
+                    <HeaderLink title="Sobre" to="/" />
+                    <HeaderLink title="Projetos" to="/projects" />
+                    <HeaderLink title="Blog" to="/blog" />
+                </div>
+
+                <SidebarDrawer />
             </div>
         </header>
     );
