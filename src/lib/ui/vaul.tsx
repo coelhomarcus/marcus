@@ -29,6 +29,7 @@ const navigation: Page[] = [
         name: "Curriculo",
         href: "https://docs.google.com/document/d/1wgOhwh-1YT-LRog9j1tvxzBVKfraoSzps1AiBGuSx9A/export?format=pdf",
         icon: FaRegFilePdf,
+        external: true,
         download: true,
     },
 ];
@@ -60,14 +61,17 @@ const others: Page[] = [
 ];
 
 const SidebarDrawer = () => {
+    const [isOpen, setIsOpen] = React.useState(false);
+
     return (
-        <Drawer.Root direction="right">
+        <Drawer.Root direction="right" open={isOpen} onOpenChange={setIsOpen}>
             <Drawer.Trigger
                 render={(props) => (
                     <button
                         {...props}
                         className="hover:*:text-neutral-200 rounded-lg transition-all cursor-pointer"
                         aria-label="Abrir menu"
+                        onClick={() => setIsOpen(true)}
                     >
                         <SlMenu className="w-5 h-5 text-neutral-400" />
                     </button>
@@ -75,9 +79,9 @@ const SidebarDrawer = () => {
             />
             <Drawer.Portal>
                 <Drawer.Overlay className="fixed inset-0 bg-black/80" />
-                <Drawer.Content className="bg-black text-white fixed right-0 top-0 flex h-full w-[90vw] flex-col border border-neutral-900 p-6 sm:w-[70vw] lg:w-[400px]">
-                    <div className="flex flex-col h-full">
-                        <div className="flex justify-between items-center mb-8">
+                <Drawer.Content className="bg-black text-white fixed right-0 top-0 flex h-full w-[90vw] flex-col border border-neutral-900 sm:w-[70vw] lg:w-[400px]">
+                    <div className="flex flex-col h-full overflow-hidden">
+                        <div className="flex justify-between items-center p-6 pb-4 border-b border-neutral-900 flex-shrink-0">
                             <img
                                 src="https://i.pinimg.com/736x/d3/b8/34/d3b834823d035665dc0abfc7bfc7dad4.jpg"
                                 className="w-10 h-10 object-cover rounded-full invisible md:visible"
@@ -88,15 +92,18 @@ const SidebarDrawer = () => {
                             </Drawer.Close>
                         </div>
 
-                        <nav className="flex flex-col space-y-8 flex-1">
+                        <nav
+                            className="flex flex-col space-y-8 flex-1 overflow-y-auto overflow-x-hidden px-6 py-4"
+                            style={{ WebkitOverflowScrolling: "touch" }}
+                        >
                             {/* Navegação Principal */}
                             <div>
                                 <h3 className="text-sm font-medium text-neutral-400 uppercase tracking-wider mb-4">
                                     Navegação
                                 </h3>
-                                <div className="space-y-2">
+                                <div className="space-y-1">
                                     {navigation.map((item) => (
-                                        <SidebarLink key={item.name} item={item} />
+                                        <SidebarLink key={item.name} item={item} onClose={() => setIsOpen(false)} />
                                     ))}
                                 </div>
                             </div>
@@ -106,9 +113,9 @@ const SidebarDrawer = () => {
                                 <h3 className="text-sm font-medium text-neutral-400 uppercase tracking-wider mb-4">
                                     Contato
                                 </h3>
-                                <div className="space-y-2">
+                                <div className="space-y-1">
                                     {socials.map((item) => (
-                                        <SidebarLink key={item.name} item={item} />
+                                        <SidebarLink key={item.name} item={item} onClose={() => setIsOpen(false)} />
                                     ))}
                                 </div>
                             </div>
@@ -118,9 +125,9 @@ const SidebarDrawer = () => {
                                 <h3 className="text-sm font-medium text-neutral-400 uppercase tracking-wider mb-4">
                                     Outros
                                 </h3>
-                                <div className="space-y-2">
+                                <div className="space-y-1">
                                     {others.map((item) => (
-                                        <SidebarLink key={item.name} item={item} />
+                                        <SidebarLink key={item.name} item={item} onClose={() => setIsOpen(false)} />
                                     ))}
                                 </div>
                             </div>
@@ -132,16 +139,15 @@ const SidebarDrawer = () => {
     );
 };
 
-function SidebarLink({ item }: { item: Page }) {
-    const isExternal = item.href.startsWith("http") || item.href.startsWith("mailto:");
+function SidebarLink({ item, onClose }: { item: Page; onClose: () => void }) {
     const Icon = item.icon;
 
-    if (isExternal) {
+    if (item.external) {
         return (
             <a
                 href={item.href}
-                target={item.href.startsWith("http") ? "_blank" : undefined}
-                rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-between p-3 rounded-lg hover:bg-neutral-800 transition-colors group"
             >
                 <div className="flex items-center space-x-3">
@@ -160,6 +166,7 @@ function SidebarLink({ item }: { item: Page }) {
     return (
         <NavLink
             to={item.href}
+            onClick={onClose}
             className={({ isActive }) =>
                 `flex items-center space-x-3 p-3 rounded-sm transition-colors group ${
                     isActive
