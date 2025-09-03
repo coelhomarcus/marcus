@@ -1,0 +1,106 @@
+Atualmente estou cursando Web II na faculdade e surgiu a curiosidade de estudar Fastify, já que será o framework que utilizaremos para desenvolver APIs em Node. Por isso, decidi me adiantar e começar a estudá-lo antecipadamente. Neste post, vou deixar minhas anotações, que estão sujeitas a mudanças.
+
+O Fastify parece ser bem mais robusto que o Express. Enquanto o Express foca mais na agilidade e versatilidade, o Fastify, apesar de não ficar atrás nesse quesito com suas diferentes formas de criar rotas, dá mais ênfase à robustez. Pelo que entendi, o Fastify também tem suporte nativo ao TypeScript, o que é muito interessante e combina bastante com essa característica de robustez.
+
+
+### Instalando Fastify
+
+```js
+npm init -y
+
+npm install fastify
+```
+
+### Criando rotas GET e POST simples
+
+```js
+import Fastify from "fastify";
+
+// Instanciando o Fastify
+const fastify = Fastify({
+    logger: true
+})
+
+// Definindo rotas GET e POST
+fastify.get('/', async (req, reply) => {
+    return "Oi, Fastify!"
+})
+
+fastify.post('/data', async (req, reply) => {
+    const data = req.body
+    return { requestBody: data }
+})
+```
+
+### Criando rota GET com reply.send
+
+No fastify é utilizado tanto o return e o reply.send para as response, as duas estão corretas, geralmente para coisas simples é usado o return mesmo.
+
+```js
+fastify.get('/reply', async (req, reply) => {
+    return reply.send("Oi, Fastify com reply!")
+})
+```
+
+### Criando uma rota GET com fastify.route
+
+Essa é uma forma mais robusta de definir uma rota.
+
+```js
+fastify.route({
+    method: 'GET',
+    url: '/route',
+    schema: {
+        // a requisição precisa ter uma querystring com o parâmetro `name`
+        // localhost:3000/route?name=Marcus
+        querystring: {
+            type: 'object',
+            properties: {
+                name: { type: 'string' }
+            },
+            required: ['name'],
+        },
+        // a resposta será um objeto com a propriedade `hello` do tipo string
+        response: {
+            200: {
+                type: 'object',
+                properties: {
+                    hello: { type: 'string' }
+                }
+            },
+            400: {
+                type: 'object',
+                properties: {
+                    message: { type: 'string' }
+                }
+            },
+        }
+    },
+    // essa função é executada antes do handler em cada requisição
+    preHandler: async (request, reply) => {
+        //exemplo: checar autenticação
+    },
+    // essa função é executada quando a requisição é feita
+    handler: async (request, reply) => {
+        return { hello: request.query.name }
+    }
+})
+```
+
+### Iniciando
+
+```js
+const start = async () => {
+    try {
+        await fastify.listen({ port: 3000 })
+        console.log(`Server rodando na http://localhost:3000`)
+    } catch (err) {
+        fastify.log.error(err)
+        process.exit(1)
+    }
+}
+
+start()
+```
+
+Se quiser conversar sobre programação ou qualquer assunto relacionado, fique à vontade para entrar em contato!

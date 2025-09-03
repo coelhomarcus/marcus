@@ -1,16 +1,16 @@
 export const arrBlog = [
+     {
+        slug: "learning-fastify",
+        title: "Aprendendo Fastify",
+        desc: "Minhas anotações e estudos sobre Fastify",
+        date: "03/09/2025",
+        tags: ["Programação", "Node", "Fastify"],
+    },
     {
         slug: "balance",
         title: "O Mensageiro de Maratona",
         desc: "Depois de meses, trago boas notícias!",
         date: "18/07/2025",
-        tags: ["Pessoal"],
-    },
-    {
-        slug: "rest",
-        title: "Descansar é importante",
-        desc: "Reflexões após meses de estudos e aprendizados intensos",
-        date: "15/05/2025",
         tags: ["Pessoal"],
     },
     {
