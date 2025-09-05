@@ -1,5 +1,5 @@
 export const arrBlog = [
-     {
+    {
         slug: "learning-fastify",
         title: "Aprendendo Fastify",
         desc: "Minhas anotações e estudos sobre Fastify",
@@ -7,15 +7,8 @@ export const arrBlog = [
         tags: ["Programação", "Node", "Fastify"],
     },
     {
-        slug: "balance",
-        title: "O Mensageiro de Maratona",
-        desc: "Depois de meses, trago boas notícias!",
-        date: "18/07/2025",
-        tags: ["Pessoal"],
-    },
-    {
-        slug: "my-env",
-        title: "Meu Ambiente",
+        slug: "env",
+        title: ".env",
         desc: "Ambiente, ferramentas, configurações e recomendações",
         date: "26/04/2025",
         tags: ["Programação", "Pessoal"],

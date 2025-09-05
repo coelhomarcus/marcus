@@ -65,7 +65,7 @@ const Blog = () => {
         <div className="text-white">
             <PageTitle title="Blog" />
             <h1 className="text-xl font-semibold mb-2">Blog</h1>
-            <p className="text-neutral-400 text-sm mb-4">Meus preciosos pensamentos e anotações.</p>
+            <p className="text-neutral-400 text-sm mb-4">Meus pensamentos e anotações.</p>
             <div className="mb-6 relative">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-neutral-400">
                     <IoSearchSharp />
@@ -94,37 +94,9 @@ const Blog = () => {
                     <p className="text-neutral-400 text-xs text-center py-4">Nenhum post encontrado.</p>
                 )}
             </div>
-            <div className="hidden sm:flex flex-wrap gap-2 mt-6 justify-center *:h-8 *:w-auto">
-                <img
-                    src="https://64.media.tumblr.com/e8badceece899ec45fd02b2254447a99/7e5253eadd3d7fba-b4/s400x600/41c70dee5725f192ee0b6fa0d542081af392b0f4.gif"
-                    alt="Ramburg"
-                />
-                <img src="https://zanarkand.neocities.org/foryou/fubutton16.gif" alt="Lain" />
-                <img
-                    src="https://64.media.tumblr.com/beb1f92611396501e6370766e57257dc/383f2ec0107b49e1-40/s250x400/05f5405f94c2cf821ca334098a1453a0fac51628.gif"
-                    alt="yup"
-                />
-                <img src="https://zanarkand.neocities.org/foryou/fubutton41.gif" alt="miku" />
-                <img
-                    src="https://64.media.tumblr.com/f2584e32d350466339963d1e6b28dbd7/35d9fec982b7632d-12/s250x400/ff1fdcf6b6b4fd43444fd20773e68f456b8c89bd.png"
-                    alt="dokidoki"
-                />
-                <img src="https://zanarkand.neocities.org/foryou/fubutton35.gif" alt="pudi" />
-                <img
-                    src="https://64.media.tumblr.com/fbcc3097744dc24b59b9fba05feb39e7/69b1b2e416f3c892-15/s400x600/ad2fba34a9e2e9f1a66b07997c349af1ee249d2a.gifv"
-                    alt="openeye"
-                />
-                <img src="https://ranfren.neocities.org/bestview.gif" alt="eye" />
-                <img src="https://zanarkand.neocities.org/mybuttons/banner5.gif" alt="love soda" />
-                <img
-                    src="https://cybersparkle.neocities.org/d1s993h-0bb43478-6b47-49f8-8828-a549652f9a7a.gif"
-                    alt="girl"
-                />
-                <img
-                    src="https://64.media.tumblr.com/2c615594e837f99a9ce6a244ea348ac2/90b3618720570f23-23/s500x750/3968340e882cace9d3e35e833b8169c42815ff1e.gifv"
-                    alt=""
-                />
-                <img src="https://graphic.neocities.org/emailme.gif" alt="computer" />
+            <div className="invisible md:visible mt-4 *:w-full">
+                {/* <img src="https://pixelsafari.neocities.org/dividers/sparkles6.gif" alt="" /> */}
+                <img src="https://pixelsafari.neocities.org/dividers/animal/cat2.gif" alt="" />
             </div>
         </div>
     );

@@ -90,6 +90,21 @@ const components = {
             </h3>
         );
     },
+    h4: (props: React.HTMLProps<HTMLHeadingElement>) => {
+        const id = slugify(String(props.children));
+
+        return (
+            <h4 id={id} className="scroll-mt-4">
+                <a
+                    href={`#${id}`}
+                    className="heading-link text-neutral-300 no-underline font-semibold active:text-neutral-400 cursor-pointer select-none"
+                    onClick={createHeadingClickHandler(id)}
+                >
+                    {props.children}
+                </a>
+            </h4>
+        );
+    },
     p: (props: React.HTMLProps<HTMLParagraphElement>) => <p className="prose-base text-neutral-400" {...props} />,
     a: (props: React.HTMLProps<HTMLAnchorElement>) => (
         <>

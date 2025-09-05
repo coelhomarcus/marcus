@@ -2,7 +2,7 @@ import React from "react";
 import { Drawer } from "vaul-base";
 import { NavLink } from "react-router";
 import { FiUser } from "react-icons/fi";
-import { FaLaptopCode, FaRegFolderOpen, FaRegFilePdf, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaLaptopCode, FaRegFolderOpen, FaRegFilePdf, FaGithub, FaLinkedin, FaCrow } from "react-icons/fa";
 import { SlMenu } from "react-icons/sl";
 
 import { MdAlternateEmail } from "react-icons/md";
@@ -82,11 +82,7 @@ const SidebarDrawer = () => {
                 <Drawer.Content className="bg-black text-white fixed right-0 top-0 flex h-full w-[90vw] flex-col border border-neutral-900 sm:w-[70vw] lg:w-[400px]">
                     <div className="flex flex-col h-full overflow-hidden">
                         <div className="flex justify-between items-center p-6 pb-4 border-b border-neutral-900 flex-shrink-0">
-                            <img
-                                src="https://i.pinimg.com/736x/d3/b8/34/d3b834823d035665dc0abfc7bfc7dad4.jpg"
-                                className="w-10 h-10 object-cover rounded-full invisible md:visible"
-                                alt="Foto de perfil"
-                            />
+                            <FaCrow className="opacity-60 text-white invisible md:visible" aria-hidden="true" />
                             <Drawer.Close className="p-2 hover:text-neutral-400 rounded-lg transition-colors cursor-pointer">
                                 ✕
                             </Drawer.Close>

@@ -44,9 +44,9 @@ const About = () => {
             <div className="flex justify-center mb-4 gap-4">
                 <Link
                     to={`/blog/${arrBlog[0].slug}`}
-                    className="group flex items-center justify-center gap-1 vw-fit text-xs text-neutral-300 border border-neutral-800 hover:border-neutral-700 hover:bg-gradient-to-b hover:from-neutral-950 hover:to-neutral-900 p-1 text-center rounded-full transition-all"
+                    className="group flex items-center justify-center gap-1 vw-fit text-xs text-neutral-300 border border-neutral-800 hover:border-neutral-700/30 hover:bg-gradient-to-b hover:from-neutral-950 hover:to-neutral-900/50 p-1 text-center rounded-full transition-all duration-200"
                 >
-                    <div className="w-fit border border-neutral-800 group-hover:border-neutral-700 p-1 px-2 mr-1 text-center rounded-full transition-all">
+                    <div className="w-fit border border-neutral-800 group-hover:border-transparent p-1 px-2 mr-1 text-center rounded-full transition-all duration-400">
                         <div className="relative inline-flex w-2 h-2 mr-1">
                             <div className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping"></div>
                             <div className="relative inline-flex w-2 h-2 bg-green-500 rounded-full"></div>
@@ -71,11 +71,7 @@ function WorksExperience() {
             {arrWorks.map((work) => (
                 <div className="flex gap-2 justify-between items-center" key={work.company}>
                     <div className="flex gap-2">
-                        <img
-                            src={work.logo}
-                            alt={work.company}
-                            className="size-6 sm:size-10 object-cover rounded-full"
-                        />
+                        <img src={work.logo} alt={work.company} className="size-6 sm:size-10 object-cover rounded-lg" />
                         <span>
                             <h3>{work.company}</h3>
                             <p className="text-[12px] sm:text-sm text-neutral-400">{work.role}</p>
