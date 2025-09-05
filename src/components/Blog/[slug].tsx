@@ -3,6 +3,8 @@ import { MDXProvider } from "@mdx-js/react";
 import { useParams, Link, useLocation } from "react-router";
 import PageTitle from "@/components/PageTitle/PageTitle";
 
+import { FaChevronLeft } from "react-icons/fa";
+
 import { arrBlog } from "../../utils/data/posts";
 import components from "../../utils/components";
 const posts = import.meta.glob("../../utils/posts/*.mdx");
@@ -69,8 +71,24 @@ const Post = () => {
             {post && <PageTitle title={post.title} />}
 
             <div className="mt-4 mb-1 md:flex justify-between">
-                <h1 className="text-xl font-medium text-white mb-2">{post.title}</h1>
-                <div className="flex flex-wrap gap-2 sm:gap-0 items-center text-neutral-500 text-xs">
+                <Link
+                    to="/blog"
+                    className="text-sm text-neutral-400 hover:text-white transition-all duration-200 flex items-center gap-2"
+                >
+                    <FaChevronLeft className="inline" /> Voltar
+                </Link>
+                <button
+                    className="flex items-center gap-8 mb-2"
+                    onClick={() => {
+                        const currentUrl = window.location.href;
+                        navigator.clipboard.writeText(currentUrl);
+                    }}
+                >
+                    <h1 className="text-base font-medium text-white cursor-pointer hover:text-neutral-300 active:scale-95 duration-100">
+                        {post.title}
+                    </h1>
+                </button>
+                <div className="flex flex-wrap gap-2 sm:gap-0 items-center text-neutral-500 text-sm">
                     <span>{post.date}</span>
                 </div>
             </div>

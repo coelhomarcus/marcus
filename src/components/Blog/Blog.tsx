@@ -18,36 +18,21 @@ const BlogCard = ({
     tags?: string[];
 }) => {
     return (
-        <Link
-            to={`/blog/${slug}`}
-            key={slug}
-            className="group relative block rounded-[var(--radius)] p-4 transition-all duration-300 
-      border border-neutral-900 hover:bg-neutral-900/40 shadow-inner shadow-neutral-900"
-        >
+        <Link to={`/blog/${slug}`} key={slug} className="group block transition-all duration-300 cursor-auto">
             <div className="flex flex-col h-full">
-                <div className="flex flex-col gap-2 sm:gap-0 sm:flex-row justify-between items-start mb-2">
-                    <h3 className="text-sm font-medium text-white">{title}</h3>
-                    <div className="flex items-center text-xs text-neutral-600">
-                        <span className="font-medium">{date}</span>
+                <div className="flex flex-col gap-2 sm:gap-0 sm:flex-row justify-between">
+                    <div className="flex gap-6">
+                        <div className="flex items-center text-xs text-neutral-600">
+                            <span className="font-medium">{date}</span>
+                        </div>
+                        <h3 className="text-base font-normal text-neutral-300 underline decoration-neutral-600 hover:decoration-neutral-200 hover:text-neutral-100 tracking-wide cursor-pointer">
+                            {title}
+                        </h3>
+                    </div>
+                    <div className="items-center text-xs text-neutral-600 hidden sm:flex">
+                        <span className="font-medium">{desc}</span>
                     </div>
                 </div>
-
-                <p className="text-sm text-neutral-400 flex-grow">{desc}</p>
-
-                {/* <div className="mt-3 flex flex-col gap-3 sm:gap-0 sm:flex-row items-start justify-between sm:items-center">
-                    {tags && tags.length > 0 && (
-                        <div className="flex gap-2 flex-wrap">
-                            {tags.slice(0, 2).map((tag, i) => (
-                                <span
-                                    key={i}
-                                    className="text-xs px-2 py-0.5 rounded-sm bg-neutral-800/30 text-neutral-500 border-neutral-800/30"
-                                >
-                                    {tag}
-                                </span>
-                            ))}
-                        </div>
-                    )}
-                </div> */}
             </div>
         </Link>
     );
