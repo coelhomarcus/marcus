@@ -70,7 +70,7 @@ const Post = () => {
         <div className="text-white w-full">
             {post && <PageTitle title={post.title} />}
 
-            <div className="mt-4 mb-1 md:flex justify-between">
+            <div className="mt-4 flex justify-between mb-2">
                 <Link
                     to="/blog"
                     className="text-sm text-neutral-400 hover:text-white transition-all duration-200 flex items-center gap-2"
@@ -78,17 +78,15 @@ const Post = () => {
                     <FaChevronLeft className="inline" /> Voltar
                 </Link>
                 <button
-                    className="flex items-center gap-8 mb-2"
+                    className="flex items-center gap-8"
                     onClick={() => {
                         const currentUrl = window.location.href;
                         navigator.clipboard.writeText(currentUrl);
                     }}
                 >
-                    <h1 className="text-base font-medium text-white cursor-pointer hover:text-neutral-300 active:scale-95 duration-100">
-                        {post.title}
-                    </h1>
+                    {post.title}
                 </button>
-                <div className="flex flex-wrap gap-2 sm:gap-0 items-center text-neutral-500 text-sm">
+                <div className="hidden sm:flex sm:gap-0 items-center text-neutral-500 text-sm">
                     <span>{post.date}</span>
                 </div>
             </div>
