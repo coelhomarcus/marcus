@@ -4,8 +4,6 @@ import Projects from "./components/Projects/Projects";
 import Blog from "./components/Blog/Blog";
 import PostPage from "./components/Blog/[slug]";
 import Certificates from "./components/Certificates/Certificates";
-import Friends from "./components/Friends/Friends";
-import Vault from "./components/Vault/Vault";
 
 import { Routes, Route } from "react-router";
 import NotFound from "./components/NotFound/NotFound";
@@ -19,8 +17,6 @@ const App = () => {
                 <Route path="/" element={<About />} />
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/blog" element={<Blog />} />
-                <Route path="/friends" element={<Friends />} />
-                <Route path="/vault" element={<Vault />} />
                 <Route path="/blog/:slug" element={<PostPage />} />
                 <Route path="/certificates" element={<Certificates />} />
                 <Route path="*" element={<NotFound />} />

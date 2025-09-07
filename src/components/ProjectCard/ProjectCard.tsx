@@ -11,7 +11,7 @@ const ProjectCard = ({ href, name, desc, tech = [] }: ProjectCardProps) => {
     return (
         <a
             href={href}
-            className="group relative block rounded-lg p-4 transition-all duration-300 
+            className="group relative block rounded-sm p-4 transition-all duration-300 
             border border-neutral-900 hover:bg-neutral-900/40 shadow-inner shadow-neutral-900"
             rel="noreferrer noopener"
             target="_blank"

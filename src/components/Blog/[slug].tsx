@@ -15,6 +15,7 @@ const Post = () => {
     const { slug } = useParams();
     const post = arrBlog.find((p) => p.slug === slug);
     const [MDXComponent, setMDXComponent] = useState<React.ComponentType | null>(null);
+    const [titleClicked, setTitleClicked] = useState(false);
 
     useEffect(() => {
         if (slug) {
@@ -78,13 +79,18 @@ const Post = () => {
                     <FaChevronLeft className="inline" /> Voltar
                 </Link>
                 <button
-                    className="flex items-center gap-8"
+                    className="flex items-center gap-8 cursor-pointer hover:text-neutral-300"
                     onClick={() => {
                         const currentUrl = window.location.href;
                         navigator.clipboard.writeText(currentUrl);
+                        setTitleClicked(true);
+                        setTimeout(() => {
+                            setTitleClicked(false);
+                            console.log("teste");
+                        }, 1500);
                     }}
                 >
-                    {post.title}
+                    {titleClicked ? "Link Copiado!" : post.title}
                 </button>
                 <div className="hidden sm:flex sm:gap-0 items-center text-neutral-500 text-sm">
                     <span>{post.date}</span>

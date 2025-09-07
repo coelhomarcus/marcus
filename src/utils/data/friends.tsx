@@ -14,12 +14,4 @@ export const arrFriends = [
         github: "https://github.com/luisotv",
         description: "Front-end & Game Dev",
     },
-    {
-        id: 3,
-        name: "Martiniano Gomes",
-        avatar: "https://github.com/martinianogomes.png",
-        website: "https://martinianogomes.github.io/mini-portfolio/",
-        github: "https://github.com/martinianogomes",
-        description: "Front-end",
-    },
 ];

@@ -3,6 +3,7 @@ import { Drawer } from "vaul-base";
 import { NavLink } from "react-router";
 import { FiUser } from "react-icons/fi";
 import { FaLaptopCode, FaRegFolderOpen, FaRegFilePdf, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { SlMenu } from "react-icons/sl";
 import { GiBunnySlippers } from "react-icons/gi";
 
@@ -11,8 +12,6 @@ import { MdOutlineFileDownload } from "react-icons/md";
 import { GoArrowUpRight } from "react-icons/go";
 
 import { TbCertificate } from "react-icons/tb";
-import { CiVault } from "react-icons/ci";
-import { GoPeople } from "react-icons/go";
 
 type Page = {
     name: string;
@@ -49,6 +48,7 @@ const socials: Page[] = [
         icon: FaLinkedin,
         external: true,
     },
+    { name: "Twitter", href: "https://twitter.com/coelhoincode", icon: FaXTwitter, external: true },
 ];
 
 const others: Page[] = [
@@ -57,8 +57,6 @@ const others: Page[] = [
         href: "/certificates",
         icon: TbCertificate,
     },
-    { name: "Vault", href: "/vault", icon: CiVault },
-    { name: "Amigos", href: "/friends", icon: GoPeople },
 ];
 
 const SidebarDrawer = () => {
@@ -70,7 +68,7 @@ const SidebarDrawer = () => {
                 render={(props) => (
                     <button
                         {...props}
-                        className="hover:*:text-neutral-200 rounded-lg transition-all cursor-pointer"
+                        className="hover:*:text-neutral-200 rounded-xs transition-all cursor-pointer"
                         aria-label="Abrir menu"
                         onClick={() => setIsOpen(true)}
                     >
@@ -82,12 +80,12 @@ const SidebarDrawer = () => {
                 <Drawer.Overlay className="fixed inset-0 bg-black/80" />
                 <Drawer.Content className="bg-black text-white fixed right-0 top-0 flex h-full w-[90vw] flex-col border border-neutral-900 sm:w-[70vw] lg:w-[400px]">
                     <div className="flex flex-col h-full overflow-hidden">
-                        <div className="flex justify-between items-center p-6 pb-4 border-b border-neutral-900 flex-shrink-0">
+                        <div className="flex justify-between items-center p-6 pb-4 flex-shrink-0">
                             <GiBunnySlippers
                                 className="opacity-60 size-8 text-white invisible md:visible"
                                 aria-hidden="true"
                             />
-                            <Drawer.Close className="p-2 hover:text-neutral-400 rounded-lg transition-colors cursor-pointer">
+                            <Drawer.Close className="p-2 hover:text-neutral-400 rounded-xs transition-colors cursor-pointer">
                                 ✕
                             </Drawer.Close>
                         </div>
@@ -148,7 +146,7 @@ function SidebarLink({ item, onClose }: { item: Page; onClose: () => void }) {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between p-3 rounded-lg hover:bg-neutral-800 transition-colors group"
+                className="flex items-center justify-between p-3 rounded-xs hover:bg-neutral-900 transition-colors group"
             >
                 <div className="flex items-center space-x-3">
                     <Icon className="w-5 h-5 text-neutral-400 group-hover:text-white transition-colors" />
@@ -168,10 +166,10 @@ function SidebarLink({ item, onClose }: { item: Page; onClose: () => void }) {
             to={item.href}
             onClick={onClose}
             className={({ isActive }) =>
-                `flex items-center space-x-3 p-3 rounded-sm transition-colors group ${
+                `flex items-center space-x-3 p-3 rounded-xs transition-colors group ${
                     isActive
                         ? "bg-neutral-900 text-white border"
-                        : "hover:bg-neutral-800 text-neutral-300 border border-transparent"
+                        : "hover:bg-neutral-900 text-neutral-300 border border-transparent"
                 }`
             }
         >

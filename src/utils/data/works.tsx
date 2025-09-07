@@ -1,7 +1,7 @@
 export const arrWorks = [
     {
-        company: "PET SAÚDE",
-        role: "Monitor",
+        company: "PET-Saúde: Inovação e Saúde Digital no SUS",
+        role: "Developer",
         duration: "2025 - Presente",
         logo: "/src/works/petsaude.webp",
     },

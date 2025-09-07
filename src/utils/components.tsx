@@ -109,12 +109,12 @@ const components = {
     a: (props: React.HTMLProps<HTMLAnchorElement>) => (
         <>
             <a
-                className="group prose-base font-normal text-lime-300 no-underline hover:text-lime-500"
+                className="group prose-base font-normal text-[#f46b67] no-underline hover:text-[#e74242]"
                 target="_blank"
                 {...props}
             >
                 {props.children}
-                <CgExternal className="text-lime-300 group-hover:text-lime-500 inline mb-1" />
+                <CgExternal className="text-[#f46b67]  group-hover:text-[#e74242] inline mb-1" />
             </a>
         </>
     ),
@@ -134,7 +134,7 @@ const components = {
             <div className="relative group">
                 <button
                     onClick={handleCopyCode}
-                    className="absolute top-2 right-2 p-2 rounded-sm bg-transparent border text-neutral-400 hover:text-lime-300 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 cursor-pointer"
+                    className="absolute top-2 right-2 p-2 rounded-sm bg-transparent border text-neutral-400 hover:text-[#f46b67] active:scale-90 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 cursor-pointer"
                     aria-label="Copiar código"
                 >
                     <GoCopy className="w-4 h-4" />
