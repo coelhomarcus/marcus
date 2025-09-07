@@ -42,9 +42,6 @@ const Blog = () => {
             <PageTitle title="Blog" />
             <h1 className="text-xl font-semibold mb-2">Blog</h1>
             <p className="text-neutral-400 text-sm mb-4">Meus pensamentos e anotações.</p>
-            <div className="invisible md:visible mt-4 *:w-full">
-                <img src="https://pixelsafari.neocities.org/dividers/animal/cat2.gif" alt="" />
-            </div>
             <div className="space-y-4">
                 {arrBlog.length > 0 ? (
                     arrBlog.map((post) => (
