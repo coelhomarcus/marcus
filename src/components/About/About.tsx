@@ -12,8 +12,9 @@ const About = () => {
             <PageTitle title="Marcus Coelho" suffix="" />
             <h1 className="text-xl font-semibold mb-4">Marcus Coelho</h1>
             <p className="text-neutral-400 text-base mb-4">
-                Olá, me chamo Marcus Coelho, sou estudante de Sistemas de Informação na Unifesspa. Se quiser saber mais
-                sobre minha trajetória,{" "}
+                Olá! Sou estudante de Sistemas de Informação (6/8) na Unifesspa, bolsista desenvolvedor no PET-Saúde:
+                Inovação e Saúde Digital no SUS, e também desenvolvedor na Exception Jr. Se quiser saber mais sobre
+                minha trajetória,{" "}
                 <span>
                     <a
                         className="transition-colors text-neutral-100 hover:underline"
@@ -23,23 +24,16 @@ const About = () => {
                         veja meu currículo{<CgExternal className="inline mb-1" />}
                     </a>
                 </span>
+            </p>
+            <p className="text-neutral-400 text-base mb-4">
+                Atualmente utilizo o ecossistema <span className="text-neutral-200">React</span> para construir meus
+                projetos, meu conhecimento consistente em{" "}
+                <span className="text-neutral-200">Vite, Next.js, Tailwind, Typescript, Node.js</span> e pretendo
+                aprofundar meu conhecimento em <span className="text-neutral-200">Go</span>
+                <a href="https://coelhomarcus.com/blog/learning-go" target="_blank" rel="noopener noreferrer">
+                    <img src="./src/assets/gopher.svg" alt="Gopher" className="size-6 inline ml-1 active:scale-95" />
+                </a>
                 .
-                <br />
-                <br />
-                Gosto de criar sites bonitos, acessíveis e fáceis de usar. No dia a dia, trabalho com o ecossistema{" "}
-                <span className="text-neutral-300">React</span>, utilizando principalmente{" "}
-                <span className="text-neutral-300">Vite/Next.js, Tailwind e TypeScript.</span> Estou sempre buscando
-                evoluir como desenvolvedor e no momento estou me aprofundando em back-end com{" "}
-                <span className="text-neutral-300">Node.js e Go</span>.
-                <br />
-                <br />
-                Atualmente, estou estagiando no PET-SAÚDE/I&SD: Inovação e Saúde Digital no SUS. Além disso, faço parte
-                da Exception Jr, empresa júnior da faculdade, onde atuo como Full Stack Developer, participando de
-                projetos como o Conecta Canaã. Alguns dos{" "}
-                <Link className="transition-colors text-neutral-100 hover:underline" to="/projects">
-                    projetos{<CgExternal className="inline mb-1" />}
-                </Link>{" "}
-                em que estou envolvido incluem o Conecta Canaã.
             </p>
             <div className="flex justify-center mb-4 gap-4">
                 <Link
