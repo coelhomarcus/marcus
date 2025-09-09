@@ -4,30 +4,28 @@ import { ReactElement } from "react";
 import { GoCopy } from "react-icons/go";
 import { CgExternal } from "react-icons/cg";
 
-import ts from "react-syntax-highlighter/dist/esm/languages/prism/typescript";
-import js from "react-syntax-highlighter/dist/esm/languages/prism/javascript";
 import go from "react-syntax-highlighter/dist/esm/languages/prism/go";
 import jsx from "react-syntax-highlighter/dist/esm/languages/prism/jsx";
 import tsx from "react-syntax-highlighter/dist/esm/languages/prism/tsx";
 import bash from "react-syntax-highlighter/dist/esm/languages/prism/bash";
 import json from "react-syntax-highlighter/dist/esm/languages/prism/json";
 
-SyntaxHighlighter.registerLanguage("ts", ts);
-SyntaxHighlighter.registerLanguage("js", js);
 SyntaxHighlighter.registerLanguage("go", go);
 SyntaxHighlighter.registerLanguage("jsx", jsx);
 SyntaxHighlighter.registerLanguage("tsx", tsx);
+SyntaxHighlighter.registerLanguage("ts", tsx);
+SyntaxHighlighter.registerLanguage("js", jsx);
 SyntaxHighlighter.registerLanguage("bash", bash);
 SyntaxHighlighter.registerLanguage("json", json);
 
 export function slugify(text: string): string {
     return text
         .toLowerCase()
-        .normalize("NFD") // Remove acentos
-        .replace(/[\u0300-\u036f]/g, "") // Regex pra remover diacríticos
-        .replace(/[^a-z0-9 -]/g, "") // Remove símbolos
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9 -]/g, "")
         .trim()
-        .replace(/\s+/g, "-"); // Espaços viram hífens
+        .replace(/\s+/g, "-");
 }
 
 const createHeadingClickHandler = (id: string) => (e: React.MouseEvent) => {
@@ -36,7 +34,6 @@ const createHeadingClickHandler = (id: string) => (e: React.MouseEvent) => {
     if (element) {
         element.scrollIntoView({ behavior: "smooth" });
 
-        // Atualiza a URL sem causar reload da página
         history.pushState(null, "", `#${id}`);
     }
 
@@ -134,7 +131,7 @@ const components = {
             <div className="relative group">
                 <button
                     onClick={handleCopyCode}
-                    className="absolute top-2 right-2 p-2 rounded-sm bg-transparent border text-neutral-400 hover:text-[#f46b67] active:scale-90 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 cursor-pointer"
+                    className="absolute top-2 right-2 p-2 bg-transparent border text-neutral-400 hover:text-white active:scale-90 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 cursor-pointer"
                     aria-label="Copiar código"
                 >
                     <GoCopy className="w-4 h-4" />
@@ -147,7 +144,7 @@ const components = {
                         padding: "1rem",
                         fontSize: "0.825rem",
                     }}
-                    className="rounded bg-background border border-foreground/10 scrollbar scrollbar-content"
+                    className="rounded-none bg-background border border-foreground/10 scrollbar scrollbar-content"
                     {...rest}
                 >
                     {code}

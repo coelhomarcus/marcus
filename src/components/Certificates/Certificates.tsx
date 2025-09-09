@@ -12,7 +12,7 @@ const Certificates = () => {
             <p className="text-neutral-400 text-sm mb-4">
                 Aqui estão algumas das certificações que conquistei ao longo da minha jornada.
             </p>
-            <div className="space-y-4 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {certificates.map((certificate, index) => {
                     return (
                         <SimpleCard

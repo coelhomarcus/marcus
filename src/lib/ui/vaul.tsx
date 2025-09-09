@@ -68,7 +68,7 @@ const SidebarDrawer = () => {
                 render={(props) => (
                     <button
                         {...props}
-                        className="hover:*:text-neutral-200 rounded-xs transition-all cursor-pointer"
+                        className="hover:*:text-neutral-200 rounded-none transition-all cursor-pointer"
                         aria-label="Abrir menu"
                         onClick={() => setIsOpen(true)}
                     >
@@ -85,7 +85,7 @@ const SidebarDrawer = () => {
                                 className="opacity-60 size-8 text-white invisible md:visible"
                                 aria-hidden="true"
                             />
-                            <Drawer.Close className="p-2 hover:text-neutral-400 rounded-xs transition-colors cursor-pointer">
+                            <Drawer.Close className="p-2 hover:text-neutral-400 rounded-none transition-colors cursor-pointer">
                                 ✕
                             </Drawer.Close>
                         </div>
@@ -146,7 +146,7 @@ function SidebarLink({ item, onClose }: { item: Page; onClose: () => void }) {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between p-3 rounded-xs hover:bg-neutral-900 transition-colors group"
+                className="flex items-center justify-between p-3 rounded-none hover:bg-neutral-900 transition-colors group"
             >
                 <div className="flex items-center space-x-3">
                     <Icon className="w-5 h-5 text-neutral-400 group-hover:text-white transition-colors" />
@@ -166,7 +166,7 @@ function SidebarLink({ item, onClose }: { item: Page; onClose: () => void }) {
             to={item.href}
             onClick={onClose}
             className={({ isActive }) =>
-                `flex items-center space-x-3 p-3 rounded-xs transition-colors group ${
+                `flex items-center space-x-3 p-3 rounded-none transition-colors group ${
                     isActive
                         ? "bg-neutral-900 text-white border"
                         : "hover:bg-neutral-900 text-neutral-300 border border-transparent"

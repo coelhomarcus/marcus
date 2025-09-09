@@ -7,12 +7,12 @@ const Header = () => {
     return (
         <header className="flex justify-between items-center mb-4">
             <NavLink to="/">
-                <Avatar className="size-10 sm:size-14 hover:scale-105 active:scale-95 transition-all duration-100 rounded-sm">
+                <Avatar className="size-10 sm:size-14 hover:scale-105 active:scale-95 transition-all duration-100 rounded-xs">
                     <AvatarImage
                         className="object-cover"
                         src="https://i.pinimg.com/1200x/93/3f/ae/933fae092bcdc2943cdc8a19d02f2365.jpg"
                     />
-                    <AvatarFallback className="size-10 sm:size-15 rounded-sm">
+                    <AvatarFallback className="size-10 sm:size-15 rounded-none">
                         <FaUserAlt className="opacity-60 text-white" aria-hidden="true" />
                     </AvatarFallback>
                 </Avatar>
