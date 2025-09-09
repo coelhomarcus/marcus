@@ -8,6 +8,7 @@ um projeto minimalista feito para testar meus conhecimentos e apresentar um pouc
 
 ### 🖊️ Stack
 
+<p>
 <img alt="React" src="https://img.shields.io/badge/-React-61DAFB?style=plastic&logo=react&logoColor=black" />
 <img alt="TypeScript" src="https://img.shields.io/badge/-TypeScript-3178C6?style=plastic&logo=typescript&logoColor=white" />
 <img alt="Tailwind CSS" src="https://img.shields.io/badge/-Tailwind%20CSS-06B6D4?style=plastic&logo=tailwindcss&logoColor=white" />
@@ -19,6 +20,7 @@ um projeto minimalista feito para testar meus conhecimentos e apresentar um pouc
 <img alt="JavaScript" src="https://img.shields.io/badge/-JavaScript-F7DF1E?style=plastic&logo=javascript&logoColor=black" />
 <img alt="Node.js" src="https://img.shields.io/badge/-Node.js-339933?style=plastic&logo=nodedotjs&logoColor=white" />
 <img alt="ESLint" src="https://img.shields.io/badge/-ESLint-4B32C3?style=plastic&logo=eslint&logoColor=white" />
+<p/>
 
 ### 📂 O que você vai encontrar
 
