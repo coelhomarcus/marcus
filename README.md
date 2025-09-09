@@ -15,10 +15,6 @@ um projeto minimalista feito para testar meus conhecimentos e apresentar um pouc
 <img alt="Vite" src="https://img.shields.io/badge/-Vite-646CFF?style=plastic&logo=vite&logoColor=white" />
 <img alt="React Router" src="https://img.shields.io/badge/-React%20Router-CA4245?style=plastic&logo=reactrouter&logoColor=white" />
 <img alt="MDX" src="https://img.shields.io/badge/-MDX-1B1F24?style=plastic&logo=mdx&logoColor=white" />
-<img alt="HTML5" src="https://img.shields.io/badge/-HTML-E34F26?style=plastic&logo=html5&logoColor=white" />
-<img alt="CSS3" src="https://img.shields.io/badge/-CSS-1572B6?style=plastic&logo=css3&logoColor=white" />
-<img alt="JavaScript" src="https://img.shields.io/badge/-JavaScript-F7DF1E?style=plastic&logo=javascript&logoColor=black" />
-<img alt="Node.js" src="https://img.shields.io/badge/-Node.js-339933?style=plastic&logo=nodedotjs&logoColor=white" />
 <img alt="ESLint" src="https://img.shields.io/badge/-ESLint-4B32C3?style=plastic&logo=eslint&logoColor=white" />
 <p/>
 
