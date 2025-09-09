@@ -6,7 +6,7 @@ import PageTitle from "@/components/PageTitle/PageTitle";
 import { FaChevronLeft } from "react-icons/fa";
 
 import { arrBlog } from "../../utils/data/posts";
-import components from "../../utils/components";
+import components from "../../lib/components";
 const posts = import.meta.glob("../../utils/posts/*.mdx");
 
 import { PiSpinnerThin } from "react-icons/pi";
@@ -43,25 +43,24 @@ const Post = () => {
     if (!post)
         return (
             <div className="flex flex-col justify-center mt-10 items-center gap-2">
-                <h1 className="text-center text-base text-neutral-100">Esse post não existe!</h1>
-                <p className="text-center text-sm text-neutral-400">
+                <h1 className="text-center text-xl font-medium text-neutral-100">Esse post não existe!</h1>
+                <p className="text-center text-sm text-neutral-400 mb-2">
                     Talvez ele tenha sido removido ou nunca existiu.
-                    <br /> Você pode voltar e conferir outros posts disponíveis.
                 </p>
 
-                <div className="relative w-50 h-50 self-center">
-                    <div className="absolute inset-0 w-full h-full rounded-xl bg-neutral-900 animate-pulse" />
+                <div className="relative w-50 h-50 self-center mb-3">
+                    <div className="absolute inset-0 w-full h-full bg-gray-200 animate-pulse rounded-lg" />
                     <img
                         loading="lazy"
-                        src="https://i.pinimg.com/736x/d1/b4/b8/d1b4b80e6c7feb00a2bb1814b4a60650.jpg"
-                        alt="Personagem Confuso"
-                        className="absolute inset-0 w-full h-full object-cover rounded-lg"
+                        src="https://i.pinimg.com/736x/07/24/a3/0724a3febab29fbb247abde72d51d184.jpg"
+                        alt="Imagem de personagem confuso"
+                        className="absolute inset-0 w-full h-full object-cover select-none rounded-sm"
                     />
                 </div>
 
                 <Link
                     to="/blog"
-                    className="text-xs px-4 py-2 rounded-xl border border-neutral-800 text-neutral-300 hover:text-white transition-all duration-200"
+                    className="text-xs px-4 py-2 border border-neutral-800 text-neutral-300 hover:text-white transition-all duration-200"
                 >
                     Voltar pro Blog
                 </Link>
@@ -105,19 +104,6 @@ const Post = () => {
                     <MDXComponent />
                 </article>
             </MDXProvider>
-
-            <div className="flex justify-between items-center space-y-2 mt-5 shadow-inner shadow-neutral-800 p-4 rounded-xl border -mx-3 border-neutral-900 text-neutral-400">
-                <div>
-                    <p className="flex items-center gap-2 text-sm text-neutral-200">Marcus Coelho</p>
-                    <p className="text-xs">Veja as outras postagens!</p>
-                </div>
-                <Link
-                    to="/blog"
-                    className="text-xs px-4 py-2 rounded-xl shadow-inner shadow-neutral-800 border border-neutral-800 hover:text-white transition-all duration-200 hover:bg-neutral-900/50"
-                >
-                    Voltar pro Blog
-                </Link>
-            </div>
         </div>
     );
 };

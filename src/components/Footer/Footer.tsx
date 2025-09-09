@@ -7,14 +7,14 @@ const Footer = () => {
     return (
         <div className="flex justify-between border-t mt-4 pt-4 border-neutral-800">
             <div className="flex gap-3 text-white">
+                <ContactLink title="Github" Icon={LuGithub} href="https://github.com/coelhomarcus" />
+                <ContactLink title="Linkedin" Icon={FaLinkedin} href="https://www.linkedin.com/in/coelhomarcus/" />
                 <ContactLink
                     title="CV"
                     Icon={IoDocumentText}
                     href="https://docs.google.com/document/d/1wgOhwh-1YT-LRog9j1tvxzBVKfraoSzps1AiBGuSx9A/export?format=pdf"
                     download
                 />
-                <ContactLink title="Github" Icon={LuGithub} href="https://github.com/coelhomarcus" />
-                <ContactLink title="Linkedin" Icon={FaLinkedin} href="https://www.linkedin.com/in/coelhomarcus/" />
             </div>
             <a
                 href="https://github.com/coelhomarcus"
