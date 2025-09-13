@@ -131,7 +131,7 @@ const components = {
             <div className="relative group">
                 <button
                     onClick={handleCopyCode}
-                    className="absolute top-2 right-2 p-2 bg-transparent border border-[#606060] dark:border-border  text-[#909090] hover:text-accent active:scale-90 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 cursor-pointer rounded-md"
+                    className="absolute top-2 right-2 p-2 bg-transparent border border-[#606060] dark:border-border text-[#909090] hover:text-white active:scale-90 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 cursor-pointer rounded-md"
                     aria-label="Copiar código"
                 >
                     <GoCopy className="w-4 h-4" />

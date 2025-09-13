@@ -1,15 +1,14 @@
-Faz um tempo que eu tô de olho na linguagem GO, e finalmente tomei coragem para estudar, utilizei 2 cursos para iniciar os estudos, caso tenham interesse foram: <br/> **Go: The Complete Developer's Guide** do **Stephen Grider**
-e **Complete Go for Professional Developer**s pela **FrontendMasters**
+Apesar de gostar muito de desenvolvimento front-end, provavelmente o que mais me da vontade de estudar é back-end (e me divirto bem mais), visando isso estou estudando GO, e aqui está algumas das minhas anotações.
 
-### ADICIONAR ROCKETSEAT ⚠️
+Antes de irmos a fundo, quero citar algumas coisas que achei interessantes na linguagem. Começando pela promessa de compatibilidade que o Go tem enraizada: eles não tomam decisões que afetam versões anteriores. Isso é muito legal 😎👍
 
-### Alterar introdução ⚠️
+Outro ponto é o Cross Compilation, que permite compilar para diversos sistemas operacionais independentemente do S.O. em que você estiver. Diferente do Electron, por exemplo (pelo menos até onde sei), onde, se quiser gerar um build para macOS, você precisa necessariamente ter um Mac.
 
-### vscode -> ctrl + shift + p -> go install/update tools
-
-### Cross Compilation -> compilar de um SO para outro, ex: Windows para Mac
-
-### GO tem promessa de compatibilidade, eles nunca vão fazer uma decisão que quebrem versões anteriores
+```go
+//Se tiver no VSCODE
+CTRL + SHIFT + P
+GO INSTALL/UPDATE TOOLS
+```
 
 ### Go CLI
 
@@ -35,7 +34,7 @@ Se você tentar buildar um projeto com um pacote que não seja o main, ele nem v
 E como saber se um pacote é executável ou reutilizável?.
 
 -   Se for **package main**, é executável.
--   Qualquer outro nome, tipo **package utils**, **package math**, etc., é um pacote reutilizável, ou seja, código que pode ser usado em outros lugares como se fosse uma dependência.
+-   Qualquer outro nome, tipo **package utils**, **package math**, é um pacote reutilizável, ou seja, código que pode ser usado em outros lugares como se fosse uma dependência.
 
 ### Importações
 

@@ -1,5 +1,12 @@
 export const arrBlog = [
     {
+        slug: "learning-go",
+        title: "Aprendendo GO",
+        desc: "Estudos",
+        date: "14.09.2025",
+        tags: ["Programação", "Go"],
+    },
+    {
         slug: "learning-fastify",
         title: "Aprendendo Fastify",
         desc: "Estudos",
@@ -19,12 +26,5 @@ export const arrBlog = [
         desc: "Estudos",
         date: "24.04.2025",
         tags: ["Programação", "Node", "Express"],
-    },
-    {
-        slug: "learning-go",
-        title: "Aprendendo GO",
-        desc: "Estudos",
-        date: "19.04.2025",
-        tags: ["Programação", "Go"],
     },
 ];
