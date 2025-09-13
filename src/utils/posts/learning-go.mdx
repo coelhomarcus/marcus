@@ -1,40 +1,175 @@
 Faz um tempo que eu tô de olho na linguagem GO, e finalmente tomei coragem para estudar, utilizei 2 cursos para iniciar os estudos, caso tenham interesse foram: <br/> **Go: The Complete Developer's Guide** do **Stephen Grider**
 e **Complete Go for Professional Developer**s pela **FrontendMasters**
 
-Aqui estão algumas das anotações que fiz durante os estudos:
+### ADICIONAR ROCKETSEAT ⚠️
+
+### Alterar introdução ⚠️
+
+### vscode -> ctrl + shift + p -> go install/update tools
+
+### Cross Compilation -> compilar de um SO para outro, ex: Windows para Mac
+
+### GO tem promessa de compatibilidade, eles nunca vão fazer uma decisão que quebrem versões anteriores
 
 ### Go CLI
 
--   **go build** - Compila o projeto
--   **go run** - Compila e executa o projeto
+-   **go mod init NomePasta** - Criando go.mod
+-   **go run main.go** - Compila e executa o projeto
+-   **go build main.go** - Compila o projeto
+-   **go build -o "app" main.go** - Compila o projeto e nomeia como app.exe
 -   **go get** - Instala algum package
 -   **go install** - Compila e instala um package
 -   **go test** - Roda algum teste relacionado ao projeto
--   **go mod init name** - Criando go.mod
 
 ### Como os packages (pacotes) funcionam?
 
-Basicamente, em Go existem dois tipos de pacotes:
+Em Go existem dois tipos de pacotes:
 
 -   Executáveis (Executable)
 -   Reutilizáveis (Reusable)
 
-Por exemplo, o **package main** é um pacote executável, ele precisa ter uma função main dentro (o nome do arquivo em si não importa).
-
-Esse é o pacote principal, o que é usado pra buildar o projeto.
+O **package main** é um pacote executável, ele precisa ter uma função main dentro, **o nome do arquivo em si não importa, poderia ser marcus.go mas se tiver a função main ele é o pacote executável**. Esse é o pacote principal, o que é usado pra buildar o projeto.
 
 Se você tentar buildar um projeto com um pacote que não seja o main, ele nem vai gerar o executável.
 
-E como saber se um pacote é executável ou reutilizável? É simples: depende do nome.
+E como saber se um pacote é executável ou reutilizável?.
 
 -   Se for **package main**, é executável.
 -   Qualquer outro nome, tipo **package utils**, **package math**, etc., é um pacote reutilizável, ou seja, código que pode ser usado em outros lugares como se fosse uma dependência.
 
-### Import
+### Importações
 
-As importações em Go são feitas com aspas duplas, tipo assim: **import "fmt"**.
+```go
 
-### Variable
+import "fmt"
+
+import (
+	"marcus/pacote"
+	"fmt"
+)
+```
+
+#### Renomeando pacote na Importação
+
+```go
+import (
+	marcus "fmt"
+)
+
+func main() {
+	//fmt.Println("Hello World");
+	marcus.Println("Hello World");
+}
+```
+
+#### Criando pacote
+
+Para criar um pacote, basta criar uma pasta com o nome desejado, por exemplo "alfabeto". Dentro dela, coloque os arquivos Go:
+
+-   a.go
+-   b.go
+
+Em todos os arquivos dentro dessa pasta, a primeira linha deve declarar o mesmo pacote:
+
+```go
+package alfabeto
+```
+
+Se, por exemplo, você definir uma constante em **a.go**
+
+```go
+package alfabeto
+
+const Idade = 30
+```
+
+Poderá acessá-la em outro arquivo importando o pacote:
+
+```go
+package main
+
+import (
+	"meuprojeto/alfabeto"
+	"fmt"
+)
+
+func main() {
+	fmt.Println(alfabeto.Idade) //30
+}
+```
+
+Como todos os arquivos da pasta pertencem ao mesmo pacote, qualquer função, constante ou variável exportada (iniciada com letra maiúscula) pode ser acessada ao importar o pacote.
+
+### Pacotes Internos
+
+**Estrutura de pastas**
+
+```
+meuprojeto/
+│
+├── main.go
+├── pacote/
+│   ├── b.go
+│   └── internal/
+│       └── foo/
+│           └── foo.go
+```
+
+**pacote/internal/foo/foo.go**
+
+```go
+package foo
+
+// Essa variável só pode ser acessada dentro de "pacote"
+var Minha = "Sou interna"
+```
+
+**pacote/b.go**
+
+```go
+package pacote
+
+import (
+	"fmt"
+	"meuprojeto/pacote/internal/foo"
+)
+
+// Função pública que usa a variável interna
+func PrintMinha() {
+	fmt.Println(foo.Minha)
+}
+```
+
+**main.go**
+
+```go
+package main
+
+import (
+	"meuprojeto/pacote"
+	"fmt"
+)
+
+func main() {
+	// Correto: acessamos através de b.go
+	pacote.PrintMinha()
+
+	// Errado: isso não compila, acesso direto é proibido
+	// fmt.Println(foo.Minha)
+	fmt.Println("Não é possível importar foo diretamente fora de 'pacote'")
+}
+```
+
+### Variavéis
+
+Em Go, nomes que começam com letra maiúscula são exportados (públicos) e podem ser acessados fora do pacote.
+
+```go
+const name string = "Marcus" //Privada
+const Name string = "Marcus" //Publica
+```
+
+Tipagem
 
 ```go
 func main() {
@@ -43,9 +178,7 @@ func main() {
 }
 ```
 
-Em Go não existe undefined ou null como em outras linguagens.
-
-Se você não inicializar a variável, ela virá com um **zero value** dependendo do tipo:
+Em Go não existe undefined ou null como em outras linguagens. Se você não inicializar a variável, ela virá com um **zero value** dependendo do tipo:
 
 -   string → ""
 -   int → 0
@@ -68,35 +201,9 @@ func myName() string {
 }
 ```
 
-### Mais sobre pacotes (packages)
-
-Mesmo que o código esteja em arquivos separados, tudo funciona normal, porque eles fazem parte do mesmo package.
-
--   main.go
-
-```go
-package main
-
-func main() {
-    printState()
-}
-```
-
--   state.go
-
-```go
-package main
-
-import "fmt"
-
-func printState() {
-    fmt.Println("California")
-}
-```
-
 ### Array e Slice
 
-Basicamente, uma Slice é uma versão mais flexível de um Array.
+Uma Slice é uma versão mais flexível de um Array.
 
 -   Array quando o tamanho da lista for fixo.
 -   Slice quando o tamanho for variável — já que dá pra adicionar ou remover elementos com facilidade.
