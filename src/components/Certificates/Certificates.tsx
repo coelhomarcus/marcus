@@ -6,10 +6,10 @@ const Certificates = () => {
     const certificates = arrCertificates;
 
     return (
-        <div className="text-white">
+        <div className="text-foreground">
             <PageTitle title="Certificados" />
             <h1 className="text-xl font-semibold mb-2">Certificados</h1>
-            <p className="text-neutral-400 text-sm mb-4">
+            <p className="text-muted-foreground text-sm mb-4">
                 Aqui estão algumas das certificações que conquistei ao longo da minha jornada.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

@@ -5,8 +5,8 @@ import ContactLink from "../ContactLink/ContactLink";
 
 const Footer = () => {
     return (
-        <div className="flex justify-between border-t mt-4 pt-4 border-neutral-800">
-            <div className="flex gap-3 text-white">
+        <div className="flex justify-between border-t mt-4 pt-4 border-border">
+            <div className="flex gap-3 text-foreground">
                 <ContactLink title="Github" Icon={LuGithub} href="https://github.com/coelhomarcus" />
                 <ContactLink title="Linkedin" Icon={FaLinkedin} href="https://www.linkedin.com/in/coelhomarcus/" />
                 <ContactLink
@@ -20,7 +20,7 @@ const Footer = () => {
                 href="https://github.com/coelhomarcus"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs text-neutral-200 hover:text-neutral-400"
+                className="text-xs text-foreground hover:text-muted-foreground"
             >
                 @coelhomarcus
             </a>

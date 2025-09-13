@@ -20,14 +20,14 @@ const BlogCard = ({
             <div className="flex flex-col h-full">
                 <div className="flex flex-col gap-2 sm:gap-0 sm:flex-row justify-between">
                     <div className="flex gap-6">
-                        <div className="flex items-center text-xs text-neutral-600">
+                        <div className="flex items-center text-xs text-muted-foreground">
                             <span className="font-medium cursor-default">{date}</span>
                         </div>
-                        <h3 className="text-base font-normal text-neutral-300 underline decoration-neutral-600 hover:decoration-neutral-200 hover:text-neutral-100 tracking-wide cursor-pointer">
+                        <h3 className="text-base font-normal text-muted-foreground underline decoration-muted-foreground hover:decoration-foreground hover:text-foreground tracking-wide cursor-pointer">
                             {title}
                         </h3>
                     </div>
-                    <div className="items-center text-xs text-neutral-600 hidden sm:flex">
+                    <div className="items-center text-xs text-muted-foreground hidden sm:flex">
                         <span className="font-medium">{desc}</span>
                     </div>
                 </div>
@@ -38,10 +38,10 @@ const BlogCard = ({
 
 const Blog = () => {
     return (
-        <div className="text-white">
+        <div className="text-foreground">
             <PageTitle title="Blog" />
             <h1 className="text-xl font-semibold mb-2">Blog</h1>
-            <p className="text-neutral-400 text-sm mb-4">Meus pensamentos e anotações.</p>
+            <p className="text-muted-foreground text-sm mb-4">Meus pensamentos e anotações.</p>
             <div className="space-y-4">
                 {arrBlog.length > 0 ? (
                     arrBlog.map((post) => (
@@ -55,7 +55,7 @@ const Blog = () => {
                         />
                     ))
                 ) : (
-                    <p className="text-neutral-400 text-xs text-center py-4">Nenhum post encontrado.</p>
+                    <p className="text-muted-foreground text-xs text-center py-4">Nenhum post encontrado.</p>
                 )}
             </div>
             {/* <div className="invisible md:visible mt-4 *:w-full">

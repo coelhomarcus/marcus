@@ -12,6 +12,7 @@ import { MdOutlineFileDownload } from "react-icons/md";
 import { GoArrowUpRight } from "react-icons/go";
 
 import { TbCertificate } from "react-icons/tb";
+import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";
 
 type Page = {
     name: string;
@@ -68,24 +69,24 @@ const SidebarDrawer = () => {
                 render={(props) => (
                     <button
                         {...props}
-                        className="hover:*:text-neutral-200 rounded-none transition-all cursor-pointer"
+                        className="hover:*:text-foreground rounded-md transition-all cursor-pointer"
                         aria-label="Abrir menu"
                         onClick={() => setIsOpen(true)}
                     >
-                        <SlMenu className="w-5 h-5 text-neutral-400" />
+                        <SlMenu className="w-5 h-5 text-muted-foreground" />
                     </button>
                 )}
             />
             <Drawer.Portal>
-                <Drawer.Overlay className="fixed inset-0 bg-black/80" />
-                <Drawer.Content className="bg-black text-white fixed right-0 top-0 flex h-full w-[90vw] flex-col border border-neutral-900 sm:w-[70vw] lg:w-[400px]">
+                <Drawer.Overlay className="fixed inset-0 bg-background/80" />
+                <Drawer.Content className="bg-background text-foreground fixed right-0 top-0 flex h-full w-[90vw] flex-col border border-border sm:w-[70vw] lg:w-[400px]">
                     <div className="flex flex-col h-full overflow-hidden">
                         <div className="flex justify-between items-center p-6 pb-4 flex-shrink-0">
                             <GiBunnySlippers
-                                className="opacity-60 size-8 text-white invisible md:visible"
+                                className="opacity-60 size-8 text-foreground invisible md:visible"
                                 aria-hidden="true"
                             />
-                            <Drawer.Close className="p-2 hover:text-neutral-400 rounded-none transition-colors cursor-pointer">
+                            <Drawer.Close className="p-2 hover:text-muted-foreground rounded-md transition-colors cursor-pointer">
                                 ✕
                             </Drawer.Close>
                         </div>
@@ -96,7 +97,7 @@ const SidebarDrawer = () => {
                         >
                             {/* Navegação Principal */}
                             <div>
-                                <h3 className="text-sm font-medium text-neutral-400 uppercase tracking-wider mb-4">
+                                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4">
                                     Navegação
                                 </h3>
                                 <div className="space-y-1">
@@ -108,7 +109,7 @@ const SidebarDrawer = () => {
 
                             {/* Redes Sociais */}
                             <div>
-                                <h3 className="text-sm font-medium text-neutral-400 uppercase tracking-wider mb-4">
+                                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4">
                                     Contato
                                 </h3>
                                 <div className="space-y-1">
@@ -120,13 +121,24 @@ const SidebarDrawer = () => {
 
                             {/* Outros Links */}
                             <div>
-                                <h3 className="text-sm font-medium text-neutral-400 uppercase tracking-wider mb-4">
+                                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4">
                                     Outros
                                 </h3>
                                 <div className="space-y-1">
                                     {others.map((item) => (
                                         <SidebarLink key={item.name} item={item} onClose={() => setIsOpen(false)} />
                                     ))}
+                                </div>
+                            </div>
+
+                            {/* Configurações */}
+                            <div>
+                                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4">
+                                    Configurações
+                                </h3>
+                                <div className="flex items-center justify-between p-3 rounded-md">
+                                    <span className="text-sm font-medium">Tema</span>
+                                    <ThemeToggle />
                                 </div>
                             </div>
                         </nav>
@@ -146,16 +158,18 @@ function SidebarLink({ item, onClose }: { item: Page; onClose: () => void }) {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between p-3 rounded-none hover:bg-neutral-900 transition-colors group"
+                className="flex items-center justify-between p-3 rounded-md hover:bg-muted transition-colors group"
             >
                 <div className="flex items-center space-x-3">
-                    <Icon className="w-5 h-5 text-neutral-400 group-hover:text-white transition-colors" />
-                    <span className="text-sm font-medium group-hover:text-white transition-colors">{item.name}</span>
+                    <Icon className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                    <span className="text-sm font-medium group-hover:text-foreground transition-colors">
+                        {item.name}
+                    </span>
                 </div>
                 {item.download ? (
-                    <MdOutlineFileDownload className="w-5 h-5 text-neutral-600 group-hover:text-neutral-300 transition-colors" />
+                    <MdOutlineFileDownload className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
                 ) : (
-                    <GoArrowUpRight className="w-5 h-5 text-neutral-600 group-hover:text-neutral-300 transition-colors" />
+                    <GoArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
                 )}
             </a>
         );
@@ -166,10 +180,10 @@ function SidebarLink({ item, onClose }: { item: Page; onClose: () => void }) {
             to={item.href}
             onClick={onClose}
             className={({ isActive }) =>
-                `flex items-center space-x-3 p-3 rounded-none transition-colors group ${
+                `flex items-center space-x-3 p-3 rounded-md transition-colors group ${
                     isActive
-                        ? "bg-neutral-900 text-white border"
-                        : "hover:bg-neutral-900 text-neutral-300 border border-transparent"
+                        ? "bg-muted text-foreground border"
+                        : "hover:bg-muted text-muted-foreground border border-transparent"
                 }`
             }
         >
@@ -177,12 +191,12 @@ function SidebarLink({ item, onClose }: { item: Page; onClose: () => void }) {
                 <>
                     <Icon
                         className={`w-5 h-5 transition-colors ${
-                            isActive ? "text-white" : "text-neutral-400 group-hover:text-white"
+                            isActive ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"
                         }`}
                     />
                     <span
                         className={`text-sm font-medium transition-colors ${
-                            isActive ? "text-white" : "group-hover:text-white"
+                            isActive ? "text-foreground" : "group-hover:text-foreground"
                         }`}
                     >
                         {item.name}

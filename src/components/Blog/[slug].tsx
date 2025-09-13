@@ -36,49 +36,49 @@ const Post = () => {
     if (!MDXComponent)
         return (
             <div className="flex items-center justify-center">
-                <PiSpinnerThin className="text-gray-300 animate-[spin_3s_linear_infinite] duration-150 size-6 mt-10" />
+                <PiSpinnerThin className="text-muted-foreground animate-[spin_3s_linear_infinite] duration-150 size-6 mt-10" />
             </div>
         );
 
     if (!post)
         return (
             <div className="flex flex-col justify-center mt-10 items-center gap-2">
-                <h1 className="text-center text-xl font-medium text-neutral-100">Esse post não existe!</h1>
-                <p className="text-center text-sm text-neutral-400 mb-2">
+                <h1 className="text-center text-xl font-medium text-foreground">Esse post não existe!</h1>
+                <p className="text-center text-sm text-muted-foreground mb-2">
                     Talvez ele tenha sido removido ou nunca existiu.
                 </p>
 
                 <div className="relative w-50 h-50 self-center mb-3">
-                    <div className="absolute inset-0 w-full h-full bg-gray-200 animate-pulse rounded-lg" />
+                    <div className="absolute inset-0 w-full h-full bg-muted animate-pulse rounded-xl" />
                     <img
                         loading="lazy"
                         src="https://i.pinimg.com/736x/07/24/a3/0724a3febab29fbb247abde72d51d184.jpg"
                         alt="Imagem de personagem confuso"
-                        className="absolute inset-0 w-full h-full object-cover select-none rounded-sm"
+                        className="absolute inset-0 w-full h-full object-cover select-none rounded-xl"
                     />
                 </div>
 
                 <Link
                     to="/blog"
-                    className="text-xs px-4 py-2 border border-neutral-800 text-neutral-300 hover:text-white transition-all duration-200"
+                    className="text-xs px-4 py-2 border border-border text-muted-foreground hover:text-foreground transition-all duration-200"
                 >
                     Voltar pro Blog
                 </Link>
             </div>
         );
     return (
-        <div className="text-white w-full">
+        <div className="text-foreground w-full">
             {post && <PageTitle title={post.title} />}
 
             <div className="mt-4 flex justify-between mb-2">
                 <Link
                     to="/blog"
-                    className="text-sm text-neutral-400 hover:text-white transition-all duration-200 flex items-center gap-2"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-all duration-200 flex items-center gap-2"
                 >
                     <FaChevronLeft className="inline" /> Voltar
                 </Link>
                 <button
-                    className="flex items-center gap-8 cursor-pointer hover:text-neutral-300"
+                    className="flex items-center gap-8 cursor-pointer hover:text-muted-foreground"
                     onClick={() => {
                         const currentUrl = window.location.href;
                         navigator.clipboard.writeText(currentUrl);
@@ -91,12 +91,12 @@ const Post = () => {
                 >
                     {titleClicked ? "Link Copiado!" : post.title}
                 </button>
-                <div className="hidden sm:flex sm:gap-0 items-center text-neutral-500 text-sm">
+                <div className="hidden sm:flex sm:gap-0 items-center text-muted-foreground text-sm">
                     <span>{post.date}</span>
                 </div>
             </div>
 
-            <hr className="h-px border-0 bg-neutral-800/50 mb-5" />
+            <hr className="h-px border-0 bg-border/50 mb-5" />
 
             <MDXProvider components={components}>
                 <article className="prose max-w-full">
