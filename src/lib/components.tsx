@@ -49,7 +49,7 @@ const components = {
             <h1 id={id} className="scroll-mt-4">
                 <a
                     href={`#${id}`}
-                    className="heading-link text-neutral-300 no-underline font-semibold active:text-neutral-500 cursor-pointer select-none"
+                    className="heading-link text-foreground no-underline font-semibold active:text-muted-foreground cursor-pointer select-none"
                     onClick={createHeadingClickHandler(id)}
                 >
                     {props.children}
@@ -64,7 +64,7 @@ const components = {
             <h2 id={id} className="scroll-mt-4 mb-2.5">
                 <a
                     href={`#${id}`}
-                    className="heading-link text-neutral-300 no-underline font-semibold active:text-neutral-500 cursor-pointer select-none"
+                    className="heading-link text-foreground no-underline font-semibold active:text-muted-foreground cursor-pointer select-none"
                     onClick={createHeadingClickHandler(id)}
                 >
                     {props.children}
@@ -79,7 +79,7 @@ const components = {
             <h3 id={id} className="scroll-mt-4">
                 <a
                     href={`#${id}`}
-                    className="heading-link text-neutral-300 no-underline font-semibold active:text-neutral-400 cursor-pointer select-none"
+                    className="heading-link text-foreground no-underline font-semibold active:text-muted-foreground cursor-pointer select-none"
                     onClick={createHeadingClickHandler(id)}
                 >
                     {props.children}
@@ -94,7 +94,7 @@ const components = {
             <h4 id={id} className="scroll-mt-4">
                 <a
                     href={`#${id}`}
-                    className="heading-link text-neutral-300 no-underline font-semibold active:text-neutral-400 cursor-pointer select-none"
+                    className="heading-link text-foreground no-underline font-semibold active:text-muted-foreground cursor-pointer select-none"
                     onClick={createHeadingClickHandler(id)}
                 >
                     {props.children}
@@ -102,21 +102,21 @@ const components = {
             </h4>
         );
     },
-    p: (props: React.HTMLProps<HTMLParagraphElement>) => <p className="prose-base text-neutral-400" {...props} />,
+    p: (props: React.HTMLProps<HTMLParagraphElement>) => <p className="prose-base text-muted-foreground" {...props} />,
     a: (props: React.HTMLProps<HTMLAnchorElement>) => (
         <>
             <a
-                className="group prose-base font-normal text-[#f46b67] no-underline hover:text-[#e74242]"
+                className="group prose-base font-normal text-primary no-underline hover:text-primary/80"
                 target="_blank"
                 {...props}
             >
                 {props.children}
-                <CgExternal className="text-[#f46b67]  group-hover:text-[#e74242] inline mb-1" />
+                <CgExternal className="text-primary group-hover:text-primary/80 inline mb-1" />
             </a>
         </>
     ),
-    ul: (props: React.HTMLProps<HTMLUListElement>) => <ul className="text-neutral-400" {...props} />,
-    li: (props: React.HTMLProps<HTMLLIElement>) => <li className="text-neutral-400 prose-sm" {...props} />,
+    ul: (props: React.HTMLProps<HTMLUListElement>) => <ul className="text-muted-foreground" {...props} />,
+    li: (props: React.HTMLProps<HTMLLIElement>) => <li className="text-muted-foreground" {...props} />,
 
     pre: ({ children, ...rest }: { children: ReactElement<{ className?: string; children: string }> }) => {
         const child = children.props;
@@ -131,7 +131,7 @@ const components = {
             <div className="relative group">
                 <button
                     onClick={handleCopyCode}
-                    className="absolute top-2 right-2 p-2 bg-transparent border text-neutral-400 hover:text-white active:scale-90 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 cursor-pointer"
+                    className="absolute top-2 right-2 p-2 bg-transparent border border-[#606060] dark:border-border text-[#909090] hover:text-white active:scale-90 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 cursor-pointer rounded-md"
                     aria-label="Copiar código"
                 >
                     <GoCopy className="w-4 h-4" />
@@ -140,11 +140,11 @@ const components = {
                     language={language}
                     style={theme}
                     customStyle={{
-                        background: "#0A0A0A",
+                        background: "",
                         padding: "1rem",
                         fontSize: "0.825rem",
                     }}
-                    className="rounded-none bg-background border border-foreground/10 scrollbar scrollbar-content"
+                    className="rounded-md bg-[#101010] border-black dark:bg-background border dark:border-border scrollbar scrollbar-content"
                     {...rest}
                 >
                     {code}
@@ -155,7 +155,7 @@ const components = {
 
     code: (props: React.HTMLProps<HTMLElement>) => <code className="font-medium" {...props} />,
 
-    strong: (props: React.ComponentProps<"strong">) => <strong className="text-neutral-200 font-medium" {...props} />,
+    strong: (props: React.ComponentProps<"strong">) => <strong className="text-foreground font-medium" {...props} />,
 };
 
 export default components;

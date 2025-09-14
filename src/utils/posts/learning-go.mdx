@@ -1,40 +1,163 @@
-Faz um tempo que eu tô de olho na linguagem GO, e finalmente tomei coragem para estudar, utilizei 2 cursos para iniciar os estudos, caso tenham interesse foram: <br/> **Go: The Complete Developer's Guide** do **Stephen Grider**
-e **Complete Go for Professional Developer**s pela **FrontendMasters**
+Apesar de gostar muito de desenvolvimento front-end, provavelmente o que mais me da vontade de estudar é back-end (e me divirto bem mais), visando isso estou estudando GO, e aqui está algumas das minhas anotações.
 
-Aqui estão algumas das anotações que fiz durante os estudos:
+Antes de irmos a fundo, quero citar algumas coisas que achei interessantes na linguagem. Começando pela promessa de compatibilidade que o Go tem enraizada: eles não tomam decisões que afetam versões anteriores. Isso é muito legal 😎👍
+
+Outro ponto é o Cross Compilation, que permite compilar para diversos sistemas operacionais independentemente do S.O. em que você estiver. Diferente do Electron, por exemplo (pelo menos até onde sei), onde, se quiser gerar um build para macOS, você precisa necessariamente ter um Mac.
+
+Se tiver no VSCODE → CTRL + SHIFT + P → GO INSTALL/UPDATE TOOLS
 
 ### Go CLI
 
--   **go build** - Compila o projeto
--   **go run** - Compila e executa o projeto
+-   **go mod init NomePasta** - Criando go.mod
+-   **go run main.go** - Compila e executa o projeto
+-   **go build main.go** - Compila o projeto
+-   **go build -o "app" main.go** - Compila o projeto e nomeia como app.exe
 -   **go get** - Instala algum package
 -   **go install** - Compila e instala um package
 -   **go test** - Roda algum teste relacionado ao projeto
--   **go mod init name** - Criando go.mod
 
 ### Como os packages (pacotes) funcionam?
 
-Basicamente, em Go existem dois tipos de pacotes:
+Em Go existem dois tipos de pacotes: **Executáveis** e **Reutilizáveis**
 
--   Executáveis (Executable)
--   Reutilizáveis (Reusable)
+O **package main** é um pacote executável, ele precisa ter uma função main dentro, o nome do arquivo em si não importa, poderia ser qualquercoisa.go mas se tiver a função main ele é o pacote executável. Esse é o pacote principal, o que é usado pra buildar o projeto.
 
-Por exemplo, o **package main** é um pacote executável, ele precisa ter uma função main dentro (o nome do arquivo em si não importa).
-
-Esse é o pacote principal, o que é usado pra buildar o projeto.
-
-Se você tentar buildar um projeto com um pacote que não seja o main, ele nem vai gerar o executável.
-
-E como saber se um pacote é executável ou reutilizável? É simples: depende do nome.
+Se tentar buildar um projeto com um pacote que não seja o main, ele não vai gerar o executável. E como saber se um pacote é executável ou reutilizável?.
 
 -   Se for **package main**, é executável.
--   Qualquer outro nome, tipo **package utils**, **package math**, etc., é um pacote reutilizável, ou seja, código que pode ser usado em outros lugares como se fosse uma dependência.
+-   Qualquer outro nome, tipo **package utils**, **package math**, é reutilizável, ou seja, código que pode ser usado em outros lugares como se fosse uma dependência.
 
-### Import
+### Importações
 
-As importações em Go são feitas com aspas duplas, tipo assim: **import "fmt"**.
+```go
 
-### Variable
+import "fmt"
+
+import (
+	"marcus/pacote"
+	"fmt"
+)
+
+
+// Renomeando pacote na Importação
+import (
+	marcus "fmt"
+)
+
+func main() {
+	//fmt.Println("Hello World");
+	marcus.Println("Hello World");
+}
+```
+
+### Criando pacote
+
+Para criar um pacote, basta criar uma pasta com o nome desejado, por exemplo "alfabeto". Dentro dela, coloque os arquivos Go:
+
+-   a.go
+-   b.go
+
+Em todos os arquivos dentro dessa pasta, a primeira linha deve declarar o mesmo pacote:
+
+```go
+package alfabeto
+```
+
+Se, por exemplo, você definir uma constante em **a.go**
+
+```go
+package alfabeto
+
+const Idade = 30
+```
+
+Poderá acessá-la em outro arquivo importando o pacote:
+
+```go
+package main
+
+import (
+	"meuprojeto/alfabeto"
+	"fmt"
+)
+
+func main() {
+	fmt.Println(alfabeto.Idade) //30
+}
+```
+
+Como todos os arquivos da pasta pertencem ao mesmo pacote, qualquer função, constante ou variável exportada (iniciada com letra maiúscula) pode ser acessada ao importar o pacote.
+
+### Pacotes Internos
+
+**Estrutura de pastas**
+
+```
+meuprojeto/
+│
+├── main.go
+├── pacote/
+│   ├── b.go
+│   └── internal/
+│       └── foo/
+│           └── foo.go
+```
+
+**pacote/internal/foo/foo.go**
+
+```go
+package foo
+
+// Essa variável só pode ser acessada dentro de "pacote"
+var Minha = "Sou interna"
+```
+
+**pacote/b.go**
+
+```go
+package pacote
+
+import (
+	"fmt"
+	"meuprojeto/pacote/internal/foo"
+)
+
+// Função pública que usa a variável interna
+func PrintMinha() {
+	fmt.Println(foo.Minha)
+}
+```
+
+**main.go**
+
+```go
+package main
+
+import (
+	"meuprojeto/pacote"
+	"fmt"
+)
+
+func main() {
+	// Correto: acessamos através de b.go
+	pacote.PrintMinha()
+
+	// Errado: isso não compila, acesso direto é proibido
+	// fmt.Println(foo.Minha)
+	fmt.Println("Não é possível importar foo diretamente fora de 'pacote'")
+}
+```
+
+### Variavéis
+
+Em Go, nomes que começam com letra maiúscula são exportados (públicos) e podem ser acessados fora do pacote.
+
+```go
+const name string = "Marcus" //Privada
+const Name string = "Marcus" //Publica
+```
+
+Tipagem
 
 ```go
 func main() {
@@ -43,9 +166,7 @@ func main() {
 }
 ```
 
-Em Go não existe undefined ou null como em outras linguagens.
-
-Se você não inicializar a variável, ela virá com um **zero value** dependendo do tipo:
+Em Go não existe undefined ou null como em outras linguagens. Se você não inicializar a variável, ela virá com um **zero value** dependendo do tipo:
 
 -   string → ""
 -   int → 0
@@ -57,46 +178,77 @@ Se você não inicializar a variável, ela virá com um **zero value** dependend
 Criando uma função que retorna string:
 
 ```go
-var nome string
-
-func main() {
-    nome := myName()
-}
-
 func myName() string {
     return "Marcus"
 }
-```
 
-### Mais sobre pacotes (packages)
+// Quando não colocamos o tipo na primeira variável, o Go entende que todas são do mesmo tipo.
+func abc(a, b int) {}
 
-Mesmo que o código esteja em arquivos separados, tudo funciona normal, porque eles fazem parte do mesmo package.
+// Uma função pode retornar 2 valores
+func numbers() (int, int) {
+	return 10, 20
+}
 
--   main.go
+// Podemos dar nome às variáveis de retorno. Isso ajuda na leitura e documentação.
+func dividir(a, b int) (res, resto int) {
+	res = a / b
+	resto = a % b
+	return res, resto
+}
 
-```go
-package main
+// Naked return - Não é encorajado usar!
+// Como já nomeamos as variáveis de retorno, não precisamos especificá-las no return.
+func dividirNaked(a, b int) (res, resto int) {
+	res = a / b
+	resto = a % b
+	return
+}
 
 func main() {
-    printState()
+	// Funções Anônimas
+	foo := func() {
+		fmt.Println("Hello")
+	}
+
+	foo()
 }
 ```
 
--   state.go
+### Função Higher Order
 
 ```go
-package main
-
-import "fmt"
-
-func printState() {
-    fmt.Println("California")
+func main() {
+	x := somar(2)(1)
 }
+
+// Função de higher order: retorna outra função
+// Essa função retornada é chamada de closure
+func somar(a int) func(int) int {
+	return func(b int) int {
+		return a + b
+	}
+}
+```
+
+### Função Variática
+
+```go
+// Função variática: aceita 1 ou mais argumentos
+func somarVariatica(nums ...int) int {
+	var out int
+	for _, n := range nums {
+		out += n
+	}
+	return out
+}
+
+// somarVariatica(10, 10, 10) => 30
 ```
 
 ### Array e Slice
 
-Basicamente, uma Slice é uma versão mais flexível de um Array.
+Uma Slice é uma versão mais flexível de um Array.
 
 -   Array quando o tamanho da lista for fixo.
 -   Slice quando o tamanho for variável — já que dá pra adicionar ou remover elementos com facilidade.
@@ -182,21 +334,6 @@ func (n names) print() {
 	for _, name := range n {
 		fmt.Println(name)
 	}
-}
-```
-
-### Retorno de Multiplos Valores
-
-```go
-func twoValues() (int, int) {
-    return 10, 20
-}
-
-func main() {
-    a, b := twoValues()
-
-    // a == 10
-    // b == 20
 }
 ```
 
@@ -526,44 +663,5 @@ func checkLink(link string, c chan string) {
 Por que passamos l como argumento da função anônima?
 
 Se você usasse a variável **link** diretamente dentro da Goroutine, ela poderia não ter o valor esperado, por conta do comportamento de variáveis em loops e closures. Ao passar **l** como argumento para a função anônima, você garante que o valor certo de cada iteração será usado.
-
-### Function Literal (Função Literal / Anônima)
-
-Em Go, uma Function Literal é o mesmo conceito de uma função anônima, como em JavaScript. Ou seja, é uma função sem nome, que pode ser definida e executada na hora.
-
-```go
-func() {
-	// Código aqui
-}()
-```
-
-Note que os parênteses no final () são o que fazem a função ser executada imediatamente após ser declarada — igual a uma IIFE (Immediately Invoked Function Expression) em JavaScript.
-
-```go
-func() {
-	fmt.Println("Executando uma função anônima!")
-}()
-```
-
-Também podemos passar argumentos, assim como fazemos em JavaScript:
-
-```go
-func(msg string) {
-	fmt.Println(msg)
-}("Hello from a literal function!")
-```
-
-Essa estrutura é especialmente útil quando queremos encapsular lógica rapidamente, como em Go Routines.
-
-Nesse caso, a função anônima é usada para criar uma nova Go Routine, com o valor de link corretamente isolado da iteração do loop.
-
-```go
-go func(link string) {
-	time.Sleep(5 * time.Second)
-	checkLink(link, c)
-}(link)
-```
-
-Se você chegou até aqui, parabéns! Passou por bastante texto.
 
 Se quiser entrar em contato comigo pra conversarmos sobre Go ou qualquer outra coisa, vou deixar meu contato abaixo. Valeu!

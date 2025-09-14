@@ -1,11 +1,15 @@
-const SimpleCard = ({ href, name, desc }: { href: string, name: string, desc: string }) => {
-    return <a href={href}
-        className="block text-neutral-400 p-4 transition-colors hover:bg-neutral-900 hover:text-neutral-200 border border-neutral-800"
-        rel="noreferrer noopener"
-        target="_blank">
-        <p className="text-sm text-neutral-100 font-medium">{name}</p>
-        <p className="text-sm">{desc}</p>
-    </a>
-}
+const SimpleCard = ({ href, name, desc }: { href: string; name: string; desc: string }) => {
+    return (
+        <a
+            href={href}
+            className="block text-muted-foreground p-4 transition-colors hover:bg-muted hover:text-foreground border border-border"
+            rel="noreferrer noopener"
+            target="_blank"
+        >
+            <p className="text-sm text-foreground font-medium">{name}</p>
+            <p className="text-sm">{desc}</p>
+        </a>
+    );
+};
 
-export default SimpleCard
+export default SimpleCard;
