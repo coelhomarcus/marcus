@@ -1,5 +1,6 @@
 import { NavLink } from "react-router";
 import { Avatar, AvatarFallback, AvatarImage } from "@/lib/ui/avatar";
+
 import SidebarDrawer from "@/lib/ui/vaul";
 import { FaUserAlt } from "react-icons/fa";
 
