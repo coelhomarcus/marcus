@@ -28,7 +28,7 @@
     .scrollbar {
         overflow-y: auto;
         scrollbar-width: thin;
-        scrollbar-color: hsl(var(--border)) transparent;
+        scrollbar-color: var(--border) transparent;
     }
 
     .scrollbar::-webkit-scrollbar {
@@ -38,7 +38,7 @@
     }
 
     .scrollbar::-webkit-scrollbar-thumb {
-        background: hsl(var(--border)) !important;
+        background: var(--border) !important;
         border-radius: 6px !important;
     }
 
@@ -48,7 +48,7 @@
 
     .scrollbar-container {
         position: relative;
-        background-color: hsl(var(--popover));
+        background-color: var(--popover);
         height: auto;
         max-height: 40vh;
     }
@@ -65,7 +65,7 @@
     }
 
     .scrollbar-content::-webkit-scrollbar-thumb {
-        background: hsl(var(--border));
+        background: var(--border);
         border-radius: 6px;
     }
 }
@@ -83,7 +83,7 @@
         left: -1rem;
         opacity: 0;
         transition: opacity 0.2s;
-        color: hsl(var(--muted-foreground));
+        color: var(--muted-foreground);
     }
 
     .heading-link:hover::before {
@@ -99,10 +99,10 @@
 }
 
 /* ::selection {
-    background-color: hsl(var(--primary) / 0.3);
-    color: hsl(var(--primary-foreground));
-} */
+    background-color: var(--primary) / 0.3;
+    color: var(--primary-foreground);
+}
 
-/* a::selection {
-    color: hsl(var(--primary-foreground));
+a::selection {
+    color: var(--primary-foreground);
 } */

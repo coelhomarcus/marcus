@@ -117,6 +117,9 @@ const components = {
     ),
     ul: (props: React.HTMLProps<HTMLUListElement>) => <ul className="text-muted-foreground" {...props} />,
     li: (props: React.HTMLProps<HTMLLIElement>) => <li className="text-muted-foreground" {...props} />,
+    code: (props: React.HTMLProps<HTMLElement>) => (
+        <span className="font-sm text-muted-foreground md:p-1 md:border rounded-md" {...props} />
+    ),
 
     pre: ({ children, ...rest }: { children: ReactElement<{ className?: string; children: string }> }) => {
         const child = children.props;
@@ -152,9 +155,6 @@ const components = {
             </div>
         );
     },
-
-    code: (props: React.HTMLProps<HTMLElement>) => <code className="font-medium" {...props} />,
-
     strong: (props: React.ComponentProps<"strong">) => <strong className="text-foreground font-medium" {...props} />,
 };
 
