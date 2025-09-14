@@ -5,7 +5,7 @@ import { FiUser } from "react-icons/fi";
 import { FaLaptopCode, FaRegFolderOpen, FaRegFilePdf, FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { SlMenu } from "react-icons/sl";
-import { GiBunnySlippers } from "react-icons/gi";
+import { GoSidebarCollapse } from "react-icons/go";
 
 import { MdAlternateEmail } from "react-icons/md";
 import { MdOutlineFileDownload } from "react-icons/md";
@@ -73,7 +73,8 @@ const SidebarDrawer = () => {
                         aria-label="Abrir menu"
                         onClick={() => setIsOpen(true)}
                     >
-                        <SlMenu className="w-5 h-5 text-muted-foreground" />
+                        <GoSidebarCollapse className="w-5 h-5 hidden md:block text-muted-foreground" />
+                        <SlMenu className="w-5 h-5 block md:hidden text-muted-foreground" />
                     </button>
                 )}
             />
@@ -82,10 +83,7 @@ const SidebarDrawer = () => {
                 <Drawer.Content className="bg-background text-foreground fixed right-0 top-0 flex h-full w-[90vw] flex-col border border-border sm:w-[70vw] lg:w-[400px]">
                     <div className="flex flex-col h-full overflow-hidden">
                         <div className="flex justify-between items-center p-6 pb-4 flex-shrink-0">
-                            <GiBunnySlippers
-                                className="opacity-60 size-8 text-foreground invisible md:visible"
-                                aria-hidden="true"
-                            />
+                            <ThemeToggle />
                             <Drawer.Close className="p-2 hover:text-muted-foreground rounded-md transition-colors cursor-pointer">
                                 ✕
                             </Drawer.Close>
@@ -128,17 +126,6 @@ const SidebarDrawer = () => {
                                     {others.map((item) => (
                                         <SidebarLink key={item.name} item={item} onClose={() => setIsOpen(false)} />
                                     ))}
-                                </div>
-                            </div>
-
-                            {/* Configurações */}
-                            <div>
-                                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4">
-                                    Configurações
-                                </h3>
-                                <div className="flex items-center justify-between p-3 rounded-md">
-                                    <span className="text-sm font-medium">Tema</span>
-                                    <ThemeToggle />
                                 </div>
                             </div>
                         </nav>

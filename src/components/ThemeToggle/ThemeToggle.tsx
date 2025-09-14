@@ -1,47 +1,20 @@
 import { useState, useEffect } from "react";
 import { FiSun, FiMoon } from "react-icons/fi";
 
-const THEME_CHANGE_EVENT = "theme-changed";
-
 const ThemeToggle = () => {
     const [isDark, setIsDark] = useState(true);
 
     useEffect(() => {
-        // Verificar se já há preferência salva
         const savedTheme = localStorage.getItem("theme");
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
         if (savedTheme) {
             const isDarkTheme = savedTheme === "dark";
             setIsDark(isDarkTheme);
             applyTheme(isDarkTheme);
         } else {
-            // Se não houver preferência salva, usar a preferência do sistema
-            setIsDark(prefersDark);
-            applyTheme(prefersDark);
+            setIsDark(true);
+            applyTheme(true);
         }
-
-        // Escutar mudanças na preferência do sistema
-        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-        const handleChange = (e: MediaQueryListEvent) => {
-            if (!localStorage.getItem("theme")) {
-                setIsDark(e.matches);
-                applyTheme(e.matches);
-            }
-        };
-
-        // Escutar eventos de mudança de tema de outras instâncias
-        const handleThemeChange = (e: CustomEvent) => {
-            setIsDark(e.detail.isDark);
-        };
-
-        mediaQuery.addEventListener("change", handleChange);
-        window.addEventListener(THEME_CHANGE_EVENT, handleThemeChange as EventListener);
-
-        return () => {
-            mediaQuery.removeEventListener("change", handleChange);
-            window.removeEventListener(THEME_CHANGE_EVENT, handleThemeChange as EventListener);
-        };
     }, []);
 
     const applyTheme = (dark: boolean) => {
@@ -62,13 +35,6 @@ const ThemeToggle = () => {
         setIsDark(newTheme);
         applyTheme(newTheme);
         localStorage.setItem("theme", newTheme ? "dark" : "light");
-
-        // Notificar outras instâncias sobre a mudança de tema
-        window.dispatchEvent(
-            new CustomEvent(THEME_CHANGE_EVENT, {
-                detail: { isDark: newTheme },
-            })
-        );
     };
 
     return (

@@ -1,7 +1,6 @@
 import { NavLink } from "react-router";
 import { Avatar, AvatarFallback, AvatarImage } from "@/lib/ui/avatar";
 import SidebarDrawer from "@/lib/ui/vaul";
-import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";
 import { FaUserAlt } from "react-icons/fa";
 
 const Header = () => {
@@ -22,8 +21,6 @@ const Header = () => {
                     <HeaderLink title="Projetos" to="/projects" />
                     <HeaderLink title="Blog" to="/blog" />
                 </div>
-
-                <ThemeToggle />
                 <SidebarDrawer />
             </div>
         </header>
