@@ -22,19 +22,14 @@ GO INSTALL/UPDATE TOOLS
 
 ### Como os packages (pacotes) funcionam?
 
-Em Go existem dois tipos de pacotes:
+Em Go existem dois tipos de pacotes: **Executáveis** e **Reutilizáveis**
 
--   Executáveis (Executable)
--   Reutilizáveis (Reusable)
+O **package main** é um pacote executável, ele precisa ter uma função main dentro, o nome do arquivo em si não importa, poderia ser qualquercoisa.go mas se tiver a função main ele é o pacote executável. Esse é o pacote principal, o que é usado pra buildar o projeto.
 
-O **package main** é um pacote executável, ele precisa ter uma função main dentro, **o nome do arquivo em si não importa, poderia ser marcus.go mas se tiver a função main ele é o pacote executável**. Esse é o pacote principal, o que é usado pra buildar o projeto.
-
-Se você tentar buildar um projeto com um pacote que não seja o main, ele nem vai gerar o executável.
-
-E como saber se um pacote é executável ou reutilizável?.
+Se tentar buildar um projeto com um pacote que não seja o main, ele não vai gerar o executável. E como saber se um pacote é executável ou reutilizável?.
 
 -   Se for **package main**, é executável.
--   Qualquer outro nome, tipo **package utils**, **package math**, é um pacote reutilizável, ou seja, código que pode ser usado em outros lugares como se fosse uma dependência.
+-   Qualquer outro nome, tipo **package utils**, **package math**, é reutilizável, ou seja, código que pode ser usado em outros lugares como se fosse uma dependência.
 
 ### Importações
 
@@ -46,11 +41,9 @@ import (
 	"marcus/pacote"
 	"fmt"
 )
-```
 
-#### Renomeando pacote na Importação
 
-```go
+// Renomeando pacote na Importação
 import (
 	marcus "fmt"
 )
@@ -61,7 +54,7 @@ func main() {
 }
 ```
 
-#### Criando pacote
+### Criando pacote
 
 Para criar um pacote, basta criar uma pasta com o nome desejado, por exemplo "alfabeto". Dentro dela, coloque os arquivos Go:
 
@@ -189,15 +182,72 @@ Em Go não existe undefined ou null como em outras linguagens. Se você não ini
 Criando uma função que retorna string:
 
 ```go
-var nome string
-
-func main() {
-    nome := myName()
-}
-
 func myName() string {
     return "Marcus"
 }
+
+// Quando não colocamos o tipo na primeira variável, o Go entende que todas são do mesmo tipo.
+func abc(a, b int) {}
+
+// Uma função pode retornar 2 valores
+func numbers() (int, int) {
+	return 10, 20
+}
+
+// Podemos dar nome às variáveis de retorno. Isso ajuda na leitura e documentação.
+func dividir(a, b int) (res, resto int) {
+	res = a / b
+	resto = a % b
+	return res, resto
+}
+
+// Naked return - Não é encorajado usar!
+// Como já nomeamos as variáveis de retorno, não precisamos especificá-las no return.
+func dividirNaked(a, b int) (res, resto int) {
+	res = a / b
+	resto = a % b
+	return
+}
+
+func main() {
+	// Funções Anônimas
+	foo := func() {
+		fmt.Println("Hello")
+	}
+
+	foo()
+}
+```
+
+### Função Higher Order
+
+```go
+func main() {
+	x := somar(2)(1)
+}
+
+// Função de higher order: retorna outra função
+// Essa função retornada é chamada de closure
+func somar(a int) func(int) int {
+	return func(b int) int {
+		return a + b
+	}
+}
+```
+
+### Função Variática
+
+```go
+// Função variática: aceita 1 ou mais argumentos
+func somarVariatica(nums ...int) int {
+	var out int
+	for _, n := range nums {
+		out += n
+	}
+	return out
+}
+
+// somarVariatica(10, 10, 10) => 30
 ```
 
 ### Array e Slice
@@ -288,21 +338,6 @@ func (n names) print() {
 	for _, name := range n {
 		fmt.Println(name)
 	}
-}
-```
-
-### Retorno de Multiplos Valores
-
-```go
-func twoValues() (int, int) {
-    return 10, 20
-}
-
-func main() {
-    a, b := twoValues()
-
-    // a == 10
-    // b == 20
 }
 ```
 
@@ -632,44 +667,5 @@ func checkLink(link string, c chan string) {
 Por que passamos l como argumento da função anônima?
 
 Se você usasse a variável **link** diretamente dentro da Goroutine, ela poderia não ter o valor esperado, por conta do comportamento de variáveis em loops e closures. Ao passar **l** como argumento para a função anônima, você garante que o valor certo de cada iteração será usado.
-
-### Function Literal (Função Literal / Anônima)
-
-Em Go, uma Function Literal é o mesmo conceito de uma função anônima, como em JavaScript. Ou seja, é uma função sem nome, que pode ser definida e executada na hora.
-
-```go
-func() {
-	// Código aqui
-}()
-```
-
-Note que os parênteses no final () são o que fazem a função ser executada imediatamente após ser declarada — igual a uma IIFE (Immediately Invoked Function Expression) em JavaScript.
-
-```go
-func() {
-	fmt.Println("Executando uma função anônima!")
-}()
-```
-
-Também podemos passar argumentos, assim como fazemos em JavaScript:
-
-```go
-func(msg string) {
-	fmt.Println(msg)
-}("Hello from a literal function!")
-```
-
-Essa estrutura é especialmente útil quando queremos encapsular lógica rapidamente, como em Go Routines.
-
-Nesse caso, a função anônima é usada para criar uma nova Go Routine, com o valor de link corretamente isolado da iteração do loop.
-
-```go
-go func(link string) {
-	time.Sleep(5 * time.Second)
-	checkLink(link, c)
-}(link)
-```
-
-Se você chegou até aqui, parabéns! Passou por bastante texto.
 
 Se quiser entrar em contato comigo pra conversarmos sobre Go ou qualquer outra coisa, vou deixar meu contato abaixo. Valeu!

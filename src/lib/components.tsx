@@ -116,7 +116,7 @@ const components = {
         </>
     ),
     ul: (props: React.HTMLProps<HTMLUListElement>) => <ul className="text-muted-foreground" {...props} />,
-    li: (props: React.HTMLProps<HTMLLIElement>) => <li className="text-muted-foreground prose-sm" {...props} />,
+    li: (props: React.HTMLProps<HTMLLIElement>) => <li className="text-muted-foreground" {...props} />,
 
     pre: ({ children, ...rest }: { children: ReactElement<{ className?: string; children: string }> }) => {
         const child = children.props;
