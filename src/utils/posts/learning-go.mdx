@@ -1,12 +1,12 @@
 Apesar de gostar muito de desenvolvimento front-end, provavelmente o que mais me da vontade de estudar é back-end (e me divirto bem mais), visando isso estou estudando GO, e aqui está algumas das minhas anotações.
 
-Antes de irmos a fundo, quero citar algumas coisas que achei interessantes na linguagem. Começando pela promessa de compatibilidade que o Go tem enraizada: eles não tomam decisões que afetam versões anteriores. Isso é muito legal 😎👍
+Antes de irmos a fundo, quero citar algumas coisas que achei interessantes na linguagem. Começando pela promessa de compatibilidade que o Go tem enraizada: eles não tomam decisões que afetam versões anteriores. Isso é muito legal `B^)`
 
 Outro ponto é o Cross Compilation, que permite compilar para diversos sistemas operacionais independentemente do S.O. em que você estiver. Diferente do Electron, por exemplo (pelo menos até onde sei), onde, se quiser gerar um build para macOS, você precisa necessariamente ter um Mac.
 
-Se tiver usando vscode:
+Se tiver usando vscode: Ctrl + Shift + P → Go Install/Update Tools
 
-`Ctrl + Shift + P → Go Install/Update Tools`
+## Básicos da Linguagem
 
 ### Go CLI
 
@@ -17,6 +17,8 @@ Se tiver usando vscode:
 -   **go get** - Instala algum package
 -   **go install** - Compila e instala um package
 -   **go test** - Roda algum teste relacionado ao projeto
+
+## Packages e Organização de Código
 
 ### Como os packages (pacotes) funcionam?
 
@@ -90,7 +92,7 @@ func main() {
 
 Como todos os arquivos da pasta pertencem ao mesmo pacote, qualquer função, constante ou variável exportada (iniciada com letra maiúscula) pode ser acessada ao importar o pacote.
 
-### Pacotes Internos
+#### Pacotes Internos
 
 **Estrutura de pastas**
 
@@ -150,6 +152,8 @@ func main() {
 }
 ```
 
+## Tipos de Dados e Variáveis
+
 ### Variavéis
 
 Em Go, nomes que começam com letra maiúscula são exportados (públicos) e podem ser acessados fora do pacote.
@@ -195,7 +199,9 @@ var x int = 10
 var y float64 = float64(x)
 ```
 
-### Funções
+## Funções
+
+### Funções Básicas
 
 Criando uma função que retorna string:
 
@@ -237,7 +243,7 @@ func main() {
 }
 ```
 
-### Função Higher Order
+### Higher Order Functions
 
 ```go
 func main() {
@@ -268,7 +274,9 @@ func somarVariatica(nums ...int) int {
 // somarVariatica(10, 10, 10) => 30
 ```
 
-### Array
+## Estruturas de Dados
+
+### Arrays
 
 Arrays tem tamanho fixo, nunca podem crescer ou diminuir
 
@@ -279,7 +287,7 @@ Arrays tem tamanho fixo, nunca podem crescer ou diminuir
 	arr4 := [10]int{3: 10, 6: 20} // inicializa os indices 3 e 6 com valores 10 e 20
 ```
 
-### Slice
+### Slices
 
 Uma Slice é uma versão mais flexível de um Array.
 
@@ -314,7 +322,7 @@ for _, name := range names {
 }
 ```
 
-### Slice Range Syntax
+#### Slice Range Syntax
 
 Esse esquema de fatia (slice) é muito útil quando queremos pegar só uma parte da lista.
 
@@ -332,6 +340,8 @@ fruits[:2]   == ["Maçã", "Pera"]
 
 fruits[2:] == ["Banana", "Uva"]
 ```
+
+## Controle de Fluxo
 
 ### Condicionais
 
@@ -430,6 +440,8 @@ func main() {
 }
 ```
 
+## Conceitos Avançados
+
 ### Defer
 
 A palavra-chave **defer** adia a execução de uma função até que a função que a contém retorne. Ou seja, o código marcado com **defer** só será executado no final, mesmo que esteja no meio da função.
@@ -481,7 +493,9 @@ func take(x *int) {
 }
 ```
 
-# ESTUDOS ANTIGOS A BAIXO (VOU REFAZER)
+# AINDA VOU MUDAR - ANOTAÇOES ANTIGAS
+
+## Programação Orientada a Objetos
 
 ### Type & Receivers Function
 
@@ -544,7 +558,7 @@ func main() {
 }
 ```
 
-### Structs com Ponteiros
+#### Structs com Ponteiros
 
 Usamos ponteiros quando queremos modificar de verdade os valores de uma struct (ou qualquer variável) dentro de uma função.
 
@@ -585,7 +599,7 @@ Turn address into value with *address
 Turn value into address with &value
 ```
 
-### Value Types & Reference Types
+#### Value Types & Reference Types
 
 Value Types: int, float, string, boolean, structs
 
@@ -595,7 +609,7 @@ De forma resumida, em Value Types, precisamos usar ponteiros caso queiramos alte
 
 Já em Reference Types, não precisamos nos preocupar com isso, pois, mesmo que seja criada uma cópia ao passá-los em uma função, essa cópia aponta para o mesmo endereço, então a modificação ocorre normalmente.
 
-### Map
+### Maps
 
 Basicamente, Map é como se fosse um objeto do JavaScript, mas com algumas peculiaridades:
 
@@ -718,6 +732,8 @@ func (s square) getArea() float64 {
 	return s.sideLength * s.sideLength
 }
 ```
+
+## Concorrência
 
 ### Go Routines
 

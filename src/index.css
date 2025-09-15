@@ -77,17 +77,84 @@
 
     .heading-link::before {
         font-family: monospace;
-        font-weight: bold;
+        font-weight: 100;
         content: "#";
         position: absolute;
-        left: -1rem;
         opacity: 0;
         transition: opacity 0.2s;
         color: var(--muted-foreground);
     }
 
+    h1 .heading-link::before {
+        left: -1.4rem;
+    }
+
+    h2 .heading-link::before {
+        left: -1.2rem;
+    }
+
+    h3 .heading-link::before {
+        left: -1.2rem;
+    }
+
+    h4 .heading-link::before {
+        left: -1rem;
+    }
+
     .heading-link:hover::before {
-        opacity: 1;
+        opacity: 0.6;
+    }
+
+    .prose-content {
+        line-height: 1.7;
+    }
+
+    .prose-content p {
+        margin-bottom: 1rem;
+        line-height: 1.7;
+    }
+
+    .prose-content ul,
+    .prose-content ol {
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+    }
+
+    .prose-content li {
+        margin-bottom: 0.25rem;
+        line-height: 1.6;
+    }
+
+    .prose-content blockquote {
+        margin: 1.5rem 0;
+        padding: 1rem 1.25rem;
+        border-left: 4px solid var(--border);
+        background-color: var(--muted);
+        font-style: italic;
+    }
+
+    .prose-content code {
+        padding: 0.125rem 0.25rem;
+        background-color: var(--muted);
+        border-radius: 0.25rem;
+        font-size: 0.875rem;
+    }
+
+    .prose-content pre {
+        margin: 1.5rem 0;
+        border-radius: 0.5rem;
+        overflow-x: auto;
+    }
+
+    .prose-content > * + * {
+        margin-top: 1rem;
+    }
+
+    .prose-content > h1 + *,
+    .prose-content > h2 + *,
+    .prose-content > h3 + *,
+    .prose-content > h4 + * {
+        margin-top: 0.5rem;
     }
 
     [data-slot="dialog-overlay"] {
