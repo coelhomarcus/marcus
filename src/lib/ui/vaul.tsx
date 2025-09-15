@@ -139,26 +139,50 @@ const SidebarDrawer = () => {
 function SidebarLink({ item, onClose }: { item: Page; onClose: () => void }) {
     const Icon = item.icon;
 
+    const handleDownload = () => {
+        const link = document.createElement("a");
+        link.href = item.href;
+        link.download = item.name;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        onClose();
+    };
+
     if (item.external) {
         return (
-            <a
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between p-3 rounded-md hover:bg-muted transition-colors group"
+            <button
+                onClick={item.download ? handleDownload : undefined}
+                className="flex items-center justify-between p-3 rounded-md hover:bg-muted transition-colors group w-full text-left cursor-pointer"
             >
-                <div className="flex items-center space-x-3">
-                    <Icon className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
-                    <span className="text-sm font-medium group-hover:text-foreground transition-colors">
-                        {item.name}
-                    </span>
-                </div>
                 {item.download ? (
-                    <MdOutlineFileDownload className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                    <>
+                        <div className="flex items-center space-x-3">
+                            <Icon className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                            <span className="text-sm font-medium group-hover:text-foreground transition-colors">
+                                {item.name}
+                            </span>
+                        </div>
+                        <MdOutlineFileDownload className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                    </>
                 ) : (
-                    <GoArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                    <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between w-full"
+                        onClick={onClose}
+                    >
+                        <div className="flex items-center space-x-3">
+                            <Icon className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                            <span className="text-sm font-medium group-hover:text-foreground transition-colors">
+                                {item.name}
+                            </span>
+                        </div>
+                        <GoArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                    </a>
                 )}
-            </a>
+            </button>
         );
     }
 

@@ -11,8 +11,6 @@ const ContactLink = ({ Icon, title, href, ...props }: ContactLinkProps) => {
     return (
         <a
             href={href}
-            rel="noreferrer noopener"
-            target="_blank"
             className="inline-flex items-center gap-1 font-medium text-xs transition-colors hover:text-muted-foreground"
             {...props}
         >

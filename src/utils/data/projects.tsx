@@ -11,15 +11,15 @@ export const arrProjects = [
         desc: "Aplicativo IOS para conscientização e prevenção de queimadas",
         tech: ["Swift", "MapKit", "IoT", "API"],
     },
-    {
-        href: "https://smartcitycanaadoscarajas.com.br/index.php/conectacanaa",
-        name: "Conecta Canaã",
-        desc: "Plataforma de ocorrências e serviços públicos para Prefeitura de Canaã dos Carajás - PA",
-        tech: ["Exception Jr"],
-    },
 ];
 
 export const arrSideProjects = [
+    {
+        href: "https://github.com/coelhomarcus/dongo",
+        name: "Dongo",
+        desc: "Restful API Client",
+        tech: ["React", "Typescript", "Tailwind", "Electron"],
+    },
     {
         href: "https://coelhomarcus.github.io/bunnybash/",
         name: "BunnyBash",
@@ -43,12 +43,6 @@ export const arrSideProjects = [
         name: "Mailman",
         desc: "Protótipo de jogo de terror retrô",
         tech: ["C#", "Unity", "Blender"],
-    },
-    {
-        href: "https://github.com/coelhomarcus/coebot",
-        name: "CoeBot",
-        desc: "Bot divertido para o Discord",
-        tech: ["Node", "discord.js", "Javascript", "API"],
     },
     {
         href: "https://coelhomarcus.github.io/catype/",

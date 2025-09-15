@@ -14,8 +14,8 @@ export const arrBlog = [
         tags: ["Programação", "Node", "Fastify"],
     },
     {
-        slug: "env",
-        title: ".env",
+        slug: "dotfiles",
+        title: "dotfiles",
         desc: "Ambiente",
         date: "26.04.2025",
         tags: ["Programação", "Pessoal"],

@@ -7,8 +7,20 @@ const Footer = () => {
     return (
         <div className="flex justify-between border-t mt-4 pt-4 border-border">
             <div className="flex gap-3 text-foreground">
-                <ContactLink title="Github" Icon={LuGithub} href="https://github.com/coelhomarcus" />
-                <ContactLink title="Linkedin" Icon={FaLinkedin} href="https://www.linkedin.com/in/coelhomarcus/" />
+                <ContactLink
+                    title="Github"
+                    Icon={LuGithub}
+                    href="https://github.com/coelhomarcus"
+                    rel="noreferrer noopener"
+                    target="_blank"
+                />
+                <ContactLink
+                    title="Linkedin"
+                    Icon={FaLinkedin}
+                    href="https://www.linkedin.com/in/coelhomarcus/"
+                    rel="noreferrer noopener"
+                    target="_blank"
+                />
                 <ContactLink
                     title="CV"
                     Icon={IoDocumentText}
