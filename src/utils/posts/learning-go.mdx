@@ -10,13 +10,13 @@ Se tiver usando vscode: Ctrl + Shift + P → Go Install/Update Tools
 
 ### Go CLI
 
--   **go mod init NomePasta** - Criando go.mod
--   **go run main.go** - Compila e executa o projeto
--   **go build main.go** - Compila o projeto
--   **go build -o "app" main.go** - Compila o projeto e nomeia como app.exe
--   **go get** - Instala algum package
--   **go install** - Compila e instala um package
--   **go test** - Roda algum teste relacionado ao projeto
+-   `go mod init NomePasta` - Criando go.mod
+-   `go run main.go` - Compila e executa o projeto
+-   `go build main.go` - Compila o projeto
+-   `go build -o "app" main.go` - Compila o projeto e nomeia como app.exe
+-   `go get` - Instala algum package
+-   `go install` - Compila e instala um package
+-   `go test` - Roda algum teste relacionado ao projeto
 
 ## Packages e Organização de Código
 
@@ -24,12 +24,12 @@ Se tiver usando vscode: Ctrl + Shift + P → Go Install/Update Tools
 
 Em Go existem dois tipos de pacotes: **Executáveis** e **Reutilizáveis**
 
-O **package main** é um pacote executável, ele precisa ter uma função main dentro, o nome do arquivo em si não importa, poderia ser qualquercoisa.go mas se tiver a função main ele é o pacote executável. Esse é o pacote principal, o que é usado pra buildar o projeto.
+O `package main` é um pacote executável, ele precisa ter uma função main dentro, o nome do arquivo em si não importa, poderia ser qualquercoisa.go mas se tiver a função main ele é o pacote executável. Esse é o pacote principal, o que é usado pra buildar o projeto.
 
 Se tentar buildar um projeto com um pacote que não seja o main, ele não vai gerar o executável. E como saber se um pacote é executável ou reutilizável?.
 
--   Se for **package main**, é executável.
--   Qualquer outro nome, tipo **package utils**, **package math**, é reutilizável, ou seja, código que pode ser usado em outros lugares como se fosse uma dependência.
+-   Se for `package main`, é executável.
+-   Qualquer outro nome, tipo `package utils`, `package math`, é reutilizável, ou seja, código que pode ser usado em outros lugares como se fosse uma dependência.
 
 ### Importações
 
@@ -58,8 +58,8 @@ func main() {
 
 Para criar um pacote, basta criar uma pasta com o nome desejado, por exemplo "alfabeto". Dentro dela, coloque os arquivos Go:
 
--   a.go
--   b.go
+-   `a.go`
+-   `b.go`
 
 Em todos os arquivos dentro dessa pasta, a primeira linha deve declarar o mesmo pacote:
 
@@ -67,7 +67,7 @@ Em todos os arquivos dentro dessa pasta, a primeira linha deve declarar o mesmo 
 package alfabeto
 ```
 
-Se, por exemplo, você definir uma constante em **a.go**
+Se, por exemplo, você definir uma constante em `a.go`
 
 ```go
 package alfabeto
@@ -94,7 +94,7 @@ Como todos os arquivos da pasta pertencem ao mesmo pacote, qualquer função, co
 
 #### Pacotes Internos
 
-**Estrutura de pastas**
+`Estrutura de pastas`
 
 ```
 meuprojeto/
@@ -107,7 +107,7 @@ meuprojeto/
 │           └── foo.go
 ```
 
-**pacote/internal/foo/foo.go**
+`pacote/internal/foo/foo.go`
 
 ```go
 package foo
@@ -116,7 +116,7 @@ package foo
 var Minha = "Sou interna"
 ```
 
-**pacote/b.go**
+`pacote/b.go`
 
 ```go
 package pacote
@@ -132,7 +132,7 @@ func PrintMinha() {
 }
 ```
 
-**main.go**
+`main.go`
 
 ```go
 package main
@@ -289,63 +289,63 @@ Arrays tem tamanho fixo, nunca podem crescer ou diminuir
 
 ### Slices
 
-Uma Slice é uma versão mais flexível de um Array.
+Uma Slice é uma versão dinâmica de um Array.
 
 -   Use `Array` quando o tamanho da lista for fixo.
--   Use `Slice` quando o tamanho for variável - já que dá pra adicionar ou remover elementos com facilidade.
+-   Use `Slice` quando o tamanho for variável.
 
-Slices precisam ter todos os elementos do mesmo tipo: se começou com **int**, tudo tem que ser **int**;
+Slices precisam ter todos os elementos do mesmo tipo.
 
-Quando usamos **append()**, na real estamos criando uma nova Slice com o novo valor incluso e reatribuindo essa nova Slice pra mesma variável.
+Quando usamos `append()`, na real estamos criando uma nova Slice com o novo valor incluso e reatribuindo essa nova Slice pra mesma variável.
 
-Pra iterar sobre uma Array ou Slice, usamos a palavra-chave **range** no loop, que percorre cada elemento.
+Pra iterar sobre uma Array ou Slice, usamos a palavra-chave `range` no loop, que percorre cada elemento.
 
 ```go
+// Criando uma Slice a partir de um Array
+
+arr := [5]int{1, 2, 3, 4, 5}
+//criando o Slice pegando do index 1 a 3 do Array
+//colocamos 4 pois ele descarta o ultimo
+//nome disso: Slice Range Syntax
+sliceArr := arr[1:4] // [2,3,4]
+//mesmo alterando depois de criar o Slice, a Array tbm é modificada
+//pois apontam pro mesmo endereço de memoria
+arr[2] = 65
+fmt.Println(sliceArr)
+
 // Criando uma Slice
 
-names := []string{"Marcus", myName(), "Vitoria"}
+//para criar um slice basta apenas criar um array
+//mas sem limitar os espaços
+slice := []int{1, 2, 3}
+fmt.Println(slice)
 
-// Adicionando novo elemento na Slice
+// todo Slice tem Length e Capacity
+// Length -> quantidade de elementos salvos no presente
+// Capacity -> quantidade que o Slice pode armazenar sem fazer outra alocação
+fmt.Println(slice, len(slice), cap(slice))
+//Para adicionar um elemento no Slice criamos outro Slice e Reatribuimos
+slice = append(slice, 2)
+fmt.Println(slice, len(slice), cap(slice))
 
-names = append(names, "Coelho")
+// Ao usar append em slices sem capacidade pré-alocada, cada vez que for necessário
+// aumentar o espaço, o Go realocará a memória e dobrará a capacidade do slice
+// Em loops isso pode gerar muitas realocações, impactando negativamente a performance
 
-//Iterando pela Slice
-
-for index, name := range names {
-    fmt.Println(index, name);
-}
-
-//Iterando sem index
-
-for _, name := range names {
-    fmt.Println(name);
-}
-```
-
-#### Slice Range Syntax
-
-Esse esquema de fatia (slice) é muito útil quando queremos pegar só uma parte da lista.
-
-Detalhe importante: o segundo número não é incluso, então 0:2 pega o índice 0 e 1.
-
-```go
-fruits := []string{"Maçã", "Pera", "Banana", "Uva"}
-
-// Do índice 0 até o 2 (mas sem incluir o 2)
-
-fruits[0:2] == ["Maçã", "Pera"]
-fruits[:2]   == ["Maçã", "Pera"]
-
-// A partir do índice 2 (incluindo o 2) até o fim
-
-fruits[2:] == ["Banana", "Uva"]
+// Uma forma mais eficiente de criar slices é com make
+// Com make podemos definir o tipo, o tamanho inicial (length) e a capacidade
+// garantindo que o espaço já esteja pré-alocado na memória
+// Essa abordagem é útil principalmente quando sabemos previamente
+// o tamanho do Slice
+slicePerformatico := make([]string, 0, 10)
+fmt.Println(slicePerformatico, len(slicePerformatico), cap(slicePerformatico))
 ```
 
 ## Controle de Fluxo
 
 ### Condicionais
 
-As condicionais em Go são feitas com **if**, **else if**, **else** e **switch**.
+As condicionais em Go são feitas com `if`, `else if`, `else` e `switch`.
 Não tem diferencia entre else if e switch em termos de performance, então use o que fizer mais sentido pro seu caso.
 
 ```go
@@ -401,7 +401,7 @@ func main() {
 
 ### Loops
 
-Os Loops em Go são feitos com a palavra-chave **for**. Não existe while ou do while, mas podemos usar o for de forma que ele funcione como esses outros tipos de loop.
+Os Loops em Go são feitos com a palavra-chave `for`. Não existe while ou do while, mas podemos usar o for de forma que ele funcione como esses outros tipos de loop.
 
 ```go
 func main() {
@@ -444,7 +444,7 @@ func main() {
 
 ### Defer
 
-A palavra-chave **defer** adia a execução de uma função até que a função que a contém retorne. Ou seja, o código marcado com **defer** só será executado no final, mesmo que esteja no meio da função.
+A palavra-chave `defer` adia a execução de uma função até que a função que a contém retorne. Ou seja, o código marcado com `defer` só será executado no final, mesmo que esteja no meio da função.
 
 ```go
 func defer() {
@@ -492,375 +492,3 @@ func take(x *int) {
 	*x = 20
 }
 ```
-
-# AINDA VOU MUDAR - ANOTAÇOES ANTIGAS
-
-## Programação Orientada a Objetos
-
-### Type & Receivers Function
-
-Com **type**, conseguimos criar um novo tipo baseado em um tipo que já existe.
-
-E com as funções receptoras (receiver functions), criamos métodos que as variáveis desse novo tipo podem usar.
-
--   main.go
-
-```go
-package main
-
-func main() {
-	friends := names{"Marcus", "Vitoria", "Luis"}
-	friends.print()
-}
-```
-
--   names.go
-
-```go
-package main
-
-import "fmt"
-
-// Criamos o tipo 'names' baseado em um slice de string
-
-type names []string
-
-// Aqui estamos criando um método 'print' para o tipo 'names'
-
-func (n names) print() {
-	for _, name := range n {
-		fmt.Println(name)
-	}
-}
-```
-
-### Structs
-
-Em Go, structs são usadas pra agrupar dados relacionados, tipo um "modelo" ou "formato" de algo.
-
-```go
-type contactInfo struct {
-	number int
-	email  string
-}
-
-type person struct {
-	firstName string
-	lastName  string
-	contact   contactInfo
-}
-
-func main() {
-	marcus := person{"Marcus", "Coelho", contactInfo{999, "marcus@gmail.com"}}
-	fmt.Println(marcus.firstName, marcus.lastName)
-	fmt.Println(marcus.contact.email)
-	fmt.Println(marcus.contact.number)
-}
-```
-
-#### Structs com Ponteiros
-
-Usamos ponteiros quando queremos modificar de verdade os valores de uma struct (ou qualquer variável) dentro de uma função.
-
-Sem o ponteiro, o Go passa uma cópia da variável, então qualquer mudança não afeta o valor original. Com o ponteiro, acessamos diretamente o valor na memória e conseguimos alterar ele de fato.
-
--   Com **&variavel** pegamos o endereço de memória onde o valor dessa variável está guardado.
--   Com **\*ponteiro** acessamos o valor que está nesse endereço (ou seja, o valor para o qual o ponteiro aponta).
--   Tipo "o ponteiro é o endereço da casa, o valor é quem mora lá
-
-```go
-type person struct {
-	firstName string
-	lastName  string
-}
-
-func main() {
-	marcus := person{"Marcus", "Coelho"}
-
-	fmt.Println(marcus)
-
-	marcus.changeName("Vitoria")
-
-	fmt.Println(marcus)
-}
-
-func (pointerToPerson *person) changeName(newName string) {
-	(*pointerToPerson).firstName = newName
-}
-```
-
-Dica:
-
-```
-address: 10x0Abc
-value: person{firstName: "Marcus"...}
-
-Turn address into value with *address
-Turn value into address with &value
-```
-
-#### Value Types & Reference Types
-
-Value Types: int, float, string, boolean, structs
-
-Reference Types: slices, maps, channels, pointers, functions
-
-De forma resumida, em Value Types, precisamos usar ponteiros caso queiramos alterar seus valores por meio de funções.
-
-Já em Reference Types, não precisamos nos preocupar com isso, pois, mesmo que seja criada uma cópia ao passá-los em uma função, essa cópia aponta para o mesmo endereço, então a modificação ocorre normalmente.
-
-### Maps
-
-Basicamente, Map é como se fosse um objeto do JavaScript, mas com algumas peculiaridades:
-
--   as chaves devem ser todas do mesmo tipo, e os valores também devem ser todos do mesmo tipo.
-
--   Se uma chave for **int**, todas têm que ser **int**;
--   Se um valor for **string**, todos os outros também têm que ser **string**.
-
-```go
-func main() {
-	trafficLight := map[string]string{
-		"red":    "stop",
-		"yellow": "attention",
-		"green":  "go",
-	}
-
-	fmt.Println(trafficLight)        // map[green:go red:stop yellow:attention]
-	fmt.Println(trafficLight["red"]) // stop
-}
-```
-
-Criando um Map vazio
-
-```go
-var colors map[string]string
-// ou
-colors := make(map[string]string)
-```
-
-Adicionando valor no Map
-
-```go
-colors["white"] = "#ffff";
-```
-
-Removendo valor no Map
-
-```go
-delete(colors, "white")
-```
-
-Iterando no Map
-
-```go
-func printMap(c map[string]string) {
-	for key, value := range c {
-		fmt.Println(key, value);
-	}
-}
-```
-
-### Interfaces
-
-Interfaces servem pra gente definir um "contrato" de métodos que diferentes tipos precisam ter. É uma forma de criar um tipo mais genérico que aceita qualquer coisa que siga esse contrato.
-
-No exemplo abaixo, criamos uma interface chamada **bot**, que exige que qualquer tipo que a implemente tenha o método **getGreeting()** que retorna uma **string**. Então, qualquer tipo que tiver esse método com essa assinatura já é considerado um bot, sem precisar declarar isso explicitamente.
-
-```go
-type bot interface {
-	getGreeting() string
-}
-
-type englishBot struct{}
-type spanishBot struct{}
-
-func main() {
-	eb := englishBot{}
-	sb := spanishBot{}
-
-	printGreeting(eb)
-	printGreeting(sb)
-}
-
-func printGreeting(b bot) {
-	fmt.Println(b.getGreeting())
-}
-
-func (englishBot) getGreeting() string {
-	return "Hi there!"
-}
-
-func (spanishBot) getGreeting() string {
-	return "Hola!"
-}
-```
-
-Outro exemplo de interface
-
-```go
-type shape interface {
-	getArea() float64
-}
-
-type triangle struct {
-	height float64
-	base   float64
-}
-
-type square struct {
-	sideLength float64
-}
-
-func main() {
-	sq := square{10}
-	tr := triangle{10, 10}
-
-	printArea(sq)
-	printArea(tr)
-}
-
-func printArea(s shape) {
-	fmt.Println(fmt.Sprintf("%v", s.getArea()))
-}
-
-func (t triangle) getArea() float64 {
-	return t.height * t.base * 0.5
-}
-
-func (s square) getArea() float64 {
-	return s.sideLength * s.sideLength
-}
-```
-
-## Concorrência
-
-### Go Routines
-
-Basicamente, **Go Routines** são um método que utilizamos para rodar códigos de forma concorrente e, também, de forma paralela (nesse caso, só será paralelo se a CPU tiver mais de um núcleo; caso contrário, será apenas concorrente mesmo).
-
-Por exemplo, imagine que eu tenha uma **slice com 5 links**, e um **for** que percorre essa slice fazendo um fetch desses links para saber se o status de cada um está ok ou não.
-
-Da forma tradicional, temos uma **Blocking Call**, pois precisamos esperar o fetch do primeiro link terminar para começar o segundo, e esperar o segundo terminar para começar o terceiro - o que pode demorar bastante.
-
-Então, o que podemos fazer é utilizar **Go Routines** para mitigar isso. Na nossa função que checa os links dentro do **for**, adicionamos a palavra-chave **go** antes. Ficaria algo assim:
-
-```go
-// Antes
-for _, link := range links {
-	checkLink(link)
-}
-
-// Depois
-for _, link := range links {
-	go checkLink(link)
-}
-```
-
-A palavra-chave **go** so pode ser usada antes de funções.
-
-Algo importante a se entender sobre **Go Routines** é que a função main (Main Routine) encerra sua execução assim que termina seu trabalho, independentemente de existirem outras Goroutines em execução. Ou seja, se a função main finalizar antes das Goroutines, o programa inteiro será encerrado, e essas tarefas paralelas serão interrompidas.
-
-Por isso, quando estamos lidando com **Go Routines**, precisamos de alguma forma de sincronizar ou coordenar a execução entre elas - e é aí que entram os meios de comunicação entre **Go Routines**, como os **Channels**.
-
-### Channels
-
-Um **channel** em Go é uma forma segura de comunicação entre Go Routines. Uma coisa importante é que um channel só pode transmitir valores de um único tipo. Por exemplo, se você criar um channel de **string**, ele só poderá enviar e receber **strings**; o mesmo vale para **int**, **bool**, etc.
-
-A comunicação com channels funciona da seguinte forma: primeiro você cria o channel, depois o passa para a função que será executada como Go Routine. Assim, ela consegue enviar (ou receber) dados por meio desse canal.
-
-No exemplo abaixo, vamos supor que estamos verificando vários links com a função **checkLink()**. Aqui está como usamos um channel para isso:
-
-```go
-func main() {
-	links := []string{
-		"http://google.com",
-		"http://facebook.com",
-		"http://stackoverflow.com",
-		"http://golang.org",
-		"http://amazon.com",
-	}
-
-	// Criando o Channel
-	c := make(chan string)
-
-	for _, link := range links {
-		go checkLink(link, c) // Passando o Channel na função
-	}
-
-	// Aqui esperamos a Main Routine aguarda alguma resposta do Channel
-	fmt.Println(<-c)
-}
-
-// Adicionamos o parametro de Channel
-func checkLink(link string, c chan string) {
-	_, err := http.Get(link)
-	if err != nil {
-		fmt.Println(link, "might be down!")
-		c <- "Might be down I think" // Aqui enviamos uma string para o Channel
-		return
-	}
-
-	fmt.Println(link, "is up!")
-	c <- "Yep its up" // E aqui tambem
-}
-```
-
-Mesmo que a gente tenha criado várias Go Routines com checkLink, se a função main não ficar esperando ativamente as respostas delas, o programa pode encerrar antes das Go Routines terminarem seu trabalho.
-
-Para resolver isso, precisamos fazer com que o main espere uma resposta para cada Go Routine que criamos. Como sabemos quantos links estamos verificando, podemos usar um **for** com **len(links)** para receber exatamente o mesmo número de mensagens do channel:
-
-```go
-for i := 0; i < len(links); i++ {
-	fmt.Println(<-c)  // Espera e imprime a mensagem de cada Go Routine
-}
-```
-
-Também podemos fazer com que o programa fique verificando os links continuamente, de forma que ele nunca pare. Para isso, usamos um loop for que fica esperando por novas mensagens no channel. E como a operação `<-c` é bloqueante, o loop só prossegue quando uma nova mensagem for recebida - ou seja, ele não sai disparando um monte de Goroutines ao mesmo tempo descontroladamente.
-
-```go
-for {
-	go checkLink(<-c, c)
-}
-func checkLink(link string, c chan string) {
-	_, err := http.Get(link)
-	if err != nil {
-		fmt.Println(link, "might be down!")
-		c <- link // Reenvia o link
-		return
-	}
-
-	fmt.Println(link, "is up!")
-	c <- link // Reenvia o link
-}
-```
-
-Podemos usar o **for range** para escutar continuamente o channel. Essa forma é bem comum em Go e funciona como um loop infinito que espera por mensagens no channel:
-
-```go
-for l := range c {
-	go func(link string) {
-		time.Sleep(5 * time.Second)
-		checkLink(link, c)
-	}(l) // temos que passar o l aqui pois se não ele sempre ficara com o mesmo valor e nao vai atualizar
-}
-
-
-func checkLink(link string, c chan string) {
-	_, err := http.Get(link)
-	if err != nil {
-		fmt.Println(link, "might be down!")
-		c <- link // Agora retornamos o link
-		return
-	}
-
-	fmt.Println(link, "is up!")
-	c <- "Yep its up" // E aqui tambem
-}
-```
-
-Por que passamos l como argumento da função anônima?
-
-Se você usasse a variável **link** diretamente dentro da Goroutine, ela poderia não ter o valor esperado, por conta do comportamento de variáveis em loops e closures. Ao passar **l** como argumento para a função anônima, você garante que o valor certo de cada iteração será usado.
-
-Se quiser entrar em contato comigo pra conversarmos sobre Go ou qualquer outra coisa, vou deixar meu contato abaixo. Valeu!
