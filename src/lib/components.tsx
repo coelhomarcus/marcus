@@ -2,7 +2,6 @@ import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import { nightOwl as theme } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { ReactElement } from "react";
 import { GoCopy } from "react-icons/go";
-import { CgExternal } from "react-icons/cg";
 
 import go from "react-syntax-highlighter/dist/esm/languages/prism/go";
 import jsx from "react-syntax-highlighter/dist/esm/languages/prism/jsx";
@@ -106,16 +105,13 @@ const components = {
       <p className="text-muted-foreground mb-4 leading-relaxed" {...props} />
    ),
    a: (props: React.HTMLProps<HTMLAnchorElement>) => (
-      <>
-         <a
-            className="group prose-base font-normal text-primary no-underline hover:text-primary/80"
-            target="_blank"
-            {...props}
-         >
-            {props.children}
-            <CgExternal className="text-primary group-hover:text-primary/80 inline mb-1" />
-         </a>
-      </>
+      <a
+         className="group prose-base font-normal text-primary underline hover:text-primary/80"
+         target="_blank"
+         {...props}
+      >
+         {props.children}
+      </a>
    ),
    ul: (props: React.HTMLProps<HTMLUListElement>) => (
       <ul className="text-muted-foreground mb-4 pl-6 space-y-1" {...props} />
@@ -152,7 +148,7 @@ const components = {
                   fontSize: "0.875rem",
                   lineHeight: "1.5",
                }}
-               className="rounded-md bg-[#101010] border-black dark:bg-background border dark:border-border scrollbar scrollbar-content"
+               className="rounded-md !bg-[#101010] !border-black dark:!bg-background !border dark:!border-border scrollbar scrollbar-content"
                {...rest}
             >
                {code}

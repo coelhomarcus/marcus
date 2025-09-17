@@ -1,4 +1,4 @@
-Atualmente estou cursando Web II na faculdade e surgiu a curiosidade de estudar Fastify, já que será o framework que utilizaremos para desenvolver APIs em Node. Por isso, decidi me adiantar e começar a estudá-lo antecipadamente. Neste post, vou deixar minhas anotações, que estão sujeitas a mudanças.
+Atualmente estou cursando Web II na faculdade e surgiu a curiosidade de estudar `Fastify`, já que será o framework que utilizaremos para desenvolver APIs em `Node`. Por isso, decidi me adiantar e começar a estudá-lo antecipadamente. Neste post, vou deixar minhas anotações, que estão sujeitas a mudanças.
 
 Apenas um adendo: apesar deste post conter minhas anotações, vou deixar um link para a [documentação oficial do Fastify](https://fastify.dev/docs/latest/), pois há muitos tópicos e nem todos conseguirei abordar aqui.
 
@@ -10,7 +10,7 @@ npm init -y
 npm install fastify
 ```
 
-### Criando rotas GET e POST simples
+#### Criando rotas GET e POST simples
 
 ```js
 import Fastify from "fastify";
@@ -46,7 +46,7 @@ start();
 
 ### Criando rota GET com reply.send
 
-No fastify é utilizado tanto o return e o reply.send para as response, as duas estão corretas, geralmente para coisas simples é usado o return mesmo.
+No fastify é utilizado tanto o `return` e o `reply.send` para as response, as duas estão corretas, geralmente para coisas simples é usado o return mesmo.
 
 ```js
 fastify.get("/reply", async (req, reply) => {
@@ -101,7 +101,7 @@ fastify.route({
 
 ### Hooks
 
-Hooks são funções que são executadas em determinados momentos do ciclo de vida de uma requisição. Eles podem ser usados para adicionar funcionalidades como autenticação, logging, validação, etc.
+Hooks são funções que são executadas em determinados momentos do ciclo de vida de uma requisição. Eles podem ser usados para adicionar funcionalidades como **autenticação, logging, validação, etc**.
 
 ```js
 fastify.addHook("preHandler", async (request, reply) => {
@@ -127,7 +127,7 @@ Para mais informações sobre **Hooks** &rarr; [Documentação Fastify - Hooks](
 
 #### decorateRequest
 
-O decorateRequest tem como objetivo adicionar novas propriedades ao objeto request
+O `decorateRequest` tem como objetivo adicionar novas propriedades ao objeto request
 
 ```js
 // Aqui estamos adicionando a propriedade "user" do tipo string
