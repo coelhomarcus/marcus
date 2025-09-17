@@ -434,6 +434,114 @@ func main() {
 }
 ```
 
+### Interfaces
+
+`Interfaces` em Go permitem definir comportamentos que diferentes tipos podem implementar.
+
+Um tipo "satisfaz" uma interface automaticamente se possuir todos os `métodos` que ela exige.
+
+No exemplo abaixo, `Dog` implementa a `interface Animal` porque define o `método Sound`.
+
+Assim, podemos passar um `Dog` para qualquer função que receba um Animal.
+
+```go
+type Animal interface {
+	Sound() string
+}
+
+type Dog struct{}
+
+func (Dog) Sound() string {
+	return "Au! au!"
+}
+
+func whatDoesThisAnimalSay(a Animal) {
+	fmt.Println(a.Sound())
+}
+
+func main() {
+	dog := Dog{}
+	whatDoesThisAnimalSay(dog)
+}
+```
+#### Type Assertion e Type Switch
+
+Interfaces permitem que diferentes tipos sejam tratados de forma genérica.
+
+Mas às vezes precisamos descobrir qual é o tipo concreto por trás da interface.
+
+Para isso, podemos usar:
+- Type Assertion: `a.(Tipo)` ex: `a.(string)` que retorna valor e ok
+- Type Switch: `switch a.(type)`
+
+```go
+type Animal interface {
+	Sound() string
+}
+
+type Dog struct{}
+
+func (Dog) Sound() string {
+	return "Au! au!"
+}
+
+type Cat struct{}
+
+func (Cat) Sound() string {
+	return "Miau!"
+}
+
+// Exemplo de Type Switch para identificar o tipo concreto
+func takeAnimal(a Animal) string {
+	switch t := a.(type) {
+	case Dog:
+		return "É um cachorro: " + t.Sound()
+	case Cat:
+		return "É um gato: " + t.Sound()
+	default:
+		return "Animal desconhecido"
+	}
+}
+
+func main() {
+	cat := Cat{}
+	dog := Dog{}
+
+	fmt.Println(takeAnimal(cat)) // É um gato: Miau!
+	fmt.Println(takeAnimal(dog)) // É um cachorro: Au! au!
+}
+```
+
+
+
+#### Any
+
+O tipo `any` é apenas um alias (apelido) para `interface{}`. Ou seja, type `any = interface{}` está definido no pacote padrão.
+
+Mas usar any como tipo é altamente desencorajado!
+
+```go
+func foo(a any) {
+	fmt.Println(a)
+}
+
+func foo(a interface{}) {
+	fmt.Println(a)
+}
+
+func main{
+   minhaString := "Marcus"
+   meuInt := 18
+   meuSlice := []int{1,2,3}
+
+   foo(minhaString)
+   foo(meuInt)
+   foo(meuSlice)
+}
+```
+
+
+
 ## Controle de Fluxo
 
 ### Condicionais
