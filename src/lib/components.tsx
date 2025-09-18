@@ -1,7 +1,22 @@
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import { nightOwl as theme } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { ReactElement } from "react";
-import { GoCopy } from "react-icons/go";
+import { ReactElement, useState } from "react";
+import { GoCopy, GoCheck } from "react-icons/go";
+
+
+const useCopyWithFeedback = (duration = 1000) => {
+   const [isCopied, setIsCopied] = useState(false);
+
+   const handleCopy = () => {
+      setIsCopied(true);
+      setTimeout(() => {
+         setIsCopied(false);
+      }, duration);
+   };
+
+   return { isCopied, handleCopy };
+};
+
 
 import go from "react-syntax-highlighter/dist/esm/languages/prism/go";
 import jsx from "react-syntax-highlighter/dist/esm/languages/prism/jsx";
@@ -27,7 +42,7 @@ export function slugify(text: string): string {
       .replace(/\s+/g, "-");
 }
 
-const createHeadingClickHandler = (id: string) => (e: React.MouseEvent) => {
+const createHeadingClickHandler = (id: string, onCopy?: () => void) => (e: React.MouseEvent) => {
    e.preventDefault();
    const element = document.getElementById(id);
    if (element) {
@@ -38,10 +53,15 @@ const createHeadingClickHandler = (id: string) => (e: React.MouseEvent) => {
 
    const url = `${window.location.origin}${window.location.pathname}#${id}`;
    navigator.clipboard.writeText(url);
+
+   if (onCopy) {
+      onCopy();
+   }
 };
 
 const components = {
-   h1: (props: React.HTMLProps<HTMLHeadingElement>) => {
+   h1: function H1Component(props: React.HTMLProps<HTMLHeadingElement>) {
+      const { isCopied: isLinkCopied, handleCopy } = useCopyWithFeedback();
       const id = slugify(String(props.children));
 
       return (
@@ -49,14 +69,15 @@ const components = {
             <a
                href={`#${id}`}
                className="heading-link text-foreground no-underline font-bold hover:text-primary active:text-muted-foreground cursor-pointer select-none transition-colors"
-               onClick={createHeadingClickHandler(id)}
+               onClick={createHeadingClickHandler(id, handleCopy)}
             >
-               {props.children}
+               {isLinkCopied ? "Link copiado!" : props.children}
             </a>
          </h1>
       );
    },
-   h2: (props: React.HTMLProps<HTMLHeadingElement>) => {
+   h2: function H2Component(props: React.HTMLProps<HTMLHeadingElement>) {
+      const { isCopied: isLinkCopied, handleCopy } = useCopyWithFeedback();
       const id = slugify(String(props.children));
 
       return (
@@ -64,14 +85,15 @@ const components = {
             <a
                href={`#${id}`}
                className="heading-link text-foreground no-underline font-semibold hover:text-primary active:text-muted-foreground cursor-pointer select-none transition-colors"
-               onClick={createHeadingClickHandler(id)}
+               onClick={createHeadingClickHandler(id, handleCopy)}
             >
-               {props.children}
+               {isLinkCopied ? "Link copiado!" : props.children}
             </a>
          </h2>
       );
    },
-   h3: (props: React.HTMLProps<HTMLHeadingElement>) => {
+   h3: function H3Component(props: React.HTMLProps<HTMLHeadingElement>) {
+      const { isCopied: isLinkCopied, handleCopy } = useCopyWithFeedback();
       const id = slugify(String(props.children));
 
       return (
@@ -79,14 +101,15 @@ const components = {
             <a
                href={`#${id}`}
                className="heading-link text-foreground no-underline font-medium hover:text-primary active:text-muted-foreground cursor-pointer select-none transition-colors"
-               onClick={createHeadingClickHandler(id)}
+               onClick={createHeadingClickHandler(id, handleCopy)}
             >
-               {props.children}
+               {isLinkCopied ? "Link copiado!" : props.children}
             </a>
          </h3>
       );
    },
-   h4: (props: React.HTMLProps<HTMLHeadingElement>) => {
+   h4: function H4Component(props: React.HTMLProps<HTMLHeadingElement>) {
+      const { isCopied: isLinkCopied, handleCopy } = useCopyWithFeedback();
       const id = slugify(String(props.children));
 
       return (
@@ -94,9 +117,9 @@ const components = {
             <a
                href={`#${id}`}
                className="heading-link text-foreground no-underline font-medium hover:text-primary active:text-muted-foreground cursor-pointer select-none transition-colors"
-               onClick={createHeadingClickHandler(id)}
+               onClick={createHeadingClickHandler(id, handleCopy)}
             >
-               {props.children}
+               {isLinkCopied ? "Link copiado!" : props.children}
             </a>
          </h4>
       );
@@ -121,23 +144,25 @@ const components = {
       <span className="text-sm text-muted-foreground px-1.5 py-0.5 bg-muted border border-accent rounded-md font-mono" {...props} />
    ),
 
-   pre: ({ children, ...rest }: { children: ReactElement<{ className?: string; children: string }> }) => {
+   pre: function PreComponent({ children, ...rest }: { children: ReactElement<{ className?: string; children: string }> }) {
+      const { isCopied, handleCopy } = useCopyWithFeedback();
       const child = children.props;
       const language = child.className?.replace("language-", "") || "text";
       const code = child.children.trim?.() || "";
 
       const handleCopyCode = () => {
          navigator.clipboard.writeText(code);
+         handleCopy();
       };
 
       return (
          <div className="relative group my-6">
             <button
                onClick={handleCopyCode}
-               className="absolute top-2 right-2 p-2 bg-transparent border border-[#606060] dark:border-border text-[#909090] hover:text-white active:scale-90 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 cursor-pointer rounded-md"
+               className="absolute top-2 right-2 p-1 m-1 bg-transparent text-[#909090] hover:text-white active:scale-90 transition-colors focus:opacity-100 cursor-pointer rounded-md"
                aria-label="Copiar código"
             >
-               <GoCopy className="w-4 h-4" />
+               {isCopied ? <GoCheck className="w-4 h-4" /> : <GoCopy className="w-4 h-4" />}
             </button>
             <SyntaxHighlighter
                language={language}
