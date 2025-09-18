@@ -16,11 +16,11 @@
 
    body {
       font-family: "Satoshi", sans-serif;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: background-color 0.1s ease, color 0.1s ease;
    }
 
    html {
-      transition: background-color 0.3s ease;
+      transition: background-color 0.1s ease;
    }
 }
 
