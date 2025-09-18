@@ -79,7 +79,7 @@ const SidebarDrawer = () => {
             )}
          />
          <Drawer.Portal>
-            <Drawer.Overlay className="fixed inset-0 bg-black/20" />
+            <Drawer.Overlay className="fixed inset-0 bg-black/20 z-99" />
             <Drawer.Content className="bg-background text-foreground fixed right-0 top-0 z-100 flex h-full w-[90vw] flex-col border border-border sm:w-[70vw] lg:w-[400px]">
                <div className="flex flex-col h-full overflow-hidden">
                   <div className="flex justify-between items-center p-6 pb-4 flex-shrink-0">

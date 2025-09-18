@@ -7,7 +7,7 @@ import { FaUserAlt } from "react-icons/fa";
 const Header = () => {
    return (
       <header
-         className={`sticky top-0 z-[50] flex justify-between items-center pt-4 pb-2 transition-all duration-300 bg-background/80 backdrop-blur-md border-b border-transparent shadow-sm`}
+         className={`sticky top-0 z-[50] flex justify-between items-center pt-4 pb-2 backdrop-blur-md`}
       >
          <NavLink to="/">
             <Avatar className="size-10 sm:size-14 hover:scale-105 active:scale-95 transition-all duration-100 rounded-sm">
@@ -42,7 +42,7 @@ function HeaderLink({ to, title }: { to: string; title: string }) {
             <span className="relative">
                {title}
                <span
-                  className={`absolute left-0 bottom-0 h-[1px] bg-foreground transition-all duration-500 ${isActive ? "w-full" : "w-0"
+                  className={`absolute left-0 bottom-0 h-[1px] bg-foreground transition-all duration-100 ${isActive ? "w-full" : "w-0"
                      }`}
                ></span>
             </span>
