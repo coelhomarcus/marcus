@@ -6,7 +6,9 @@ import { FaUserAlt } from "react-icons/fa";
 
 const Header = () => {
    return (
-      <header className="flex justify-between items-center mb-4">
+      <header
+         className={`sticky top-0 z-[50] flex justify-between items-center pt-4 pb-2 transition-all duration-300 bg-background/80 backdrop-blur-md border-b border-transparent shadow-sm`}
+      >
          <NavLink to="/">
             <Avatar className="size-10 sm:size-14 hover:scale-105 active:scale-95 transition-all duration-100 rounded-sm">
                <AvatarImage className="object-cover" src="https://github.com/coelhomarcus.png" />
