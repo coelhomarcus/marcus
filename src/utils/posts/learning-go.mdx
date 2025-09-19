@@ -18,18 +18,13 @@ Se tiver usando vscode: Ctrl + Shift + P → Go Install/Update Tools
 -   `go install` - Compila e instala um package
 -   `go test` - Roda algum teste relacionado ao projeto
 
-## Packages e Organização de Código
-
 ### Como os packages (pacotes) funcionam?
 
-Em Go existem dois tipos de pacotes: **Executáveis** e **Reutilizáveis**
+Em Go, existem dois tipos de pacotes:
 
-O `package main` é um pacote executável, ele precisa ter uma função main dentro, o nome do arquivo em si não importa, poderia ser qualquercoisa.go mas se tiver a função main ele é o pacote executável. Esse é o pacote principal, o que é usado pra buildar o projeto.
+**Executáveis** `package main`: Geram programas que podem ser rodados. Precisam ter uma função main e são usados para criar o executável do projeto.
 
-Se tentar buildar um projeto com um pacote que não seja o main, ele não vai gerar o executável. E como saber se um pacote é executável ou reutilizável?.
-
--   Se for `package main`, é executável.
--   Qualquer outro nome, tipo `package utils`, `package math`, é reutilizável, ou seja, código que pode ser usado em outros lugares como se fosse uma dependência.
+**Reutilizáveis** (qualquer outro nome): Servem como bibliotecas e podem ser importados em outros pacotes, mas não geram executável sozinhos.
 
 ### Importações
 
@@ -41,7 +36,6 @@ import (
 	"marcus/pacote"
 	"fmt"
 )
-
 
 // Renomeando pacote na Importação
 import (
@@ -56,16 +50,9 @@ func main() {
 
 ### Criando um Pacote
 
-Para criar um pacote, basta criar uma pasta com o nome desejado, por exemplo "alfabeto". Dentro dela, coloque os arquivos Go:
+Para criar um pacote, basta criar uma pasta com o nome desejado, por exemplo `alfabeto`. Dentro dela, coloque os arquivos Go: `a.go` `b.go`
 
--   `a.go`
--   `b.go`
-
-Em todos os arquivos dentro dessa pasta, a primeira linha deve declarar o mesmo pacote:
-
-```go
-package alfabeto
-```
+Em todos os arquivos dentro dessa pasta, a primeira linha deve declarar o mesmo pacote: `package alfabeto`
 
 Se, por exemplo, você definir uma constante em `a.go`
 
@@ -94,11 +81,10 @@ Como todos os arquivos da pasta pertencem ao mesmo pacote, qualquer função, co
 
 #### Pacotes Internos
 
-`Estrutura de pastas`
+Estrutura de pastas
 
 ```
 meuprojeto/
-│
 ├── main.go
 ├── pacote/
 │   ├── b.go
@@ -111,7 +97,6 @@ meuprojeto/
 
 ```go
 package foo
-
 // Essa variável só pode ser acessada dentro de "pacote"
 var Minha = "Sou interna"
 ```
@@ -125,7 +110,6 @@ import (
 	"fmt"
 	"meuprojeto/pacote/internal/foo"
 )
-
 // Função pública que usa a variável interna
 func PrintMinha() {
 	fmt.Println(foo.Minha)
@@ -176,12 +160,7 @@ func main() {
 }
 ```
 
-Em Go não existe undefined ou null como em outras linguagens. Se você não inicializar a variável, ela virá com um **zero value** dependendo do tipo:
-
--   string → ""
--   int → 0
--   float → 0
--   boolean → false
+Em Go não existe undefined ou null como em outras linguagens. Se você não inicializar a variável, ela virá com um **zero value** dependendo do tipo: `string: ""` `int: 0` `float: 0` `boolean: false`
 
 Tipos em Go:
 
@@ -203,21 +182,15 @@ var y float64 = float64(x)
 
 ### Funções Básicas
 
-Criando uma função que retorna string:
-
 ```go
-func myName() string {
-    return "Marcus"
-}
+//Criando uma função que retorna string:
+func myName() string { return "Marcus" }
 
-// Quando não colocamos o tipo na primeira variável, o Go entende que todas são do mesmo tipo.
+// Quando não colocamos o tipo na primeira variável,
+// o Go entende que todas são do mesmo tipo.
 func abc(a, b int) {}
 
 // Uma função pode retornar 2 valores
-func numbers() (int, int) {
-	return 10, 20
-}
-
 // Podemos dar nome às variáveis de retorno. Isso ajuda na leitura e documentação.
 func dividir(a, b int) (res, resto int) {
 	res = a / b
@@ -235,15 +208,13 @@ func dividirNaked(a, b int) (res, resto int) {
 
 func main() {
 	// Funções Anônimas
-	foo := func() {
-		fmt.Println("Hello")
-	}
+	foo := func() { fmt.Println("Hello") }
 
 	foo()
 }
 ```
 
-### Higher Order Functions
+### Função Higher Order
 
 ```go
 func main() {
@@ -251,7 +222,7 @@ func main() {
 }
 
 // Função de higher order: retorna outra função
-// Essa função retornada é chamada de closure
+// A função retornada é chamada de Closure
 func somar(a int) func(int) int {
 	return func(b int) int {
 		return a + b
@@ -270,7 +241,6 @@ func somarVariatica(nums ...int) int {
 	}
 	return out
 }
-
 // somarVariatica(10, 10, 10) => 30
 ```
 
@@ -281,42 +251,32 @@ func somarVariatica(nums ...int) int {
 Arrays tem tamanho fixo, nunca podem crescer ou diminuir
 
 ```go
-	var arr1 [5]int
-	var arr2 [5]int = [5]int{1, 2, 3, 4, 5}
-	arr3 := [5]int{3: 10} // inicializa o indice 3 com valor 10
-	arr4 := [10]int{3: 10, 6: 20} // inicializa os indices 3 e 6 com valores 10 e 20
+var arr1 [5]int
+var arr2 [5]int = [5]int{1, 2, 3, 4, 5}
+arr3 := [5]int{3: 10} // inicializa o indice 3 com valor 10
+arr4 := [10]int{3: 10, 6: 20} // inicializa os indices 3 e 6 com valores 10 e 20
 ```
 
 ### Slices
 
 Uma Slice é uma versão dinâmica de um Array.
 
--   Use `Array` quando o tamanho da lista for fixo.
--   Use `Slice` quando o tamanho for variável.
-
-Slices precisam ter todos os elementos do mesmo tipo.
-
-Quando usamos `append()`, na real estamos criando uma nova Slice com o novo valor incluso e reatribuindo essa nova Slice pra mesma variável.
-
-Pra iterar sobre uma Array ou Slice, usamos a palavra-chave `range` no loop, que percorre cada elemento.
+Use `Array` quando o tamanho da lista for fixo e use `Slice` quando o tamanho for variável.
 
 ```go
 // Criando uma Slice a partir de um Array
-
 arr := [5]int{1, 2, 3, 4, 5}
-//criando o Slice pegando do index 1 a 3 do Array
-//colocamos 4 pois ele descarta o ultimo
-//nome disso: Slice Range Syntax
+
+// Criando o Slice pegando do index 1 a 3 do Array
+// colocamos 4 pois ele descarta o ultimo (Slice Range Syntax)
 sliceArr := arr[1:4] // [2,3,4]
-//mesmo alterando depois de criar o Slice, a Array tbm é modificada
-//pois apontam pro mesmo endereço de memoria
+// mesmo alterando depois de criar o Slice, a Array tbm é modificada
+// pois apontam pro mesmo endereço de memoria
 arr[2] = 65
-fmt.Println(sliceArr)
+fmt.Println(sliceArr) // [2,65,4]
 
 // Criando uma Slice
-
-//para criar um slice basta apenas criar um array
-//mas sem limitar os espaços
+// Basta apenas criar um array mas sem limitar os espaços
 slice := []int{1, 2, 3}
 fmt.Println(slice)
 
@@ -328,15 +288,15 @@ fmt.Println(slice, len(slice), cap(slice))
 slice = append(slice, 2)
 fmt.Println(slice, len(slice), cap(slice))
 
-// Ao usar append em slices sem capacidade pré-alocada, cada vez que for necessário
-// aumentar o espaço, o Go realocará a memória e dobrará a capacidade do slice
+// Ao usar append em slices sem capacidade pré-alocada,
+// cada vez que for necessário aumentar o espaço
+// o Go realocará a memória e dobrará a capacidade do slice
 // Em loops isso pode gerar muitas realocações, impactando negativamente a performance
 
 // Uma forma mais eficiente de criar slices é com make
-// Com make podemos definir o tipo, o tamanho inicial (length) e a capacidade
+// assim podemos definir o tipo, length e capacity
 // garantindo que o espaço já esteja pré-alocado na memória
-// Essa abordagem é útil principalmente quando sabemos previamente
-// o tamanho do Slice
+// Essa abordagem é útil principalmente quando sabemos previamente o tamanho do Slice
 slicePerformatico := make([]string, 0, 10)
 fmt.Println(slicePerformatico, len(slicePerformatico), cap(slicePerformatico))
 ```
@@ -360,25 +320,22 @@ func main() {
 
    //acessando valores
    fmt.Println(mLiteralWithValues["Marcus"])
-	fmt.Println(mLiteralWithValues["Marcus"][0])
+   fmt.Println(mLiteralWithValues["Marcus"][0])
 
    //adicionando mais valores
-	mLiteralWithValues["Coelho"] = []int{4, 5, 6}
+   mLiteralWithValues["Coelho"] = []int{4, 5, 6}
    fmt.Println(mLiteralWithValues["Coelho"])
 
   //podemos verificar a existencia da chave
-	valor, seExiste := mLiteralWithValues["NaoExiste"]
-	fmt.Println(seExiste) //true or false
-	if seExiste {
-		fmt.Println(valor)
-	}
+   valor, seExiste := mLiteralWithValues["NaoExiste"]
+   fmt.Println(seExiste) //true or false
+   if seExiste { fmt.Println(valor)	}
 
    //apagar Chave do Map
-	delete(mLiteralWithValues, "Coelho")
+   delete(mLiteralWithValues, "Coelho")
 
    //limpa todas as chaves mas mantem a Capacity
    clear(mLiteralWithValues)
-
 }
 ```
 
@@ -387,8 +344,6 @@ func main() {
 Em Go, `structs` são semelhantes a classes e são declaradas com a keyword `type`. Cada campo é definido em uma nova linha. Métodos são funções que recebem um receiver parameter, permitindo que sejam associados a um tipo específico. Também é possível usar embed para incorporar um tipo dentro de outro. Struct tags permitem controlar o comportamento de serialização, por exemplo, para JSON.
 
 ```go
-type MinhaString string
-
 type User struct {
 	Name string
 	ID   int
@@ -402,8 +357,7 @@ func (u User) hello() {
 func main() {
 	// Inicializando uma struct User. Se não inicializada, os valores virão zerados
 	user1 := User{"Marcus", 1}
-	// Alternativa usando nomes de campos:
-	// user1 := User{Name: "Marcus", ID: 1}
+	// Alternativa usando nomes de campos -> user1 := User{Name: "Marcus", ID: 1}
 
 	fmt.Println(user1, user1.Name, user1.ID)
 	user1.hello() // Output: Hello Marcus
@@ -419,15 +373,12 @@ type Pet struct {
 	ID   int    `json:"id"`
 }
 
-
 func main() {
    // Criando e serializando um Pet para JSON
 	pet1 := Pet{"Cafundongo", 1}
 	petJson, err := json.Marshal(pet1)
 
-	if err != nil {
-		panic(err)
-	}
+	if err != nil { panic(err)	}
 
 	fmt.Println(string(petJson))
    // Output: {"name":"Cafundongo","id":1}
@@ -521,26 +472,16 @@ O tipo `any` é apenas um alias (apelido) para `interface{}`. Ou seja, type `any
 Mas usar any como tipo é altamente desencorajado!
 
 ```go
-func foo(a any) {
-	fmt.Println(a)
-}
+func foo(a any) { fmt.Println(a) }
+// mas duas sao a mesma coisa
+func foo(a interface{}) { fmt.Println(a) }
 
-func foo(a interface{}) {
-	fmt.Println(a)
-}
-
-func main{
-   minhaString := "Marcus"
-   meuInt := 18
-   meuSlice := []int{1,2,3}
-
-   foo(minhaString)
-   foo(meuInt)
-   foo(meuSlice)
+func main() {
+   foo("Marcus")
+   foo(19)
+   foo([]int{1,2,3})
 }
 ```
-
-
 
 ## Controle de Fluxo
 
@@ -649,8 +590,6 @@ Em Go, erros são representados por interfaces do tipo error. O tratamento de er
 Funções que podem falhar geralmente retornam dois valores: o resultado e um error.
 
 ```go
-package main
-
 import (
     "errors"
     "fmt"
@@ -766,13 +705,12 @@ func main() {
 
 ## Readers & Writers
 
-- O padrão Reader/Writer é muito comum em Go.
+O padrão Reader/Writer é muito comum em Go.
+
 - Qualquer struct que implemente `Write([]byte) (int, error)` é um Writer.
 - Qualquer struct que implemente `Read([]byte) (int, error)` é um Reader.
-- Existem funções utilitárias do pacote io, como:
-    - `io.ReadAll(reader)` lê tudo de uma vez só
-    - `io.ReadFull(reader, buffer)` lê o buffer até estar cheio ou EOF
-- Usar essas interfaces permite criar código genérico para leitura e escrita de dados.
+
+Existem funções utilitárias do pacote io, como: `io.ReadAll(reader)` lê tudo de uma vez só e `io.ReadFull(reader, buffer)` lê o buffer até estar cheio ou EOF Usar essas interfaces permite criar código genérico para leitura e escrita de dados.
 
 ```go
 package main
@@ -869,7 +807,3 @@ func take(x *int) {
 	*x = 20
 }
 ```
-
-
-
-
