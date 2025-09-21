@@ -30,17 +30,16 @@ const About = () => {
             projetos, meu conhecimento consistente em{" "}
             <span className="text-foreground">Vite, Next.js, Tailwind, Typescript, Node.js</span> e pretendo
             aprofundar meu conhecimento em <span className="text-foreground">Go</span>
-            <a href="https://coelhomarcus.com/blog/learning-go" target="_blank" rel="noopener noreferrer">
+            <span>
                <img src="./src/assets/gopher.svg" alt="Gopher" className="size-6 inline ml-1 active:scale-95" />
-            </a>
-            .
+            </span>
          </p>
          <div className="flex justify-center mb-4 gap-4">
             <Link
                to={`/blog/${arrBlog[0].slug}`}
-               className="group flex items-center justify-center gap-1 vw-fit text-xs text-muted-foreground border border-border hover:border-border/30 hover:bg-gradient-to-b hover:from-background hover:to-muted p-1 text-center transition-all duration-100"
+               className="group flex items-center justify-center gap-1 vw-fit text-xs text-muted-foreground border border-border hover:border-border/30 hover:bg-gradient-to-b hover:from-background hover:to-muted p-1 text-center transition-all duration-300 rounded-md"
             >
-               <div className="w-fit border border-border group-hover:border-transparent p-1 px-2 mr-1 text-center transition-all duration-100">
+               <div className="w-fit border border-border group-hover:border-transparent p-1 px-2 mr-1 text-center transition-all duration-300 rounded-md">
                   <div className="relative inline-flex w-2 h-2 mr-1">
                      <div className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping"></div>
                      <div className="relative inline-flex w-2 h-2 bg-green-500 rounded-full"></div>
