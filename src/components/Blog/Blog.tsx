@@ -1,20 +1,9 @@
 import { Link } from "react-router";
+import type { BlogCardProps } from "@/types";
 import { arrBlog } from "../../utils/data/posts";
 import PageTitle from "@/components/PageTitle/PageTitle";
 
-const BlogCard = ({
-   slug,
-   title,
-   date,
-   desc,
-}: // tags,
-   {
-      slug: string;
-      title: string;
-      date: string;
-      desc: string;
-      tags?: string[];
-   }) => {
+const BlogCard = ({ slug, title, date, desc }: BlogCardProps) => {
    return (
       <Link to={`/blog/${slug}`} key={slug} className="group block transition-all duration-100 cursor-auto">
          <div className="flex flex-col h-full">
@@ -51,7 +40,6 @@ const Blog = () => {
                      title={post.title}
                      date={post.date}
                      desc={post.desc}
-                     tags={post.tags}
                   />
                ))
             ) : (

@@ -1,5 +1,6 @@
 import { NavLink } from "react-router";
 import { Avatar, AvatarFallback, AvatarImage } from "@/lib/ui/avatar";
+import type { HeaderLinkProps } from "@/types";
 
 import SidebarDrawer from "@/lib/ui/vaul";
 import { FaUserAlt } from "react-icons/fa";
@@ -30,7 +31,7 @@ const Header = () => {
    );
 };
 
-function HeaderLink({ to, title }: { to: string; title: string }) {
+function HeaderLink({ to, title }: HeaderLinkProps) {
    return (
       <NavLink
          to={to}

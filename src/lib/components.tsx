@@ -1,10 +1,11 @@
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import { nightOwl as theme } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { ReactElement, useState } from "react";
+import { useState } from "react";
 import { GoCopy, GoCheck } from "react-icons/go";
+import type { CopyHookReturn, HeadingProps, PreComponentProps } from "@/types";
 
 
-const useCopyWithFeedback = (duration = 1000) => {
+const useCopyWithFeedback = (duration = 1000): CopyHookReturn => {
    const [isCopied, setIsCopied] = useState(false);
 
    const handleCopy = () => {
@@ -60,7 +61,7 @@ const createHeadingClickHandler = (id: string, onCopy?: () => void) => (e: React
 };
 
 const components = {
-   h1: function H1Component(props: React.HTMLProps<HTMLHeadingElement>) {
+   h1: function H1Component(props: HeadingProps) {
       const { isCopied: isLinkCopied, handleCopy } = useCopyWithFeedback();
       const id = slugify(String(props.children));
 
@@ -76,7 +77,7 @@ const components = {
          </h1>
       );
    },
-   h2: function H2Component(props: React.HTMLProps<HTMLHeadingElement>) {
+   h2: function H2Component(props: HeadingProps) {
       const { isCopied: isLinkCopied, handleCopy } = useCopyWithFeedback();
       const id = slugify(String(props.children));
 
@@ -92,7 +93,7 @@ const components = {
          </h2>
       );
    },
-   h3: function H3Component(props: React.HTMLProps<HTMLHeadingElement>) {
+   h3: function H3Component(props: HeadingProps) {
       const { isCopied: isLinkCopied, handleCopy } = useCopyWithFeedback();
       const id = slugify(String(props.children));
 
@@ -108,7 +109,7 @@ const components = {
          </h3>
       );
    },
-   h4: function H4Component(props: React.HTMLProps<HTMLHeadingElement>) {
+   h4: function H4Component(props: HeadingProps) {
       const { isCopied: isLinkCopied, handleCopy } = useCopyWithFeedback();
       const id = slugify(String(props.children));
 
@@ -144,7 +145,7 @@ const components = {
       <span className="text-sm text-muted-foreground px-1.5 py-0.5 bg-muted border border-accent rounded-md font-mono" {...props} />
    ),
 
-   pre: function PreComponent({ children, ...rest }: { children: ReactElement<{ className?: string; children: string }> }) {
+   pre: function PreComponent({ children, ...rest }: PreComponentProps) {
       const { isCopied, handleCopy } = useCopyWithFeedback();
       const child = children.props;
       const language = child.className?.replace("language-", "") || "text";

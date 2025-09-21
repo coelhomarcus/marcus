@@ -1,26 +1,19 @@
 import React from "react";
 import { Drawer } from "vaul-base";
 import { NavLink } from "react-router";
+import type { Page, SidebarLinkProps } from "@/types";
+
 import { FiUser } from "react-icons/fi";
 import { FaLaptopCode, FaRegFolderOpen, FaRegFilePdf, FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { SlMenu } from "react-icons/sl";
 import { GoSidebarCollapse } from "react-icons/go";
-
 import { MdAlternateEmail } from "react-icons/md";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { GoArrowUpRight } from "react-icons/go";
-
 import { TbCertificate } from "react-icons/tb";
-import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";
 
-type Page = {
-   name: string;
-   href: string;
-   icon: React.ComponentType<{ className?: string }>;
-   external?: boolean;
-   download?: boolean;
-};
+import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";
 
 const navigation: Page[] = [
    { name: "Sobre", href: "/", icon: FiUser },
@@ -136,7 +129,7 @@ const SidebarDrawer = () => {
    );
 };
 
-function SidebarLink({ item, onClose }: { item: Page; onClose: () => void }) {
+function SidebarLink({ item, onClose }: SidebarLinkProps) {
    const Icon = item.icon;
 
    const handleDownload = () => {

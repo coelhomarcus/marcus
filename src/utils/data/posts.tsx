@@ -1,4 +1,6 @@
-export const arrBlog = [
+import type { BlogPost } from "@/types";
+
+export const arrBlog: BlogPost[] = [
    {
       slug: "omarchy",
       title: "Minha experiência com Omarchy",

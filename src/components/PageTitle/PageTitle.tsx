@@ -1,9 +1,5 @@
 import { useEffect } from "react";
-
-interface PageTitleProps {
-   title: string;
-   suffix?: string;
-}
+import type { PageTitleProps } from "@/types";
 
 const PageTitle: React.FC<PageTitleProps> = ({ title, suffix = " |  Marcus Coelho" }) => {
    useEffect(() => {

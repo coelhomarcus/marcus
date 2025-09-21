@@ -1,23 +1,16 @@
-import { IconType } from "react-icons";
-import { AnchorHTMLAttributes } from "react";
-
-interface ContactLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-    Icon: IconType;
-    title: string;
-    href: string;
-}
+import type { ContactLinkProps } from "@/types";
 
 const ContactLink = ({ Icon, title, href, ...props }: ContactLinkProps) => {
-    return (
-        <a
-            href={href}
-            className="inline-flex items-center gap-1 font-medium text-xs transition-colors hover:text-muted-foreground"
-            {...props}
-        >
-            <Icon className="size-4" />
-            {title}
-        </a>
-    );
+   return (
+      <a
+         href={href}
+         className="inline-flex items-center gap-1 font-medium text-xs transition-colors hover:text-muted-foreground"
+         {...props}
+      >
+         <Icon className="size-4" />
+         {title}
+      </a>
+   );
 };
 
 export default ContactLink;

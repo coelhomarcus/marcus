@@ -1,11 +1,5 @@
 import { GoArrowUpRight } from "react-icons/go";
-
-interface ProjectCardProps {
-   href: string;
-   name: string;
-   desc: string;
-   tech?: string[];
-}
+import type { ProjectCardProps } from "@/types";
 
 const ProjectCard = ({ href, name, desc, tech = [] }: ProjectCardProps) => {
    return (
