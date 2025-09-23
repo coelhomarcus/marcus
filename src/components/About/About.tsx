@@ -1,10 +1,9 @@
 import { Link } from "react-router";
 import PageTitle from "@/components/PageTitle/PageTitle";
-import { CgExternal } from "react-icons/cg";
 import { arrBlog } from "@/utils/data/posts";
 import { arrWorks } from "@/utils/data/works";
-import { FaBriefcase } from "react-icons/fa";
-import { IoArrowForwardSharp } from "react-icons/io5";
+
+import { GoArrowUpRight, GoArrowRight, GoStack } from "react-icons/go";
 
 const About = () => {
    return (
@@ -21,7 +20,7 @@ const About = () => {
                   href="https://docs.google.com/document/d/1wgOhwh-1YT-LRog9j1tvxzBVKfraoSzps1AiBGuSx9A/export?format=pdf"
                   download
                >
-                  veja meu currículo{<CgExternal className="inline mb-1" />}
+                  veja meu currículo{<GoArrowUpRight className="inline" />}
                </a>
             </span>
          </p>
@@ -46,7 +45,7 @@ const About = () => {
                   </div>
                   Novo
                </div>
-               Post publicado! Vá conferir <IoArrowForwardSharp className="mr-1" />
+               Post publicado! Vá conferir <GoArrowRight className="mr-1" />
             </Link>
          </div>
          <WorksExperience />
@@ -58,8 +57,8 @@ function WorksExperience() {
    return (
       <div className="space-y-6 gap-2">
          <div className="flex items-center gap-2 text-foreground justify-between">
-            <p className="text-sm font-semibold">Experiência</p>
-            <FaBriefcase className="text-sm text-muted-foreground" />
+            <p className="text-base font-semibold">Experiência</p>
+            <GoStack className="text-base text-muted-foreground" />
          </div>
          {arrWorks.map((work) => (
             <div className="flex flex-col sm:flex-row gap-2 justify-between sm:items-center" key={work.company}>

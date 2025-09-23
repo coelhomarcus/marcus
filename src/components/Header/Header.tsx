@@ -11,7 +11,7 @@ const Header = () => {
          className={`flex justify-between items-center pt-4 pb-2`}
       >
          <NavLink to="/">
-            <Avatar className="size-10 sm:size-14 hover:scale-105 active:scale-95 transition-all duration-100 rounded-sm">
+            <Avatar className="size-10 sm:size-14 hover:scale-105 active:scale-95 transition-all duration-200 rounded-sm">
                <AvatarImage className="object-cover" src="https://github.com/coelhomarcus.png" />
                <AvatarFallback className="size-10 sm:size-15 rounded-sm">
                   <FaUserAlt className="opacity-60 text-foreground" aria-hidden="true" />

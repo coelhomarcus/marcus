@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { FiSun, FiMoon } from "react-icons/fi";
+import { FaSun, FaMoon } from "react-icons/fa6";
+
 
 const ThemeToggle = () => {
    const [isDark, setIsDark] = useState(true);
@@ -43,11 +44,11 @@ const ThemeToggle = () => {
          aria-label={`Mudar para tema ${isDark ? "claro" : "escuro"}`}
       >
          <div className="relative w-5 h-5">
-            <FiSun
+            <FaSun
                className={`w-5 h-5 absolute inset-0 transition-all duration-100 text-muted-foreground group-hover:text-foreground ${isDark ? "opacity-0 rotate-90" : "opacity-100 rotate-0"
                   }`}
             />
-            <FiMoon
+            <FaMoon
                className={`w-5 h-5 absolute inset-0 transition-all duration-100 text-muted-foreground group-hover:text-foreground ${isDark ? "opacity-100 rotate-0" : "opacity-0 -rotate-90"
                   }`}
             />

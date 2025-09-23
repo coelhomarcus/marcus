@@ -3,26 +3,20 @@ import { Drawer } from "vaul-base";
 import { NavLink } from "react-router";
 import type { Page, SidebarLinkProps } from "@/types";
 
-import { FiUser } from "react-icons/fi";
-import { FaLaptopCode, FaRegFolderOpen, FaRegFilePdf, FaGithub, FaLinkedin } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { SlMenu } from "react-icons/sl";
-import { GoSidebarCollapse } from "react-icons/go";
-import { MdAlternateEmail } from "react-icons/md";
-import { MdOutlineFileDownload } from "react-icons/md";
-import { GoArrowUpRight } from "react-icons/go";
-import { TbCertificate } from "react-icons/tb";
+import { FaXTwitter, FaGithub, FaLinkedin } from "react-icons/fa6";
+import { GoSidebarCollapse, GoArrowUpRight, GoMortarBoard, GoPerson, GoFile, GoRepo, GoPaperclip, GoMention, GoX, GoMoveToBottom } from "react-icons/go";
+
 
 import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";
 
 const navigation: Page[] = [
-   { name: "Sobre", href: "/", icon: FiUser },
-   { name: "Projetos", href: "/projects", icon: FaLaptopCode },
-   { name: "Blog", href: "/blog", icon: FaRegFolderOpen },
+   { name: "Sobre", href: "/", icon: GoPerson },
+   { name: "Projetos", href: "/projects", icon: GoRepo },
+   { name: "Blog", href: "/blog", icon: GoPaperclip },
    {
       name: "Curriculo",
       href: "https://docs.google.com/document/d/1wgOhwh-1YT-LRog9j1tvxzBVKfraoSzps1AiBGuSx9A/export?format=pdf",
-      icon: FaRegFilePdf,
+      icon: GoFile,
       external: true,
       download: true,
    },
@@ -32,7 +26,7 @@ const socials: Page[] = [
    {
       name: "Email",
       href: "mailto:marcusrangelcoelho@gmail.com",
-      icon: MdAlternateEmail,
+      icon: GoMention,
       external: true,
    },
    { name: "GitHub", href: "https://github.com/coelhomarcus", icon: FaGithub, external: true },
@@ -49,7 +43,7 @@ const others: Page[] = [
    {
       name: "Certificados",
       href: "/certificates",
-      icon: TbCertificate,
+      icon: GoMortarBoard,
    },
 ];
 
@@ -67,7 +61,9 @@ const SidebarDrawer = () => {
                   onClick={() => setIsOpen(true)}
                >
                   <GoSidebarCollapse className="w-5 h-5 hidden md:block text-muted-foreground" />
-                  <SlMenu className="w-5 h-5 block md:hidden text-muted-foreground" />
+                  <svg className="w-5 h-5 block md:hidden text-muted-foreground" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
+                  </svg>
                </button>
             )}
          />
@@ -78,7 +74,7 @@ const SidebarDrawer = () => {
                   <div className="flex justify-between items-center p-6 pb-4 flex-shrink-0">
                      <ThemeToggle />
                      <Drawer.Close className="p-2 hover:text-muted-foreground rounded-md transition-colors cursor-pointer">
-                        ✕
+                        <GoX className="size-5" />
                      </Drawer.Close>
                   </div>
 
@@ -156,7 +152,7 @@ function SidebarLink({ item, onClose }: SidebarLinkProps) {
                         {item.name}
                      </span>
                   </div>
-                  <MdOutlineFileDownload className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                  <GoMoveToBottom className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
                </>
             ) : (
                <a

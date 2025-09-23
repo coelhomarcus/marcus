@@ -9,7 +9,7 @@ export const arrBlog: BlogPost[] = [
    },
    {
       slug: "dotfiles",
-      title: "dotfiles",
+      title: "Environment",
       desc: "Ambiente",
       date: "26.04.2025",
    },
