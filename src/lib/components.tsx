@@ -66,7 +66,7 @@ const components = {
       const id = slugify(String(props.children));
 
       return (
-         <h1 id={id} className="scroll-mt-20 text-2xl md:text-3xl font-bold mt-6 mb-4 first:mt-0">
+         <h1 id={id} className="scroll-mt-20 text-2xl md:text-3xl font-bold mt-6 mb-4 first:mt-0 border-b">
             <a
                href={`#${id}`}
                className="heading-link text-foreground no-underline font-bold hover:text-primary active:text-muted-foreground cursor-pointer select-none transition-colors"
@@ -82,7 +82,7 @@ const components = {
       const id = slugify(String(props.children));
 
       return (
-         <h2 id={id} className="scroll-mt-20 text-xl md:text-2xl font-semibold mt-6 mb-3">
+         <h2 id={id} className="scroll-mt-20 text-xl md:text-2xl font-semibold mt-6 mb-3 border-b">
             <a
                href={`#${id}`}
                className="heading-link text-foreground no-underline font-semibold hover:text-primary active:text-muted-foreground cursor-pointer select-none transition-colors"
