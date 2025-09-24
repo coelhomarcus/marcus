@@ -1,21 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { FaSun, FaMoon } from "react-icons/fa6";
 
 
 const ThemeToggle = () => {
    const [isDark, setIsDark] = useState(true);
 
-   useEffect(() => {
-      const savedTheme = localStorage.getItem("theme");
-      const isDarkTheme = savedTheme ? savedTheme === "dark" : true;
+   // TODO - VERIFICAR LOCALSTORAGE QUANDO ENTRAR NO SITE
 
-      setIsDark(isDarkTheme);
-      applyTheme(isDarkTheme);
+   // useEffect(() => {
+   //    const savedTheme = localStorage.getItem("theme");
+   //    const isDarkTheme = savedTheme ? savedTheme === "dark" : true;
 
-      if (!savedTheme) {
-         localStorage.setItem("theme", "dark");
-      }
-   }, []);
+   //    setIsDark(isDarkTheme);
+   //    applyTheme(isDarkTheme);
+
+   //    if (!savedTheme) {
+   //       localStorage.setItem("theme", "dark");
+   //    }
+   // }, []);
 
    const applyTheme = (dark: boolean) => {
       const html = document.documentElement;
