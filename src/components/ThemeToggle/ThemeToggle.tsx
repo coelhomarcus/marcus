@@ -1,43 +1,11 @@
-import { useState } from "react";
 import { FaSun, FaMoon } from "react-icons/fa6";
 
+interface ThemeToggleProps {
+   isDark: boolean;
+   toggleTheme: () => void;
+}
 
-const ThemeToggle = () => {
-   const [isDark, setIsDark] = useState(true);
-
-   // TODO - VERIFICAR LOCALSTORAGE QUANDO ENTRAR NO SITE
-
-   // useEffect(() => {
-   //    const savedTheme = localStorage.getItem("theme");
-   //    const isDarkTheme = savedTheme ? savedTheme === "dark" : true;
-
-   //    setIsDark(isDarkTheme);
-   //    applyTheme(isDarkTheme);
-
-   //    if (!savedTheme) {
-   //       localStorage.setItem("theme", "dark");
-   //    }
-   // }, []);
-
-   const applyTheme = (dark: boolean) => {
-      const html = document.documentElement;
-      const body = document.body;
-
-      if (dark) {
-         html.classList.add("dark");
-         body.classList.add("dark");
-      } else {
-         html.classList.remove("dark");
-         body.classList.remove("dark");
-      }
-   };
-
-   const toggleTheme = () => {
-      const newTheme = !isDark;
-      setIsDark(newTheme);
-      applyTheme(newTheme);
-      localStorage.setItem("theme", newTheme ? "dark" : "light");
-   };
+const ThemeToggle = ({ isDark, toggleTheme }: ThemeToggleProps) => {
 
    return (
       <button

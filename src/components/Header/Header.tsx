@@ -5,7 +5,12 @@ import type { HeaderLinkProps } from "@/types";
 import SidebarDrawer from "@/lib/ui/vaul";
 import { FaUserAlt } from "react-icons/fa";
 
-const Header = () => {
+interface HeaderProps {
+   isDark: boolean;
+   toggleTheme: () => void;
+}
+
+const Header = ({ isDark, toggleTheme }: HeaderProps) => {
    return (
       <header
          className={`flex justify-between items-center pt-4 pb-2`}
@@ -25,7 +30,7 @@ const Header = () => {
                <HeaderLink title="Projetos" to="/projects" />
                <HeaderLink title="Blog" to="/blog" />
             </div>
-            <SidebarDrawer />
+            <SidebarDrawer isDark={isDark} toggleTheme={toggleTheme} />
          </div>
       </header>
    );
