@@ -1,11 +1,15 @@
 import { useEffect } from "react";
 import type { PageTitleProps } from "@/types";
 
-const PageTitle: React.FC<PageTitleProps> = ({ title, suffix = " |  Marcus Coelho" }) => {
+const PageTitle: React.FC<PageTitleProps> = ({ title, suffix }) => {
    useEffect(() => {
       const originalTitle = document.title;
+      if (suffix) {
+         document.title = title + " |  Marcus Coelho"
+      } else {
+         document.title = title;
+      }
 
-      document.title = title + suffix;
 
       return () => {
          document.title = originalTitle;

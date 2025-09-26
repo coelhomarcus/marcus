@@ -46,7 +46,7 @@ const App = () => {
    }, []);
 
    return (
-      <div className="px-4 py-4 sm:px-6 sm:py-8 min-h-[100vh] space-y-3 max-w-[850px] mx-auto">
+      <div className="px-4 py-4 sm:px-6 sm:py-8 min-h-[100vh] space-y-3 max-w-[900px] mx-auto">
          <Header isDark={isDark} toggleTheme={toggleTheme} />
          <Routes>
             <Route path="/" element={<About />} />

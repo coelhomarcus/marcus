@@ -153,7 +153,7 @@ function SidebarLink({ item, onClose }: SidebarLinkProps) {
                <>
                   <div className="flex items-center space-x-3">
                      <Icon className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
-                     <span className="text-sm font-medium group-hover:text-foreground transition-colors">
+                     <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
                         {item.name}
                      </span>
                   </div>
@@ -169,7 +169,7 @@ function SidebarLink({ item, onClose }: SidebarLinkProps) {
                >
                   <div className="flex items-center space-x-3">
                      <Icon className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
-                     <span className="text-sm font-medium group-hover:text-foreground transition-colors">
+                     <span className="text-sm text-muted-foreground font-medium group-hover:text-foreground transition-colors">
                         {item.name}
                      </span>
                   </div>

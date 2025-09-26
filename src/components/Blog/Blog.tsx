@@ -10,7 +10,7 @@ const BlogCard = ({ slug, title, date, desc }: BlogCardProps) => {
             <div className="flex flex-col gap-2 sm:gap-0 sm:flex-row justify-between">
                <div className="flex gap-6">
                   <div className="flex items-center text-xs text-muted-foreground">
-                     <span className="font-medium cursor-default w-[70px]">{date}</span>
+                     <span className="font-medium cursor-default w-[70px] font-mono">{date}</span>
                   </div>
                   <Link to={`/blog/${slug}`} key={slug} className="text-base font-normal text-muted-foreground underline decoration-muted-foreground hover:decoration-foreground hover:text-foreground tracking-wide cursor-pointer">
                      {title}
@@ -28,7 +28,7 @@ const BlogCard = ({ slug, title, date, desc }: BlogCardProps) => {
 const Blog = () => {
    return (
       <div className="text-foreground">
-         <PageTitle title="Blog" />
+         <PageTitle title="Blog" suffix />
          <h1 className="text-xl font-semibold mb-2">Blog</h1>
          <p className="text-muted-foreground text-sm mb-4">Meus pensamentos e anotações.</p>
          <div className="space-y-4">

@@ -10,7 +10,7 @@ const Projects = () => {
 
    return (
       <div className="text-foreground">
-         <PageTitle title="Projetos" />
+         <PageTitle title="Projetos" suffix />
          <h1 className="text-xl font-semibold mb-2">Projetos</h1>
          <p className="text-muted-foreground text-sm mb-4">Projetos que fiz ou participei no desenvolvimento.</p>
          <div className="space-y-4 mb-8">

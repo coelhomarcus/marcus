@@ -126,11 +126,11 @@ const components = {
       );
    },
    p: (props: React.HTMLProps<HTMLParagraphElement>) => (
-      <p className="text-muted-foreground mb-4 leading-relaxed" {...props} />
+      <p className="text-muted-foreground mb-4 leading-relaxed font-medium" {...props} />
    ),
    a: (props: React.HTMLProps<HTMLAnchorElement>) => (
       <a
-         className="group prose-base font-normal text-primary underline hover:text-primary/80"
+         className="group prose-base font-medium text-primary underline hover:text-primary/80"
          target="_blank"
          {...props}
       >

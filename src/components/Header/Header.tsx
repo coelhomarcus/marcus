@@ -13,7 +13,7 @@ interface HeaderProps {
 const Header = ({ isDark, toggleTheme }: HeaderProps) => {
    return (
       <header
-         className={`flex justify-between items-center pt-4 pb-2`}
+         className="flex justify-between items-center pt-4 pb-2"
       >
          <NavLink to="/">
             <Avatar className="size-10 sm:size-14 hover:scale-105 active:scale-95 transition-all duration-200 rounded-sm">
@@ -25,7 +25,7 @@ const Header = ({ isDark, toggleTheme }: HeaderProps) => {
          </NavLink>
 
          <div className="flex items-center gap-4 sm:gap-5">
-            <div className="hidden md:flex gap-4 sm:gap-5 text-muted-foreground *:text-sm *:hover:text-foreground *:transition-colors">
+            <div className="hidden md:flex gap-4 sm:gap-5 text-muted-foreground font-medium text-sm *:hover:text-foreground">
                <HeaderLink title="Sobre" to="/" />
                <HeaderLink title="Projetos" to="/projects" />
                <HeaderLink title="Blog" to="/blog" />

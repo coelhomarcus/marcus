@@ -49,7 +49,7 @@ export interface ProjectCardProps {
 
 export interface PageTitleProps {
    title: string;
-   suffix?: string;
+   suffix?: boolean;
 }
 
 export interface ContactLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
