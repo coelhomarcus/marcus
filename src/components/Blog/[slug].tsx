@@ -3,13 +3,11 @@ import { MDXProvider } from "@mdx-js/react";
 import { useParams, Link, useLocation } from "react-router";
 import PageTitle from "@/components/PageTitle/PageTitle";
 
-import { FaChevronLeft } from "react-icons/fa";
+import { FaChevronLeft, FaSpinner } from "react-icons/fa6";
 
 import { arrBlog } from "../../utils/data/posts";
 import components from "../../lib/components";
 const posts = import.meta.glob("../../utils/posts/*.mdx");
-
-import { PiSpinnerThin } from "react-icons/pi";
 
 const Post = () => {
    const { slug } = useParams();
@@ -36,7 +34,7 @@ const Post = () => {
    if (!MDXComponent)
       return (
          <div className="flex items-center justify-center">
-            <PiSpinnerThin className="text-muted-foreground animate-[spin_3s_linear_infinite] duration-100 size-6 mt-10" />
+            <FaSpinner className="text-muted-foreground animate-[spin_3s_linear_infinite] duration-100 size-6 mt-10" />
          </div>
       );
 
@@ -91,7 +89,7 @@ const Post = () => {
             >
                {titleClicked ? "Link Copiado!" : post.title}
             </button>
-            <div className="hidden sm:flex sm:gap-0 items-center text-muted-foreground text-sm">
+            <div className="hidden sm:flex sm:gap-0 items-center text-muted-foreground text-xs font-mono">
                <span>{post.date}</span>
             </div>
          </div>
