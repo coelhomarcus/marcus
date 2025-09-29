@@ -17,12 +17,6 @@ export const arrProjects: Project[] = [
 
 export const arrSideProjects: Project[] = [
    {
-      href: "https://github.com/coelhomarcus/dongo",
-      name: "Dongo",
-      desc: "Restful API Client",
-      tech: ["React", "Typescript", "Tailwind", "Electron"],
-   },
-   {
       href: "https://coelhomarcus.github.io/bunnybash/",
       name: "BunnyBash",
       desc: "Site que simula um terminal",
@@ -41,30 +35,9 @@ export const arrSideProjects: Project[] = [
       tech: ["Design"],
    },
    {
-      href: "https://coelhomarcus.itch.io/mailman",
-      name: "Mailman",
-      desc: "Protótipo de jogo de terror retrô",
-      tech: ["C#", "Unity", "Blender"],
-   },
-   {
-      href: "https://coelhomarcus.github.io/catype/",
-      name: "Catype",
-      desc: "Protótipo de site de digitação",
-      tech: ["HTML", "CSS", "Javascript"],
-   },
-];
-
-export const arrSecondaryAccount: Project[] = [
-   {
       href: "https://submarcus.github.io/midiateca",
       name: "Midiateca",
       desc: "Minha coleção de filmes, séries, animes e mangás",
-      tech: ["React", "Typescripot", "Tailwind"],
-   },
-   {
-      href: "https://submarcus.github.io/games-beaten",
-      name: "Games Beaten",
-      desc: "Tabela dos meus Jogos Zerados",
       tech: ["React", "Typescripot", "Tailwind"],
    },
    {
@@ -78,5 +51,11 @@ export const arrSecondaryAccount: Project[] = [
       name: "Horichat",
       desc: "Widget de Chat Horizontal para Streams na Twitch",
       tech: ["React", "Javascript", "tmi.js"],
+   },
+   {
+      href: "https://coelhomarcus.itch.io/mailman",
+      name: "Mailman",
+      desc: "Protótipo de jogo de terror retrô",
+      tech: ["C#", "Unity", "Blender"],
    },
 ];
