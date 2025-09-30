@@ -1,6 +1,11 @@
 import type { BlogPost } from "@/types";
-
 export const arrBlog: BlogPost[] = [
+   {
+      slug: "experiencia-spring",
+      title: "Minha experiência com Spring Boot",
+      desc: "XP",
+      date: "30.09.2025",
+   },
    {
       slug: "mudando-foco",
       title: "Mudando o foco?",
