@@ -54,7 +54,7 @@ function HeaderLink({ to, title }: HeaderLinkProps) {
             <span className="relative">
                {title}
                <span
-                  className={`absolute left-0 bottom-0 h-[1px] bg-foreground transition-all duration-100 ${isActive ? "w-full" : "w-0"
+                  className={`absolute left-0 bottom-0 h-[0.5px] bg-muted-foreground transition-all duration-100 ${isActive ? "w-full" : "w-0"
                      }`}
                ></span>
             </span>

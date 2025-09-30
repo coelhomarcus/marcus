@@ -3,14 +3,6 @@ import { arrWorks } from "@/utils/data/works";
 
 import { ArrowTopRightIcon, LayersIcon } from "@radix-ui/react-icons";
 
-const TextAccent = ({ children }: React.PropsWithChildren) => {
-   return (
-      <span className="font-medium text-muted-foreground px-1 bg-muted border rounded">
-         {children}
-      </span>
-   );
-};
-
 const About = () => {
    return (
       <main className="text-foreground">
@@ -19,8 +11,10 @@ const About = () => {
          <p className="text-muted-foreground text-base mb-4 font-medium">
             Olá! Sou estudante de Sistemas de Informação (6/8) na Unifesspa,
             bolsista desenvolvedor no PET-Saúde: Inovação e Saúde Digital no SUS, e
-            também desenvolvedor na Exception Jr. Se quiser saber mais sobre minha
-            trajetória,{" "}
+            também desenvolvedor na Exception Jr.
+         </p>
+         <p className="text-muted-foreground text-base mb-4 font-medium">
+            Se quiser saber mais sobre minha trajetória,{" "}
             <span>
                <a
                   className="text-foreground hover:underline hover:text-accent-foreground"
@@ -32,12 +26,7 @@ const About = () => {
             </span>
          </p>
          <p className="text-muted-foreground text-base mb-4 font-medium">
-            Atualmente utilizo o ecossistema <TextAccent>React</TextAccent> para
-            construir meus projetos, meu conhecimento consistente em{" "}
-            <TextAccent>Vite</TextAccent> <TextAccent>Next.js</TextAccent>{" "}
-            <TextAccent>Talwind</TextAccent> <TextAccent>Typescript</TextAccent>{" "}
-            <TextAccent>Node.js</TextAccent> e pretendo aprofundar meu conhecimento
-            em <TextAccent>Java</TextAccent> para desenvolver aplicações back-end.
+            Atualmente utilizo o ecossistema React para construir meus projetos, meu conhecimento consistente em Vite, Next.js, Talwind, Typescript, Node.js e pretendo aprofundar meu conhecimento em Java para desenvolver aplicações back-end.
          </p>
          <WorksExperience />
       </main>
@@ -64,7 +53,7 @@ function WorksExperience() {
                         className="size-6 sm:size-10 object-cover rounded-sm"
                      />
                      <span>
-                        <h3>{work.company}</h3>
+                        <div>{work.company}</div>
                         <p className="text-[12px] sm:text-sm text-muted-foreground font-medium">
                            {work.role}
                         </p>
