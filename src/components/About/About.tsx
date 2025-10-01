@@ -6,7 +6,7 @@ import { ArrowTopRightIcon, LayersIcon } from "@radix-ui/react-icons";
 const About = () => {
    return (
       <main className="text-foreground">
-         <PageTitle title="Marcus Coelho" suffix />
+         <PageTitle title="Marcus Coelho" />
          <h1 className="text-xl font-semibold mb-2">Marcus Coelho</h1>
          <p className="text-muted-foreground text-base mb-4 font-medium">
             Olá! Sou estudante de Sistemas de Informação (6/8) na Unifesspa,
