@@ -15,13 +15,13 @@ const Header = ({ isDark, toggleTheme }: HeaderProps) => {
    return (
       <header className="flex justify-between items-center pt-4 pb-2">
          <Link to="/">
-            <Avatar className="size-10 sm:size-14 hover:scale-105 active:scale-95 transition-all duration-200 rounded-sm">
+            <Avatar className="size-10 sm:size-14 hover:scale-105 active:scale-95 transition-all duration-200 rounded">
                <AvatarImage
                   className="object-cover"
                   src="./src/icons/avatar.webp"
                   alt="Avatar"
                />
-               <AvatarFallback className="size-10 sm:size-15 rounded-sm">
+               <AvatarFallback className="size-10 sm:size-15 rounded">
                   <RxPerson
                      className="opacity-60 text-foreground"
                      aria-hidden="true"

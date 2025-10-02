@@ -79,7 +79,7 @@ function WorksExperience() {
                      <img
                         src={work.logo}
                         alt={work.company}
-                        className="size-6 sm:size-10 object-cover rounded-sm"
+                        className="size-6 sm:size-10 object-cover rounded"
                      />
                      <span>
                         <div>{work.company}</div>
