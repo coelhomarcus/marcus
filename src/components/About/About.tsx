@@ -9,9 +9,8 @@ const About = () => {
          <PageTitle title="Marcus Coelho" />
          <h1 className="text-xl font-semibold mb-2">Marcus Coelho</h1>
          <p className="text-muted-foreground text-base mb-4 font-medium">
-            Olá! Sou estudante de Sistemas de Informação (6/8) na Unifesspa,
-            bolsista desenvolvedor no PET-Saúde: Inovação e Saúde Digital no SUS, e
-            também desenvolvedor na Exception Jr.
+            Olá! Sou estudante de Sistemas de Informação (6/8) na UNIFESSPA,
+            desenvolvedor no PET-Saúde: Inovação e Saúde Digital no SUS, um projeto do Ministério da Saúde.
          </p>
          <p className="text-muted-foreground text-base mb-4 font-medium">
             Se quiser saber mais sobre minha trajetória,{" "}
