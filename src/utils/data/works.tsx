@@ -1,4 +1,5 @@
 import type { Work } from "@/types";
+import { IconType } from "react-icons";
 
 export const arrWorks: Work[] = [
    {
@@ -14,3 +15,19 @@ export const arrWorks: Work[] = [
       logo: "/src/works/exceptionjr.webp",
    },
 ];
+
+import { SiTypescript, SiJavascript, SiReact, SiTailwindcss, SiExpress, SiNodedotjs, SiVite, SiNextdotjs, SiPostgresql, SiMysql, SiSqlite } from "react-icons/si";
+
+export const arrSkills: IconType[] = [
+   SiTypescript,
+   SiJavascript,
+   SiReact,
+   SiTailwindcss,
+   SiExpress,
+   SiNodedotjs,
+   SiVite,
+   SiNextdotjs,
+   SiPostgresql,
+   SiMysql,
+   SiSqlite,
+]

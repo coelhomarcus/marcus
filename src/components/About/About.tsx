@@ -1,5 +1,5 @@
 import PageTitle from "@/components/PageTitle/PageTitle";
-import { arrWorks } from "@/utils/data/works";
+import { arrWorks, arrSkills } from "@/utils/data/works";
 
 import { RxArrowTopRight, RxLayers } from "react-icons/rx";
 
@@ -24,22 +24,30 @@ const About = () => {
                </a>
             </span>
          </p>
-         <p className="text-muted-foreground text-base mb-4 font-medium">
-            Atualmente utilizo o ecossistema React para construir meus projetos, meu conhecimento consistente em Vite, Next.js, Talwind, Typescript, Node.js e pretendo aprofundar meu conhecimento em Java para desenvolver aplicações back-end.
-         </p>
-         {/* <div className="mb-4 flex flex-col">
-            <div className="flex items-center gap-2 text-foreground justify-between">
-               <p className="text-base font-semibold">Skills</p>
-               <RxLayers className="text-base text-muted-foreground" />
-            </div>
-            <div className="mt-2 flex flex-wrap gap-2">
-               aa
-            </div>
-         </div> */}
+         <Skills />
          <WorksExperience />
       </main>
    );
 };
+
+function Skills() {
+   return <div className="mb-4 flex flex-col">
+      <div className="flex items-center gap-2 text-foreground justify-between">
+         <p className="text-base font-semibold">Skills</p>
+         <RxLayers className="text-base text-muted-foreground" />
+      </div>
+      <div className="mt-2 flex flex-wrap gap-2">
+         {arrSkills.map((Skill, index) => (
+            <div
+               key={index}
+               className="p-2 rounded border text-foreground text-sm"
+            >
+               <Skill />
+            </div>
+         ))}
+      </div>
+   </div>
+}
 
 function WorksExperience() {
    return (
