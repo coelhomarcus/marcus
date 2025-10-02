@@ -1,10 +1,10 @@
 import ContactLink from "../ContactLink/ContactLink";
 
 import {
-   GitHubLogoIcon,
-   LinkedInLogoIcon,
-   ReaderIcon,
-} from "@radix-ui/react-icons";
+   RxGithubLogo,
+   RxLinkedinLogo,
+   RxReader,
+} from "react-icons/rx";
 
 const Footer = () => {
    return (
@@ -12,21 +12,21 @@ const Footer = () => {
          <div className="flex gap-3 text-foreground">
             <ContactLink
                title="Github"
-               Icon={GitHubLogoIcon}
+               Icon={RxGithubLogo}
                href="https://github.com/coelhomarcus"
                rel="noreferrer noopener"
                target="_blank"
             />
             <ContactLink
                title="Linkedin"
-               Icon={LinkedInLogoIcon}
+               Icon={RxLinkedinLogo}
                href="https://www.linkedin.com/in/coelhomarcus/"
                rel="noreferrer noopener"
                target="_blank"
             />
             <ContactLink
                title="CV"
-               Icon={ReaderIcon}
+               Icon={RxReader}
                href="https://docs.google.com/document/d/1wgOhwh-1YT-LRog9j1tvxzBVKfraoSzps1AiBGuSx9A/export?format=pdf"
                download
             />

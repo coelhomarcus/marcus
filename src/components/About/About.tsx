@@ -1,7 +1,7 @@
 import PageTitle from "@/components/PageTitle/PageTitle";
 import { arrWorks } from "@/utils/data/works";
 
-import { ArrowTopRightIcon, LayersIcon } from "@radix-ui/react-icons";
+import { RxArrowTopRight, RxLayers } from "react-icons/rx";
 
 const About = () => {
    return (
@@ -20,13 +20,22 @@ const About = () => {
                   href="https://docs.google.com/document/d/1wgOhwh-1YT-LRog9j1tvxzBVKfraoSzps1AiBGuSx9A/export?format=pdf"
                   download
                >
-                  veja meu currículo{<ArrowTopRightIcon className="inline" />}
+                  veja meu currículo{<RxArrowTopRight className="inline" />}
                </a>
             </span>
          </p>
          <p className="text-muted-foreground text-base mb-4 font-medium">
             Atualmente utilizo o ecossistema React para construir meus projetos, meu conhecimento consistente em Vite, Next.js, Talwind, Typescript, Node.js e pretendo aprofundar meu conhecimento em Java para desenvolver aplicações back-end.
          </p>
+         {/* <div className="mb-4 flex flex-col">
+            <div className="flex items-center gap-2 text-foreground justify-between">
+               <p className="text-base font-semibold">Skills</p>
+               <RxLayers className="text-base text-muted-foreground" />
+            </div>
+            <div className="mt-2 flex flex-wrap gap-2">
+               aa
+            </div>
+         </div> */}
          <WorksExperience />
       </main>
    );
@@ -37,7 +46,7 @@ function WorksExperience() {
       <div className="flex flex-col gap-3">
          <div className="flex items-center gap-2 text-foreground justify-between">
             <p className="text-base font-semibold">Experiência</p>
-            <LayersIcon className="text-base text-muted-foreground" />
+            <RxLayers className="text-base text-muted-foreground" />
          </div>
          <div className="space-y-4">
             {arrWorks.map((work) => (

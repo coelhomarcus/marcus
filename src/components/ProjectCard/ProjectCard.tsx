@@ -1,6 +1,6 @@
 import type { ProjectCardProps } from "@/types";
 
-import { ArrowTopRightIcon } from "@radix-ui/react-icons";
+import { RxArrowTopRight } from "react-icons/rx";
 
 const ProjectCard = ({ href, name, desc, tech = [] }: ProjectCardProps) => {
    return (
@@ -15,7 +15,7 @@ const ProjectCard = ({ href, name, desc, tech = [] }: ProjectCardProps) => {
             <div className="flex justify-between items-start mb-2">
                <div className="text-sm font-medium text-foreground">{name}</div>
                <span className="opacity-50 group-hover:opacity-90 transition-opacity">
-                  <ArrowTopRightIcon
+                  <RxArrowTopRight
                      width={16}
                      height={16}
                      className="text-muted-foreground group-hover:text-muted-foreground"

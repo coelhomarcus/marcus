@@ -4,7 +4,7 @@ import type { HeaderLinkProps } from "@/types";
 
 import SidebarDrawer from "@/lib/ui/vaul";
 
-import { PersonIcon } from "@radix-ui/react-icons";
+import { RxPerson } from "react-icons/rx";
 
 interface HeaderProps {
    isDark: boolean;
@@ -22,7 +22,7 @@ const Header = ({ isDark, toggleTheme }: HeaderProps) => {
                   alt="Avatar"
                />
                <AvatarFallback className="size-10 sm:size-15 rounded-sm">
-                  <PersonIcon
+                  <RxPerson
                      className="opacity-60 text-foreground"
                      aria-hidden="true"
                   />
