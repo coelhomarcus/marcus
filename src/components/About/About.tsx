@@ -1,7 +1,13 @@
 import PageTitle from "@/components/PageTitle/PageTitle";
-import { arrWorks } from "@/utils/data/works";
-
+import { arrWorks, arrSkills } from "@/utils/data/works";
 import { RxArrowTopRight, RxLayers } from "react-icons/rx";
+import { BiLibrary } from "react-icons/bi";
+
+import {
+   Tooltip,
+   TooltipContent,
+   TooltipTrigger,
+} from "../../lib/ui/tooltip";
 
 const About = () => {
    return (
@@ -24,22 +30,37 @@ const About = () => {
                </a>
             </span>
          </p>
-         <p className="text-muted-foreground text-base mb-4 font-medium">
-            Atualmente utilizo o ecossistema React para construir meus projetos, meu conhecimento consistente em Vite, Next.js, Talwind, Typescript, Node.js e pretendo aprofundar meu conhecimento em Java para desenvolver aplicações back-end.
-         </p>
-         {/* <div className="mb-4 flex flex-col">
-            <div className="flex items-center gap-2 text-foreground justify-between">
-               <p className="text-base font-semibold">Skills</p>
-               <RxLayers className="text-base text-muted-foreground" />
-            </div>
-            <div className="mt-2 flex flex-wrap gap-2">
-               aa
-            </div>
-         </div> */}
+         <Skills />
          <WorksExperience />
       </main>
    );
 };
+
+function Skills() {
+   return <div className="mb-4 flex flex-col">
+      <div className="flex items-center gap-2 text-foreground justify-between">
+         <p className="text-base font-semibold">Skills</p>
+         <BiLibrary className="text-base text-muted-foreground" />
+      </div>
+      <div className="mt-2 flex flex-wrap gap-2 sm:justify-center">
+         {arrSkills.map((Skill, index) => (
+            <Tooltip key={index}>
+               <TooltipTrigger>
+                  <div
+                     className="p-2 rounded border text-foreground hover:text-muted-foreground"
+                  >
+                     <Skill.icon className="size-5" />
+                  </div>
+               </TooltipTrigger>
+               <TooltipContent className="rounded">
+                  {Skill.name}
+               </TooltipContent>
+            </Tooltip>
+
+         ))}
+      </div>
+   </div >
+}
 
 function WorksExperience() {
    return (
