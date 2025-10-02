@@ -1,7 +1,13 @@
 import PageTitle from "@/components/PageTitle/PageTitle";
 import { arrWorks, arrSkills } from "@/utils/data/works";
-
 import { RxArrowTopRight, RxLayers } from "react-icons/rx";
+import { BiLibrary } from "react-icons/bi";
+
+import {
+   Tooltip,
+   TooltipContent,
+   TooltipTrigger,
+} from "../../lib/ui/tooltip";
 
 const About = () => {
    return (
@@ -34,19 +40,26 @@ function Skills() {
    return <div className="mb-4 flex flex-col">
       <div className="flex items-center gap-2 text-foreground justify-between">
          <p className="text-base font-semibold">Skills</p>
-         <RxLayers className="text-base text-muted-foreground" />
+         <BiLibrary className="text-base text-muted-foreground" />
       </div>
-      <div className="mt-2 flex flex-wrap gap-2">
+      <div className="mt-2 flex flex-wrap gap-2 sm:justify-center">
          {arrSkills.map((Skill, index) => (
-            <div
-               key={index}
-               className="p-2 rounded border text-foreground text-sm"
-            >
-               <Skill />
-            </div>
+            <Tooltip key={index}>
+               <TooltipTrigger>
+                  <div
+                     className="p-2 rounded border text-foreground hover:text-muted-foreground"
+                  >
+                     <Skill.icon className="size-5" />
+                  </div>
+               </TooltipTrigger>
+               <TooltipContent className="rounded">
+                  {Skill.name}
+               </TooltipContent>
+            </Tooltip>
+
          ))}
       </div>
-   </div>
+   </div >
 }
 
 function WorksExperience() {
