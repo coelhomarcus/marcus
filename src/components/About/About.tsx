@@ -15,11 +15,7 @@ const About = () => {
          <PageTitle title="Marcus Coelho" />
          <h1 className="text-xl font-semibold mb-2">Marcus Coelho</h1>
          <p className="text-muted-foreground text-base mb-4 font-medium">
-            Olá! Sou estudante de Sistemas de Informação (6/8) na UNIFESSPA,
-            desenvolvedor no PET-Saúde: Inovação e Saúde Digital no SUS, um projeto do Ministério da Saúde.
-         </p>
-         <p className="text-muted-foreground text-base mb-4 font-medium">
-            Se quiser saber mais sobre minha trajetória,{" "}
+            Olá! Sou estudante de Sistemas de Informação [6/8] na UNIFESSPA, desenvolvedor no projeto PET-Saúde: Inovação e Saúde Digital no SUS, do Ministério da Saúde, e também participo de pesquisas com LLMs voltadas à análise de desempenho de discentes. No meu tempo livre, gosto de explorar novas tecnologias, desenvolver projetos pessoais e brincar com meu gato.  Se quiser saber mais sobre minha trajetória,{" "}
             <span>
                <a
                   className="text-foreground hover:underline hover:text-accent-foreground"

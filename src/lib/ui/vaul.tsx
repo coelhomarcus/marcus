@@ -118,7 +118,7 @@ const SidebarDrawer = ({ isDark, toggleTheme }: SidebarDrawerProps) => {
                   </div>
 
                   <nav
-                     className="flex flex-col space-y-8 flex-1 overflow-y-auto overflow-x-hidden px-6 py-4"
+                     className="flex flex-col space-y-8 flex-1 overflow-y-auto overflow-x-hidden px-6 py-4 scrollbar"
                      style={{ WebkitOverflowScrolling: "touch" }}
                   >
                      {/* Navegação Principal */}
