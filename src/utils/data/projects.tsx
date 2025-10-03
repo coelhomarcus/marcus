@@ -19,39 +19,26 @@ export const arrProjects: Project[] = [
 
 export const arrSideProjects: Project[] = [
    {
-      href: "https://coelhomarcus.github.io/bunnybash/",
-      name: "BunnyBash",
-      desc: "Site que simula um terminal",
-      tech: ["HTML", "CSS", "Javascript", "API"],
-   },
-   {
       href: "https://games.coelhomarcus.com/",
       name: "Games Beaten",
       desc: "Minha coleção de jogos zerados",
       tech: ["React", "Typescripot", "Tailwind"],
    },
    {
-      href: "https://blob-temp.vercel.app/",
-      name: "Blob",
-      desc: "Site de previsão meteorológica",
-      tech: ["Next.js", "Tailwind", "API"],
-   },
-   {
       href: "https://marketplace.visualstudio.com/items?itemName=coelhomarcus.bakaneo",
       name: "BakaNeo",
-      desc: "Tema dark para VS Code",
-      tech: ["Design"],
+      desc: "Tema Dark para VS Code",
+      tech: ["Theme"],
    },
    {
       href: "https://submarcus.github.io/vn/",
-      name: "Lune VNs",
+      name: "Lune",
       desc: "Hub de Visual Novels em Português",
       tech: ["React", "Typescript", "Tailwind"],
-   },
-   {
+   }, {
       href: "https://github.com/submarcus/horichat",
       name: "Horichat",
-      desc: "Widget de Chat Horizontal para Streams na Twitch",
+      desc: "Widget de Chat Horizontal para Twitch",
       tech: ["React", "Javascript", "tmi.js"],
    },
    {
@@ -59,5 +46,11 @@ export const arrSideProjects: Project[] = [
       name: "Mailman",
       desc: "Protótipo de jogo de terror retrô",
       tech: ["C#", "Unity", "Blender"],
+   },
+   {
+      href: "https://blob-temp.vercel.app/",
+      name: "Blob",
+      desc: "Site de previsão meteorológica",
+      tech: ["Next.js", "Tailwind", "API"],
    },
 ];
