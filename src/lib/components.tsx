@@ -1,7 +1,7 @@
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import { nightOwl as theme } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { useState } from "react";
-import { RxClipboardCopy, RxCheck } from "react-icons/rx";
+import { CopyIcon, CheckIcon } from "@/lib/icons";
 
 import type { CopyHookReturn, HeadingProps, PreComponentProps } from "@/types";
 
@@ -186,9 +186,9 @@ const components = {
                aria-label="Copiar código"
             >
                {isCopied ? (
-                  <RxCheck className="w-4 h-4 text-lime-300" />
+                  <CheckIcon className="w-4 h-4 text-lime-300" />
                ) : (
-                  <RxClipboardCopy className="w-4 h-4" />
+                  <CopyIcon className="w-4 h-4" />
                )}
             </button>
             <SyntaxHighlighter

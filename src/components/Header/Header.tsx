@@ -4,8 +4,7 @@ import type { HeaderLinkProps } from "@/types";
 
 import SidebarDrawer from "@/lib/ui/vaul";
 
-import { RxPerson } from "react-icons/rx";
-import { LuSlash } from "react-icons/lu";
+import { PersonIcon, SlashIcon } from "@/lib/icons";
 
 interface HeaderProps {
    isDark: boolean;
@@ -23,7 +22,7 @@ const Header = ({ isDark, toggleTheme }: HeaderProps) => {
                   alt="Avatar"
                />
                <AvatarFallback className="size-10 sm:size-15 rounded">
-                  <RxPerson
+                  <PersonIcon
                      className="opacity-60 text-foreground"
                      aria-hidden="true"
                   />
@@ -31,12 +30,12 @@ const Header = ({ isDark, toggleTheme }: HeaderProps) => {
             </Avatar>
          </Link>
 
-         <div className="flex items-center gap-4 sm:gap-5">
-            <div className="hidden md:flex gap-2 sm:gap-2 text-muted-foreground font-medium text-sm items-center">
+         <div className="flex items-center gap-3">
+            <div className="hidden md:flex gap-1.5 text-muted-foreground text-sm items-center">
                <HeaderLink title="Sobre" to="/" />
-               <LuSlash className="text-foreground/50" />
+               <SlashIcon className="text-foreground/50" />
                <HeaderLink title="Projetos" to="/projects" />
-               <LuSlash className="text-foreground/50" />
+               <SlashIcon className="text-foreground/50" />
                <HeaderLink title="Blog" to="/blog" />
             </div>
             <SidebarDrawer isDark={isDark} toggleTheme={toggleTheme} />

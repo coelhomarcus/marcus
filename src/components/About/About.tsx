@@ -1,7 +1,6 @@
 import PageTitle from "@/components/PageTitle/PageTitle";
 import { arrWorks, arrSkills } from "@/utils/data/works";
-import { RxArrowTopRight, RxLayers } from "react-icons/rx";
-import { BiLibrary } from "react-icons/bi";
+import { ExternalLinkIcon, LayersIcon, LibraryIcon } from "@/lib/icons";
 
 import {
    Tooltip,
@@ -22,7 +21,7 @@ const About = () => {
                   href="https://docs.google.com/document/d/1wgOhwh-1YT-LRog9j1tvxzBVKfraoSzps1AiBGuSx9A/export?format=pdf"
                   download
                >
-                  veja meu currículo{<RxArrowTopRight className="inline" />}
+                  veja meu currículo{<ExternalLinkIcon className="inline" />}
                </a>
             </span>
          </p>
@@ -36,7 +35,7 @@ function Skills() {
    return <div className="mb-4 flex flex-col">
       <div className="flex items-center gap-2 text-foreground justify-between">
          <p className="text-base font-semibold">Skills</p>
-         <BiLibrary className="text-base text-muted-foreground" />
+         <LibraryIcon className="text-base text-muted-foreground" />
       </div>
       <div className="mt-2 flex flex-wrap gap-2 sm:justify-center">
          {arrSkills.map((Skill, index) => (
@@ -63,7 +62,7 @@ function WorksExperience() {
       <div className="flex flex-col gap-3">
          <div className="flex items-center gap-2 text-foreground justify-between">
             <p className="text-base font-semibold">Experiência</p>
-            <RxLayers className="text-base text-muted-foreground" />
+            <LayersIcon className="text-base text-muted-foreground" />
          </div>
          <div className="space-y-4">
             {arrWorks.map((work) => (

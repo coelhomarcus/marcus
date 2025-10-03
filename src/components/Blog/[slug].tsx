@@ -3,7 +3,7 @@ import { MDXProvider } from "@mdx-js/react";
 import { useParams, Link, useLocation } from "react-router";
 import PageTitle from "@/components/PageTitle/PageTitle";
 
-import { RxChevronLeft, RxCommit } from "react-icons/rx";
+import { BackIcon, CommitIcon } from "@/lib/icons";
 
 import { arrBlog } from "../../utils/data/posts";
 import components from "../../lib/components";
@@ -38,7 +38,7 @@ const Post = () => {
    if (!MDXComponent)
       return (
          <div className="flex items-center justify-center">
-            <RxCommit className="text-muted-foreground animate-[spin_3s_linear_infinite] duration-100 size-6 mt-10" />
+            <CommitIcon className="text-muted-foreground animate-[spin_3s_linear_infinite] duration-100 size-6 mt-10" />
          </div>
       );
 
@@ -53,7 +53,7 @@ const Post = () => {
                to="/blog"
                className="text-sm text-muted-foreground hover:text-foreground transition-all duration-100 flex items-center gap-2"
             >
-               <RxChevronLeft className="inline" /> Voltar
+               <BackIcon className="inline" /> Voltar
             </Link>
             <button
                className="flex items-center gap-8 cursor-pointer hover:text-muted-foreground"

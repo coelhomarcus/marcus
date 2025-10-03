@@ -1,5 +1,19 @@
 import type { Work } from "@/types";
-import { IconType } from "react-icons";
+import {
+   type IconType,
+   ReactIcon,
+   TypeScriptIcon,
+   JavaScriptIcon,
+   TailwindIcon,
+   ExpressIcon,
+   NodeIcon,
+   ViteIcon,
+   NextJSIcon,
+   PostgreSQLIcon,
+   JavaIcon,
+   SpringBootIcon,
+   FigmaIcon,
+} from "@/lib/icons";
 
 export const arrWorks: Work[] = [
    {
@@ -16,10 +30,6 @@ export const arrWorks: Work[] = [
    },
 ];
 
-import { SiTypescript, SiJavascript, SiReact, SiTailwindcss, SiExpress, SiNodedotjs, SiVite, SiNextdotjs, SiPostgresql } from "react-icons/si";
-
-import { BiLogoJava, BiLogoSpringBoot, BiLogoFigma } from "react-icons/bi";
-
 
 type SkillType = {
    icon: IconType;
@@ -27,16 +37,16 @@ type SkillType = {
 }
 
 export const arrSkills: SkillType[] = [
-   { icon: SiReact, name: "React" },
-   { icon: SiVite, name: "Vite" },
-   { icon: SiNextdotjs, name: "Next.js" },
-   { icon: SiTypescript, name: "TypeScript" },
-   { icon: SiJavascript, name: "JavaScript" },
-   { icon: SiTailwindcss, name: "Tailwind CSS" },
-   { icon: SiExpress, name: "Express" },
-   { icon: SiNodedotjs, name: "Node.js" },
-   { icon: BiLogoJava, name: "Java" },
-   { icon: BiLogoSpringBoot, name: "Spring Boot" },
-   { icon: SiPostgresql, name: "PostgreSQL" },
-   { icon: BiLogoFigma, name: "Figma" }
+   { icon: ReactIcon, name: "React" },
+   { icon: ViteIcon, name: "Vite" },
+   { icon: NextJSIcon, name: "Next.js" },
+   { icon: TypeScriptIcon, name: "TypeScript" },
+   { icon: JavaScriptIcon, name: "JavaScript" },
+   { icon: TailwindIcon, name: "Tailwind CSS" },
+   { icon: ExpressIcon, name: "Express" },
+   { icon: NodeIcon, name: "Node.js" },
+   { icon: JavaIcon, name: "Java" },
+   { icon: SpringBootIcon, name: "Spring Boot" },
+   { icon: PostgreSQLIcon, name: "PostgreSQL" },
+   { icon: FigmaIcon, name: "Figma" }
 ]

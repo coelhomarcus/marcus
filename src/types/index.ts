@@ -1,9 +1,6 @@
 import { AnchorHTMLAttributes } from "react";
-import type { IconType } from "react-icons"
+import type { IconType } from "@/lib/icons"
 
-export type RadixIconType = IconType;
-
-// Data Types
 export interface Project {
    href: string;
    name: string;
@@ -33,7 +30,6 @@ export interface BlogPost {
    tags?: string[];
 }
 
-// Navigation Types
 export interface Page {
    name: string;
    href: string;
@@ -42,7 +38,6 @@ export interface Page {
    download?: boolean;
 }
 
-// Component Props
 export interface ProjectCardProps {
    href: string;
    name: string;
@@ -58,7 +53,7 @@ export interface PageTitleProps {
 
 export interface ContactLinkProps
    extends AnchorHTMLAttributes<HTMLAnchorElement> {
-   Icon: RadixIconType;
+   Icon: IconType;
    title: string;
    href: string;
 }
@@ -86,17 +81,12 @@ export interface HeaderLinkProps {
    to: string;
    title: string;
 }
-
-// Theme Types
 export type Theme = "light" | "dark";
 
-// Utility Types
 export interface CopyHookReturn {
    isCopied: boolean;
    handleCopy: () => void;
 }
-
-// MDX Component Types
 export type HeadingProps = React.HTMLProps<HTMLHeadingElement>;
 
 export interface PreComponentProps {

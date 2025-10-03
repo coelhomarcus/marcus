@@ -2,7 +2,7 @@ import type { ProjectCardProps } from "@/types";
 
 import { AspectRatio } from "../../lib/ui/aspect-ratio"
 
-import { RxArrowTopRight } from "react-icons/rx";
+import { ExternalLinkIcon } from "@/lib/icons";
 
 const ProjectCard = ({ href, name, desc, tech = [], img }: ProjectCardProps) => {
    return (
@@ -20,7 +20,7 @@ const ProjectCard = ({ href, name, desc, tech = [], img }: ProjectCardProps) => 
             <div className="flex justify-between items-start mb-2">
                <div className="text-sm font-medium text-foreground">{name}</div>
                <span className="opacity-50 group-hover:opacity-90 transition-opacity">
-                  <RxArrowTopRight
+                  <ExternalLinkIcon
                      width={16}
                      height={16}
                      className="text-muted-foreground group-hover:text-muted-foreground"
