@@ -15,7 +15,7 @@ const ProjectCard = ({ href, name, desc, tech = [], img }: ProjectCardProps) => 
       >
          <div className="flex flex-col h-full">
             {img && <AspectRatio ratio={1440 / 900} className="mb-4 overflow-clip rounded transition-all">
-               <img src={img} alt="Project Image" className="object-cover hover:scale-[1.05] duration-100" />
+               <img src={img} alt="Project Image" className="object-cover hover:scale-[1.05] duration-100 w-full h-full" />
             </AspectRatio>}
             <div className="flex justify-between items-start mb-2">
                <div className="text-sm font-medium text-foreground">{name}</div>
