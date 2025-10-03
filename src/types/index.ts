@@ -9,6 +9,7 @@ export interface Project {
    name: string;
    desc: string;
    tech: string[];
+   img?: string;
 }
 
 export interface Work {
@@ -47,6 +48,7 @@ export interface ProjectCardProps {
    name: string;
    desc: string;
    tech?: string[];
+   img?: string;
 }
 
 export interface PageTitleProps {

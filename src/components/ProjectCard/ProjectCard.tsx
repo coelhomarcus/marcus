@@ -2,16 +2,19 @@ import type { ProjectCardProps } from "@/types";
 
 import { RxArrowTopRight } from "react-icons/rx";
 
-const ProjectCard = ({ href, name, desc, tech = [] }: ProjectCardProps) => {
+const ProjectCard = ({ href, name, desc, tech = [], img }: ProjectCardProps) => {
    return (
       <a
          href={href}
-         className="group relative block p-4 transition-all duration-100
+         className="group relative block p-3 transition-all duration-100
             border border-border hover:bg-muted/40 rounded"
          rel="noreferrer noopener"
          target="_blank"
       >
          <div className="flex flex-col h-full">
+            {img && <div className="mb-4 overflow-clip rounded transition-all">
+               <img src={img} alt="Project Image" className="object-cover hover:scale-[1.05] duration-100" />
+            </div>}
             <div className="flex justify-between items-start mb-2">
                <div className="text-sm font-medium text-foreground">{name}</div>
                <span className="opacity-50 group-hover:opacity-90 transition-opacity">

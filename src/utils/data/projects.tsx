@@ -6,12 +6,14 @@ export const arrProjects: Project[] = [
       name: "CafunTalk",
       desc: "Bate-papo moderno, sem distrações, privado e sem histórico",
       tech: ["React", "Typescript", "Tailwind", "Express"],
+      img: "./src/projects/cafuntalk.webp"
    },
    {
       href: "https://www.youtube.com/shorts/0fSoHjAadas",
       name: "SOS Queimadas",
       desc: "Aplicativo IOS para conscientização e prevenção de queimadas",
       tech: ["Swift", "MapKit", "IoT", "API"],
+      img: "./src/projects/sosqueimadas.webp"
    },
 ];
 

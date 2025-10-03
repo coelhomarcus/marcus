@@ -16,7 +16,7 @@ const Projects = () => {
          <p className="text-muted-foreground text-sm mb-4">
             Projetos que fiz ou participei no desenvolvimento.
          </p>
-         <div className="gap-4 mb-8 grid grid-cols-1 md:grid-cols-2">
+         <div className="gap-4 mb-8 grid grid-cols-1 sm:grid-cols-2">
             {projects.map((project, index) => {
                return (
                   <ProjectCard
@@ -25,6 +25,7 @@ const Projects = () => {
                      name={project.name}
                      desc={project.desc}
                      tech={project.tech}
+                     img={project.img}
                   />
                );
             })}
