@@ -25,6 +25,12 @@ export const arrSideProjects: Project[] = [
       tech: ["HTML", "CSS", "Javascript", "API"],
    },
    {
+      href: "https://games.coelhomarcus.com/",
+      name: "Games Beaten",
+      desc: "Minha coleção de jogos zerados",
+      tech: ["React", "Typescripot", "Tailwind"],
+   },
+   {
       href: "https://blob-temp.vercel.app/",
       name: "Blob",
       desc: "Site de previsão meteorológica",
@@ -37,15 +43,9 @@ export const arrSideProjects: Project[] = [
       tech: ["Design"],
    },
    {
-      href: "https://submarcus.github.io/midiateca",
-      name: "Midiateca",
-      desc: "Minha coleção de filmes, séries, animes e mangás",
-      tech: ["React", "Typescripot", "Tailwind"],
-   },
-   {
       href: "https://submarcus.github.io/vn/",
       name: "Lune VNs",
-      desc: "Hub de Traduções de Visual Novels para Português",
+      desc: "Hub de Visual Novels em Português",
       tech: ["React", "Typescript", "Tailwind"],
    },
    {
