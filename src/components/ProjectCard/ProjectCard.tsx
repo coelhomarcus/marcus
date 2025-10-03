@@ -1,5 +1,7 @@
 import type { ProjectCardProps } from "@/types";
 
+import { AspectRatio } from "../../lib/ui/aspect-ratio"
+
 import { RxArrowTopRight } from "react-icons/rx";
 
 const ProjectCard = ({ href, name, desc, tech = [], img }: ProjectCardProps) => {
@@ -12,9 +14,9 @@ const ProjectCard = ({ href, name, desc, tech = [], img }: ProjectCardProps) => 
          target="_blank"
       >
          <div className="flex flex-col h-full">
-            {img && <div className="mb-4 overflow-clip rounded transition-all">
-               <img src={img} alt="Project Image" className="object-cover hover:scale-[1.05] duration-100 aspect-[1440/900]" />
-            </div>}
+            {img && <AspectRatio ratio={1440 / 900} className="mb-4 overflow-clip rounded transition-all">
+               <img src={img} alt="Project Image" className="object-cover hover:scale-[1.05] duration-100" />
+            </AspectRatio>}
             <div className="flex justify-between items-start mb-2">
                <div className="text-sm font-medium text-foreground">{name}</div>
                <span className="opacity-50 group-hover:opacity-90 transition-opacity">
