@@ -5,6 +5,7 @@ import type { HeaderLinkProps } from "@/types";
 import SidebarDrawer from "@/lib/ui/vaul";
 
 import { RxPerson } from "react-icons/rx";
+import { LuSlash } from "react-icons/lu";
 
 interface HeaderProps {
    isDark: boolean;
@@ -31,9 +32,11 @@ const Header = ({ isDark, toggleTheme }: HeaderProps) => {
          </Link>
 
          <div className="flex items-center gap-4 sm:gap-5">
-            <div className="hidden md:flex gap-4 sm:gap-5 text-muted-foreground font-medium text-sm *:hover:text-foreground">
+            <div className="hidden md:flex gap-2 sm:gap-2 text-muted-foreground font-medium text-sm items-center">
                <HeaderLink title="Sobre" to="/" />
+               <LuSlash className="text-foreground/50" />
                <HeaderLink title="Projetos" to="/projects" />
+               <LuSlash className="text-foreground/50" />
                <HeaderLink title="Blog" to="/blog" />
             </div>
             <SidebarDrawer isDark={isDark} toggleTheme={toggleTheme} />
@@ -47,18 +50,10 @@ function HeaderLink({ to, title }: HeaderLinkProps) {
       <NavLink
          to={to}
          className={({ isActive }) =>
-            `relative inline-block transition-colors ${isActive ? "text-foreground" : "text-muted-foreground"}`
+            `${isActive ? "text-foreground dark:text-foreground" : "text-foreground/50 hover:text-muted-foreground/80 dark:hover:text-foreground/80"}`
          }
       >
-         {({ isActive }) => (
-            <span className="relative">
-               {title}
-               <span
-                  className={`absolute left-0 bottom-0 h-[0.5px] bg-muted-foreground transition-all duration-100 ${isActive ? "w-full" : "w-0"
-                     }`}
-               ></span>
-            </span>
-         )}
+         {title}
       </NavLink>
    );
 }
