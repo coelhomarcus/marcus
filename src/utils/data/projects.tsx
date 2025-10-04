@@ -19,6 +19,12 @@ export const arrProjects: Project[] = [
 
 export const arrSideProjects: Project[] = [
    {
+      href: "https://dictionary-marcus.netlify.app/",
+      name: "Dictionary",
+      desc: "Dicionário Inglês moderno",
+      tech: ["React", "Typescripot", "Tailwind"],
+   },
+   {
       href: "https://games.coelhomarcus.com/",
       name: "Games Beaten",
       desc: "Minha coleção de jogos zerados",
