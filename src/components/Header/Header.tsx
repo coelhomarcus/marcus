@@ -1,8 +1,8 @@
 import { Link, NavLink } from "react-router";
-import { Avatar, AvatarFallback, AvatarImage } from "@/lib/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import type { HeaderLinkProps } from "@/types";
 
-import SidebarDrawer from "@/lib/ui/vaul";
+import SidebarDrawer from "@/components/ui/vaul";
 
 import { PersonIcon, SlashIcon } from "@/lib/icons";
 

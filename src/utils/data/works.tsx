@@ -21,12 +21,14 @@ export const arrWorks: Work[] = [
       role: "Developer",
       duration: "2025 - Presente",
       logo: "/src/works/petsaude.webp",
+      about: "Desenvolvedor no PET-Saúde/I&SD, programa em parceria entre a UNIFESSPA e o Ministério da Saúde, com foco na transformação digital do SUS, participando de iniciativas de inovação e desenvolvimento de soluções para a saúde pública."
    },
    {
       company: "Exception Jr",
       role: "Full Stack Developer",
       duration: "2024 - Presente",
       logo: "/src/works/exceptionjr.webp",
+      about: "Na Exception, atuo como desenvolvedor fullstack, contribuindo para a criação de soluções web modernas. Minhas responsabilidades envolvem desde o desenvolvimento de interfaces responsivas até a implementação de lógicas de negócio e integrações com APIs. No dia a dia, utilizo tecnologias como React, Next.js, Node.js, TypeScript, JavaScript, Bancos SQL e NoSQL para construir aplicações robustas, escaláveis e de fácil manutenção."
    },
 ];
 

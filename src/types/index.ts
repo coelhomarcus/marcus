@@ -14,6 +14,7 @@ export interface Work {
    role: string;
    duration: string;
    logo: string;
+   about: string;
 }
 
 export interface Certificate {

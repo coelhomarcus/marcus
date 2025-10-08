@@ -1,6 +1,6 @@
 import type { ProjectCardProps } from "@/types";
 
-import { AspectRatio } from "../../lib/ui/aspect-ratio"
+import { AspectRatio } from "../ui/aspect-ratio"
 
 import { ExternalLinkIcon } from "@/lib/icons";
 
