@@ -18,7 +18,7 @@ const Header = ({ isDark, toggleTheme }: HeaderProps) => {
             <Avatar className="size-10 sm:size-14 hover:scale-105 active:scale-95 transition-all duration-200 rounded">
                <AvatarImage
                   className="object-cover"
-                  src="./src/icons/avatar.webp"
+                  src="https://github.com/coelhomarcus.png"
                   alt="Avatar"
                />
                <AvatarFallback className="size-10 sm:size-15 rounded">
