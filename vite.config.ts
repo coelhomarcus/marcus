@@ -4,6 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import mdx from "@mdx-js/rollup";
 import remarkFrontmatter from "remark-frontmatter";
 import path from "path";
+import { vercelPreset } from "@vercel/react-router/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -38,6 +39,7 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
     react(),
+    vercelPreset(),
     {
       enforce: "pre",
       ...mdx({
